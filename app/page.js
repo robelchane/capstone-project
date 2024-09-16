@@ -4,6 +4,7 @@ import Home from "./home/home.js";
 import Residencies from "./residencies/residencies.js";
 import Value from "./value/value.js";
 
+
 export default function Page() {
   return (
     <main>
@@ -12,6 +13,7 @@ export default function Page() {
       <Value />
       <Contact />
       <Footer />
+      
     </main>
   );
 }

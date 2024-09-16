@@ -24,7 +24,7 @@ export default function Home() {
               <Link href="#get-start">Get start</Link>
             </p>
             <p className="hover:text-gray-500 hover:underline">
-              <Link href="/Login">Login</Link>
+              <Link href="/login">Login</Link>
             </p>
           </div>
         </div>
