@@ -34,7 +34,7 @@ export default function Page() {
                         <p className="mb-4">{user.email}</p>
                     </div>
                     <div className="flex justify-end">
-                        <button onClick={signOut} className="p-2 bg-blue-500 hover:bg-blue-700 rounded-lg">Sign Out</button>
+                        <button onClick={signOut} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">Sign Out</button>
                     </div>
 
                 </div>
