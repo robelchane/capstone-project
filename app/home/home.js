@@ -7,6 +7,36 @@ export default function Home() {
   return (
     <main className="font-serif overflow-y-auto text-black">
       {/* Fixed Header */}
+<<<<<<< HEAD
+      <div className="fixed top-0 left-0 right-0 z-50 shadow-md">
+
+      <div className="flex justify-between text-xl font-serif bg-teal-900 p-3 text-black">
+
+
+          <div className="m-2">
+          <p className="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-green-300 to-blue-300 tracking-widest uppercase">
+  Property Pros
+</p>
+</div>
+          <div className="flex gap-10 m-2">
+          <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">
+    <Link href="#residencies">Residencies</Link>
+  </p>
+          <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">
+    <Link href="#value">Our value</Link>
+  </p>
+          <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">
+    <Link href="#contact">Contact us</Link>
+  </p>
+         <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">
+    <Link href="#get-start">Get start</Link>
+  </p>
+        <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">
+    <Link href="/login">Login</Link>
+  </p>
+</div>
+
+=======
       <div className="fixed top-0 left-0 right-0 z-50">
         <div className="flex justify-between text-xl font-serif bg-green-500 p-3 text-black">
           <div className="m-2">
@@ -37,6 +67,7 @@ export default function Home() {
               </Link>
             </p>
           </div>
+>>>>>>> bcdfa42ffbddf35435ca81c03fa1925fd06ae1b3
         </div>
       </div>
 
