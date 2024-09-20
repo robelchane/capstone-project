@@ -10,6 +10,12 @@ export default function Home() {
           <div className="m-2">
             <p className="font-bold">ABC Inc.</p>
           </div>
+          <div className="flex justify-between text-xl font-serif bg-green-500 p-3 text-black">
+            <p className="hover:text-gray-500 hover:underline">
+            <Link href="/listings">Listings</Link>
+            </p>
+            </div>
+          
           <div className="flex gap-10 m-2">
             <p className="hover:text-gray-500 hover:underline">
               <Link href="#residencies">Residencies</Link>
