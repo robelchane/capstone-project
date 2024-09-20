@@ -3,7 +3,6 @@ import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-
 
 export default function Contact() {
   return (
-    //Main component
     <main className="font-serif overflow-y-auto text-black" id="contact">
 
       {/* Content Section */}
