@@ -1,5 +1,7 @@
 import Link from "next/link";
 import SearchBar from "./searchBar";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
   return (
@@ -23,8 +25,10 @@ export default function Home() {
             <p className="hover:text-gray-500 hover:underline">
               <Link href="#get-start">Get start</Link>
             </p>
-            <p className="hover:text-gray-500 hover:underline">
-              <Link href="/login">Login</Link>
+            <p className="hover:text-gray-500 hover:underline w-7">
+              <Link href="/login">
+              <FontAwesomeIcon icon={faCircleUser} />
+              </Link>
             </p>
           </div>
         </div>
