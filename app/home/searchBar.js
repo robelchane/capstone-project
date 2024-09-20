@@ -4,7 +4,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 export default function SearchBar() {
   return (
-    <div className="flex items-center border border-gray-300 rounded-lg p-2 bg-white max-w-md">
+    <div className="flex items-center border border-gray-300 rounded-lg p-2 bg-orange-500 max-w-md">
       {/* Location Icon with size */}
       <FontAwesomeIcon icon={faLocationDot} className="w-10 m-3" />
       
