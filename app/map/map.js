@@ -1,4 +1,7 @@
 'use client';
+
+//https://www.youtube.com/watch?v=Y4HzQNoUg_E
+
 import { MapContainer, TileLayer, Popup, CircleMarker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import residenciesData from "../../public/residenciesData.json";
@@ -9,7 +12,7 @@ export default function Map() {
       <MapContainer
         center={[51.0447, -114.0719]} 
         zoom={13}
-        scrollWheelZoom={true}
+        scrollWheelZoom={false}
         style={{ height: "100vh", width: "100%" }}
       >
         <TileLayer

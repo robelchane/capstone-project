@@ -13,9 +13,8 @@ export default function Listings() {
   
   return (
     <main className="p-8 flex h-screen">
-      {/* Map Component on the left */}
+  
       <div className="w-1/2">
-        {/* Placeholder for Map Component */}
         <Map />
         <div className="w-full h-full  flex items-center justify-center">
         </div>

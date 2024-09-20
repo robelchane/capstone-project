@@ -1,4 +1,6 @@
 
+///https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
+//https://www.youtube.com/watch?v=ec3OEG8DXJM&t=574s
 
 import Header from '../../header/page.js';
 import data from '../../../public/residenciesData.json';
