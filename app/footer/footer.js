@@ -8,7 +8,7 @@ export default function Footer() {
       
       <div className="flex justify-evenly text-lg font-serif bg-green-500 p-3 text-black">
         <div className="m-1">
-          <p className="font-bold">ABC Inc.</p>
+          <p className="font-bold">Property Pro's</p>
         </div>
         <div className="m-1 ">
           <div className="font-bold"> Contact us
@@ -23,7 +23,7 @@ export default function Footer() {
           <p className="hover:text-gray-500 hover:underline my-1">
             <a href="mailto:robel@gmail.com" className="flex items-center">
             <FontAwesomeIcon icon={faEnvelope} className="w-5"/>
-            <span className="ml-2">Email: robel@gmail.com</span>
+            <span className="ml-2">Email: propertypros@gmail.com</span>
             </a>
           </p>
           <p>            
@@ -43,7 +43,7 @@ export default function Footer() {
       <div className="flex justify-between m-1 bg-white">
         <p className="flex items-center gap-2">
           <FontAwesomeIcon icon={faCopyright} className="w-5"/>          
-          <span className="ml-2">Copyright 2024 ABC Inc.</span>
+          <span className="ml-2">Copyright 2024 Property Pro's</span>
         </p>
         <p>Designed by: Robel Chane</p>
       </div>

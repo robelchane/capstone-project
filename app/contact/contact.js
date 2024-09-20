@@ -3,6 +3,7 @@ import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-
 
 export default function Contact() {
   return (
+    //Main component
     <main className="font-serif overflow-y-auto text-black" id="contact">
 
       {/* Content Section */}
@@ -26,9 +27,9 @@ export default function Contact() {
               </a>
             </p>
             <p className="m-10 hover:text-gray-500 hover:underline">
-              <a href="mailto:robel@gmail.com" className="flex items-center">
+              <a href="mailto:propertypros@gmail.com" className="flex items-center">
                 <FontAwesomeIcon icon={faEnvelope} className="w-5"/>
-                <span className="ml-2">Email: robel@gmail.com</span>
+                <span className="ml-2">Email: propertypros@gmail.com</span>
               </a>
             </p>
             <p className="m-10 hover:text-gray-500 hover:underline">            

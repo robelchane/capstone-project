@@ -10,7 +10,7 @@ export default function Home() {
       <div className="fixed top-0 left-0 right-0 z-50">
         <div className="flex justify-between text-xl font-serif bg-green-500 p-3 text-black">
           <div className="m-2">
-            <p className="font-bold">ABC Inc.</p>
+            <p className="font-bold">Property Pro's</p>
           </div>
           <div className="flex gap-10 m-2">
             <p className="hover:text-gray-500 hover:underline">
