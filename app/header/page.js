@@ -8,7 +8,7 @@ export default function Header() {
         <div className="m-2">
             {/* Link to go back to the home page*/}
             <Link href="/">
-          <p className="font-bold">ABC Inc.</p>
+          <p className="font-bold">Property Pros</p>
             </Link>
         </div>
         <div className="flex gap-10 m-2">
@@ -16,13 +16,13 @@ export default function Header() {
             <Link href="#residencies">Residencies</Link>
           </p>
           <p className="hover:text-gray-500 hover:underline">
-            <Link href="#value">Our value</Link>
+            <Link href="#value">Our Values</Link>
           </p>
           <p className="hover:text-gray-500 hover:underline">
-            <Link href="#contact">Contact us</Link>
+            <Link href="#contact">Contact Us</Link>
           </p>
           <p className="hover:text-gray-500 hover:underline">
-            <Link href="#get-start">Get start</Link>
+            <Link href="#get-start">Get Started</Link>
           </p>
           <p className="hover:text-gray-500 hover:underline">
             <Link href="/Login">Login</Link>

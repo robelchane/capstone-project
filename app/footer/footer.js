@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <main className="font-serif text-black">      
       
-      <div className="flex justify-evenly text-lg font-serif bg-green-500 p-3 text-black">
+      <div className="flex justify-evenly text-lg font-serif bg-green-700 p-3 text-black">
         <div className="m-1">
-          <p className="font-bold">ABC Inc.</p>
+          <p className="font-bold">Property Pros</p>
         </div>
         <div className="m-1 ">
           <div className="font-bold"> Contact us
@@ -43,7 +43,7 @@ export default function Footer() {
       <div className="flex justify-between m-1 bg-white">
         <p className="flex items-center gap-2">
           <FontAwesomeIcon icon={faCopyright} className="w-5"/>          
-          <span className="ml-2">Copyright 2024 ABC Inc.</span>
+          <span className="ml-2">Copyright 2024 Property Pros</span>
         </p>
         <p>Designed by: Robel Chane</p>
       </div>

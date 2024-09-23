@@ -19,10 +19,10 @@ export default function Home() {
               <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Residencies</p>
             </Link>
             <Link href="#value">
-              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Our value</p>
+              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Our values</p>
             </Link>
             <Link href="#contact">
-              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Contact us</p>
+              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Contact Us</p>
             </Link>
             <Link href="#get-start">
               <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Get started</p>

@@ -28,7 +28,7 @@ export default function Value() {
 
         <div className="flex flex-col w-1/2 m-10">
           <div className="flex flex-col items-start">
-            <span className="text-orange-500 text-2xl font-bold">Our Value</span>
+            <span className="text-orange-500 text-2xl font-bold">Our Values</span>
             <span className="text-3xl font-bold">Value We Give to You</span>
           </div>
           <div className="my-10 text-lg">
