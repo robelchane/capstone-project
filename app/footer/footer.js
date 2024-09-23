@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <main className="font-serif text-black">      
       
-      <div className="flex justify-evenly text-lg font-serif bg-green-700 p-3 text-black">
+      <div className="flex justify-evenly text-lg font-serif bg-green-800 p-3 text-black">
         <div className="m-1">
           <p className="font-bold">Property Pros</p>
         </div>
