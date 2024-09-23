@@ -5,6 +5,7 @@
 // The listings are displayed in a card format
 
 
+
 import Link from "next/link";
 import data from "../../public/residenciesData.json";
 import Map from "../map/page";
