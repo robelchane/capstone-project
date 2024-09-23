@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="font-serif overflow-y-auto text-black">
       {/* Fixed Header */}
-      <div className="fixed top-0 left-0 right-0 z-50 shadow-md bg-green-500 p-3">
+      <div className="fixed top-0 left-0 right-0 z-50 shadow-md bg-green-700 p-3">
         <div className="flex justify-between text-xl font-serif text-black">
           <div className="m-2">
             <p className="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-green-300 to-blue-300 tracking-widest uppercase">
