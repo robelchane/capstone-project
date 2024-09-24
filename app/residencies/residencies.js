@@ -35,7 +35,7 @@ export default function Residencies() {
       <div className="py-16 px-8 relative">
         {/* Header */}
         <div className="flex flex-col items-start mb-8">
-          <p className="text-orange-500 text-2xl font-bold">Best Choices</p>
+         <p className="text-2xl font-bold" style={{ color: '#001f3f' }}> Best Choices</p>
           <p className="text-3xl font-bold">Popular Residencies</p>
         </div>
 
@@ -62,7 +62,7 @@ export default function Residencies() {
                   className="w-full max-w-xs"
                 />
                 <span className="text-lg font-semibold text-gray-700">
-                  <span className="text-orange-500">$</span>
+                <span style={{ color: '#001f3f' }}>$</span>
                   {card.price}
                 </span>
                 <span className="text-xl font-bold text-black">{card.name}</span>
