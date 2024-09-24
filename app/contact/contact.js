@@ -9,7 +9,7 @@ export default function Contact() {
       <div className="flex justify-center font-serif mt-20">
         <div className="flex flex-col w-1/2 m-10">
           <div>
-            <p className="text-orange-500 text-2xl font-bold">Our Contact Us</p>
+            <p className="text-green-700 text-2xl font-bold">Our Contact Us</p>
             <p className="text-black text-4xl font-bold my-2">Easy to contact us</p>
           </div>
           <div className="my-5 text-lg">
@@ -28,7 +28,7 @@ export default function Contact() {
             <p className="m-10 hover:text-gray-500 hover:underline">
               <a href="mailto:robel@gmail.com" className="flex items-center">
                 <FontAwesomeIcon icon={faEnvelope} className="w-5"/>
-                <span className="ml-2">Email: robel@gmail.com</span>
+                <span className="ml-2">Email: propertypros@gmail.com</span>
               </a>
             </p>
             <p className="m-10 hover:text-gray-500 hover:underline">            

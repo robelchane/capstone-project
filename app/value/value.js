@@ -28,7 +28,7 @@ export default function Value() {
 
         <div className="flex flex-col w-1/2 m-10">
           <div className="flex flex-col items-start">
-            <span className="text-orange-500 text-2xl font-bold">Our Values</span>
+            <span className="text-green-700 text-2xl font-bold">Our Values</span>
             <span className="text-3xl font-bold">Value We Give to You</span>
           </div>
           <div className="my-10 text-lg">
@@ -42,7 +42,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown1}
-              className="cursor-pointer bg-gray-200 hover:bg-gray-300 p-4 rounded-lg shadow-md"
+              className="cursor-pointer bg-gray-100 hover:bg-gray-300 p-4 rounded-lg shadow-md"
             >
               Best interest rates on the market
             </h2>
@@ -61,7 +61,7 @@ export default function Value() {
           <div className="my-10 text-center">
             <h2
               onClick={toggleDropdown2}
-              className="cursor-pointer bg-gray-200 hover:bg-gray-300 p-4 rounded-lg shadow-md"
+              className="cursor-pointer bg-gray-100 hover:bg-gray-300 p-4 rounded-lg shadow-md"
             >
               Easy and flexible payments
             </h2>
@@ -80,7 +80,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown3}
-              className="cursor-pointer bg-gray-200 hover:bg-gray-300 p-4 rounded-lg shadow-md"
+              className="cursor-pointer bg-gray-100 hover:bg-gray-300 p-4 rounded-lg shadow-md"
             >
               Premium customer support
             </h2>
