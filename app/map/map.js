@@ -8,7 +8,8 @@ import residenciesData from "../../public/residenciesData.json";
 
 export default function Map() {
   return (
-    <main>
+    <main className="flex h-screen">
+      
       <MapContainer
         center={[51.0447, -114.0719]} 
         zoom={13}
@@ -34,6 +35,7 @@ export default function Map() {
           </CircleMarker>
         ))}
       </MapContainer>
+      
     </main>
   );
 }

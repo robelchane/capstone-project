@@ -15,6 +15,9 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-10 m-2">
+            <Link href= "/listings">
+            <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Listings</p>
+            </Link>
             <Link href="#residencies">
               <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Residencies</p>
             </Link>
