@@ -102,7 +102,7 @@ export default function Home() {
               <p className="text-shadow">28+</p>
             </div>
 
-            <div className="flex justify-between text-basemb-10 mt-2 w-full max-w-xs">
+            <div className="flex justify-between text-base-10 mt-2 w-full max-w-xs">
               <p className="ml-4 mr-10 text-shadow">Premium Product</p>
               <p className="ml-10 mr-6 text-shadow">Happy Customer</p>
               <p className="ml-4 text-shadow">Award Winning</p>
