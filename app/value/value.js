@@ -28,13 +28,13 @@ export default function Value() {
 
         <div className="flex flex-col w-1/2 m-10">
           <div className="flex flex-col items-start">
-            <span className="text-green-700 text-2xl font-bold">Our Values</span>
+            <span className="text-2xl font-bold" style={{ color: '#001f3f' }}>Our Values</span>
             <span className="text-3xl font-bold">Value We Give to You</span>
           </div>
           <div className="my-10 text-lg">
             <p>
               Find a variety of properties that suit you very easily. Forget all
-              difficulties in finding a residence for you.
+              difficulties <br/>in finding a residence for you.
             </p>
           </div>
 
@@ -42,16 +42,16 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown1}
-              className="cursor-pointer bg-gray-100 hover:bg-gray-300 p-4 rounded-lg shadow-md"
+              className="cursor-pointer text-white bg-[#001f3f] p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
             >
               Best interest rates on the market
             </h2>
             {isOpen1 && (
               <div className="bg-gray-100 p-4 rounded-lg mt-4 shadow-lg">
                 <p className="mb-2">
-                  Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat
-                  occaecat ut occaecat consequat est minim minim esse tempor
-                  laborum consequat esse adipisicing eu reprehenderit enim.
+                  Our interest rates are carefully tailored to give you the best value on the market, 
+                  offering competitive returns with full transparency and no hidden fees. 
+                  Whether you're looking to save or invest, we've got the perfect plan for you.
                 </p>
               </div>
             )}
@@ -61,16 +61,15 @@ export default function Value() {
           <div className="my-10 text-center">
             <h2
               onClick={toggleDropdown2}
-              className="cursor-pointer bg-gray-100 hover:bg-gray-300 p-4 rounded-lg shadow-md"
+              className="cursor-pointer text-white bg-[#001f3f] p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
             >
               Easy and flexible payments
             </h2>
             {isOpen2 && (
               <div className="bg-gray-100 p-4 rounded-lg mt-4 shadow-lg">
                 <p className="mb-2">
-                  Dolore irure commodo et laborum sunt minim anim est. In labore
-                  mollit minim ipsum. Exercitation in fugiat est ut ad ea
-                  cupidatat ut in cupidatat occaecat ut occaecat consequat.
+                  We offer a variety of payment options designed to fit your lifestyle, allowing you to manage your payments easily and flexibly. 
+                  Whether you prefer monthly, bi-weekly, or custom schedules, our plans adapt to your needs without any hassle.
                 </p>
               </div>
             )}
@@ -80,16 +79,15 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown3}
-              className="cursor-pointer bg-gray-100 hover:bg-gray-300 p-4 rounded-lg shadow-md"
+              className="cursor-pointer text-white bg-[#001f3f] p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
             >
               Premium customer support
             </h2>
             {isOpen3 && (
               <div className="bg-gray-100 p-4 rounded-lg mt-4 shadow-lg">
                 <p className="mb-2">
-                  Fugiat amet aliquip irure deserunt magna ullamco sunt non
-                  dolor esse incididunt duis. Enim aliqua veniam in proident
-                  amet sint.
+                  Our premium customer support ensures that you receive personalized assistance whenever you need it. 
+                  With dedicated experts, we're here to resolve your issues quickly and efficiently.
                 </p>
               </div>
             )}
