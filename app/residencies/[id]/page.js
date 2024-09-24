@@ -2,7 +2,7 @@
 ///https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes
 //https://www.youtube.com/watch?v=ec3OEG8DXJM&t=574s
 
-import Header from '../../header/page.js';
+
 import data from '../../../public/residenciesData.json';
 import Map from '../../map/page.js';
 
@@ -12,7 +12,7 @@ export default function PropertyPage({ params }) {
 
   return (
     <main className="font-serif overflow-y-auto text-black">
-      <Header />
+
       <div className="p-8">
         <h1 className="text-3xl font-bold">{property.name}</h1>
         <img src={property.image} alt={property.name} className="w-full my-4" />
