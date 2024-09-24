@@ -16,19 +16,19 @@ export default function Home() {
           </div>
           <div className="flex gap-10 m-2">
             <Link href="#residencies">
-              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Residencies</p>
+              <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Residencies</p>
             </Link>
             <Link href="#value">
-              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Our values</p>
+              <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Our Values</p>
             </Link>
             <Link href="#contact">
-              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Contact Us</p>
+              <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Contact Us</p>
             </Link>
             <Link href="#get-start">
-              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Get started</p>
+              <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Get started</p>
             </Link>
             <Link href="/login">
-              <p className="hover:text-gray-500 hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Login</p>
+              <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Login</p>
             </Link>
           </div>
         </div>
@@ -50,13 +50,13 @@ export default function Home() {
 
           <div className="flex justify-between text-4xl mt-10">
             <p>
-              9,000 <span className="text-orange-500">+</span>
+              9,000 <span className="text-green-700">+</span>
             </p>
             <p>
-              2,000 <span className="text-orange-500">+</span>
+              2,000 <span className="text-green-700">+</span>
             </p>
             <p>
-              28 <span className="text-orange-500">+</span>
+              28 <span className="text-green-700">+</span>
             </p>
           </div>
 
