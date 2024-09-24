@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <main className="font-serif text-black">      
       
-      <div className="flex justify-evenly text-lg font-serif bg-green-700 p-3 text-black">
+      <div className="flex justify-evenly text-lg font-serif bg-green-700 p-3 text-black" style={{ backgroundColor: '#001f3f' }}>
         <div className="m-1">
           <p className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Property Pros</p>
         </div>
@@ -48,7 +48,6 @@ export default function Footer() {
           <FontAwesomeIcon icon={faCopyright} className="w-5 text-white"/>          
           <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Copyright 2024 Property Pros</span>
         </p>
-        <p className="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Designed by: Robel Chane</p>
       </div>
     </main>
   );
