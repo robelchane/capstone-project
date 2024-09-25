@@ -33,6 +33,9 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-10 m-2">
+            <Link href= "/listings">
+            <p className="hover:text-white hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Listings</p>
+            </Link>
             <Link href="#residencies">
               <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
                 Residencies
@@ -108,6 +111,15 @@ export default function Home() {
               <p className="ml-4 text-shadow">Award Winning</p>
             </div>
           </div>
+
+          <div className="flex justify-between text-base mb-10">
+            <p>Premium Product</p>
+            <p>Happy Customer</p>
+            <p>Award Winning</p>
+          </div>
+        </div>
+        <div className="w-1/3 m-10">
+          <img src="/home.png" alt="Illustration of a home" />
         </div>
       </div>
     </main>
