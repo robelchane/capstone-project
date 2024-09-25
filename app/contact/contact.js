@@ -9,13 +9,13 @@ export default function Contact() {
       <div className="flex justify-center font-serif mt-20">
         <div className="flex flex-col w-1/2 m-10">
           <div>
-            <p className="text-green-700 text-2xl font-bold">Our Contact Us</p>
+            <p className="text-2xl font-bold" style={{ color: '#001f3f' }}>Our Contact Us</p>
             <p className="text-black text-4xl font-bold my-2">Easy to contact us</p>
           </div>
           <div className="my-5 text-lg">
-            <p>We always ready to help by providing the best services 
-                for you. We believe a good place to live can make 
-                your life better </p>
+            <p>We're always ready to help by providing the best services 
+                for you.<br/> We believe a good place to live can make 
+                your life better. </p>
           </div>
 
           <div className="items-center text-xl">
