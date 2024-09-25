@@ -53,8 +53,29 @@ export default function Listings() {
                     <p className="text-lg font-semibold text-orange-500 mt-2">
                       Price: ${residence.price}
                     </p>
-                    <p className="text-sm text-gray-700">Bedrooms: {residence.bedrooms}</p>
-                    <p className="text-sm text-gray-700">Bathrooms: {residence.bathrooms}</p>
+                    <div className="flex items-center space-x-2">
+  <p className="text-sm text-gray-700 flex items-center">
+    <img 
+      src="./bed.png"
+      alt="bed"
+      className="inline-block h-5 w-5 mr-1"
+    />
+    {residence.bedrooms}
+    <span className="ml-1">Bedroom</span> {/* Adds padding between the number and text */}
+  </p>
+
+  <p className="text-sm text-gray-700 flex items-center p-2">
+    <img
+      src="./bath.png"
+      alt="bath"
+      className="inline-block h-5 w-5 mr-1"
+    />
+    {residence.bathrooms}
+    <span className="ml-1">Bathroom</span> {/* Adds padding between the number and text */}
+  </p>
+</div>
+
+
                   </Link>
                 </div>
 
