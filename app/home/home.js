@@ -69,7 +69,6 @@ export default function Home() {
             <p>Award Winning</p>
           </div>
         </div>
-
         <div className="w-1/3 m-10">
           <img src="/home.png" alt="Illustration of a home" />
         </div>

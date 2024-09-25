@@ -3,7 +3,7 @@
 // The data is imported from the residenciesData.json file
 // The data is mapped to display the listings
 // The listings are displayed in a card format
-
+"use client"
 
 
 import Link from "next/link";
@@ -11,6 +11,8 @@ import data from "../../public/residenciesData.json";
 import Map from "../map/page";
 
 export default function Listings() {
+
+
   return (
     <main className="p-8 flex h-screen overflow-hidden"> {/* Prevents scrolling on X-axis and main page */}
       
@@ -57,12 +59,12 @@ export default function Listings() {
                 </div>
 
                 {/* Contact Button */}
-                <div className="self-end">
-                  <Link href={`/contact/${residence.id}`}>
-                    <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">
-                      Contact
+                <div className="absolute bottom-4 right-4">
+                  
+                    <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
+                      Contact Seller
                     </button>
-                  </Link>
+
                 </div>
               </div>
             </div>
