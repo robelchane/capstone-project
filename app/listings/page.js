@@ -18,7 +18,7 @@ export default function Listings() {
       
       {/* Map Section */}
       <div className="w-1/2 h-full">
-        <Map />
+        <Map items={data}/>
       </div>
 
       {/* Listings Section */}
