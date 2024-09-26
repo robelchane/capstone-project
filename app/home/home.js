@@ -3,6 +3,10 @@
 import Link from "next/link";
 import SearchBar from "./searchBar";
 import { useEffect, useState } from "react";
+// pages/_app.js
+
+
+
 
 export default function Home() {
   const images = [
@@ -51,9 +55,9 @@ export default function Home() {
                 Contact Us
               </p>
             </Link>
-            <Link href="#get-start">
+            <Link href="/signup">
               <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
-                Get started
+                Get Started
               </p>
             </Link>
             <Link href="/login">

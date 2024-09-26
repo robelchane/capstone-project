@@ -17,7 +17,7 @@ export default function SearchBar() {
       {/* Search Button */}
       <button
         type="button"
-        className="ml-2 bg-[#001f3f] text-white px-4 py-2 rounded-lg transition-transform duration-300 ease-in-out hover:bg-blue-600 hover:text-white hover:scale-105"
+        className="ml-2 bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
       >
         Search
       </button>
