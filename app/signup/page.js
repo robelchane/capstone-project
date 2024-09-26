@@ -5,12 +5,29 @@
 // pages/signup.js
 
 
+// pages/signup.js
+
 export default function SignUp() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-2xl font-bold text-center mb-6">Create an Account</h2>
+        <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Create an Account</h2>
         <form className="space-y-4">
+          
+          {/* Full Name */}
+          <div>
+            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="fullName"
+              id="fullName"
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter your full name"
+            />
+          </div>
+
           {/* Username */}
           <div>
             <label htmlFor="username" className="block text-sm font-medium text-gray-700">
@@ -21,7 +38,7 @@ export default function SignUp() {
               name="username"
               id="username"
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your username"
+              placeholder="Choose a username"
             />
           </div>
 
@@ -35,7 +52,7 @@ export default function SignUp() {
               name="email"
               id="email"
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your email"
+              placeholder="Enter your email address"
             />
           </div>
 
@@ -49,7 +66,7 @@ export default function SignUp() {
               name="password"
               id="password"
               className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Enter your password"
+              placeholder="Create a password"
             />
           </div>
 
@@ -73,11 +90,11 @@ export default function SignUp() {
               type="submit"
               className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              sign Up
+              Sign Up
             </button>
           </div>
         </form>
-        
+
         {/* Already have an account */}
         <p className="text-sm text-center mt-4">
           Already have an account?{" "}
@@ -89,3 +106,4 @@ export default function SignUp() {
     </div>
   );
 }
+
