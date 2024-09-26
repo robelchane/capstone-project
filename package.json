@@ -17,10 +17,12 @@
     "@react-leaflet/core": "^2.1.0",
     "encoding": "^0.1.13",
     "firebase": "^10.13.1",
+    "leaflet": "^1.9.4",
     "next": "14.2.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-leaflet": "^4.2.1"
+    "react-leaflet": "^4.2.1",
+    "react-slideshow-image": "^4.3.1"
   },
   "devDependencies": {
     "eslint": "^8",

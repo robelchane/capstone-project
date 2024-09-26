@@ -1,3 +1,5 @@
+// Reference from web dev 2 class 
+// https://webdev2.warsylewicz.ca/week-9/assignment
 "use client";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
