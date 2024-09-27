@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 export default function Contact() {
   return (
@@ -9,7 +10,6 @@ export default function Contact() {
       <div className="flex justify-center font-serif mt-20">
         <div className="flex flex-col w-1/2 m-10">
           <div>
-            <p className="text-2xl font-bold" style={{ color: '#001f3f' }}></p>
             <p className="text-black text-4xl font-bold my-2">Easy to contact us</p>
           </div>
           <div className="my-5 text-lg">
@@ -37,6 +37,15 @@ export default function Contact() {
                 1234 12 Ave SW, Calgary, AB
               </a>
             </p>
+            {/* Content Form Button */}
+            <Link href="/contactform">
+              <button
+                type="button"
+                className="text-xl text-shadow center-align bg-blue-800 text-white p-4 rounded-lg hover:bg-blue-900"
+              >
+                Contact Us
+              </button>
+            </Link>
           </div>
         </div>
 
