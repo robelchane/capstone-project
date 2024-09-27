@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import CustomerReview from '../customerReview/CustomerReview';
 
 export default function Contact() {
   const [showPopup, setShowPopup] = useState(false);
@@ -56,7 +57,7 @@ export default function Contact() {
             <Link href="/contactform">
               <button
                 type="button"
-                className=" mt-10 text-xl text-shadow center-align bg-blue-800 text-white p-4 rounded-lg hover:bg-blue-900"
+                className=" mt-12 text-xl text-shadow center-align bg-[#001f3f] text-white p-4 rounded-lg hover:bg-blue-700 shadow-md hover:scale-105 transition-transform duration-300"
               >
                 Contact Us
               </button>
@@ -69,7 +70,10 @@ export default function Contact() {
           <img src="/contact.jpg" alt="Contact Us" className="w-full h-auto"/>
         </div>
       </div>
-    </main>
+
+        {/* Customer Review Section */}
+        <CustomerReview />
+     </main>
   );
 }
 
