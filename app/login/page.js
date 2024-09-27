@@ -30,7 +30,7 @@ export default function Page() {
             </div>
 
             <div className="flex flex-col items-center m-20">
-                <div className="m-10 p-4 text-4xl">
+                <div className="m-10 p-4 text-3xl">
                     <h1>Sign In to Your Account</h1>
                 </div>
                 <div>
@@ -47,8 +47,8 @@ export default function Page() {
                         </div>
                     ) : (
                         <div>
-                            <button onClick={signIn} className="m-10 p-4 bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200 rounded-lg">Sign in with GitHub</button>
-                            <button onClick={signInGoogle} className="m-10 p-4 bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-200 rounded-lg">Sign in with Google</button>
+                            <button onClick={signIn} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">Sign in with GitHub</button>
+                            <button onClick={signInGoogle} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">Sign in with Google</button>
                         </div>
                     )}
                 </div>

@@ -19,7 +19,7 @@ export default function Value() {
   }
 
   return (
-    <main className="font-serif bg-gray-100 overflow-y-auto text-black" id="value">
+    <main className="font-serif overflow-y-auto text-black" id="value">
       {/* Content Section */}
       <div className="flex justify-center font-serif mt-20">
         <div className="w-1/2 m-10">

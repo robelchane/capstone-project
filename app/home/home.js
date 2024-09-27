@@ -3,6 +3,10 @@
 import Link from "next/link";
 import SearchBar from "./searchBar";
 import { useEffect, useState } from "react";
+// pages/_app.js
+
+
+
 
 export default function Home() {
   const images = [
@@ -25,7 +29,7 @@ export default function Home() {
   return (
     <main className="font-serif overflow-y-auto text-black">
       {/* Fixed Header */}
-      <div className="fixed top-0 left-0 right-0 z-50 shadow-md p-3" style={{ backgroundColor: "#001f3f" }}>
+      <div className="fixed top-0 left-0 right-0 z-50 shadow-md p-3"  style={{ backgroundColor: "#001f3f" }}>
         <div className="flex justify-between text-xl font-serif text-white">
           <div className="m-2">
             <p className="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-green-300 to-blue-300 tracking-widest uppercase">
@@ -33,23 +37,33 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-10 m-2">
-            <Link href="/listings">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Listings</p>
+            <Link href= "/listings">
+            <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Listings</p>
             </Link>
             <Link href="#residencies">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Residencies</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Residencies
+              </p>
             </Link>
             <Link href="#value">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Our Values</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Our Values
+              </p>
             </Link>
             <Link href="#contact">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Contact Us</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Contact Us
+              </p>
             </Link>
             <Link href="/signup">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Get Started</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Get Started
+              </p>
             </Link>
             <Link href="/login">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Login</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Login
+              </p>
             </Link>
           </div>
         </div>
@@ -69,8 +83,8 @@ export default function Home() {
                 backgroundImage: `url(${image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                opacity: 0.7,
-                zIndex: 0,
+                opacity: 0.7, 
+                zIndex: 0, 
               }}
             />
           ))}
@@ -83,7 +97,7 @@ export default function Home() {
             </div>
             <div className="my-10 text-xl text-center">
               <p>
-                Find a variety of properties that suit you very easily.<br />Forget all difficulties in finding a residence for you.
+                Find a variety of properties that suit you very easily.<br/>Forget all difficulties in finding a residence for you.
               </p>
             </div>
 
@@ -112,5 +126,4 @@ export default function Home() {
     </main>
   );
 }
-
 
