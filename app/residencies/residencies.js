@@ -34,9 +34,6 @@ export default function Residencies() {
 
   return (
     <main className="font-serif bg-gray-100 overflow-y-auto text-black" id="residencies">
-      <div className="flex flex-col items-center bg-gray-100">
-        <span className="text-5xl text-black font-bold">Expertised | TrustWorthy | Dedicated</span>
-      </div> 
         {/* Container */}
         <div className="py-16 px-8 relative">
           {/* Header */}

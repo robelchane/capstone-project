@@ -7,54 +7,6 @@ import { faEnvelope, faPhone, faLocationDot, faCopyright } from '@fortawesome/fr
 export default function Footer() {
   return (
     <main className="font-serif text-black">   
-
-      {/* Meet The Team */}
-      <div className="bg-gray-100 py-16">
-        <h2 className="text-center text-4xl font-bold mb-10">Meet The Team</h2>
-        <div className="flex justify-center gap-12">
-          <div className="bg-white shadow-lg rounded-lg p-8 text-center h-full">
-            <img
-              src="/team1.jpg"
-              alt="Team Member 1"
-              className="w-40 h-40 mx-auto mb-4"
-            />
-            <h3 className="text-xl font-bold mb-2">Miebaka <br/>Semenitari</h3>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-8 text-center h-full">
-            <img
-              src="/team2.jpg"
-              alt="Team Member 2"
-              className="w-40 h-40 mx-auto mb-4"
-            />
-            <h3 className="text-xl font-bold mb-2">Robel <br/>Chane</h3>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-8 text-center h-full">
-            <img
-              src="/team3.jpg"
-              alt="Team Member 3"
-              className="w-40 h-40 mx-auto mb-4"
-            />
-            <h3 className="text-xl font-bold mb-2">Asenai <br/>Shiberim</h3>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-8 text-center h-full">
-            <img
-              src="/team4.jpg"
-              alt="Team Member 4"
-              className="w-40 h-40 mx-auto mb-4"
-            />
-            <h3 className="text-xl font-bold mb-2">Gaon <br/>Sun</h3>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-8 text-center h-full">
-            <img
-              src="/team5.jpg"
-              alt="Team Member 5"
-              className="w-40 h-40 mx-auto mb-4"
-            />
-            <h3 className="text-xl font-bold mb-2">Tanzela <br/>Fatema Ali</h3>
-          </div>
-        </div>
-      </div>   
-      
       {/* Footer */}
       <div className="flex justify-evenly text-lg font-serif p-3 text-black" style={{ backgroundColor: '#001f3f' }}>
         <div className="m-1">
