@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Contact() {
   return (
-    <main className="font-serif overflow-y-auto text-black" id="contact">
+    <main className="font-serif bg-gray-100 overflow-y-auto text-black" id="contact">
       {/* Content Section */}
       <div className="flex justify-center font-serif mt-20">
         <div className="flex flex-col w-1/2 m-10">
