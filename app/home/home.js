@@ -128,6 +128,42 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* About Us Section */}
+      <div className="flex justify-center font-serif">
+        <div className="w-1/2 m-10">
+          <img src={"/aboutus.png"} alt="About Us" className="mt-5"/>
+        </div>
+
+        <div className="flex flex-col w-1/2 m-10">
+          <div className="flex flex-col items-start">
+            <span className="text-3xl text-black font-bold mt-5">Find the best home for all your needs</span>
+          </div>
+          <div className="my-10 text-lg">
+            <p className="mb-5">
+              With over 20 years of experience in the real estate industry, Property Pros is dedicated to
+              helping clients navigate the complexities of buying and selling homes. Our team of specialists
+              is committed to providing personalized service, ensuring that each client's unique needs and aspirations
+              are prioritized throughout the entire process. We believe that open communication and transparency are essential
+              in building lasting relationships with our clients, allowing us to deliver exceptional results tailored to their specific goals.
+            </p>
+            <p className="mb-10">
+              Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape.
+              With a focus on data-driven decision-making, we conduct thorough market analyses and valuations to ensure
+              our clients make informed choices. Whether buying or selling, clients can trust that Property Pros will guide
+              them with integrity, diligence, and a relentless drive for success.
+            </p>
+            <span className="text-3xl text-black font-bold">We're Here for You</span>
+            <p className="mt-10">
+              At Property Pros, we are committed to being your trusted partner throughout your real estate journey.
+              With us, you can feel confident that your needs are our top priority, ensuring a seamless and positive experience
+              as you achieve your real estate goals.
+            </p>
+          </div>
+        </div>    
+      </div>
+
+      {/* Calgary Market Analysis Section */}
     </main>
   );
 }
