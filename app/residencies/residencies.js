@@ -12,7 +12,7 @@ export default function Residencies() {
       <div className="py-16 px-8 relative">
         {/* Header */}
         <div className="flex flex-col items-start mb-8">
-         <p className="text-2xl font-bold" style={{ color: '#001f3f' }}> Best Choices</p>
+          <p className="text-2xl font-bold" style={{ color: '#001f3f' }}> Best Choices</p>
           <p className="text-3xl font-bold">Popular Residencies</p>
         </div>
 
