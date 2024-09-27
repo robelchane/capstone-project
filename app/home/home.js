@@ -40,6 +40,11 @@ export default function Home() {
             <Link href= "/listings">
             <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Listings</p>
             </Link>
+            <Link href="/seller">
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Seller
+              </p>
+            </Link>
             <Link href="#residencies">
               <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
                 Residencies
