@@ -9,7 +9,7 @@
 
 export default function SignUp() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="font-serif min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Create an Account</h2>
         <form className="space-y-4">
