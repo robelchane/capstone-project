@@ -62,7 +62,7 @@ export default function Home() {
             </Link>
             <Link href="/login">
               <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
-                Login
+                Get Started
               </p>
             </Link>
           </div>
