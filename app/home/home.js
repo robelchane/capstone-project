@@ -3,6 +3,10 @@
 import Link from "next/link";
 import SearchBar from "./searchBar";
 import { useEffect, useState } from "react";
+// pages/_app.js
+
+
+
 
 export default function Home() {
   const images = [
@@ -25,7 +29,7 @@ export default function Home() {
   return (
     <main className="font-serif overflow-y-auto text-black">
       {/* Fixed Header */}
-      <div className="fixed top-0 left-0 right-0 z-50 shadow-md p-3" style={{ backgroundColor: "#001f3f" }}>
+      <div className="fixed top-0 left-0 right-0 z-50 shadow-md p-3"  style={{ backgroundColor: "#001f3f" }}>
         <div className="flex justify-between text-xl font-serif text-white">
           <div className="m-2">
             <p className="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-green-300 to-blue-300 tracking-widest uppercase">
@@ -33,23 +37,33 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-10 m-2">
-            <Link href="/listings">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Listings</p>
+            <Link href= "/listings">
+            <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Listings</p>
             </Link>
             <Link href="#residencies">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Residencies</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Residencies
+              </p>
             </Link>
             <Link href="#value">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Our Values</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Our Values
+              </p>
             </Link>
             <Link href="#contact">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Contact Us</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Contact Us
+              </p>
             </Link>
             <Link href="/signup">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Get Started</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Get Started
+              </p>
             </Link>
             <Link href="/login">
-              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Login</p>
+              <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
+                Login
+              </p>
             </Link>
           </div>
         </div>
@@ -69,8 +83,8 @@ export default function Home() {
                 backgroundImage: `url(${image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                opacity: 0.7,
-                zIndex: 0,
+                opacity: 0.7, 
+                zIndex: 0, 
               }}
             />
           ))}
@@ -83,7 +97,7 @@ export default function Home() {
             </div>
             <div className="my-10 text-xl text-center">
               <p>
-                Find a variety of properties that suit you very easily.<br />Forget all difficulties in finding a residence for you.
+                Find a variety of properties that suit you very easily.<br/>Forget all difficulties in finding a residence for you.
               </p>
             </div>
 
@@ -109,44 +123,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      {/* About Us Section */}
-      <div className="flex justify-center bg-gray-100 font-serif">
-        <div className="w-1/2 m-10">
-          <img src={"/aboutus.png"} alt="About Us" className="mt-5"/>
-        </div>
-
-        <div className="flex flex-col w-1/2 m-10">
-          <div className="flex flex-col items-start">
-            <span className="text-3xl text-black font-bold mt-5">Find the best home for all your needs</span>
-          </div>
-          <div className="my-10 text-lg">
-            <p className="mb-5">
-              With over 20 years of experience in the real estate industry, Property Pros is dedicated to
-              helping clients navigate the complexities of buying and selling homes. Our team of specialists
-              is committed to providing personalized service, ensuring that each client's unique needs and aspirations
-              are prioritized throughout the entire process. We believe that open communication and transparency are essential
-              in building lasting relationships with our clients, allowing us to deliver exceptional results tailored to their specific goals.
-            </p>
-            <p className="mb-10">
-              Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape.
-              With a focus on data-driven decision-making, we conduct thorough market analyses and valuations to ensure
-              our clients make informed choices. Whether buying or selling, clients can trust that Property Pros will guide
-              them with integrity, diligence, and a relentless drive for success.
-            </p>
-            <span className="text-3xl text-black font-bold">We're Here for You</span>
-            <p className="mt-10">
-              At Property Pros, we are committed to being your trusted partner throughout your real estate journey.
-              With us, you can feel confident that your needs are our top priority, ensuring a seamless and positive experience
-              as you achieve your real estate goals.
-            </p>
-          </div>
-        </div>    
-      </div>
-      {/* Calgary Market Analysis Section */}
-
     </main>
   );
 }
-
 

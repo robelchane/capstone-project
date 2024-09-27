@@ -47,7 +47,7 @@ export default function ContactForm() {
   ];
 
   return (
-    <div className="font-serif min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       
       {/* Fixed Header */}
       <div className="fixed top-0 left-0 z-50 m-4 p-2 cursor-pointer">
@@ -57,16 +57,16 @@ export default function ContactForm() {
       </div>
       
       {/* Information Section */}
-      <div className="w-full bg-[#001f3f] py-10 px-5 mb-10"> 
+      <div className="w-full bg-[#001f3f] py-10 px-5 mb-10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-gray-900 font-bold mb-6 bg-gray-200 p-3 rounded-lg p-3 inline-block">Contact Form</h2>
-          <h1 className="text-4xl font-bold text-transparent bg-gradient-to-r from-green-300 to-[#FFD700] bg-clip-text mb-5">
+          <h2 className="text-gray-900 mb-6 bg-gray-300 p-3 rounded-lg p-3 inline-block">Contact Form</h2>
+          <h1 className="text-4xl font-bold text-transparent bg-gradient-to-r from-green-300 to-[#FFD700] bg-clip-text mb-10">
             Contact Property Pros
           </h1>
-          <p className="text-l text-gray-200">
-            Whether you're a homeowner, tenant, or property manager, 
+          <p className="text-xl text-gray-200">
+            Managing your property just got easier! Whether you're a homeowner, tenant, or property manager, 
             we're here to help streamline your experience. Have questions or need support? 
-            Get in touch with us—we’re ready to assist.
+            Get in touch with us—we’re ready to assist!
           </p>
         </div>
       </div>
@@ -187,7 +187,7 @@ export default function ContactForm() {
 
             <button
               type="submit"
-              className="w-full bg-[#001f3f] text-white p-3 rounded-lg hover:bg-blue-600 transition duration-200"
+              className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition duration-200"
             >
               Submit
             </button>
