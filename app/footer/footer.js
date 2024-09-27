@@ -5,7 +5,6 @@ import { faEnvelope, faPhone, faLocationDot, faCopyright } from '@fortawesome/fr
 export default function Footer() {
   return (
     <main className="font-serif text-black">      
-      
       <div className="flex justify-evenly text-lg font-serif bg-green-700 p-3 text-black" style={{ backgroundColor: '#001f3f' }}>
         <div className="m-1">
           <p className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-blue-300">Property Pros</p>

@@ -3,6 +3,10 @@
 import Link from "next/link";
 import SearchBar from "./searchBar";
 import { useEffect, useState } from "react";
+// pages/_app.js
+
+
+
 
 export default function Home() {
   const images = [
@@ -33,6 +37,9 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-10 m-2">
+            <Link href= "/listings">
+            <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">Listings</p>
+            </Link>
             <Link href="#residencies">
               <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
                 Residencies
@@ -48,9 +55,9 @@ export default function Home() {
                 Contact Us
               </p>
             </Link>
-            <Link href="#get-start">
+            <Link href="/signup">
               <p className="transition-transform transform hover:scale-110 hover:text-transparent hover:underline font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-[#FFD700]">
-                Get started
+                Get Started
               </p>
             </Link>
             <Link href="/login">
@@ -107,6 +114,12 @@ export default function Home() {
               <p className="ml-10 mr-6 text-shadow">Happy Customer</p>
               <p className="ml-4 text-shadow">Award Winning</p>
             </div>
+          </div>
+
+          <div className="flex justify-between text-base mb-10">
+            <p>Premium Product</p>
+            <p>Happy Customer</p>
+            <p>Award Winning</p>
           </div>
         </div>
       </div>
