@@ -6,15 +6,28 @@ import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-
 import Link from 'next/link';
 
 export default function Contact() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <main className="font-serif bg-gray-100 overflow-y-auto text-black" id="contact">
-      {/* Content Section */}
-      <div className="flex justify-center font-serif mt-20">
+    <main className="font-serif overflow-y-auto text-black" id="contact">
+      {/* Flex Container for Contact and Image Sections */}
+      <div className="flex justify-center items-center mt-20 mb-20">
+        
+        {/* Content Section */}
         <div className="flex flex-col w-1/2 m-10">
-          <div>
-            <p className="text-black text-4xl font-bold my-2">Easy to contact us</p>
+          <div className="flex flex-col items-start">
+            <span className="text-3xl font-bold">Easy to contact us</span>
           </div>
-          <div className="text-lg mb-10">
+          <div className="my-10 text-lg">
             <p>We're always ready to help by providing the best services for you.</p>
             <p>We believe a good place to live can make your life better.</p>
           </div>
@@ -38,11 +51,12 @@ export default function Contact() {
                 1234 12 Ave SW, Calgary, AB
               </a>
             </p>
+
             {/* Content Form Button */}
             <Link href="/contactform">
               <button
                 type="button"
-                className="text-xl text-shadow center-align bg-[#001f3f] text-white p-4 mt-10 rounded-lg hover:bg-blue-900 shadow-md hover:scale-105 transition-transform duration-300"
+                className=" mt-10 text-xl text-shadow center-align bg-blue-800 text-white p-4 rounded-lg hover:bg-blue-900"
               >
                 Contact Us
               </button>
@@ -52,9 +66,10 @@ export default function Contact() {
 
         {/* Image Section */}
         <div className="w-1/2 m-10">
-          <img src="/contact.jpg" alt="Contact Us"/>
+          <img src="/contact.jpg" alt="Contact Us" className="w-full h-auto"/>
         </div>
       </div>
     </main>
   );
 }
+
