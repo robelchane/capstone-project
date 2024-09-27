@@ -20,7 +20,7 @@ export default function Contact() {
 
   return (
     <main className="font-serif overflow-y-auto text-black" id="contact">
-      {/* Flex Container for Contact and Image Sections */}
+      {/* Flex Container for Contact and Image */}
       <div className="flex justify-center items-center mt-20 mb-20">
         
         {/* Content Section */}

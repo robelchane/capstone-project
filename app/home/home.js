@@ -125,7 +125,7 @@ export default function Home() {
       </div>
 
       {/* About Us Section */}
-      <div className="flex justify-center font-serif">
+      <div className="mt-20 flex justify-center font-serif">
         <div className="w-1/2 m-10">
           <img src={"/aboutus.png"} alt="About Us" className="mt-5"/>
         </div>
