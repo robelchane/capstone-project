@@ -56,7 +56,7 @@ export default function Contact() {
             <Link href="/contactform">
               <button
                 type="button"
-                className=" mt-10 text-xl text-shadow center-align bg-blue-800 text-white p-4 rounded-lg hover:bg-blue-900"
+                className="mt-10 center-align bg-[#001f3f] text-white px-4 py-2 transition-transform duration-300 ease-in hover:scale-105 rounded hover:bg-blue-700"
               >
                 Contact Us
               </button>
