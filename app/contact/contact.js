@@ -19,13 +19,15 @@ export default function Contact() {
 
   return (
     <main className="font-serif overflow-y-auto text-black" id="contact">
-      {/* Content Section */}
-      <div className="flex justify-center font-serif mt-20">
+      {/* Flex Container for Contact and Image Sections */}
+      <div className="flex justify-center items-center mt-20 mb-20">
+        
+        {/* Content Section */}
         <div className="flex flex-col w-1/2 m-10">
-          <div>
-            <p className="text-black text-4xl font-bold my-2">Easy to contact us</p>
+          <div className="flex flex-col items-start">
+            <span className="text-3xl font-bold">Easy to contact us</span>
           </div>
-          <div className="text-lg mb-10">
+          <div className="my-10 text-lg">
             <p>We're always ready to help by providing the best services for you.</p>
             <p>We believe a good place to live can make your life better.</p>
           </div>
@@ -49,11 +51,12 @@ export default function Contact() {
                 1234 12 Ave SW, Calgary, AB
               </a>
             </p>
+
             {/* Content Form Button */}
             <Link href="/contactform">
               <button
                 type="button"
-                className="text-xl text-shadow center-align bg-blue-800 text-white p-4 rounded-lg hover:bg-blue-900"
+                className=" mt-10 text-xl text-shadow center-align bg-blue-800 text-white p-4 rounded-lg hover:bg-blue-900"
               >
                 Contact Us
               </button>
@@ -61,32 +64,11 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Contact Form */}
-        <div className="w-1/2 border border-gray-400 bg-gray-200 p-5 rounded-lg transition-all hover:p-6 hover:m-1">
-          <p className="text-xl font-bold mb-5 text-center">Leave your contact and message, we will contact you.</p>
-          
-          {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <input type="text" placeholder="Name" required className="border border-gray-300 p-3 rounded-lg" />
-            <input type="email" placeholder="Email Address" required className="border border-gray-300 p-3 rounded-lg" />
-            <input type="tel" placeholder="Phone Number" required className="border border-gray-300 p-3 rounded-lg" />
-            <textarea placeholder="Your Message" required className="border border-gray-300 p-3 rounded-lg h-32"></textarea>
-            <button type="submit" className="text-white p-3 bg-[#001f3f] rounded-lg transition-transform duration-300 ease-in-out hover:bg-blue-600 hover:text-white hover:scale-105">Send</button>
-          </form>
+        {/* Image Section */}
+        <div className="w-1/2 m-10">
+          <img src="/contact.jpg" alt="Contact Us" className="w-full h-auto"/>
         </div>
       </div>
-
-      {/* Popup Message */}
-      {showPopup && (
-        <div className="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-75">
-          <div className="bg-white p-5 rounded-lg shadow-lg relative">
-            <button onClick={closePopup} className="absolute top-0 right-0 m-2 text-gray-500 hover:text-gray-700">
-              <FontAwesomeIcon icon={faTimes} className="w-5" />
-            </button>
-            <p className="text-lg">Your message has been successfully sent! We will get back to you soon.</p>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
