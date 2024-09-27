@@ -52,6 +52,13 @@ export default function Page() {
                         </div>
                     )}
                 </div>
+                <div className="flex justify-center mt-8">
+                  <Link href="/signup">
+                      <p className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                        Sign up
+                      </p>
+                  </Link>
+                </div>
             </div>
         </main>
     );
