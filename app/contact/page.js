@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from 'react';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -59,7 +60,6 @@ export default function ContactForm() {
       {/* Information Section */}
       <div className="w-full bg-[#001f3f] py-10 px-5 mb-10">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-gray-900 mb-6 bg-gray-300 p-3 rounded-lg p-3 inline-block">Contact Form</h2>
           <h1 className="text-4xl font-bold text-transparent bg-gradient-to-r from-green-300 to-[#FFD700] bg-clip-text mb-10">
             Contact Property Pros
           </h1>
