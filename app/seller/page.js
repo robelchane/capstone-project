@@ -1,5 +1,8 @@
 "use client"; // To use hooks in a Next.js page
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import Link from "next/link";
 
 export default function Seller() {
   const [propertyData, setPropertyData] = useState({
@@ -57,7 +60,14 @@ export default function Seller() {
   };
 
   return (
-    <div className="py-8 px-4">
+    <main>
+    <div className="fixed top-0 left-0 z-50 m-2 p-2 cursor-pointer hover:text-blue-500">
+      <Link href="./">
+        <FontAwesomeIcon icon={faHouse} size="2x" />
+      </Link>
+    </div>
+
+    <div className="py-8 px-4 m-10">
       <h1 className="text-2xl font-bold mb-4">List Your Property</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -156,5 +166,6 @@ export default function Seller() {
         </button>
       </form>
     </div>
+    </main>
   );
 }
