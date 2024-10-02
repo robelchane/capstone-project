@@ -12,8 +12,7 @@ export default function Home() {
   const images = [
     "/image1.png",
     "/image2.png",
-    "/image3.png",
-    "/image4.png",
+    "/image3.png"
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -95,31 +94,30 @@ export default function Home() {
               <p className="my-2 text-shadow text-gray-200">Most Suitable</p>
               <p>Property</p>
             </div>
-            <div className="my-10 text-xl text-center">
+            <div className="my-10 text-2xl text-center">
               <p>
-                Find a variety of properties that suit you very easily.<br/>Forget all difficulties in finding a residence for you.
+                Find a variety of properties that suit you very easily.<br/>
+                Forget all difficulties in finding a residence for you.
               </p>
             </div>
 
             <SearchBar />
 
-            <div className="flex justify-between text-4xl mt-10 w-full max-w-xs">
-              <p className="mr-4 text-shadow">9,000+</p>
-              <p className="mr-4 text-shadow">2,000+</p>
-              <p className="text-shadow">28+</p>
+            <div className="flex justify-between gap-12 text-4xl mt-10 items-center font-bold">
+              <div className="flex flex-col items-center">
+                <p>9,000 <span className="text-blue-700">+</span></p>
+                <p className="text-base mt-2 text-shadow">Premium Product</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <p>2,000 <span className="text-blue-700">+</span></p>
+                <p className="text-base mt-2 text-shadow">Happy Customers</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <p>28 <span className="text-blue-700">+</span></p>
+                <p className="text-base mt-2 text-shadow">Award Winning</p>
+              </div>
             </div>
 
-            <div className="flex justify-between text-base-10 mt-2 w-full max-w-xs">
-              <p className="ml-4 mr-10 text-shadow">Premium Product</p>
-              <p className="ml-10 mr-6 text-shadow">Happy Customer</p>
-              <p className="ml-4 text-shadow">Award Winning</p>
-            </div>
-          </div>
-
-          <div className="flex justify-between text-base mb-10">
-            <p>Premium Product</p>
-            <p>Happy Customer</p>
-            <p>Award Winning</p>
           </div>
         </div>
       </div>
