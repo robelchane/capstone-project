@@ -27,12 +27,14 @@ export default function AllListings() {
   }, []); // Empty dependency array ensures this runs once on mount
 
   return (
-    <div className="fixed top-0 left-0 z-50 m-4 p-2 cursor-pointer hover:text-blue-500">
+    <main>
+    <div className="fixed top-0 left-0 z-50 m-2 p-2 cursor-pointer hover:text-blue-500">
       <Link href="./">
         <FontAwesomeIcon icon={faHouse} size="2x" />
       </Link>
+    </div>
     
-      <div className="py-8 px-4">
+      <div className="py-8 px-4 ml-10">
         {/* Loading spinner */}
         {loading && <p>Loading properties...</p>}
 
@@ -57,6 +59,6 @@ export default function AllListings() {
           )}
         </div>
       </div>
-    </div>
+    </main>
   );
 }
