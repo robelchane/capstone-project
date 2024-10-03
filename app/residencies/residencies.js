@@ -12,7 +12,7 @@ export default function Residencies() {
       <div className="py-16 px-8 relative mt-10">
         {/* Header */}
         <div className="flex flex-col items-start mb-8">
-          <p className="text-2xl font-bold" style={{ color: '#001f3f' }}> Best Choices</p>
+          <p className="text-yellow-700 text-2xl font-bold"> Best Choices</p>
           <p className="text-3xl font-bold">Popular Residencies</p>
         </div>
 
@@ -41,7 +41,7 @@ export default function Residencies() {
         {/* All Listings Button at the bottom */}
         <div className="flex justify-center mt-8">
           <Link href="/all-listings">
-            <p className="bg-[#001f3f] text-white px-4 py-2 rounded shadow-md hover:scale-105 transition-transform duration-300 hover:bg-blue-700">
+            <p className="bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300 px-6 py-3">
               All Listings Property
             </p>
           </Link>

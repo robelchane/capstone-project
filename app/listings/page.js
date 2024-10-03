@@ -14,7 +14,7 @@ export default function Listings() {
 
 
   return (
-    <main className="p-8 flex h-screen overflow-hidden"> {/* Prevents scrolling on X-axis and main page */}
+    <main className="font-serif p-8 flex h-screen overflow-hidden"> {/* Prevents scrolling on X-axis and main page */}
       
       {/* Map Section */}
       <div className="w-1/2 h-full">
@@ -24,8 +24,8 @@ export default function Listings() {
       {/* Listings Section */}
       <div className="w-1/2 overflow-y-scroll h-full p-4 overflow-x-hidden"> {/* Ensures no X-axis scroll here */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-orange-500">Best Choices</h1>
-          <h2 className="text-2xl text-gray-700 mt-2">Popular Residencies</h2>
+          <h1 className="text-2xl font-bold text-yellow-700">Best Choices</h1>
+          <h2 className="text-4xl font-bold text-black mt-2">Popular Residencies</h2>
         </div>
 
         {/* Listings Card */}
@@ -50,7 +50,7 @@ export default function Listings() {
                   <Link href={`/residencies/${residence.id}`}>
                     <h3 className="text-xl font-bold text-gray-900">{residence.name}</h3>
                     <h4 className="text-sm text-gray-500">{residence.address}</h4>
-                    <p className="text-lg font-semibold text-orange-500 mt-2">
+                    <p className="text-lg font-semibold text-yellow-700 mt-2">
                       Price: ${residence.price}
                     </p>
                     <div className="flex items-center space-x-2">
@@ -82,7 +82,7 @@ export default function Listings() {
                 {/* Contact Button */}
                 <div className="absolute bottom-4 right-4">
                   
-                    <button className="bg-green-500 text-white px-4 py-2 rounded-lg">
+                    <button className="bg-yellow-700 text-white px-4 py-2">
                       Contact Seller
                     </button>
 

@@ -44,9 +44,11 @@ export default function Home() {
                 className="w-12 h-12 mr-4 cursor-pointer"
               />
             </Link>
-            <p className="font-extrabold text-white text-4xl text-shadow bg-clip-text tracking-widest uppercase">
-              Property Pros
-            </p>
+            <Link href="/">
+              <p className="font-extrabold text-white text-4xl text-shadow bg-clip-text tracking-widest uppercase">
+                Property Pros
+              </p>
+            </Link>
           </div>
           <div className="flex gap-10 m-2">
             <Link href="/listings">
