@@ -45,7 +45,8 @@ export default function Page() {
                                 <p className="mb-4">{user.email}</p>
                             </div>
 
-                            {(user.email === "rgetachew@gmail.com" || user.email === "robel.chane@edu.sait.ca") && (
+                            {(user.email === "rgetachew@gmail.com" || user.email === "insaineproductionz@gmail.com" 
+                                || user.email === "semenitari@icloud.com" ) && (
                                 <div className="flex justify-center">
                                     <Link href="/manager">
                                         <button className="m-2 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">
