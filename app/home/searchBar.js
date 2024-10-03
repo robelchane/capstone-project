@@ -4,20 +4,21 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 export default function SearchBar() {
   return (
-    <div className="flex items-center border border-gray-300 rounded-lg p-2 bg-gray-200 max-w-md">
+    <div className="flex items-center border border-gray-300 rounded-lg p-2 bg-gray-200 max-w-md mx-auto">
       {/* Location Icon with size */}
-      <FontAwesomeIcon icon={faLocationDot} className="w-10 m-3" />
+      <FontAwesomeIcon icon={faLocationDot} className="w-6 m-3 text-black" />
       
       {/* Input Field */}
       <input
-        className="w-full px-3 py-2 border rounded-lg placeholder-gray-500"
+        aria-label="Search location"
+        className="w-full px-3 py-2 border rounded-lg bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         placeholder="Search"
       />
       
       {/* Search Button */}
       <button
         type="button"
-        className="ml-2 bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+        className="ml-2 bg-yellow-700 text-white px-4 py-2 rounded-lg hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-yellow-500"
       >
         Search
       </button>
