@@ -5,14 +5,7 @@ import SearchBar from "./searchBar";
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const images = [
-    "/image1.png",
-    "/image2.png",
-    "/image3.png",
-    "/image4.png",
-  ];
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,31 +91,71 @@ export default function Home() {
               <p className="my-2 text-gray-300">Most Suitable</p>
               <p className="text-gray-300">Property</p>
             </div>
-            <div className="my-10 text-xl text-center">
+            <div className="my-10 text-xl text-center text-gray-300">
               <p>
-                Find a variety of properties that suit you very easily.<br/>Forget all difficulties in finding a residence for you.
+                Find a variety of properties that suit you very easily.<br />Forget all difficulties in finding a residence for you.
               </p>
             </div>
 
             <SearchBar />
 
-            <div className="flex justify-between text-4xl mt-10 w-full max-w-xs">
-              <p className="mr-4 text-shadow">9,000+</p>
-              <p className="mr-4 text-shadow">2,000+</p>
-              <p className="text-shadow">28+</p>
+            <div className="flex justify-between text-4xl mt-10 w-full max-w-xs text-gray-300">
+              <p className="mr-4">9,000+</p>
+              <p className="mr-4">2,000+</p>
+              <p>28+</p>
             </div>
 
-            <div className="flex justify-between text-base-10 mt-2 w-full max-w-xs">
-              <p className="ml-4 mr-10 text-shadow">Premium Product</p>
-              <p className="ml-10 mr-6 text-shadow">Happy Customer</p>
-              <p className="ml-4 text-shadow">Award Winning</p>
+            <div className="flex justify-between text-base mt-2 w-full max-w-xs text-gray-300">
+              <p className="ml-4 mr-10">Premium Product</p>
+              <p className="ml-10 mr-6">Happy Customer</p>
+              <p className="ml-4">Award Winning</p>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className="flex justify-between text-base mb-10">
-            <p>Premium Product</p>
-            <p>Happy Customer</p>
-            <p>Award Winning</p>
+      {/* About Us Section */}
+      <div className="flex justify-center font-serif bg-white text-black p-10 min-h-screen">
+        <div className="w-1/2 m-10">
+          <img src={"/aboutus.png"} alt="About Us" className="mt-5" />
+        </div>
+
+        <div className="flex flex-col w-1/2 m-10">
+          <div className="flex flex-col items-start">
+            <span className="text-3xl font-bold mt-5">Where Homes Find Owners</span>
+          </div>
+          <div className="my-10 text-lg">
+            <p className="mb-5">
+              With over 20 years of experience in the real estate industry, Property Pros is dedicated to
+              helping clients navigate the complexities of buying and selling homes. We believe that open communication 
+              and transparency are essential in building lasting relationships with our clients, allowing us to deliver 
+              exceptional results tailored to their specific goals.
+            </p>
+            <p className="mb-10">
+              Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape.
+              With a focus on data-driven decision-making, we conduct thorough market analyses and valuations to ensure
+              our clients make informed choices. Whether buying or selling, clients can trust that Property Pros will guide
+              them with integrity, diligence, and a relentless drive for success.
+            </p>
+            <span className="text-3xl font-bold">We're Here for You</span>
+            <p className="mt-10">
+              At Property Pros, we are committed to being your trusted partner throughout your real estate journey.
+              With us, you can feel confident that your needs are our top priority, ensuring a seamless and positive experience
+              as you achieve your real estate goals.
+            </p>
+          </div>
+          {/* Button Section with Flexbox */}
+          <div className="flex gap-4">
+            <Link href="/contact">
+              <button className="mr-5 px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+                Contact Us
+              </button>
+            </Link>
+            <Link href="/listings">
+              <button className="px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+                Best Properties
+              </button>
+            </Link>
           </div>
         </div>
       </div>
