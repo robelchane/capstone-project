@@ -23,16 +23,19 @@ export default function Page() {
 
     return (
         <main>
+            {/* Home icon with link to home page */}
             <div className="fixed top-0 left-0 z-50 m-4 p-2 cursor-pointer hover:text-blue-500">
                 <Link href="./">
                     <FontAwesomeIcon icon={faHouse} size="2x" />
                 </Link>
             </div>
 
+            {/* Sign In/Sign Out Section */}
             <div className="flex flex-col items-center m-20">
                 <div className="m-10 p-4 text-3xl">
                     <h1>Sign In to Your Account</h1>
                 </div>
+
                 <div>
                     {user ? (
                         <div>
@@ -41,25 +44,44 @@ export default function Page() {
                                 <p className="mt-4">{user.displayName}</p>
                                 <p className="mb-4">{user.email}</p>
                             </div>
-                            <div className="flex justify-end">
-                                <button onClick={signOut} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">Sign Out</button>
+
+                            {(user.email === "rgetachew@gmail.com" || user.email === "robel.chane@edu.sait.ca") && (
+                                <div className="flex justify-center">
+                                    <Link href="/manager">
+                                        <button className="m-2 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">
+                                            Manager Property
+                                        </button>
+                                    </Link>
+                                </div>
+                            )}
+
+                            <div className="flex justify-center">
+                                <button onClick={signOut} className="m-2 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">
+                                    Sign Out
+                                </button>
                             </div>
                         </div>
                     ) : (
                         <div>
-                            <button onClick={signIn} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">Sign in with GitHub</button>
-                            <button onClick={signInGoogle} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">Sign in with Google</button>
+                            <button onClick={signIn} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">
+                                Sign in with GitHub
+                            </button>
+                            <button onClick={signInGoogle} className="m-10 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">
+                                Sign in with Google
+                            </button>
+
+                            <div className="flex justify-center mt-8">
+                                <Link href="/signup">
+                                    <p className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                        Sign up
+                                    </p>
+                                </Link>
+                            </div>
                         </div>
                     )}
-                </div>
-                <div className="flex justify-center mt-8">
-                  <Link href="/signup">
-                      <p className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
-                        Sign up
-                      </p>
-                  </Link>
                 </div>
             </div>
         </main>
     );
 }
+
