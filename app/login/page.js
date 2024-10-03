@@ -51,7 +51,7 @@ export default function Page() {
                                 <div className="flex justify-center">
                                     <Link href="/manager">
                                         <button className="m-2 p-4 bg-blue-500 hover:bg-orange-500 rounded-lg">
-                                            Manager Property
+                                            Manage Properties
                                         </button>
                                     </Link>
                                 </div>
