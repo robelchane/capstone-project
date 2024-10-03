@@ -45,7 +45,7 @@ export default function Page() {
                                 <p className="mb-4">{user.email}</p>
                             </div>
 
-                            {(user.email === "rgetachew@gmail.com" || user.email === "insaineproductionz@gmail.com" 
+                            {(user.email === "rgetachew34@gmail.com" || user.email === "insaineproductionz@gmail.com" 
                                 || user.email === "semenitari@icloud.com" ) && (
                                 <div className="flex justify-center">
                                     <Link href="/manager">
