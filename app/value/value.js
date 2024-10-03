@@ -28,7 +28,7 @@ export default function Value() {
 
         <div className="flex flex-col w-1/2 m-10">
           <div className="flex flex-col items-start">
-            <span className="text-2xl font-bold" style={{ color: '#001f3f' }}>Our Values</span>
+            <span className="text-yellow-700 text-2xl font-bold">Our Values</span>
             <span className="text-3xl font-bold">Value We Give to You</span>
           </div>
           <div className="my-10 text-lg">
@@ -42,7 +42,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown1}
-              className="cursor-pointer text-white bg-[#001f3f] p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              className= "mt-8 cursor-pointer text-white font-semibold bg-gray-900 p-4 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
             >
               Best interest rates on the market
             </h2>
@@ -61,7 +61,7 @@ export default function Value() {
           <div className="my-10 text-center">
             <h2
               onClick={toggleDropdown2}
-              className="cursor-pointer text-white bg-[#001f3f] p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              className="cursor-pointer text-white font-semibold bg-gray-900 p-4 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
             >
               Easy and flexible payments
             </h2>
@@ -79,7 +79,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown3}
-              className="cursor-pointer text-white bg-[#001f3f] p-4 rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
+              className="cursor-pointer text-white font-semibold bg-gray-900 p-4 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
             >
               Premium customer support
             </h2>

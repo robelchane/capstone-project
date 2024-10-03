@@ -38,20 +38,20 @@ export default function CustomerReview() {
 
   return (
     <div className="font-serif flex flex-col justify-center items-center mt-20 mb-20">
-      <p className="text-2xl font-bold">Proven Results</p>
-      <span className="text-3xl font-bold mt-5 mb-10 text-center text-black w-full">Client Testimonials</span>
+      <p className="text-yellow-700 text-2xl font-bold">Proven Results</p>
+      <span className="text-3xl font-bold mt-1 mb-10 text-center text-black w-full">Client Testimonials</span>
       <div className="flex justify-center items-center w-full max-w-6xl relative">
         <button
           onClick={goToPreviousReview}
-          className="absolute left-0 bg-yellow-700 text-white px-4 py-2 rounded-lg hover:bg-yellow-800 focus:outline-none"
+          className="absolute left-0 bg-yellow-700 text-white px-2 py-2 rounded hover:bg-yellow-800 focus:outline-none"
           style={{ top: "50%", transform: "translateY(-50%)", zIndex: 10 }} 
         >
           {'<'}
         </button>
         
         <div className="w-1/2 p-4 ml-20">
-          <p className="font-semibold mb-2 text-black">{reviews[currentIndex].name}</p>
-          <p className="text-black">{reviews[currentIndex].review}</p>
+          <p className="text-xl font-bold mb-10 text-black">{reviews[currentIndex].name}</p>
+          <p className="text-xl text-gray-800">{reviews[currentIndex].review}</p>
         </div>
 
         <div className="w-1/2 p-4 mr-20 h-[700px] overflow-hidden">
@@ -64,7 +64,7 @@ export default function CustomerReview() {
 
         <button
           onClick={goToNextReview}
-          className="absolute right-0 bg-yellow-700 text-white px-4 py-2 rounded-lg hover:bg-yellow-800 focus:outline-none"
+          className="absolute right-0 bg-yellow-700 text-white px-2 py-2 rounded hover:bg-yellow-800 focus:outline-none"
           style={{ top: "50%", transform: "translateY(-50%)", zIndex: 10 }} 
         >
           {'>'}
