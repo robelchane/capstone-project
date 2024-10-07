@@ -63,6 +63,16 @@ const LoginPage = () => {
     <main className="login-main">
       <div className="login-container">
         <div className="login-left">
+          <div className="flex items-center">
+            <Link href="/">
+              <img 
+                src="/logo.png" 
+                alt="Logo" 
+                className="mb-5 w-11 h-11 rounded-full mr-4 cursor-pointer"
+              />
+            </Link>
+            <span className="font-serif text-3xl mb-5 text-white font-bold">Property Pros</span>
+          </div>
           <p>
             Welcome to Property Pros, your go-to platform for premium real estate listings and services. 
             Sign up to explore a variety of properties tailored to your needs.
