@@ -39,7 +39,7 @@ html {
   width: 90%; /* Make it responsive */
   max-width: 960px;
   height: 80%;
-  background: rgba(19, 26, 21, 0.666); /* Semi-transparent white background */
+  background: rgba(45, 48, 46, 0.666); /* Semi-transparent white background */
   backdrop-filter: blur(15px); /* Increase blur effect for a modern look */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for a lift effect */
   border-radius: 20px; /* More rounded corners */
@@ -53,7 +53,7 @@ html {
   align-items: center;
   justify-content: center;
   padding: 20px; /* Add padding */
-  background: rgba(145, 160, 146, 0.8); /* Slightly opaque white */
+  background: rgba(63, 64, 63, 0.8); /* Slightly opaque white */
   border-right: 1px solid #eaeaea; /* Divider */
 }
 
@@ -73,7 +73,7 @@ html {
 
 .login-left p {
   text-align: left; /* Center-align the text */
-  color: #1f1f1f; /* Darker gray for text */
+  color: #dddada; /* Darker gray for text */
   font-family: 'Lato', sans-serif; /* Modern font */
   font-weight: 700; /* Bold weight for emphasis */
   font-size: 1.2rem; /* Slightly larger font size for emphasis */
