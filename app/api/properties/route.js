@@ -14,12 +14,26 @@ export async function POST(request) {
   return NextResponse.json({ message: "Property Created" }, { status: 201 });
 }
 
-// GET request to fetch all properties
-export async function GET() {
+// GET request to fetch all properties with optional filters
+export async function GET(request) {
   await connectMongoDB();
   
-  // Find all properties from the database
-  const properties = await Property.find();
+  const { searchParams } = request.nextUrl;
+  const minPrice = searchParams.get("minPrice");
+  const maxPrice = searchParams.get("maxPrice");
+  const bedrooms = searchParams.get("bedrooms");
+  const bathrooms = searchParams.get("bathrooms");
+
+  // Build the query based on the filters provided
+  const query = {};
+  
+  if (minPrice) query.price = { $gte: minPrice }; // Filter by minimum price
+  if (maxPrice) query.price = { ...query.price, $lte: maxPrice }; // Filter by maximum price
+  if (bedrooms) query.bedrooms = bedrooms; // Filter by number of bedrooms
+  if (bathrooms) query.bathrooms = bathrooms; // Filter by number of bathrooms
+  
+  // Find all properties matching the query
+  const properties = await Property.find(query);
   
   return NextResponse.json({ properties });
 }
