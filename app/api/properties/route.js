@@ -32,7 +32,7 @@ export async function GET(request) {
   // Build the query based on the filters provided
   const query = {};
   
-  if (minPrice) query.price = { $gte: minPrice };
+  if (minPrice) query.price = { ...query.price, $gte: minPrice };
   if (maxPrice) query.price = { ...query.price, $lte: maxPrice }; 
   if (bedrooms) query.bedrooms = bedrooms; 
   if (bathrooms) query.bathrooms = bathrooms; 
