@@ -1,11 +1,11 @@
-"use client"; // To use hooks in a Next.js page 
+"use client"; 
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBed, faBath } from "@fortawesome/free-solid-svg-icons";
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // State to hold the fetched property listings
-  const [loading, setLoading] = useState(false); // State to handle the loading state
+  const [loading, setLoading] = useState(false); 
   const [filters, setFilters] = useState({
     minPrice: "",
     maxPrice: "",
@@ -109,7 +109,7 @@ export default function AllListings() {
           properties.map((property) => (
             <div key={property._id} className="p-4 border rounded shadow-md">
               <img
-                src={`/images/${property.image}`} // Adjust this path as needed
+                src={`/images/${property.image}`}
                 alt={property.name}
                 className="w-full h-48 object-cover mb-4"
               />
