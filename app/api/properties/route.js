@@ -1,5 +1,6 @@
 // Reference
 // https://webdev2.warsylewicz.ca/week-8/fetching-data
+// https://www.mongodb.com/docs/manual/reference/operator/query/
 // https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
 // https://www.youtube.com/watch?v=ZFYj7OrTeEs
 
@@ -32,8 +33,16 @@ export async function GET(request) {
   // Build the query based on the filters provided
   const query = {};
   
-  if (minPrice) query.price = { $gte: minPrice };
-  if (maxPrice) query.price = { $lte: maxPrice }; 
+  if (minPrice && maxPrice) {
+    query.price = {
+      $gte: minPrice, 
+      $lte: maxPrice
+    };
+  } else {
+    if (minPrice) query.price = { $gte: minPrice }; 
+    if (maxPrice) query.price = { $lte: maxPrice }; 
+  }
+
   if (bedrooms) query.bedrooms = bedrooms; 
   if (bathrooms) query.bathrooms = bathrooms; 
   
