@@ -1,10 +1,5 @@
-// Reference
-// https://webdev2.warsylewicz.ca/week-8/fetching-data
-// https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
-// https://www.youtube.com/watch?v=ZFYj7OrTeEs
-
-import connectMongoDB from "@/libs/mongodb";
-import Property from "@/models/property";
+import connectMongoDB from "../../../libs/mongodb";
+import Property from "../../../models/property";
 import { NextResponse } from "next/server";
 
 // POST request to create a new property
@@ -13,7 +8,14 @@ export async function POST(request) {
   
   await connectMongoDB();
   
-  // Create a new property with the provided fields
+  // Check if a property with the same name or address already exists
+  const existingProperty = await Property.findOne({ $and: [{ name }, { address }] });
+  
+  if (existingProperty) {
+    return NextResponse.json({ message: "Property already exists" }, { status: 409 });
+  }
+  
+  // Create a new property if it doesn't exist
   await Property.create({ name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image });
   
   return NextResponse.json({ message: "Property Created" }, { status: 201 });
@@ -32,10 +34,10 @@ export async function GET(request) {
   // Build the query based on the filters provided
   const query = {};
   
-  if (minPrice) query.price = { ...query.price, $gte: minPrice };
-  if (maxPrice) query.price = { ...query.price, $lte: maxPrice }; 
-  if (bedrooms) query.bedrooms = bedrooms; 
-  if (bathrooms) query.bathrooms = bathrooms; 
+  if (minPrice) query.price = { ...query.price, $gte: minPrice }; // Filter by minimum price
+  if (maxPrice) query.price = { ...query.price, $lte: maxPrice }; // Filter by maximum price
+  if (bedrooms) query.bedrooms = bedrooms; // Filter by number of bedrooms
+  if (bathrooms) query.bathrooms = bathrooms; // Filter by number of bathrooms
   
   // Find all properties matching the query
   const properties = await Property.find(query);
