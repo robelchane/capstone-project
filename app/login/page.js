@@ -1,4 +1,4 @@
-// app/login/page.js
+//login/page.js
 import React from 'react';
 import { AuthProvider } from '../context/AuthContext'; // Adjust the path as necessary
 import LoginPage from './loginpage';

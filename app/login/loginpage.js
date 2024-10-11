@@ -1,9 +1,9 @@
 "use client"; // Required for client-side components in the app directory
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { FcGoogle } from 'react-icons/fc';
-import { useAuth } from '../context/AuthContext';
-import './globals.css';
+import { useAuth, } from '../context/AuthContext';
+import './global.css';
 import Link from 'next/link';
 
 const LoginPage = () => {
@@ -22,12 +22,16 @@ const LoginPage = () => {
   const [forgetpassworderror, setForgetPasswordError] = useState('');
   const [forgetpasswordsuccess, setForgetPasswordSuccess] = useState(false);
 
+  // to get user icon and name
+
+  
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await login(loginusername, loginpassword);
       console.log('Login successful, navigating to /dashboard');
-      router.push('/dashboard');
+      router.push('/');
     } catch (error) {
       console.error('Failed to log in:', error);
       setLoginError('Failed to log in. Please check your credentials.');
@@ -37,8 +41,8 @@ const LoginPage = () => {
   const onGoogleSignIn = async () => {
     try {
       await loginWithGoogle();
-      console.log('Navigating to /dashboard');
-      router.push('/dashboard');
+      console.log('Navigating to profile page');
+      router.push('/');
     } catch (error) {
       setLoginError('Failed to log in with Google.');
     }
@@ -63,16 +67,6 @@ const LoginPage = () => {
     <main className="login-main">
       <div className="login-container">
         <div className="login-left">
-          <div className="flex items-center">
-            <Link href="/">
-              <img 
-                src="/logo.png" 
-                alt="Logo" 
-                className="mb-5 w-11 h-11 rounded-full mr-4 cursor-pointer"
-              />
-            </Link>
-            <span className="font-serif text-3xl mb-5 text-white font-bold">Property Pros</span>
-          </div>
           <p>
             Welcome to Property Pros, your go-to platform for premium real estate listings and services. 
             Sign up to explore a variety of properties tailored to your needs.

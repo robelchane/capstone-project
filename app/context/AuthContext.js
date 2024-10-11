@@ -1,6 +1,6 @@
 "use client"; // This line indicates that the file is for client-side rendering
 
-import React, { useState, useEffect, useContext, createContext } from "react";
+import { useState, useEffect, useContext, createContext } from "react";
 import { auth } from "../firebase/firebase";  // Ensure this path is correct
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { signIn, signUp, signInWithGoogle, resetPassword } from "../firebase/auth";  // Ensure this path is correct
@@ -21,21 +21,30 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     // Subscribe to auth state changes
-    const unsubscribe = onAuthStateChanged(auth, (user) => initializeUser(user));
-    return unsubscribe;  // Cleanup subscription on component unmount
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      initializeUser(user);
+      console.log(user?.photoURL);
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
   }, []);
 
   // Initialize user based on auth state
-  async function initializeUser(user) {
+  const initializeUser = (user) => {
     if (user) {
-      setUser({ ...user });
+      setUser({
+        displayName: user.displayName,  // Fetch the user's name
+        photoURL: user.photoURL,        // Fetch the user's avatar
+        email: user.email,
+      });
       setUserLoggedIn(true);
     } else {
       setUser(null);
       setUserLoggedIn(false);
     }
     setLoading(false);  // Loading complete after auth state is resolved
-  }
+  };
 
   // Function to handle login
   const login = async (email, password) => {
@@ -77,6 +86,9 @@ export function AuthProvider({ children }) {
       throw error;
     }
   };
+
+  // function to handle Google sign-out
+  
 
   // Function to reset user password
   const resetUserPassword = async (email) => {

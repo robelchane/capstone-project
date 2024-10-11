@@ -1,6 +1,6 @@
 // import React from 'react';
 import { AuthProvider } from '../context/AuthContext';
-import './globals.css';
+import './global.css';
 
 const Layout = ({ children }) => {
   return (
