@@ -1,3 +1,8 @@
+// Reference
+// https://webdev2.warsylewicz.ca/week-8/fetching-data
+// https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
+// https://www.youtube.com/watch?v=ZFYj7OrTeEs
+
 import connectMongoDB from "@/libs/mongodb";
 import Property from "@/models/property";
 import { NextResponse } from "next/server";
@@ -14,12 +19,26 @@ export async function POST(request) {
   return NextResponse.json({ message: "Property Created" }, { status: 201 });
 }
 
-// GET request to fetch all properties
-export async function GET() {
+// GET request to fetch all properties with optional filters
+export async function GET(request) {
   await connectMongoDB();
   
-  // Find all properties from the database
-  const properties = await Property.find();
+  const { searchParams } = request.nextUrl;
+  const minPrice = searchParams.get("minPrice");
+  const maxPrice = searchParams.get("maxPrice");
+  const bedrooms = searchParams.get("bedrooms");
+  const bathrooms = searchParams.get("bathrooms");
+
+  // Build the query based on the filters provided
+  const query = {};
+  
+  if (minPrice) query.price = { ...query.price, $gte: minPrice };
+  if (maxPrice) query.price = { ...query.price, $lte: maxPrice }; 
+  if (bedrooms) query.bedrooms = bedrooms; 
+  if (bathrooms) query.bathrooms = bathrooms; 
+  
+  // Find all properties matching the query
+  const properties = await Property.find(query);
   
   return NextResponse.json({ properties });
 }
