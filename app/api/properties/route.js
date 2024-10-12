@@ -14,14 +14,7 @@ export async function POST(request) {
   
   await connectMongoDB();
   
-  // Check if a property with the same name or address already exists
-  const existingProperty = await Property.findOne({ $and: [{ name }, { address }] });
-  
-  if (existingProperty) {
-    return NextResponse.json({ message: "Property already exists" }, { status: 409 });
-  }
-  
-  // Create a new property if it doesn't exist
+  // Create a new property with the provided fields
   await Property.create({ name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image });
   
   return NextResponse.json({ message: "Property Created" }, { status: 201 });
@@ -40,7 +33,7 @@ export async function GET(request) {
   // Build the query based on the filters provided
   const query = {};
   
-  if (minPrice) query.price = { $gte: minPrice };
+  if (minPrice) query.price = { $gte: minPrice }; 
   if (maxPrice) query.price = { $lte: maxPrice }; 
   if (bedrooms) query.bedrooms = bedrooms; 
   if (bathrooms) query.bathrooms = bathrooms; 
