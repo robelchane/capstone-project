@@ -1,5 +1,6 @@
 // Reference
 // https://webdev2.warsylewicz.ca/week-8/fetching-data
+// https://www.mongodb.com/docs/manual/reference/operator/query/
 // https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
 // https://www.youtube.com/watch?v=ZFYj7OrTeEs
 
