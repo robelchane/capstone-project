@@ -50,10 +50,7 @@ export default function Home() {
               <p className="text-gray-300">Property</p>
             </div>
             <div className="my-10 text-xl text-center text-gray-300">
-              <p>
-                Find a variety of properties that suit you very easily.<br />
-                Forget all difficulties in finding a residence for you.
-              </p>
+              
             </div>
 
             <SearchBar />
