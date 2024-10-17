@@ -2,7 +2,7 @@ import { auth } from "./firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, sendEmailVerification, sendPasswordResetEmail } from "firebase/auth";
 
 // Sign up function
-export const signUp = async (auth, email, password) => {
+export const signUp = async (email, password) => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         sendEmailVerification(auth.currentUser);
