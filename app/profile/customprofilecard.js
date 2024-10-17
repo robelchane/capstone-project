@@ -14,11 +14,13 @@ export default function CustomProfileCard() {
   const router = useRouter(); // Next.js router for client-side navigation
 
   const handleCustomizeClick = () => {
-    router.push('/profile/edit'); // Navigate to the profile edit page
+    console.log('Navigating to /profile/edit-profile');
+    router.push('/profile/edit-profile');
   };
+  
 
   return (
-    <Card className="cursor-pointer" onClick={handleCustomizeClick}>
+    <Card className="cursor-pointer max-w-md ml-4 mt-10" onClick={handleCustomizeClick}>
       <CardHeader>
         <CardTitle>Customize Profile</CardTitle>
         <CardDescription>Click to edit your profile information.</CardDescription>
@@ -30,5 +32,6 @@ export default function CustomProfileCard() {
         <Button onClick={handleCustomizeClick}>Edit Profile</Button>
       </CardFooter>
     </Card>
+    
   );
 }

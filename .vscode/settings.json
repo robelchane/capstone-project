@@ -4,6 +4,7 @@
         "customprofilecard",
         "loginpage",
         "lucide",
-        "profilepage"
+        "profilepage",
+        "saveuser"
     ]
 }
