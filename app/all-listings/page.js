@@ -1,5 +1,6 @@
 // Reference
 // https://webdev2.warsylewicz.ca/week-8/fetching-data
+// https://www.mongodb.com/docs/manual/reference/operator/query/
 // https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
 // https://www.youtube.com/watch?v=ZFYj7OrTeEs
 
@@ -50,7 +51,7 @@ export default function AllListings() {
   };
 
   return (
-    <div className="py-8 px-4">
+    <div className="py-8 px-4 mt-20">
       <h1 className="text-2xl font-bold mb-4">Filter Properties</h1>
 
       {/* Filter Form */}
