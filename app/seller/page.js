@@ -1,8 +1,6 @@
 "use client"; // To use hooks in a Next.js page
 import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
-import Link from "next/link";
+
  
 export default function Seller() {
   const [propertyData, setPropertyData] = useState({
