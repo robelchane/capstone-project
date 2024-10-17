@@ -2,7 +2,6 @@ import mongoose, { Schema } from "mongoose";
 
 const propertySchema = new Schema(
   {
-  userId: { type: Schema.Types.ObjectId },
   name: String,
   price: String,
   bedrooms: Number,
