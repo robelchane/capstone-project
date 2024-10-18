@@ -23,9 +23,9 @@ export default function AllListings() {
   const fetchProperties = async () => {
     setLoading(true);
     try {
-      const query = new URLSearchParams(filters).toString(); // Construct query string from filters
+      const query = new URLSearchParams(filters).toString(); 
       const response = await fetch(`/api/properties?${query}`); // Call the backend API route with filters
-      const data = await response.json(); // Parse the response as JSON
+      const data = await response.json(); 
       setProperties(data.properties); // Update the properties state with the fetched data
     } catch (error) {
       console.error("Failed to fetch properties", error);
@@ -36,12 +36,12 @@ export default function AllListings() {
 
   // Fetch all properties when the component mounts (without filters)
   useEffect(() => {
-    fetchProperties(); // Call the fetch function
-  }, []); // Empty dependency array ensures this runs once on mount
+    fetchProperties(); 
+  }, []); 
 
   // Handle changes in filter inputs
   const handleChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value });
+    setFilters({ [e.target.name]: e.target.value });
   };
 
   // Handle form submission for filtering properties

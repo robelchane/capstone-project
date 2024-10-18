@@ -5,7 +5,7 @@ import { faEnvelope, faPhone, faLocationDot, faCopyright } from '@fortawesome/fr
 export default function Footer() {
   return (
     <main className="font-serif text-black">      
-      <div className="flex justify-evenly text-lg font-serif bg-black bg-opacity-90 p-5 text-white">
+      <div className="flex justify-evenly text-lg font-serif bg-black bg-opacity-90 p-10 text-white">
         <div className="m-1">
           <div className="flex items-center m-2">
           <Link href="/">
@@ -15,7 +15,7 @@ export default function Footer() {
                 alt="Logo" 
                 className="w-12 h-12 mr-4"
               />
-              <p className="font-bold bg-clip-text text-white">
+              <p className="font-bold text-xl bg-clip-text text-white">
                 Property Pros
               </p>
             </div>

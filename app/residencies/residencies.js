@@ -41,7 +41,7 @@ export default function Residencies() {
         {/* All Listings Button at the bottom */}
         <div className="flex justify-center mt-8">
           <Link href="/all-listings">
-            <p className="bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300 px-6 py-3">
+            <p className="rounded bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300 px-6 py-3">
               All Listings Property
             </p>
           </Link>
