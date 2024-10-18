@@ -41,7 +41,7 @@ export default function AllListings() {
 
   // Handle changes in filter inputs
   const handleChange = (e) => {
-    setFilters({[e.target.name]: e.target.value });
+    setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
   // Handle form submission for filtering properties
