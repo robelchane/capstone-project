@@ -43,8 +43,8 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Gaon Sun</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            Mark is an expert negotiator and is dedicated to getting the best deals for our clients.
-            His extensive knowledge of the market helps clients make informed decisions.
+            Gaon is an expert negotiator and is dedicated to getting the best deals for our clients.
+            Her extensive knowledge of the market helps clients make informed decisions.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Asenai Shiberim</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            Sarah is passionate about providing exceptional customer service, ensuring that every client feels valued and heard.
+            Asenai is passionate about providing exceptional customer service, ensuring that every client feels valued and heard.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Tanzela Fatema Ali</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            David specializes in property management and is dedicated to maintaining high standards for our listings.
+            Tanzela specializes in property management and is dedicated to maintaining high standards for our listings.
           </p>
         </div>
       </div>
