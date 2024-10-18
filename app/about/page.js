@@ -20,8 +20,8 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Miebaka Semenitari</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            John has over 15 years of experience in the real estate industry. 
-            His passion for helping clients find their perfect homes drives the 
+          Miebaka has over 15 years of experience in the real estate industry. 
+            Her passion for helping clients find their perfect homes drives the 
             mission of Property Pros.
           </p>
         </div>
@@ -32,7 +32,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Robel Chane</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            Jane oversees all marketing initiatives at Property Pros, ensuring 
+            Robel oversees all marketing initiatives at Property Pros, ensuring 
             our listings reach the right audience and our brand is well represented.
           </p>
         </div>
