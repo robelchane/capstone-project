@@ -155,7 +155,7 @@ export default function Seller() {
         <div className="flex justify-center mt-10">
           <button
             type="submit"
-            className="bg-yellow-700 text-white px-10 py-3 rounded hover:bg-yellow-800"
+            className="bg-yellow-700 text-white px-10 py-3 rounded hover:bg-yellow-800 transition duration-300"
           >
             {loading ? "Listing..." : "List Property"}
           </button>
