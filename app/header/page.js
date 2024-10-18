@@ -1,23 +1,29 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
-import { useState, useEffect } from 'react';
-import { FaUser } from 'react-icons/fa'; // Import the user icon from Font Awesome
-import { auth } from '../firebase/firebase'; // Import the Firebase auth instance directly
-import { onAuthStateChanged } from "firebase/auth"; // Import onAuthStateChanged from Firebase Auth
+import { useState, useEffect, use } from 'react';
+import {useUser, UserButton, SignOutButton} from '@clerk/nextjs';
+import Image from 'next/image';
+
+//import { FaUser } from 'react-icons/fa'; // Import the user icon from Font Awesome
+//import { auth } from '../firebase/firebase'; // Import the Firebase auth instance directly
+//import { onAuthStateChanged } from "firebase/auth"; // Import onAuthStateChanged from Firebase Auth
 import {
   DropdownMenu,
-  DropdownMenuTrigger,
+  DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuContent
-} from './../../components/ui/dropdown-menu';
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../../components/ui/dropdown-menu";
 
-const Header = () => {
+export default function Header () {
   const router = useRouter(); // Ensure useRouter is at the top, in the client-side component
   const [scrollY, setScrollY] = useState(0);
-  const [user, setUser] = useState(null);
+  const {user, isSignedIn} = useUser();
+  //const [user, setUser] = useState(null);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
     });
@@ -33,9 +39,23 @@ const Header = () => {
       console.error('Failed to sign out:', error);
     }
   }
+  */
+
+  // Track scroll position for header color change
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 p-4 bg-black bg-opacity-90">
+    <div className={`fixed top-0 left-0 right-0 z-50 p-4 transition-colors duration-500 ${scrollY > 0 ? 'bg-black bg-opacity-90' : 'bg-transparent'}`}>
       <div className="flex justify-between text-xl font-serif text-white">
         <div className="flex items-center m-2">
           <Link href="/">
@@ -100,57 +120,35 @@ const Header = () => {
           </DropdownMenu>
 
           {/* Get Started Dropdown Menu */}
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <p className="cursor-pointer text-white text-xl font-medium transition-transform duration-300 hover:scale-105">
-                Get Started
-              </p>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="mt-2 w-48 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <DropdownMenuItem 
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg" 
-                onClick={() => router.push('/login')}
-              >
-                Sign In
-              </DropdownMenuItem>
-              <DropdownMenuItem 
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-00 transition-colors rounded-lg" 
-                onClick={() => router.push('/signup')}
-              >
-                Sign Up
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* Conditional Rendering based on login status */}
-          {user ? (
-            // If user is logged in, show the user icon with a dropdown menu
+          
+           {/* Conditional Rendering based on login status */}
+           {isSignedIn ? (
             <DropdownMenu>
-              <DropdownMenuTrigger>
-                <div className="flex items-center">
-                  <FaUser className="text-white text-2xl cursor-pointer hover:scale-110 transition-transform duration-300" />
-                </div>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="mt-2 w-48 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                <DropdownMenuItem 
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-00 transition-colors rounded-lg" 
-                  onClick={() => router.push('/account')}
-                >
-                  Account
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-00 transition-colors rounded-lg" 
-                  onClick={signOut}
-                >
-                  Logout
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : null}
+             <DropdownMenuTrigger as child>
+            <Image 
+             src ={user?.imageUrl} 
+             width={45} 
+             height ={45} 
+             alt="user image"
+             className='rounded-full'/>
+            </DropdownMenuTrigger>
+             <DropdownMenuContent>
+              <Link href="/account">
+               <DropdownMenuLabel>Account</DropdownMenuLabel>
+              </Link>
+               <DropdownMenuSeparator />
+               <DropdownMenuItem><SignOutButton>Logout</SignOutButton></DropdownMenuItem>
+
+             </DropdownMenuContent>
+           </DropdownMenu>
+           
+          ) : (
+            <Link href={"/sign-in"}>
+              <p className="text-white text-shadow hover:scale-110 transition-transform duration-300 text-xl">Get Started</p>
+            </Link>
+          )}
         </div>
       </div>
     </div>
   );
 };
-
-export default Header;
