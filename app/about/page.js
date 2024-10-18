@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const About = () => {
   return (
-    <div className="flex flex-col items-center p-8 bg-gray-50">
+    <div className="flex flex-col items-center p-8 bg-gray-50 mt-32">
       <h1 className="text-4xl font-bold mb-4 text-gray-800">About Us</h1>
       <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl">
         At Property Pros, we are dedicated to connecting people with their dream homes. 
@@ -76,7 +76,7 @@ const About = () => {
         you every step of the way.
       </p>
 
-      <Link href="/" className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition duration-300">
+      <Link href="/" className="bg-yellow-700 text-white px-4 py-2 rounded-lg hover:bg-yellow-800 transition duration-300">
         Back to Home
       </Link>
     </div>

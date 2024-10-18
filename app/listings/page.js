@@ -14,7 +14,7 @@ export default function Listings() {
 
 
   return (
-    <main className="font-serif p-8 flex h-screen overflow-hidden"> {/* Prevents scrolling on X-axis and main page */}
+    <main className="font-serif p-8 flex h-screen overflow-hidden mt-32"> {/* Prevents scrolling on X-axis and main page */}
       
       {/* Map Section */}
       <div className="w-1/2 h-full">

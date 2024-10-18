@@ -65,7 +65,7 @@ const LoginPage = () => {
 
   return (
     <main className="login-main">
-      <div className="login-container">
+      <div className="login-container mt-24">
         <div className="login-left">
           <p>
             Welcome to Property Pros, your go-to platform for premium real estate listings and services. 

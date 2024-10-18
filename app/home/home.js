@@ -43,19 +43,14 @@ export default function Home() {
           style={backgroundImageStyle}
         >
           {/* Content over the background */}
-          <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-5">
-            <div className="font-bold text-white text-5xl text-center">
-              <p className="text-gray-300">Discover</p>
-              <p className="my-2 text-gray-300">Most Suitable</p>
-              <p className="text-gray-300">Property</p>
-            </div>
-            <div className="my-10 text-xl text-center text-gray-300">
-              
+          <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-20">
+            <div className="font-bold text-white text-6xl text-center">
+              <p className="text-gray-100 mb-20">Discover Most Suitable Property</p>
             </div>
 
             <SearchBar />
 
-            <div className="flex justify-between text-4xl mt-10 w-full max-w-xs text-gray-300">
+            <div className="flex justify-between text-4xl mt-20 w-full max-w-xs text-gray-300">
               <p className="mr-4">9,000+</p>
               <p className="mr-4">2,000+</p>
               <p>28+</p>

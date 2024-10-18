@@ -61,8 +61,8 @@ export default function Seller() {
 
   return (
     <main>
-    <div className="py-8 px-4 mt-20">
-      <h1 className="text-2xl font-bold mb-4">List Your Property</h1>
+    <div className="py-8 px-4 mt-32">
+      <h1 className="text-center text-3xl font-bold mb-10">List Your Property</h1>
       <form onSubmit={handleSubmit}>
         <input
           name="name"
@@ -152,12 +152,14 @@ export default function Seller() {
           required
           className="border p-2 mb-4 w-full"
         />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
-        >
-          {loading ? "Listing..." : "List Property"}
-        </button>
+        <div className="flex justify-center mt-10">
+          <button
+            type="submit"
+            className="bg-yellow-700 text-white px-10 py-3 rounded hover:bg-yellow-800"
+          >
+            {loading ? "Listing..." : "List Property"}
+          </button>
+        </div>
       </form>
     </div>
     </main>
