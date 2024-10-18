@@ -64,7 +64,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Tanzela Fatema Ali</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            David specializes in property management and is dedicated to maintaining high standards for our listings.
+            Tanzela specializes in property management and is dedicated to maintaining high standards for our listings.
           </p>
         </div>
       </div>
