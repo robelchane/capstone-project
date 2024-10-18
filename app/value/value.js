@@ -42,7 +42,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown1}
-              className= "cursor-pointer text-white font-semibold bg-gray-900 p-6 mt-2 mb-7 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+              className= "cursor-pointer text-white font-semibold bg-gray-900 p-6 mb-7 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
             >
               Best interest rates on the market
             </h2>

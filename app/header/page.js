@@ -131,15 +131,15 @@ const Header = () => {
                   <FaUser className="text-white text-2xl cursor-pointer hover:scale-110 transition-transform duration-300" />
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="mt-2 w-48 bg- rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <DropdownMenuContent className="mt-2 w-48 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
                 <DropdownMenuItem 
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200 transition-colors rounded-lg" 
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-00 transition-colors rounded-lg" 
                   onClick={() => router.push('/account')}
                 >
                   Account
                 </DropdownMenuItem>
                 <DropdownMenuItem 
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200 transition-colors rounded-lg" 
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-00 transition-colors rounded-lg" 
                   onClick={signOut}
                 >
                   Logout
