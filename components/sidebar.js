@@ -1,8 +1,9 @@
 //https://www.youtube.com/watch?v=ydPpcR85UCg
 //https://ui.shadcn.com/docs/components/card
+//ChatGPT
 'use client';
 import Link from "next/link";
-import { usePathname } from 'next/navigation'; // For active link highlighting
+import { usePathname } from 'next/navigation'; 
 import {
     Command,
     CommandGroup,

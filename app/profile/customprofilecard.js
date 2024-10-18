@@ -1,5 +1,6 @@
 //Refrences
 //https://clerk.com/docs/customization/user-profile
+//https://www.youtube.com/watch?v=sXrwh4I229Q
 //ChatGPT
 'use client';
 import { useState } from 'react';
@@ -33,9 +34,6 @@ export default function CustomProfileCard() {
             <CardTitle>Customize Profile</CardTitle>
             <CardDescription>Click to edit your profile information.</CardDescription>
           </CardHeader>
-          <CardContent>
-            <p>Manage your account details and preferences here.</p>
-          </CardContent>
           <CardFooter>
             <Button onClick={handleCustomizeClick}>Edit Profile</Button>
           </CardFooter>
