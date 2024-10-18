@@ -5,26 +5,38 @@
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
 import { useState, useEffect, use } from 'react';
-import {useUser, UserButton, SignOutButton} from '@clerk/nextjs';
-import Image from 'next/image';
+import { FaUser } from 'react-icons/fa'; // Import the user icon from Font Awesome
+import { auth } from '../firebase/firebase'; // Import the Firebase auth instance directly
+import { onAuthStateChanged } from "firebase/auth"; // Import onAuthStateChanged from Firebase Auth
 import {
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "../../components/ui/dropdown-menu"
+  DropdownMenuItem,
+  DropdownMenuContent
+} from './../../components/ui/dropdown-menu';
 
 const Header = () => {
   const router = useRouter(); // Ensure useRouter is at the top, in the client-side component
   const [scrollY, setScrollY] = useState(0);
-  const {user, isSignedIn} = useUser();
+  const [user, setUser] = useState(null);
 
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
 
-  
-  
+    return () => unsubscribe();
+  }, []);
+
+  const signOut = async () => {
+    try {
+      await auth.signOut();
+      router.push('/');
+    } catch (error) {
+      console.error('Failed to sign out:', error);
+    }
+  }
 
   // Track scroll position for header color change
   useEffect(() => {
@@ -107,29 +119,24 @@ const Header = () => {
           {/* Get Started Dropdown Menu */}
         
 
-        {/* Conditional Rendering based on login status */}
-        {isSignedIn ? (
+         {/* Conditional Rendering based on login status */}
+         {user ? (
+            // If user is logged in, show the user icon with a dropdown menu
             <DropdownMenu>
-             <DropdownMenuTrigger as child>
-            <Image 
-             src ={user?.imageUrl} 
-             width={45} 
-             height ={45} 
-             alt="user image"
-             className='rounded-full'/>
-            </DropdownMenuTrigger>
-             <DropdownMenuContent>
-              <Link href="/account">
-               <DropdownMenuLabel>Account</DropdownMenuLabel>
-              </Link>
-               <DropdownMenuSeparator />
-               <DropdownMenuItem><SignOutButton>Logout</SignOutButton></DropdownMenuItem>
-
-             </DropdownMenuContent>
-           </DropdownMenu>
-           
+              <DropdownMenuTrigger>
+                <div className="flex items-center">
+                  
+                  <FaUser className="text-white text-2xl cursor-pointer hover:scale-110 transition-transform duration-300" />
+                </div>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem onClick={() => router.push('/account')}>Account</DropdownMenuItem>
+                <DropdownMenuItem onClick={signOut}>Logout</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
-            <Link href={"/sign-in"}>
+            // If user is not logged in, show "Get Started" button
+            <Link href="/login">
               <p className="text-white text-shadow hover:scale-110 transition-transform duration-300 text-xl">Get Started</p>
             </Link>
           )}

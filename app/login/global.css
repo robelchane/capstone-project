@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4; /* Background color */
+}
+
+.login-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('/backgroundcopy.jpg'); /* Use absolute path */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.home-button {
+  background-color: #063808; /* Change as needed */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px; /* Adjust as needed */
+}
+
+.home-button:hover {
+  background-color: #a7b7af; /* Change on hover */
+}
+
+.login-container {
+  display: flex;
+  width: 90%; /* Make it responsive */
+  max-width: 960px;
+  height: 80%;
+  background: rgba(45, 48, 46, 0.666); /* Semi-transparent white background */
+  backdrop-filter: blur(15px); /* Increase blur effect for a modern look */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for a lift effect */
+  border-radius: 20px; /* More rounded corners */
+  overflow: hidden;
+}
+
+.login-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Add padding */
+  background: rgba(63, 64, 63, 0.8); /* Slightly opaque white */
+  border-right: 1px solid #eaeaea; /* Divider */
+}
+
+.login-left h1 {
+  font-family: 'Montserrat', sans-serif; /* Updated font */
+  font-weight: 800; /* Corresponds to font-extrabold */
+  color: rgb(28, 27, 27); /* Text color */
+  font-size: 2.5rem; /* Adjust to match text-4xl */
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Softer shadow for modern look */
+  background-clip: text; /* Use for text gradient effect if needed */
+  text-transform: uppercase; /* Uppercase text */
+  letter-spacing: 0.2em; /* Slightly increased spacing for modern feel */
+  line-height: 1.2; /* Adjusted line height for better spacing */
+}
+
+
+
+.login-left p {
+  text-align: center; /* Center-align the text */
+  color: #dddada; /* Darker gray for text */
+  font-family: 'Lato', sans-serif; /* Modern font */
+  font-weight: 700; /* Bold weight for emphasis */
+  font-size: 1.0rem; /* Slightly larger font size for emphasis */
+  line-height: 1.5; /* Improved line height for better readability */
+  margin-top: 1rem; /* Add space above the paragraph */
+  margin-bottom: 1rem; /* Add space below the paragraph */
+}
+
+
+.login-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px; /* Padding for better spacing */
+}
+
+.form-container {
+  width: 100%;
+  max-width: 500px; /* Set a max-width for the form */
+  background: #ffffff; /* White background for the form */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  padding: 30px; /* Padding for the form container */
+}
+
+.form-container form {
+  width: 100%;
+}
+
+.form-container form label {
+  margin-bottom: 8px; /* Space between labels and inputs */
+  font-weight: 500; /* Bold labels for better readability */
+}
+
+.form-container form input {
+  width: 100%;
+  padding: 12px; /* Increased padding */
+  margin-bottom: 16px; /* Space between inputs */
+  border: 2px solid #e0e0e0; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  transition: border-color 0.3s; /* Smooth transition for focus effect */
+}
+
+.form-container form input:focus {
+  border-color: #0070f3; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+.login-button,
+.reset-button,
+.signup-button,
+.google-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px; /* Adjusted spacing */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded corners */
+  font-size: 1rem; /* Increase font size */
+  color: white; /* Text color */
+  cursor: pointer; /* Pointer cursor for buttons */
+  transition: background-color 0.3s; /* Smooth transition for hover effects */
+}
+
+.login-button {
+  background-color: #063808; /* Primary button color */
+}
+
+.login-button:hover {
+  background-color: #a7b7af; /* Darker blue on hover */
+}
+label {
+  color: grey; /* Ensures the label text is not greyed out */
+}
+
+.reset-button {
+  background-color: #063808; /* Orange color for reset button */
+}
+
+.reset-button:hover {
+  background-color: #d68f00; /* Darker orange on hover */
+}
+
+.google-button {
+  background-color: #063808; /* Light gray for Google button */
+  color: #fcfffa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-button:hover {
+  background-color: #ebebeb; /* Slightly darker gray on hover */
+}
+
+.text-center {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.text-center {
+  text-align: center;
+  color: black; /* Change to your desired color */
+  opacity: 1; /* Ensure opacity is set to 1 */
+}
+
+input {
+  color: black; /* Ensures text is not greyed out */
+  opacity: 1; /* Ensures the input is fully opaque */
+}
+
+.text-red-500 {
+  color: #ff0000;
+  text-align: center;
+}
+
+.text-green-500 {
+  color: #28a745; /* Updated green for success messages */
+  text-align: center;
+}
+
+.hero-title {
+  color: #333; /* Dark text for visibility */
+  padding: 0;
+}
+
+.hero-title h1 {
+  color: #333; /* Dark text for visibility */
+  padding: 0;
+}
+
+.hero-title p {
+  color: #555; /* Darker gray for better contrast */
+}

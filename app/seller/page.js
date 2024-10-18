@@ -1,7 +1,9 @@
 "use client"; // To use hooks in a Next.js page
 import { useState } from "react";
+import { Input } from "/@/components/ui/input";
+import { Textarea } from "/@/components/ui/textarea";
+import { Button } from "/components/ui/button";
 
- 
 export default function Seller() {
   const [propertyData, setPropertyData] = useState({
     name: "",
