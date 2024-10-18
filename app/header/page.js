@@ -1,4 +1,5 @@
 'use client';
+//using clerk for user authentication and adding user profile image to the header.
 
 
 import { useRouter } from 'next/navigation';
