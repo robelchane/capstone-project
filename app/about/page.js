@@ -54,7 +54,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Asenai Shiberim</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            Sarah is passionate about providing exceptional customer service, ensuring that every client feels valued and heard.
+            Asenai is passionate about providing exceptional customer service, ensuring that every client feels valued and heard.
           </p>
         </div>
 
