@@ -1,8 +1,8 @@
 "use client"; // To use hooks in a Next.js page
 import { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
-import Link from "next/link";
+import { Input } from "/@/components/ui/input";
+import { Textarea } from "/@/components/ui/textarea";
+import { Button } from "/components/ui/button";
 
 export default function Seller() {
   const [propertyData, setPropertyData] = useState({
@@ -18,11 +18,11 @@ export default function Seller() {
     image: "", // This will now hold the image file name
   });
   const [loading, setLoading] = useState(false);
-
+ 
   const handleChange = (e) => {
     setPropertyData({ ...propertyData, [e.target.name]: e.target.value });
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -34,7 +34,7 @@ export default function Seller() {
         },
         body: JSON.stringify(propertyData),
       });
-
+ 
       if (response.ok) {
         alert("Property listed successfully!");
         setPropertyData({
@@ -58,7 +58,7 @@ export default function Seller() {
       setLoading(false);
     }
   };
-
+ 
   return (
     <main>
     <div className="py-8 px-4 mt-20">
@@ -163,3 +163,5 @@ export default function Seller() {
     </main>
   );
 }
+ 
+ 

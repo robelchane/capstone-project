@@ -1,7 +1,10 @@
 'use client';
+//using clerk for user authentication and adding user profile image to the header.
+
+
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { FaUser } from 'react-icons/fa'; // Import the user icon from Font Awesome
 import { auth } from '../firebase/firebase'; // Import the Firebase auth instance directly
 import { onAuthStateChanged } from "firebase/auth"; // Import onAuthStateChanged from Firebase Auth
@@ -16,6 +19,7 @@ const Header = () => {
   const router = useRouter(); // Ensure useRouter is at the top, in the client-side component
   const [scrollY, setScrollY] = useState(0);
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -113,53 +117,29 @@ const Header = () => {
           </DropdownMenu>
 
           {/* Get Started Dropdown Menu */}
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <p className="cursor-pointer text-white text-xl font-medium transition-transform duration-300 hover:scale-105">
-                Get Started
-              </p>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="mt-2 w-48 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <DropdownMenuItem 
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg" 
-                onClick={() => router.push('/login')}
-              >
-                Sign In
-              </DropdownMenuItem>
-              <DropdownMenuItem 
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-00 transition-colors rounded-lg" 
-                onClick={() => router.push('/signup')}
-              >
-                Sign Up
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+        
 
-          {/* Conditional Rendering based on login status */}
-          {user ? (
+         {/* Conditional Rendering based on login status */}
+         {user ? (
             // If user is logged in, show the user icon with a dropdown menu
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <div className="flex items-center">
+                  
                   <FaUser className="text-white text-2xl cursor-pointer hover:scale-110 transition-transform duration-300" />
                 </div>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="mt-2 w-48 bg- rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                <DropdownMenuItem 
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200 transition-colors rounded-lg" 
-                  onClick={() => router.push('/account')}
-                >
-                  Account
-                </DropdownMenuItem>
-                <DropdownMenuItem 
-                  className="block px-4 py-2 text-gray-800 hover:bg-gray-200 transition-colors rounded-lg" 
-                  onClick={signOut}
-                >
-                  Logout
-                </DropdownMenuItem>
+              <DropdownMenuContent>
+                <DropdownMenuItem onClick={() => router.push('/account')}>Account</DropdownMenuItem>
+                <DropdownMenuItem onClick={signOut}>Logout</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-          ) : null}
+          ) : (
+            // If user is not logged in, show "Get Started" button
+            <Link href="/login">
+              <p className="text-white text-shadow hover:scale-110 transition-transform duration-300 text-xl">Get Started</p>
+            </Link>
+          )}
         </div>
       </div>
     </div>
