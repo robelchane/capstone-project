@@ -90,12 +90,12 @@ export default function Home() {
           {/* Button Section with Flexbox */}
           <div className="flex gap-4">
             <Link href="/contact">
-              <button className="mr-5 px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+              <button className="rounded mr-5 px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
                 Contact Us
               </button>
             </Link>
             <Link href="/listings">
-              <button className="px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+              <button className="rounded px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
                 Best Properties
               </button>
             </Link>

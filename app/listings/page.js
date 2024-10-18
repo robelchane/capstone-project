@@ -14,10 +14,10 @@ export default function Listings() {
 
 
   return (
-    <main className="font-serif p-8 flex h-screen overflow-hidden mt-32"> {/* Prevents scrolling on X-axis and main page */}
+    <main className="font-serif p-8 flex h-screen overflow-hidden mb-12 mt-32"> {/* Prevents scrolling on X-axis and main page */}
       
       {/* Map Section */}
-      <div className="w-1/2 h-full">
+      <div className="w-1/2 h-full p-4">
         <Map items={data}/>
       </div>
 
@@ -54,37 +54,34 @@ export default function Listings() {
                       Price: ${residence.price}
                     </p>
                     <div className="flex items-center space-x-2">
-  <p className="text-sm text-gray-700 flex items-center">
-    <img 
-      src="./bed.png"
-      alt="bed"
-      className="inline-block h-5 w-5 mr-1"
-    />
-    {residence.bedrooms}
-    <span className="ml-1">Bedroom</span> {/* Adds padding between the number and text */}
-  </p>
+                      <p className="text-sm text-gray-700 flex items-center">
+                        <img 
+                          src="./bed.png"
+                          alt="bed"
+                          className="inline-block h-5 w-5 mr-1"
+                        />
+                        {residence.bedrooms}
+                        <span className="ml-1">Bedroom</span> {/* Adds padding between the number and text */}
+                      </p>
 
-  <p className="text-sm text-gray-700 flex items-center p-2">
-    <img
-      src="./bath.png"
-      alt="bath"
-      className="inline-block h-5 w-5 mr-1"
-    />
-    {residence.bathrooms}
-    <span className="ml-1">Bathroom</span> {/* Adds padding between the number and text */}
-  </p>
-</div>
-
-
+                      <p className="text-sm text-gray-700 flex items-center p-2">
+                        <img
+                          src="./bath.png"
+                          alt="bath"
+                          className="inline-block h-5 w-5 mr-1"
+                        />
+                        {residence.bathrooms}
+                        <span className="ml-1">Bathroom</span> {/* Adds padding between the number and text */}
+                      </p>
+                    </div>
                   </Link>
                 </div>
 
                 {/* Contact Button */}
                 <div className="absolute bottom-4 right-4">
-                  
-                    <button className="bg-yellow-700 text-white px-4 py-2">
-                      Contact Seller
-                    </button>
+                  <button className="bg-yellow-700 text-white px-4 py-2">
+                    Contact Seller
+                  </button>
 
                 </div>
               </div>

@@ -23,7 +23,7 @@ export default function PropertyPage({ params }) {
   return (
     <main className="font-serif text-black">
       <div className="p-8">
-        <h1 className="text-4xl font-bold text-center ">{property.name}</h1>
+        <h1 className="text-4xl font-bold text-center mt-32">{property.name}</h1>
         <img src={currentImage} alt={property.name} className="w-1/2 h-auto mx-auto mt-10" />
 
             {/* Image Gallery */}
