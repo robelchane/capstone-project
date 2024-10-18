@@ -43,8 +43,8 @@ const About = () => {
           <h2 className="text-2xl font-semibold text-gray-800">Gaon Sun</h2>
           <p className="text-gray-600">...</p>
           <p className="mt-2 text-gray-700">
-            Mark is an expert negotiator and is dedicated to getting the best deals for our clients.
-            His extensive knowledge of the market helps clients make informed decisions.
+            Gaon is an expert negotiator and is dedicated to getting the best deals for our clients.
+            Her extensive knowledge of the market helps clients make informed decisions.
           </p>
         </div>
 
