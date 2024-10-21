@@ -162,7 +162,7 @@ const WebsiteComponent = () => {
                 arcu. Quisque viverra dui purus, at rutrum nibh suscipit ut.
               </p>
               <blockquote>
-                <p>"NO"</p>
+                <p>"NOs"</p>
               </blockquote>
             </div>
             <div className="md:w-1/2">
