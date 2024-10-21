@@ -23,6 +23,7 @@
     "@radix-ui/react-navigation-menu": "^1.2.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@react-leaflet/core": "^2.1.0",
+    "@talkjs/react": "^0.1.9",
     "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -46,6 +47,7 @@
     "react-slideshow-image": "^4.3.1",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
+    "talkjs": "^0.29.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

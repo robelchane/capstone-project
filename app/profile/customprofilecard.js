@@ -19,7 +19,7 @@ export default function CustomProfileCard() {
   const [showUserProfile, setShowUserProfile] = useState(false);
 
   const handleCustomizeClick = () => {
-    // Toggle the display of <UserProfile />
+    // Set the state to show the user profile
     setShowUserProfile(true);
   };
 
