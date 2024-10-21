@@ -1,0 +1,11 @@
+POST http://localhost:3000/api/messages HTTP/1.1
+Content-Type: application/json
+
+{
+  "senderId": "64b15c1a9a6425eeb8d5b3f7",
+  "receiverId": "64b15c1a9a6425eeb8d5b3f8",
+  "messageBody": "Hello, World!",
+  "isRead": false,
+  "attachment": "https://example.com/image.jpg",
+  "conversationId": "64b15c1a9a6425eeb8d5b3fa"
+}
