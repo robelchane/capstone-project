@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose";
 
 const propertySchema = new Schema(
   {
+    
   name: String,
   price: String,
   bedrooms: Number,
