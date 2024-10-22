@@ -1,14 +1,10 @@
-
 "use client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { useUser, UserButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
 
-//import { FaUser } from 'react-icons/fa'; // Import the user icon from Font Awesome
-//import { auth } from '../firebase/firebase'; // Import the Firebase auth instance directly
-//import { onAuthStateChanged } from "firebase/auth"; // Import onAuthStateChanged from Firebase Auth
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,41 +15,20 @@ import {
 } from "../../components/ui/dropdown-menu";
 
 export default function Header() {
-  const router = useRouter(); // Ensure useRouter is at the top, in the client-side component
+  const router = useRouter();
   const [scrollY, setScrollY] = useState(0);
-  const { user, isSignedIn } = useUser();
-  //const [user, setUser] = useState(null);
-
-  /*useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const signOut = async () => {
-    try {
-      await auth.signOut();
-      router.push('/');
-    } catch (error) {
-      console.error('Failed to sign out:', error);
-    }
-  }
-  */
+  const { user, isLoaded, isSignedIn } = useUser(); // Ensure all states are handled
 
   // Track scroll position for header color change
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!isLoaded) {
+    return <p>Loading...</p>; // Display loading while user state initializes
+  }
 
   return (
     <div
@@ -76,8 +51,9 @@ export default function Header() {
             </p>
           </Link>
         </div>
+
         <div className="flex gap-10 m-2">
-          {/* Dropdown Menu for Properties */}
+          {/* Properties Dropdown Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger>
               <p className="cursor-pointer text-white text-xl font-medium transition-transform duration-300 hover:scale-105">
@@ -87,22 +63,21 @@ export default function Header() {
             <DropdownMenuContent className="mt-2 w-48 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
               <DropdownMenuItem
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
-                onClick={() => {
-                  if (isSignedIn) {
-                    router.push("/seller");
-                  } else {
-                    router.push("/sign-in");
-                  }
-                }}
+                onClick={() => router.push("/seller")}
               >
                 Seller
               </DropdownMenuItem>
-
               <DropdownMenuItem
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
                 onClick={() => router.push("/listings")}
               >
                 Buyer
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
+                onClick={handleManagerAccess}
+              >
+                Manager
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -130,12 +105,10 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Get Started Dropdown Menu */}
-
-          {/* Conditional Rendering based on login status */}
+          {/* User Profile or Get Started Button */}
           {isSignedIn ? (
             <DropdownMenu>
-              <DropdownMenuTrigger as child>
+              <DropdownMenuTrigger asChild>
                 <Image
                   src={user?.imageUrl}
                   width={45}
@@ -155,7 +128,7 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Link href={"/sign-in"}>
+            <Link href="/sign-in">
               <p className="text-white text-shadow hover:scale-110 transition-transform duration-300 text-xl">
                 Get Started
               </p>
