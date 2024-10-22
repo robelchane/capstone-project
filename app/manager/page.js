@@ -47,7 +47,7 @@ export default function Manager() {
   };
 
   return (
-    <div className="py-8 px-4 mt-20">
+    <div className="py-8 px-4 mt-16">
       {/* Loading spinner */}
       {loading && <p>Loading properties...</p>}
 
