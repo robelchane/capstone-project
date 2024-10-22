@@ -141,7 +141,7 @@ export default function AllListings() {
                 <p className="text-sm text-gray-500">
                   Seller:{" "}
                   <a href={`mailto:${property.sellerEmail}`} className="text-blue-500 hover:underline">
-                    {property.sellerName} ({property.sellerEmail})
+                     ({property.sellerEmail})
                   </a>
                 </p>
               </div>
