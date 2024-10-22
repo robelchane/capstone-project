@@ -26,6 +26,23 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleManagerAccess = () => {
+    const isManager = prompt("Are you a manager? (yes/no)").toLowerCase();
+    if (isManager === "yes") {
+      const managerID = prompt("What is your ID?");
+      const passcode = prompt("What is your passcode?");
+      
+      // Example validation (replace with actual logic)
+      if (managerID === "12345" && passcode === "adminpass") {
+        router.push("/manage-property");
+      } else {
+        alert("Invalid ID or passcode. Access denied.");
+      }
+    } else {
+      alert("Access denied. You are not a manager.");
+    }
+  };
+
   if (!isLoaded) {
     return <p>Loading...</p>; // Display loading while user state initializes
   }
