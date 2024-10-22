@@ -1,8 +1,9 @@
 //https://www.youtube.com/watch?v=ydPpcR85UCg
 //https://ui.shadcn.com/docs/components/card
+//ChatGPT
 'use client';
 import Link from "next/link";
-import { usePathname } from 'next/navigation'; // For active link highlighting
+import { usePathname } from 'next/navigation'; 
 import {
     Command,
     CommandGroup,
@@ -44,7 +45,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <div className="flex flex-col w-[300px] border-r min-h-screen p-4">
+        <div className="flex flex-col w-[300px] border-r min-h-screen p-5 mt-5">
             <Command className="flex-grow">
                 <CommandList>
                     {menuList.map((menu, menuKey) => (

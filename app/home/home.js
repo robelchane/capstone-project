@@ -43,22 +43,14 @@ export default function Home() {
           style={backgroundImageStyle}
         >
           {/* Content over the background */}
-          <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-5">
-            <div className="font-bold text-white text-5xl text-center">
-              <p className="text-gray-300">Discover</p>
-              <p className="my-2 text-gray-300">Most Suitable</p>
-              <p className="text-gray-300">Property</p>
-            </div>
-            <div className="my-10 text-xl text-center text-gray-300">
-              <p>
-                Find a variety of properties that suit you very easily.<br />
-                Forget all difficulties in finding a residence for you.
-              </p>
+          <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-20">
+            <div className="font-bold text-white text-6xl text-center">
+              <p className="text-gray-100 mb-20">Discover Most Suitable Property</p>
             </div>
 
             <SearchBar />
 
-            <div className="flex justify-between text-4xl mt-10 w-full max-w-xs text-gray-300">
+            <div className="flex justify-between text-4xl mt-20 w-full max-w-xs text-gray-300">
               <p className="mr-4">9,000+</p>
               <p className="mr-4">2,000+</p>
               <p>28+</p>
@@ -98,12 +90,12 @@ export default function Home() {
           {/* Button Section with Flexbox */}
           <div className="flex gap-4">
             <Link href="/contact">
-              <button className="mr-5 px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+              <button className="rounded mr-5 px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
                 Contact Us
               </button>
             </Link>
             <Link href="/listings">
-              <button className="px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+              <button className="rounded px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
                 Best Properties
               </button>
             </Link>
