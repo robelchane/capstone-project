@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useUser, UserButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +16,9 @@ import {
 export default function Header() {
   const router = useRouter();
   const [scrollY, setScrollY] = useState(0);
-  const { user, isLoaded, isSignedIn } = useUser(); // Ensure all states are handled
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [blockTime, setBlockTime] = useState(0);
+  const { user, isLoaded, isSignedIn } = useUser();
 
   // Track scroll position for header color change
   useEffect(() => {
@@ -27,6 +28,15 @@ export default function Header() {
   }, []);
 
   const handleManagerAccess = () => {
+    const currentTime = Date.now();
+    
+    // Check if currently blocked
+    if (failedAttempts >= 3 && currentTime < blockTime) {
+      const timeLeft = Math.ceil((blockTime - currentTime) / 1000); // Calculate seconds left
+      alert(`Too many attempts. Please wait ${timeLeft} seconds before trying again.`);
+      return;
+    }
+
     const isManager = prompt("Are you a manager? (yes/no)").toLowerCase();
     if (isManager === "yes") {
       const managerID = prompt("What is your ID?");
@@ -34,9 +44,16 @@ export default function Header() {
       
       // Example validation (replace with actual logic)
       if (managerID === "123456789" && passcode === "adminpass") {
+        setFailedAttempts(0); // Reset on successful login
         router.push("/manager");
       } else {
         alert("Invalid ID or passcode. Access denied.");
+        setFailedAttempts(prev => prev + 1); // Increment failed attempts
+
+        // Set block time after 3 failed attempts
+        if (failedAttempts + 1 >= 3) {
+          setBlockTime(Date.now() + 5 * 60 * 1000); // 5 minutes block
+        }
       }
     } else {
       alert("Access denied. You are not a manager.");
@@ -44,7 +61,7 @@ export default function Header() {
   };
 
   if (!isLoaded) {
-    return <p>Loading...</p>; // Display loading while user state initializes
+    return <p>Loading...</p>;
   }
 
   return (
