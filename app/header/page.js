@@ -34,7 +34,7 @@ export default function Header() {
       
       // Example validation (replace with actual logic)
       if (managerID === "123456789" && passcode === "adminpass") {
-        router.push("/manage-property");
+        router.push("/manager");
       } else {
         alert("Invalid ID or passcode. Access denied.");
       }
