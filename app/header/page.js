@@ -146,7 +146,7 @@ export default function Header() {
             </DropdownMenu>
           ) : (
             <Link href="/sign-in">
-              <p className="text-white text-shadow hover:scale-110 transition-transform duration-300 text-xl">
+              <p className="cursor-pointer mt-2 text-white text-xl font-medium transition-transform duration-300 hover:scale-110">
                 Get Started
               </p>
             </Link>
