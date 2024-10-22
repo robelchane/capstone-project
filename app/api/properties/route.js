@@ -22,26 +22,32 @@ export async function POST(request) {
 
 // GET request to fetch all properties with optional filters
 export async function GET(request) {
-  await connectMongoDB();
-  
-  const { searchParams } = request.nextUrl;
-  const minPrice = searchParams.get("minPrice");
-  const maxPrice = searchParams.get("maxPrice");
-  const bedrooms = searchParams.get("bedrooms");
-  const bathrooms = searchParams.get("bathrooms");
+  try {
+    await connectMongoDB();
 
-  // Build the query based on the filters provided
-  const query = {};
-  
-  if (minPrice) query.price = { ...query.price, $gte: minPrice }; 
-  if (maxPrice) query.price = { ...query.price, $lte: maxPrice }; 
-  if (bedrooms) query.bedrooms = bedrooms; 
-  if (bathrooms) query.bathrooms = bathrooms; 
-  
-  // Find all properties matching the query
-  const properties = await Property.find(query);
-  
-  return NextResponse.json({ properties });
+    const { searchParams } = request.nextUrl;
+    const minPrice = parseFloat(searchParams.get("minPrice")) || 0;
+    const maxPrice = parseFloat(searchParams.get("maxPrice")) || Number.MAX_SAFE_INTEGER;
+    const bedrooms = searchParams.get("bedrooms");
+    const bathrooms = searchParams.get("bathrooms");
+
+    // Build the query based on filters
+    const query = {
+      price: { $gte: minPrice, $lte: maxPrice },
+    };
+
+    if (bedrooms) query.bedrooms = parseInt(bedrooms);
+    if (bathrooms) query.bathrooms = parseInt(bathrooms);
+
+    // Fetch properties matching the query
+    const properties = await Property.find(query);
+
+    return NextResponse.json({ properties });
+
+  } catch (error) {
+    console.error("Error fetching properties:", error);
+    return NextResponse.json({ message: "Failed to fetch properties" }, { status: 500 });
+  }
 }
 
 // DELETE request to remove a property by ID

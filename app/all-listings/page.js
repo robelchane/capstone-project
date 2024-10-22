@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBed, faBath } from "@fortawesome/free-solid-svg-icons";
 
 export default function AllListings() {
-  const [properties, setProperties] = useState([]); // State to hold the fetched property listings
+  const [properties, setProperties] = useState([]); // Holds fetched property listings
   const [loading, setLoading] = useState(false); 
   const [filters, setFilters] = useState({
     minPrice: "",
@@ -19,35 +19,39 @@ export default function AllListings() {
     bathrooms: "",
   });
 
-  // Fetch properties based on filters
+  // Fetch properties based on current filters
   const fetchProperties = async () => {
     setLoading(true);
     try {
       const query = new URLSearchParams(filters).toString(); 
-      const response = await fetch(`/api/properties?${query}`); // Call the backend API route with filters
-      const data = await response.json(); 
-      setProperties(data.properties); // Update the properties state with the fetched data
+      const response = await fetch(`/api/properties?${query}`);
+      const data = await response.json();
+      setProperties(data.properties); // Update state with fetched properties
     } catch (error) {
       console.error("Failed to fetch properties", error);
     } finally {
-      setLoading(false); // End loading state
+      setLoading(false); // Stop loading state
     }
   };
 
-  // Fetch all properties when the component mounts (without filters)
+  // Fetch all properties when the component mounts
   useEffect(() => {
     fetchProperties(); 
-  }, []); 
+  }, []);
 
   // Handle changes in filter inputs
   const handleChange = (e) => {
-    setFilters({ [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
   };
 
   // Handle form submission for filtering properties
   const handleSearch = async (e) => {
     e.preventDefault();
-    await fetchProperties(); // Fetch properties with the applied filters
+    await fetchProperties(); // Fetch properties with applied filters
   };
 
   return (
@@ -59,7 +63,7 @@ export default function AllListings() {
         <div>
           <input
             name="minPrice"
-            type="text"
+            type="number"
             placeholder="Min Price"
             value={filters.minPrice}
             onChange={handleChange}
@@ -69,7 +73,7 @@ export default function AllListings() {
         <div>
           <input
             name="maxPrice"
-            type="text"
+            type="number"
             placeholder="Max Price"
             value={filters.maxPrice}
             onChange={handleChange}
@@ -121,7 +125,8 @@ export default function AllListings() {
               />
               <h2 className="text-xl font-bold mb-2">{property.name}</h2>
               <p className="text-lg text-gray-700">
-                <span style={{ color: '#001f3f' }}>$</span>{property.price}
+                <span style={{ color: '#001f3f' }}>$</span>
+                {property.price}
               </p>
               <p className="text-gray-600">{property.summary}</p>
               <p className="text-sm text-gray-500">{property.address}</p>
