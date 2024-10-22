@@ -136,6 +136,15 @@ export default function AllListings() {
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
+              {/* Seller contact information */}
+              <div className="mt-4">
+                <p className="text-sm text-gray-500">
+                  Seller:{" "}
+                  <a href={`mailto:${property.sellerEmail}`} className="text-blue-500 hover:underline">
+                    {property.sellerName} ({property.sellerEmail})
+                  </a>
+                </p>
+              </div>
             </div>
           ))
         ) : (
