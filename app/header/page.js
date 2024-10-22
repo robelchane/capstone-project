@@ -52,7 +52,7 @@ export default function Header() {
 
         // Set block time after 3 failed attempts
         if (failedAttempts + 1 >= 3) {
-          setBlockTime(Date.now() + 2 * 60 * 1000); // 5 minutes block
+          setBlockTime(Date.now() + 1 * 60 * 1000); // 5 minutes block
         }
       }
     } else {
