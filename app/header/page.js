@@ -33,7 +33,7 @@ export default function Header() {
       const passcode = prompt("What is your passcode?");
       
       // Example validation (replace with actual logic)
-      if (managerID === "12345" && passcode === "adminpass") {
+      if (managerID === "123456789" && passcode === "adminpass") {
         router.push("/manage-property");
       } else {
         alert("Invalid ID or passcode. Access denied.");
