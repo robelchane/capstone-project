@@ -7,29 +7,42 @@ const LivingInCalgary = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch news articles from the API
-  useEffect(() => {
-    const fetchNews = async () => {
-      try {
-        const response = await fetch(
-          `https://newsapi.org/v2/everything?q=Calgary%20events&apiKey=3b4b34a7ee384111ad57c7eb96568199`
+// Fetch news articles from the API
+useEffect(() => {
+  const fetchNews = async () => {
+    try {
+      const response = await fetch(
+        `https://newsapi.org/v2/everything?q=Calgary%20Halloween%20OR%20Calgary%20fall&apiKey=3b4b34a7ee384111ad57c7eb96568199`
+      );
+      const data = await response.json();
+
+      if (response.ok) {
+        // Define positive keywords
+        const positiveKeywords = ['season', 'great', 'success', 'positive', 'wonderful', 'happy', 'halloween', 'fall'];
+
+        // Filter articles for positive content
+        const filteredArticles = data.articles.filter(article =>
+          positiveKeywords.some(keyword =>
+            article.title.toLowerCase().includes(keyword) ||
+            article.description?.toLowerCase().includes(keyword) // Use optional chaining to avoid errors
+          )
         );
-        const data = await response.json();
 
-        if (response.ok) {
-          setRecentNews(data.articles);
-        } else {
-          setError(data.message);
-        }
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
+        // Update state with filtered articles
+        setRecentNews(filteredArticles);
+      } else {
+        setError(data.message);
       }
-    };
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    fetchNews();
-  }, []);
+  fetchNews();
+}, []);
+
 
   return (
     <div className="bg-gradient-to-r from-[#8B6331] to-[#09090b]">
@@ -137,35 +150,36 @@ const LivingInCalgary = () => {
         </div>
       </section>
 
-      {/* News Section */}
-      <section className="py-[70px]" id="news">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4" style={{ color: '#65a30d' }}>
-            Recent News
-          </h2>
+{/* News Section */}
+<section className="py-[70px] bg-gray-50" id="news">
+  <div className="container mx-auto text-center px-4">
+    <h2 className="text-4xl font-bold mb-6 text-[#8B6331]">
+      Recent News
+    </h2>
 
-          {loading && <p className="text-lg text-gray-600">Loading news...</p>}
-          {error && <p className="text-lg text-red-600">Error fetching news: {error}</p>}
-          
-          <div className="flex overflow-x-auto space-x-4 mt-4 max-w-full py-4">
-            {recentNews.map((news, index) => (
-              <div key={index} className="min-w-[300px] bg-white p-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
-                {news.urlToImage && (
-                  <img
-                    src={news.urlToImage}
-                    alt={news.title}
-                    className="w-full h-52 object-cover rounded-t"
-                  />
-                )}
-                <h3 className="text-xl font-bold mt-2">{news.title}</h3>
-                <a href={news.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-700 transition-colors duration-300">
-                  Read more
-                </a>
-              </div>
-            ))}
-          </div>
+    {loading && <p className="text-lg text-gray-600">Loading news...</p>}
+    {error && <p className="text-lg text-red-600">Error fetching news: {error}</p>}
+    
+    <div className="flex overflow-x-auto space-x-6 mt-6 max-w-full py-4">
+      {recentNews.map((news, index) => (
+        <div key={index} className="min-w-[300px] bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          {news.urlToImage && (
+            <a href={news.url} target="_blank" rel="noopener noreferrer">
+              <img
+                src={news.urlToImage}
+                alt={news.title}
+                className="w-full h-48 object-cover rounded-t-lg"
+              />
+            </a>
+          )}
+          <h3 className="text-2xl font-semibold mt-4">{news.title}</h3>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
     </div>
   );
