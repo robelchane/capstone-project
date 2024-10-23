@@ -1,18 +1,50 @@
-import React from 'react'; 
+"use client";
+import React, { useEffect, useState } from 'react';
+import Link from "next/link"; // Keep the import for Link if you're using it
 
-const WebsiteComponent = () => {
+const LivingInCalgary = () => {
+  const [recentNews, setRecentNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch news articles from the API
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(
+          `https://newsapi.org/v2/everything?q=Calgary%20events&apiKey=3b4b34a7ee384111ad57c7eb96568199`
+        );
+        const data = await response.json();
+
+        if (response.ok) {
+          setRecentNews(data.articles);
+        } else {
+          setError(data.message);
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
   return (
-    <div className="bg-gradient-to-r from-[#7B5A2E] to-white">
+    <div className="bg-gradient-to-r from-[#8B6331] to-[#09090b]">
+
+      {/* Logo Section */}
       <section id="logo" className="pt-[170px] pb-0">
         <div className="max-w-[1310px] mx-auto">
           <div className="flex justify-end">
-            <div className="max-w-[500px] mx-auto border-b border-[#99ccff] flex items-center justify-center">
-              <div className="inline-block mx-auto text-center">
-                <h1 className="text-3xl uppercase text-[#99ccff] font-bold">
-                  content...
+            <div className="max-w-[700px] ml-auto border-b border-[#fafafa] flex items-center justify-end">
+              <div className="inline-block ml-auto text-right">
+                <h1 className="text-5xl uppercase text-[#fafafa] font-extrabold font-sans">
+                  Calgary awaits you
                 </h1>
-                <p className="text-lg text-[#99ccff]">
-                  content... 
+                <p className="text-1xl text-[#09090b] font-bold font-sans">
+                  content...
                 </p>
               </div>
             </div>
@@ -20,6 +52,7 @@ const WebsiteComponent = () => {
         </div>
       </section>
 
+      {/* Intro Section */}
       <section className="my-[80px] tm-p-1-section-1" id="intro">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row">
@@ -37,6 +70,7 @@ const WebsiteComponent = () => {
         </div>
       </section>
 
+      {/* Our Place Section */}
       <section className="py-[70px] bg-white" id="our_place">
         <div className="container mx-auto">
           <div className="flex flex-col lg:flex-row">
@@ -51,6 +85,7 @@ const WebsiteComponent = () => {
         </div>
       </section>
 
+      {/* Section 4 */}
       <section className="py-[70px]" id="section_4">
         <div className="container mx-auto">
           <div className="flex flex-col-reverse lg:flex-row">
@@ -71,115 +106,69 @@ const WebsiteComponent = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
       <section className="py-[115px] pb-[110px]" id="gallery">
         <div className="container mx-auto">
           <div className="mb-[30px] text-right">
-            <h2 className="text-2xl" id="beautiful-rollovers">Rollovers</h2>
+            <h2 className="text-3xl text-[#4B3D2E] font-bold" id="beautiful-rollovers">Gallery</h2>
             <hr className="border-black w-[50%] ml-auto" />
           </div>
-          <div className="grid gap-4 justify-center md:grid-cols-2 lg:grid-cols-3">
-            {/* Example for a gallery figure */}
-            {[11, 12, 13, 14].map((num) => (
-              <figure key={num} className="effect-duke mb-3">
-                <img src={`/CalgaryStampede.jpg`} alt="Image" className="w-full" />
-                <figcaption>
-                  <h2 id={`messy-duke-${num - 10}`}>Messy <span>Lorem</span></h2>
-                  <p>Lorem</p>
-                  <a href="#">View more</a>
-                </figcaption>
-              </figure>
+          <div className="flex gap-6 justify-center">
+            {['CalgaryStampede.jpg', 'cal3.jpg', 'cal4.jpg', 'cal5.jpg'].map((imgSrc, index) => (
+              <Link key={index} href={`/card${index + 1}`}>
+                <figure className="relative overflow-hidden transition-transform duration-300 group rounded-lg h-64 w-80 cursor-pointer">
+                  <img
+                    src={`/${imgSrc}`} // Assuming images are in the public folder
+                    alt={`Image ${index + 1}`}
+                    className="transition-transform duration-500 ease-in-out transform scale-100 group-hover:opacity-10 group-hover:scale-125 w-full h-full object-cover" // Smooth zoom on hover
+                  />
+                  <div className="absolute bottom-0 left-0 m-5 p-5 border-2 border-white transition-opacity duration-300 transform scale-75 origin-bottom opacity-0 group-hover:scale-100 group-hover:opacity-100">
+                    <h2 className="transition-transform duration-300 transform scale-75 origin-bottom group-hover:scale-100">
+                      Your Title {index + 1}
+                    </h2>
+                    <p className="opacity-0 transition-opacity duration-300 transform scale-75 origin-bottom group-hover:opacity-100 group-hover:scale-100">
+                      Your description goes here.
+                    </p>
+                  </div>
+                </figure>
+              </Link>
             ))}
           </div>
-          <div className="mt-[40px] lg:w-[50%] ml-auto">
-            <p className="text-gray-600">
-               Quisque pharetra mauris in libero vaius tristique.
-            </p>
-          </div>
         </div>
       </section>
 
-      <section className="py-[110px] pb-[90px]" id="contact">
-        <div className="flex flex-col md:flex-row">
-          <div className="md:w-1/2 bg-white/50 p-8">
-            <div className="mb-5">
-              <a href="#" className="flex items-center">
-                <div className="bg-white text-[#7B5A2E] rounded-full w-[70px] h-[70px] flex items-center justify-center mr-[30px]">
-                  <i className="fas fa-phone-alt"></i>
-                </div>
-                <div>010-020-0340</div>
-              </a>
-            </div>
-            <div className="mb-5">
-              <a href="mailto:" className="flex items-center">
-                <div className="bg-white text-[#7B5A2E] rounded-full w-[70px] h-[70px] flex items-center justify-center mr-[30px]">
-                  <i className="far fa-envelope"></i>
-                </div>
-                <div>info@company.com</div>
-              </a>
-            </div>
-            <div>
-              <a href="#" className="flex items-center">
-                <div className="bg-white text-[#7B5A2E] rounded-full w-[70px] h-[70px] flex items-center justify-center mr-[30px]">
-                  <i className="fas fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  6120 Suspendisse ultricies<br />
-                  Scelerisque tellus, ID 10260<br />
-                  Magna aliquet porttitor
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="md:w-1/2">
-            <div className="bg-white p-[55px_67px] mt-8 md:mt-0">
-              <form className="tm-contact-form">
-                <div className="mb-6">
-                  <input type="text" name="name" className="form-control rounded-none border-[#9a9a9a] w-full p-2" placeholder="Name" required />
-                </div>
-                <div className="mb-6">
-                  <input type="email" name="email" className="form-control rounded-none border-[#9a9a9a] w-full p-2" placeholder="Email" required />
-                </div>
-                <div className="mb-6">
-                  <textarea rows="5" name="message" className="form-control rounded-none border-[#9a9a9a] w-full p-2" placeholder="Message" required></textarea>
-                </div>
-                <div className="text-right">
-                  <button type="submit" className="border border-[#9a9a9a] text-[#313638] hover:text-[#7B5A2E] hover:border-[#7B5A2E] px-4 py-2 rounded">
-                    Send
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* News Section */}
+      <section className="py-[70px]" id="news">
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4" style={{ color: '#65a30d' }}>
+            Recent News
+          </h2>
 
-      <section className="pt-[90px]" id="outro">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2 text-white">
-              <p>
-                Fusce a porttitor augue. Phasellus nec faucibus erat, vitae sagittis
-                arcu. Quisque viverra dui purus, at rutrum nibh suscipit ut.
-              </p>
-              <blockquote>
-                <p>"NOs"</p>
-              </blockquote>
-            </div>
-            <div className="md:w-1/2">
-              <div className="flex flex-wrap">
-                {['facebook-f', 'twitter', 'instagram', 'linkedin-in'].map((icon) => (
-                  <div key={icon} className="bg-[#7B5A2E] rounded-full w-[62px] h-[62px] flex items-center justify-center mr-[20px] mb-[20px] cursor-pointer hover:bg-[#5C3A22]">
-                    <i className={`fab fa-${icon} text-white`}></i>
-                  </div>
-                ))}
+          {loading && <p className="text-lg text-gray-600">Loading news...</p>}
+          {error && <p className="text-lg text-red-600">Error fetching news: {error}</p>}
+          
+          <div className="flex overflow-x-auto space-x-4 mt-4 max-w-full py-4">
+            {recentNews.map((news, index) => (
+              <div key={index} className="min-w-[300px] bg-white p-4 rounded shadow-md hover:shadow-lg transition-shadow duration-300">
+                {news.urlToImage && (
+                  <img
+                    src={news.urlToImage}
+                    alt={news.title}
+                    className="w-full h-52 object-cover rounded-t"
+                  />
+                )}
+                <h3 className="text-xl font-bold mt-2">{news.title}</h3>
+                <a href={news.url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-700 transition-colors duration-300">
+                  Read more
+                </a>
               </div>
-            </div>
+            ))}
           </div>
-
         </div>
       </section>
+
     </div>
   );
 };
 
-export default WebsiteComponent;
+export default LivingInCalgary;
