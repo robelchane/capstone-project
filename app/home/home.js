@@ -56,7 +56,7 @@ export default function Home() {
               <p>28+</p>
             </div>
 
-            <div className="flex justify-between text-base mt-2 mb-28 w-full max-w-xs text-gray-300">
+            <div className="flex justify-between text-base mt-2 mb-20 w-full max-w-xs text-gray-300">
               <p className="ml-4 mr-10">Premium Product</p>
               <p className="ml-10 mr-6">Happy Customer</p>
               <p className="ml-4">Award Winning</p>
