@@ -1,3 +1,8 @@
+"use client"; // Ensure this is a client component
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+
 export default function SearchBar() {
   const [address, setAddress] = useState(""); // Store input address
   const [properties, setProperties] = useState(null); // Start with no properties
