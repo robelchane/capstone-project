@@ -30,6 +30,7 @@ export async function GET(request) {
     const maxPrice = parseFloat(searchParams.get("maxPrice")) || Number.MAX_SAFE_INTEGER;
     const bedrooms = searchParams.get("bedrooms");
     const bathrooms = searchParams.get("bathrooms");
+    const address = searchParams.get("address"); // New address filter
 
     // Build the query based on filters
     const query = {
@@ -38,17 +39,18 @@ export async function GET(request) {
 
     if (bedrooms) query.bedrooms = parseInt(bedrooms);
     if (bathrooms) query.bathrooms = parseInt(bathrooms);
+    if (address) query.address = { $regex: address, $options: "i" }; // Case-insensitive address search
 
     // Fetch properties matching the query
     const properties = await Property.find(query);
 
     return NextResponse.json({ properties });
-
   } catch (error) {
     console.error("Error fetching properties:", error);
     return NextResponse.json({ message: "Failed to fetch properties" }, { status: 500 });
   }
 }
+
 
 // DELETE request to remove a property by ID
 export async function DELETE(request) {
