@@ -105,7 +105,7 @@ export default function AllListings() {
           <input
             name="address"
             type="text"
-            placeholder="Address (e.g., Calgary || AB || Calgary, AB)"
+            placeholder="Enter address..."
             value={filters.address}
             onChange={handleChange}
             className="border p-2 w-full"
