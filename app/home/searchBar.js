@@ -1,4 +1,4 @@
-"use client"; // Ensure this is a client component
+"use client"; 
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
