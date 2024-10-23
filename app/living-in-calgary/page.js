@@ -65,38 +65,44 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="my-[80px] tm-p-1-section-1" id="intro">
-        <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-1/2">
-              <div className="tm-section-text-container">
-                <p>
-                  Lorem ipsum
-                  Nullam eget dignissim orci. Donec tincidunt blandit libero iaculis
-                  fermentum. Aliquam erat volutpat. Interger suscipit aliquam augue ac
-                  rutrum. Phasellus sit amet erat id sapien efficitur euismod.
-                </p>
-              </div>
-            </div>
-          </div>
+{/* Intro Section */}
+<section className="my-[80px] tm-p-1-section-1" id="intro">
+  <div className="container mx-auto">
+    <div className="flex flex-col md:flex-row">
+      <div className="md:w-1/2">
+        <div className="tm-section-text-container">
+          <p className="text-white"> {/* Set text color to white */}
+            Calgary is a vibrant and growing urban hub located at the foot of the Rocky Mountains. Known for its incredible outdoor activities, job opportunities, and family-friendly communities, it’s the perfect blend of urban living and natural beauty.
+          </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* Our Place Section */}
-      <section className="py-[70px] bg-white" id="our_place">
-        <div className="container mx-auto">
-          <div className="flex flex-col lg:flex-row">
-            <div className="lg:w-1/2">
-              <img src="/cal1.jpg" alt="Image" className="w-full" />
-            </div>
-            <div className="lg:w-1/2 bg-white/90 p-8">
-              <h2 className="text-[#7B5A2E] mb-6" id="our-place">Places to explore</h2>
-              {/* Add any additional content for "Our Place" section here */}
-            </div>
-          </div>
-        </div>
-      </section>
+
+
+{/* Our Place Section */}
+<section className="py-[70px] bg-white" id="our_place">
+  <div className="container mx-auto">
+    <div className="flex flex-col lg:flex-row">
+      <div className="lg:w-1/2">
+        <img src="/cal1.jpg" alt="Image" className="w-full" />
+      </div>
+      <div className="lg:w-1/2 bg-white/90 p-8">
+        <h2 className="text-[#7B5A2E] text-4xl font-bold mb-6" id="our-place"> {/* Increased font size and made it bold */}
+          Perfect blend of urban life and nature
+        </h2>
+        <p className="text-gray-700 mb-4">
+        Calgary’s unique blend of city life and natural beauty creates a welcoming atmosphere that appeals to anyone looking for both the excitement of urban living and the peace of the outdoors. This combination improves the quality of life for residents and fosters a strong sense of community and connection to nature. Whether you’re enjoying the attractions of downtown or exploring the nearby mountains, Calgary offers a vibrant lifestyle that truly showcases the best of both worlds, making it a fantastic place to call home!
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Section 4 */}
       <section className="py-[70px]" id="section_4">
