@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [count, setCount] = useState({ premium: 0, customers: 0, awards: 0 });
-  const finalCounts = { premium: 9000, customers: 2000, awards: 28 };
+  const finalCounts = { premium: 9000, customers: 2000, awards: 20 };
 
   useEffect(() => {
     const handleScroll = () => {
