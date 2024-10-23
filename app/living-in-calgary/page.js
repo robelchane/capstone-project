@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import Link from "next/link"; // Keep the import for Link if you're using it
+import Link from "next/link"; 
 
 const LivingInCalgary = () => {
   const [recentNews, setRecentNews] = useState([]);
