@@ -61,7 +61,7 @@ export default function Seller() {
 
   return (
     <main>
-    <div className="py-8 px-4 mt-32">
+    <div className="py-8 px-4 mt-20">
       <h1 className="text-center text-3xl font-bold mb-10">List Your Property</h1>
       <form onSubmit={handleSubmit}>
         <input

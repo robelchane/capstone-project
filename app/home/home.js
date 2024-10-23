@@ -4,9 +4,10 @@ import SearchBar from "./searchBar";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
+  const [count, setCount] = useState({ premium: 0, customers: 0, awards: 0 });
+  const finalCounts = { premium: 9000, customers: 2000, awards: 20 };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +19,28 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    const countUp = (key, target) => {
+      let start = 0;
+      const duration = 2000; // Duration of counting in milliseconds
+      const increment = Math.ceil(target / (duration / 100)); // Increment value for each step
+      const interval = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          clearInterval(interval);
+          setCount((prev) => ({ ...prev, [key]: target }));
+        } else {
+          setCount((prev) => ({ ...prev, [key]: start }));
+        }
+      }, 100);
+    };
+
+    // Start counting up when the component mounts
+    countUp('premium', finalCounts.premium);
+    countUp('customers', finalCounts.customers);
+    countUp('awards', finalCounts.awards);
   }, []);
 
   const backgroundImageStyle = {
@@ -37,7 +60,7 @@ export default function Home() {
       <Header /> {/* Use the Header component */}
 
       {/* Content Section with Static Background Image */}
-      <div className="flex justify-center items-center fon t-serif relative h-screen">
+      <div className="flex justify-center items-center font-serif relative h-screen">
         <div
           className="relative w-full h-full"
           style={backgroundImageStyle}
@@ -45,18 +68,18 @@ export default function Home() {
           {/* Content over the background */}
           <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-20">
             <div className="font-bold text-white text-6xl text-center">
-              <p className="text-gray-100 mb-20">Discover Most Suitable Property</p>
+              <p className="text-gray-100 mb-10">Discover Most Suitable Property</p>
             </div>
 
             <SearchBar />
 
             <div className="flex justify-between text-4xl mt-20 w-full max-w-xs text-gray-300">
-              <p className="mr-4">9,000+</p>
-              <p className="mr-4">2,000+</p>
-              <p>28+</p>
+              <p className="mr-4">{count.premium.toLocaleString()}+</p>
+              <p className="mr-4">{count.customers.toLocaleString()}+</p>
+              <p>{count.awards.toLocaleString()}+</p>
             </div>
 
-            <div className="flex justify-between text-base mt-2 w-full max-w-xs text-gray-300">
+            <div className="flex justify-between text-base mt-2 mb-20 w-full max-w-xs text-gray-300">
               <p className="ml-4 mr-10">Premium Product</p>
               <p className="ml-10 mr-6">Happy Customer</p>
               <p className="ml-4">Award Winning</p>
