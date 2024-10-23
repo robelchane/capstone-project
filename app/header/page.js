@@ -15,17 +15,9 @@ import {
 
 export default function Header() {
   const router = useRouter();
-  const [scrollY, setScrollY] = useState(0);
   const [failedAttempts, setFailedAttempts] = useState(0);
   const [blockTime, setBlockTime] = useState(0);
   const { user, isLoaded, isSignedIn } = useUser();
-
-  // Track scroll position for header color change
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleManagerAccess = () => {
     const currentTime = Date.now();
@@ -56,7 +48,7 @@ export default function Header() {
         }
       }
     } else {
-      alert("Access denied. You are not a manager.");
+      alert("Access denied.");
     }
   };
 
@@ -66,10 +58,7 @@ export default function Header() {
 
   return (
     <div
-      className={`fixed top-0 left-0 right-0 z-50 p-4 transition-colors duration-500 ${
-        scrollY > 0 ? "bg-black bg-opacity-90" : "bg-transparent"
-      }`}
-    >
+      className="fixed top-0 left-0 right-0 z-50 p-4 bg-black bg-opacity-90">
       <div className="flex justify-between text-xl font-serif text-white">
         <div className="flex items-center m-2">
           <Link href="/">
