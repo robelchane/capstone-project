@@ -85,13 +85,13 @@ export default function SearchBar() {
 
   return (
     <div className="flex flex-col items-center mt-20">
-      <div className="flex items-center border border-gray-300 rounded p-3 bg-gray-200 w-[800px]">
+      <div className="flex items-center border border-gray-300 rounded p-3 bg-gray-200 w-[550px]">
         <FontAwesomeIcon icon={faLocationDot} className="w-6 m-3 text-black" />
 
         <input
           aria-label="Search location"
           className="w-full px-3 py-2 border rounded bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-          placeholder="Enter Address (e.g., Calgary || AB || Calgary, AB)"
+          placeholder="Find properties by city, province, or full address..."
           value={address}
           onChange={handleInputChange}
         />
