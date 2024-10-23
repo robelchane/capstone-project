@@ -1,41 +1,41 @@
-// This Listing Component has all the listings on the right side of the page
-// The Map Component is on the left side of the page
-// The data is imported from the residenciesData.json file
-// The data is mapped to display the listings
-// The listings are displayed in a card format
 "use client"
-
-
+import { useEffect } from 'react';
 import Link from "next/link";
 import data from "../../public/residenciesData.json";
 import Map from "../map/page";
 
 export default function Listings() {
-
+  // Disable scrolling on the body when the component mounts
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';  // Disable body scrolling
+    return () => {
+      document.body.style.overflow = '';  // Re-enable body scrolling on unmount
+    };
+  }, []);
 
   return (
-    <main className="font-serif p-8 flex h-screen overflow-hidden mb-12 mt-32"> {/* Prevents scrolling on X-axis and main page */}
+    <main className="font-serif p-8 flex h-screen overflow-hidden mt-12"> {/* Takes full screen height */}
       
       {/* Map Section */}
-      <div className="w-1/2 h-full p-4">
-        <Map items={data}/>
+      <div className="w-1/2 h-full p-4 rounded-t-lg">
+        <Map items={data} />
       </div>
 
       {/* Listings Section */}
-      <div className="w-1/2 overflow-y-scroll h-full p-4 overflow-x-hidden"> {/* Ensures no X-axis scroll here */}
+      <div className="w-1/2 overflow-y-scroll h-full p-4 overflow-x-hidden"> {/* Scroll only within listings */}
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold text-yellow-700">Best Choices</h1>
           <h2 className="text-4xl font-bold text-black mt-2">Popular Residencies</h2>
         </div>
 
-        {/* Listings Card */}
+        {/* Listings Cards */}
         <div className="flex flex-col gap-6">
           {data.map((residence) => (
             <div
               key={residence.id}
               className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105 p-4 flex"
             >
-              {/* Compressed Image */}
+              {/* Image Section */}
               <div className="w-1/3">
                 <img
                   src={residence.image}
@@ -44,7 +44,7 @@ export default function Listings() {
                 />
               </div>
 
-              {/* Text Details */}
+              {/* Details Section */}
               <div className="w-2/3 pl-4 flex flex-col justify-between">
                 <div>
                   <Link href={`/residencies/${residence.id}`}>
@@ -61,7 +61,7 @@ export default function Listings() {
                           className="inline-block h-5 w-5 mr-1"
                         />
                         {residence.bedrooms}
-                        <span className="ml-1">Bedroom</span> {/* Adds padding between the number and text */}
+                        <span className="ml-1">Bedroom</span>
                       </p>
 
                       <p className="text-sm text-gray-700 flex items-center p-2">
@@ -71,7 +71,7 @@ export default function Listings() {
                           className="inline-block h-5 w-5 mr-1"
                         />
                         {residence.bathrooms}
-                        <span className="ml-1">Bathroom</span> {/* Adds padding between the number and text */}
+                        <span className="ml-1">Bathroom</span>
                       </p>
                     </div>
                   </Link>
@@ -82,7 +82,6 @@ export default function Listings() {
                   <button className="bg-yellow-700 text-white px-4 py-2">
                     Contact Seller
                   </button>
-
                 </div>
               </div>
             </div>
