@@ -91,7 +91,7 @@ export default function SearchBar() {
         <input
           aria-label="Search location"
           className="w-full px-3 py-2 border rounded bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-          placeholder="Enter city || state or city, state"
+          placeholder="Enter city || province or city, state"
           value={address}
           onChange={handleInputChange}
         />
