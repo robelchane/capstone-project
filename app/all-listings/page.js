@@ -4,26 +4,27 @@
 // https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
 // https://www.youtube.com/watch?v=ZFYj7OrTeEs
 
-"use client"; 
+"use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBed, faBath } from "@fortawesome/free-solid-svg-icons";
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // Holds fetched property listings
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({
     minPrice: "",
     maxPrice: "",
     bedrooms: "",
     bathrooms: "",
+    address: "", // New address filter
   });
 
   // Fetch properties based on current filters
   const fetchProperties = async () => {
     setLoading(true);
     try {
-      const query = new URLSearchParams(filters).toString(); 
+      const query = new URLSearchParams(filters).toString();
       const response = await fetch(`/api/properties?${query}`);
       const data = await response.json();
       setProperties(data.properties); // Update state with fetched properties
@@ -36,7 +37,7 @@ export default function AllListings() {
 
   // Fetch all properties when the component mounts
   useEffect(() => {
-    fetchProperties(); 
+    fetchProperties();
   }, []);
 
   // Handle changes in filter inputs
@@ -59,7 +60,7 @@ export default function AllListings() {
       <h1 className="text-2xl font-bold mb-4">Filter Properties</h1>
 
       {/* Filter Form */}
-      <form onSubmit={handleSearch} className="grid grid-cols-4 gap-4 mb-8">
+      <form onSubmit={handleSearch} className="grid grid-cols-5 gap-4 mb-8">
         <div>
           <input
             name="minPrice"
@@ -100,7 +101,17 @@ export default function AllListings() {
             className="border p-2 w-full"
           />
         </div>
-        <div className="col-span-4 flex justify-center items-center">
+        <div>
+          <input
+            name="address"
+            type="text"
+            placeholder="Address (e.g., Calgary || AB || Calgary, AB)"
+            value={filters.address}
+            onChange={handleChange}
+            className="border p-2 w-full"
+          />
+        </div>
+        <div className="col-span-5 flex justify-center items-center">
           <button
             type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
@@ -125,7 +136,7 @@ export default function AllListings() {
               />
               <h2 className="text-xl font-bold mb-2">{property.name}</h2>
               <p className="text-lg text-gray-700">
-                <span style={{ color: '#001f3f' }}>$</span>
+                <span style={{ color: "#001f3f" }}>$</span>
                 {property.price}
               </p>
               <p className="text-gray-600">{property.summary}</p>
@@ -136,7 +147,6 @@ export default function AllListings() {
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
-              {/* Seller contact information */}
               <div className="mt-4">
                 <p className="text-sm text-gray-500">
                   Seller:{" "}
