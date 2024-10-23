@@ -69,13 +69,13 @@ export default function Seller() {
         }}
       >
  
-      <div className="py-8 px-4 mt-32 max-w-4xl mx-auto">
+      <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl mx-auto">
       <div className="fixed bottom-4 right-4 z-50">
         <Link href="/contact" className="text-white p-3 hover:underline">
           Want to get in touch?
         </Link>
       </div>
-            <h1 className="text-center text-4xl font-bold mb-12">List Your Property</h1>
+            <h1 className="text-center text-4xl text-black font-bold mb-12">List Your Property</h1>
             <form onSubmit={handleSubmit}>
               <input
                 name="name"
