@@ -45,7 +45,7 @@ export default function Home() {
           {/* Content over the background */}
           <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-20">
             <div className="font-bold text-white text-6xl text-center">
-              <p className="text-gray-100 mb-20">Discover Most Suitable Property</p>
+              <p className="text-gray-100 mb-10">Discover Most Suitable Property</p>
             </div>
 
             <SearchBar />
