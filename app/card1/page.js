@@ -18,10 +18,10 @@ const Card1 = () => {
   }, []);
 
   useEffect(() => {
-    // Change image every 5 seconds
+    // Change image every 3 seconds
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change 5000 to any duration in milliseconds
+    }, 3000); // Change 3000 to any duration in milliseconds
 
     return () => clearInterval(interval); // Clean up the interval on component unmount
   }, [images.length]);
@@ -57,7 +57,7 @@ const Card1 = () => {
       A Must-See Experience for Newcomers to Calgary
       </p>
 
-      {/* Linkable Button */}
+      {/* Linkable*/}
       <a
         href="https://www.calgarystampede.com" // External link to Calgary Stampede
         target="_blank" // Opens the link in a new tab

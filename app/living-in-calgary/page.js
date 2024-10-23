@@ -125,36 +125,42 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-[115px] pb-[110px]" id="gallery">
-        <div className="container mx-auto">
-          <div className="mb-[30px] text-right">
-            <h2 className="text-3xl text-[#4B3D2E] font-bold" id="beautiful-rollovers">Gallery</h2>
-            <hr className="border-black w-[50%] ml-auto" />
-          </div>
-          <div className="flex gap-6 justify-center">
-            {['CalgaryStampede.jpg', 'cal3.jpg', 'cal4.jpg', 'cal5.jpg'].map((imgSrc, index) => (
-              <Link key={index} href={`/card${index + 1}`}>
-                <figure className="relative overflow-hidden transition-transform duration-300 group rounded-lg h-64 w-80 cursor-pointer">
-                  <img
-                    src={`/${imgSrc}`} // Assuming images are in the public folder
-                    alt={`Image ${index + 1}`}
-                    className="transition-transform duration-500 ease-in-out transform scale-100 group-hover:opacity-10 group-hover:scale-125 w-full h-full object-cover" // Smooth zoom on hover
-                  />
-                  <div className="absolute bottom-0 left-0 m-5 p-5 border-2 border-white transition-opacity duration-300 transform scale-75 origin-bottom opacity-0 group-hover:scale-100 group-hover:opacity-100">
-                    <h2 className="transition-transform duration-300 transform scale-75 origin-bottom group-hover:scale-100">
-                      Your Title {index + 1}
-                    </h2>
-                    <p className="opacity-0 transition-opacity duration-300 transform scale-75 origin-bottom group-hover:opacity-100 group-hover:scale-100">
-                      Your description goes here.
-                    </p>
-                  </div>
-                </figure>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+{/* Gallery Section */}
+<section className="py-[115px] pb-[110px]" id="gallery">
+  <div className="container mx-auto">
+    <div className="mb-[30px] text-right">
+      <h2 className="text-3xl text-[#4B3D2E] font-bold" id="beautiful-rollovers">Gallery</h2>
+      <hr className="border-black w-[50%] ml-auto" />
+    </div>
+    <div className="flex gap-6 justify-center">
+      {[
+        { imgSrc: 'CalgaryStampede.jpg', title: 'Events and Festivals', description: 'The greatest outdoor show on Earth' },
+        { imgSrc: 'cal3.jpg', title: 'Explore Urban Living', description: 'Discover the excitement of downtown Calgary, where culture, art, and business thrive around landmarks' },
+        { imgSrc: 'cal4.jpg', title: 'Family Life & Community', description: 'Explore Calgary’s family-friendly neighborhoods, parks, and community spaces' },
+        { imgSrc: 'cal5.jpg', title: 'Food & Friends', description: 'Calgary’s diverse culinary scene, featuring local favorites, trendy restaurants, and lively food festivals' }
+      ].map((card, index) => (
+        <Link key={index} href={`/card${index + 1}`}>
+          <figure className="relative overflow-hidden transition-transform duration-300 group rounded-lg h-64 w-80 cursor-pointer">
+            <img
+              src={`/${card.imgSrc}`} // for images that are in the public folder
+              alt={card.title}
+              className="transition-transform duration-500 ease-in-out transform scale-100 group-hover:opacity-10 group-hover:scale-125 w-full h-full object-cover" // Smooth zoom on hover
+            />
+            <div className="absolute bottom-0 left-0 m-5 p-5 border-2 border-white transition-opacity duration-300 transform scale-75 origin-bottom opacity-0 group-hover:scale-100 group-hover:opacity-100">
+              <h2 className="text-lg text-white font-semibold transition-transform duration-300 transform scale-75 origin-bottom group-hover:scale-100">
+                {card.title}
+              </h2>
+              <p className="text-sm text-gray-300 opacity-0 transition-opacity duration-300 transform scale-75 origin-bottom group-hover:opacity-100 group-hover:scale-100">
+                {card.description}
+              </p>
+            </div>
+          </figure>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
+
 
 {/* News Section */}
 <section className="py-[70px] bg-gray-50" id="news">
