@@ -70,18 +70,28 @@ const Card1 = () => {
   </div>
 </section>
 
-        {/* explore ongoing and future events Section */}
-
-<section className="py-[100px] bg-[#8B6331]" id="call-to-action"> {/* Background color added */}
-  <div className="container mx-auto text-center">
-    <h2 className="text-4xl text-white font-bold mb-6">
-      Ready to Explore More?
-    </h2>
-    <a href="https://www.eventbrite.ca/d/canada--calgary/events/" target="_blank" rel="noopener noreferrer" className="bg-[#09090b] text-white py-3 px-8 rounded-lg shadow-lg transition duration-300 hover:bg-[#854d0e] hover:scale-105">
-      Explore Now
-    </a>
+{/* Explore Ongoing and Future Events Section */}
+<section className="py-[100px] bg-[#8B6331]" id="call-to-action">
+  <div className="container mx-auto flex flex-col lg:flex-row items-center">
+    <div className="lg:w-1/2 text-white mb-6 lg:mb-0 lg:mr-8">
+      <p className="text-lg leading-relaxed">
+        Discover the vibrant events happening in Calgary, from cultural festivals to business expos. There’s always something exciting going on in the city, and we invite you to join the fun. Whether you’re looking for family-friendly activities, nightlife adventures, or opportunities to network and connect, Calgary's events cater to everyone. Stay updated on what's happening and immerse yourself in the local culture!
+      </p>
+    </div>
+    <div className="lg:w-1/2 text-center lg:text-right">
+      <h2 className="text-4xl font-bold mb-6">
+        Ready to Explore Ongoing and Upcoming Events?
+      </h2>
+      <div className="flex justify-end"> {/* Centering the button in the right section */}
+        <a href="https://www.eventbrite.ca/d/canada--calgary/events/" target="_blank" rel="noopener noreferrer" className="bg-[#09090b] text-white py-3 px-8 rounded-lg shadow-lg transition duration-300 hover:bg-[#854d0e] hover:scale-105">
+          Explore Now
+        </a>
+      </div>
+    </div>
   </div>
 </section>
+
+
 
       
     </div>
