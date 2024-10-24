@@ -132,8 +132,7 @@ useEffect(() => {
 <section className="py-[115px] pb-[110px]" id="highlights">
   <div className="container mx-auto">
     <div className="mb-[30px] text-right">
-      <h2 className="text-3xl text-[#4B3D2E] font-bold" id="calgary-highlights">Discover Calgary's Highlights</h2>
-      <hr className="border-black w-[50%] ml-auto" />
+      <h2 className="text-4xl text-[#fafafa] font-bold" id="calgary-highlights">Discover Calgary's Highlights</h2>
     </div>
     <div className="flex gap-6 justify-center">
       {[
