@@ -174,7 +174,7 @@ useEffect(() => {
 
     {loading && <p className="text-lg text-gray-600">Loading news...</p>}
     {error && <p className="text-lg text-red-600">Error fetching news: {error}</p>}
-    
+
     <div className="flex overflow-x-auto space-x-6 mt-6 max-w-full py-4">
       {recentNews.map((news, index) => (
         <div key={index} className="min-w-[300px] bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -187,12 +187,17 @@ useEffect(() => {
               />
             </a>
           )}
-          <h3 className="text-2xl font-semibold mt-4">{news.title}</h3>
+          <h3 className="text-2xl font-semibold mt-4">
+            <a href={news.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+              {news.title}
+            </a>
+          </h3>
         </div>
       ))}
     </div>
   </div>
 </section>
+
 
 
 
