@@ -1,12 +1,6 @@
-import Head from 'next/head';
-
 const Card4 = () => {
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col">
-            <Head>
-                <title>Card 4 - Food Scene</title>
-                <meta name="description" content="Explore Calgary's diverse culinary offerings." />
-            </Head>
             <header className="bg-[#8B6331] text-white py-6 shadow-lg">
                 <h1 className="text-4xl font-bold text-center tracking-wide">Food Scene</h1>
             </header>

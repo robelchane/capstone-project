@@ -1,7 +1,6 @@
 const Card2 = () => {
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col">
-
             <header className="bg-[#8B6331] text-white py-6 shadow-lg">
                 <h1 className="text-4xl font-bold text-center tracking-wide">Urban Life & Culture</h1>
             </header>
@@ -18,9 +17,6 @@ const Card2 = () => {
                     </a>
                 </div>
             </main>
-            <footer className="bg-[#8B6331] text-white py-4 text-center shadow-md">
-                <p className="text-sm">Content..</p>
-            </footer>
         </div>
     );
 };
