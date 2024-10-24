@@ -69,7 +69,7 @@ export default function Seller() {
         }}
       >
  
-      <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl mx-auto">
+      <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 mb-10 p-5 max-w-4xl mx-auto">
       <div className="fixed bottom-4 right-4 z-50">
         <Link href="/contact" className="text-white p-3 hover:underline">
           Want to get in touch?
