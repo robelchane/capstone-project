@@ -1,12 +1,14 @@
 "use client";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs"; // Importing necessary hooks
 import { useState, useEffect } from "react";
-import { useUser } from "@clerk/nextjs"; // Clerk's user hook
 import Link from "next/link";
 import data from "../../public/residenciesData.json";
 import Map from "../map/page";
 
 export default function Listings() {
-  const { user } = useUser(); // Get the current authenticated user
+  const router = useRouter();
+  const { user, isLoaded, isSignedIn } = useUser(); // Getting user state from Clerk
   const [favorites, setFavorites] = useState([]);
 
   // Disable scrolling on the body when the component mounts
@@ -19,8 +21,9 @@ export default function Listings() {
 
   // Function to handle adding a property to favorites
   const handleAddToFavorites = async (residence) => {
-    if (!user) {
-      alert("Please log in to add favorites."); // Notify user to log in
+    if (!isSignedIn) {
+      // Redirect to sign-in page
+      router.push("/sign-in?redirectUrl=" + encodeURIComponent(window.location.href)); // Pass the current page URL for redirection after sign-in
       return;
     }
 
@@ -50,6 +53,10 @@ export default function Listings() {
       alert("There was an error adding the property to your favorites.");
     }
   };
+
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <main className="font-serif p-8 flex h-screen overflow-hidden mt-12">
