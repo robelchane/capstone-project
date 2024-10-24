@@ -49,7 +49,7 @@ export default function Header() {
         }
       }
     } else {
-      alert("Access denied.");
+      alert("Access denied. This is for managers only.");
     }
   };
 
