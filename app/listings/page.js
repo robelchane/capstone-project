@@ -1,17 +1,44 @@
-"use client"
-import { useEffect } from 'react';
+"use client";
+import { useState, useEffect } from 'react';
+import { useUser, SignIn, RedirectToSignIn } from '@clerk/clerk-react'; // Import Clerk hooks
 import Link from "next/link";
 import data from "../../public/residenciesData.json";
 import Map from "../map/page";
 
 export default function Listings() {
+  const { user, isSignedIn } = useUser(); // Get user data and signed-in status from Clerk
+  const [favorites, setFavorites] = useState([]);
+
   // Disable scrolling on the body when the component mounts
   useEffect(() => {
-    document.body.style.overflow = 'hidden';  // Disable body scrolling
+    document.body.style.overflow = 'hidden'; // Disable body scrolling
     return () => {
-      document.body.style.overflow = '';  // Re-enable body scrolling on unmount
+      document.body.style.overflow = ''; // Re-enable body scrolling on unmount
     };
   }, []);
+
+  // Function to handle adding a property to favorites
+  const handleAddToFavorites = (residence) => {
+    if (!isSignedIn) {
+      // If the user is not signed in, show the SignIn component
+      return <RedirectToSignIn />;
+    }
+
+    // Check if the property is already in favorites
+    if (!favorites.some(fav => fav.id === residence.id)) {
+      setFavorites([...favorites, residence]);
+      alert(`${residence.name} has been added to your favorites!`);
+    } else {
+      alert(`${residence.name} is already in your favorites.`);
+    }
+  };
+
+  // Save favorites to localStorage (optional for persistence)
+  useEffect(() => {
+    if (favorites.length > 0) {
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+  }, [favorites]);
 
   return (
     <main className="font-serif p-8 flex h-screen overflow-hidden mt-12"> {/* Takes full screen height */}
@@ -77,8 +104,14 @@ export default function Listings() {
                   </Link>
                 </div>
 
-                {/* Contact Button */}
-                <div className="absolute bottom-4 right-4">
+                {/* Favorite and Contact Buttons */}
+                <div className="flex justify-between items-center mt-4">
+                  <button
+                    onClick={() => handleAddToFavorites(residence)}
+                    className="bg-red-500 text-white px-4 py-2 rounded-lg"
+                  >
+                    Add to Favorites
+                  </button>
                   <button className="bg-yellow-700 text-white px-4 py-2">
                     Contact Seller
                   </button>
