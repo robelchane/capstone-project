@@ -188,7 +188,7 @@ useEffect(() => {
             </a>
           )}
           <h3 className="text-2xl font-semibold mt-4">
-            <a href={news.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+            <a href={news.url} target="_blank" rel="noopener noreferrer" className="no-underline">
               {news.title}
             </a>
           </h3>
@@ -197,10 +197,6 @@ useEffect(() => {
     </div>
   </div>
 </section>
-
-
-
-
     </div>
   );
 };
