@@ -37,7 +37,7 @@ const Card1 = () => {
   />
   <div className="absolute inset-0 bg-black opacity-30"></div>
   <div className="absolute inset-0 flex items-center justify-center z-10">
-    <h1 className="text-4xl font-bold text-white text-center">Welcome to Calgary Events & Festivals</h1>
+    <h1 className="text-4xl font-bold text-white text-center">Enjoy Events throughout the year</h1>
   </div>
 </section>
 
@@ -70,58 +70,20 @@ const Card1 = () => {
   </div>
 </section>
 
-
-
-
-      <div className="max-w-3xl mx-auto p-6 text-white">
-        {/* Notable Events Section */}
-        <section className="bg-gray-800 rounded-lg p-6 mb-8 shadow-lg">
-          <h2 className="text-2xl font-semibold mb-4">Enjoy events throughout the year in the city</h2>
-          <p className="mb-4">
-            Calgary is known for its vibrant cultural scene and hosts a variety of events and festivals throughout the year. Here are some of the notable ones:
-          </p>
-
-        </section>
-
-        {/* Ongoing Events Section */}
-        <section className="bg-gray-700 rounded-lg p-6 shadow-lg">
-          <h2 className="text-2xl font-semibold mb-4">Ongoing Events</h2>
-          {events.length > 0 ? (
-            <ul className="space-y-4">
-              {events.map((event, index) => (
-                <li key={index} className="bg-white text-black shadow-md rounded-lg p-4 border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                  <h3 className="text-xl font-semibold">{event.name}</h3>
-                  
-                  <a
-                    href={event.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-block text-blue-600 hover:underline"
-                  >
-                    More Info
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-center text-gray-500">No events found.</p>
-          )}
-        </section>
-
         {/* explore ongoing and future events Section */}
 
-<section className="py-[100px] bg-[#F4A261]" id="call-to-action"> {/* Background color added */}
+<section className="py-[100px] bg-[#8B6331]" id="call-to-action"> {/* Background color added */}
   <div className="container mx-auto text-center">
     <h2 className="text-4xl text-white font-bold mb-6">
       Ready to Explore More?
     </h2>
-    <a href="https://www.eventbrite.ca/d/canada--calgary/events/" target="_blank" rel="noopener noreferrer" className="bg-[#264653] text-white py-3 px-8 rounded-lg shadow-lg transition duration-300 hover:bg-[#2A9D8F] hover:scale-105">
+    <a href="https://www.eventbrite.ca/d/canada--calgary/events/" target="_blank" rel="noopener noreferrer" className="bg-[#09090b] text-white py-3 px-8 rounded-lg shadow-lg transition duration-300 hover:bg-[#854d0e] hover:scale-105">
       Explore Now
     </a>
   </div>
 </section>
 
-      </div>
+      
     </div>
   );
 };
