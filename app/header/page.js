@@ -45,6 +45,7 @@ export default function Header() {
         // Set block time after 3 failed attempts
         if (failedAttempts + 1 >= 3) {
           setBlockTime(Date.now() + 5 * 60 * 1000); // 5 minutes block
+          alert("You have been blocked for 5 minutes due to multiple failed attempts.");
         }
       }
     } else {
