@@ -168,9 +168,10 @@ useEffect(() => {
 {/* News Section */}
 <section className="py-[70px] bg-gray-50" id="news">
   <div className="container mx-auto text-center px-4">
-    <h2 className="text-4xl font-bold mb-6 text-[#8B6331]">
-      Recent News
-    </h2>
+  <h2 className="text-4xl font-extrabold mb-6 text-[#8B6331] bg-white bg-opacity-70 shadow-lg p-4 rounded-md tracking-wide">
+  Calgary's Top Picks Today
+</h2>
+
 
     {loading && <p className="text-lg text-gray-600">Loading news...</p>}
     {error && <p className="text-lg text-red-600">Error fetching news: {error}</p>}
