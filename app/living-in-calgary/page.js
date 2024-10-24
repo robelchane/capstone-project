@@ -72,7 +72,7 @@ useEffect(() => {
       <div className="md:w-1/2">
         <div className="tm-section-text-container">
           <p className="text-white"> {/* Set text color to white */}
-            Calgary is a vibrant and growing urban hub located at the foot of the Rocky Mountains. Known for its incredible outdoor activities, job opportunities, and family-friendly communities, it’s the perfect blend of urban living and natural beauty.
+            A vibrant and growing urban hub located at the foot of the Rocky Mountains. Known for its incredible outdoor activities, job opportunities, and family-friendly communities, it’s the perfect blend of urban living and natural beauty.
           </p>
         </div>
       </div>
@@ -104,26 +104,29 @@ useEffect(() => {
 
 
 
-      {/* Section 4 */}
-      <section className="py-[70px]" id="section_4">
-        <div className="container mx-auto">
-          <div className="flex flex-col-reverse lg:flex-row">
-            <div className="lg:w-1/2 bg-white/90 p-8 h-full">
-              <h2 className="text-[#8B5A2E] mb-6" id="fusce-a-porttitor-augue">
-                Fusce a porttitor augue
-              </h2>
-              <p>
-                Quisque rutrum dapibus odio vitae tincidunt. Etiam sollicitudin augue
-                non porta interdum. Pellentesque placerat orci at libero ornare, nec
-                viverra justo lobortis. Phasellus venenatis eros non.
-              </p>
-            </div>
-            <div className="lg:w-1/2">
-              <img src="/cal2.jpg" alt="Image" className="w-full" />
-            </div>
-          </div>
+{/* Section 4 */}
+<section className="py-[70px] bg-gray-100" id="section_4">
+  <div className="container mx-auto">
+    <div className="flex flex-col-reverse lg:flex-row">
+      <div className="lg:w-1/2 bg-white/90 p-8 h-full rounded-lg shadow-md flex flex-col justify-between"> {/* Added flex properties */}
+        <div>
+          <h2 className="text-[#8B5A2E] mb-4 text-2xl font-bold" id="fusce-a-porttitor-augue">
+          Why Calgary Is the Perfect Place to Call Home
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            Calgary is not just a place to live; it’s a lifestyle choice that combines opportunity, adventure, and community in a way that few other cities can match. Imagine stepping into a city with a booming job market, especially in sectors like technology, energy, and finance, where your career can truly thrive without breaking the bank on living costs. Beyond professional opportunities, Calgary offers unparalleled access to the breathtaking Rocky Mountains, where outdoor enthusiasts can indulge in hiking, skiing, and countless adventures right at their doorstep. The city pulses with a vibrant cultural scene, featuring exciting events, festivals, and a culinary landscape that caters to every palate, ensuring you’ll always find something new to explore. Families will appreciate the top-rated schools and welcoming neighborhoods, creating a sense of belonging that makes raising children a joy. With a strong commitment to sustainability and quality of life, Calgary isn’t just a place to settle; it’s an invitation to embrace a fulfilling and enriching life. Choose Calgary, and discover a city that truly feels like home.
+          </p>
         </div>
-      </section>
+      </div>
+      <div className="lg:w-1/2">
+        <img src="/cal2.jpg" alt="Image" className="w-full h-full object-cover" /> {/* Set image to fill the height */}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
 {/* Gallery Section */}
 <section className="py-[115px] pb-[110px]" id="gallery">
