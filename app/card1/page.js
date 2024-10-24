@@ -107,6 +107,20 @@ const Card1 = () => {
             <p className="text-center text-gray-500">No events found.</p>
           )}
         </section>
+
+        {/* explore ongoing and future events Section */}
+
+<section className="py-[100px] bg-[#F4A261]" id="call-to-action"> {/* Background color added */}
+  <div className="container mx-auto text-center">
+    <h2 className="text-4xl text-white font-bold mb-6">
+      Ready to Explore More?
+    </h2>
+    <a href="https://www.eventbrite.ca/d/canada--calgary/events/" target="_blank" rel="noopener noreferrer" className="bg-[#264653] text-white py-3 px-8 rounded-lg shadow-lg transition duration-300 hover:bg-[#2A9D8F] hover:scale-105">
+      Explore Now
+    </a>
+  </div>
+</section>
+
       </div>
     </div>
   );
