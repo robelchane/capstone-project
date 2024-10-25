@@ -167,7 +167,36 @@ useEffect(() => {
 
 {/* News Section */}
 <section className="py-[70px] bg-gray-50" id="news">
+  <div className="container mx-auto text-center px-4">
+  <h2 className="text-4xl font-extrabold mb-6 text-[#8B6331] bg-white bg-opacity-70 shadow-lg p-4 rounded-md tracking-wide">
+  Calgary's Top Picks Today
+</h2>
 
+
+    {loading && <p className="text-lg text-gray-600">Loading news...</p>}
+    {error && <p className="text-lg text-red-600">Error fetching news: {error}</p>}
+
+    <div className="flex overflow-x-auto space-x-6 mt-6 max-w-full py-4">
+      {recentNews.map((news, index) => (
+        <div key={index} className="min-w-[300px] bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+          {news.urlToImage && (
+            <a href={news.url} target="_blank" rel="noopener noreferrer">
+              <img
+                src={news.urlToImage}
+                alt={news.title}
+                className="w-full h-48 object-cover rounded-t-lg"
+              />
+            </a>
+          )}
+          <h3 className="text-2xl font-semibold mt-4">
+            <a href={news.url} target="_blank" rel="noopener noreferrer" className="no-underline">
+              {news.title}
+            </a>
+          </h3>
+        </div>
+      ))}
+    </div>
+  </div>
 </section>
     </div>
   );
