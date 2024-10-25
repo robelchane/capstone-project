@@ -1,14 +1,9 @@
-
 "use client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import { useUser, UserButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
-
-//import { FaUser } from 'react-icons/fa'; // Import the user icon from Font Awesome
-//import { auth } from '../firebase/firebase'; // Import the Firebase auth instance directly
-//import { onAuthStateChanged } from "firebase/auth"; // Import onAuthStateChanged from Firebase Auth
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,41 +14,55 @@ import {
 } from "../../components/ui/dropdown-menu";
 
 export default function Header() {
-  const router = useRouter(); // Ensure useRouter is at the top, in the client-side component
+  const router = useRouter();
   const [scrollY, setScrollY] = useState(0);
-  const { user, isSignedIn } = useUser();
-  //const [user, setUser] = useState(null);
-
-  /*useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const signOut = async () => {
-    try {
-      await auth.signOut();
-      router.push('/');
-    } catch (error) {
-      console.error('Failed to sign out:', error);
-    }
-  }
-  */
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [blockTime, setBlockTime] = useState(0);
+  const { user, isLoaded, isSignedIn } = useUser();
 
   // Track scroll position for header color change
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleManagerAccess = () => {
+    const currentTime = Date.now();
+    
+    // Check if currently blocked
+    if (failedAttempts >= 3 && currentTime < blockTime) {
+      const timeLeft = Math.ceil((blockTime - currentTime) / 1000); // Calculate seconds left
+      alert(`Too many attempts. Please wait ${timeLeft} seconds before trying again.`);
+      return;
+    }
+
+    const isManager = prompt("Are you a manager? (yes/no)").toLowerCase();
+    if (isManager === "yes") {
+      const managerID = prompt("What is your ID?");
+      const passcode = prompt("What is your passcode?");
+      
+      // Example validation (replace with actual logic)
+      if (managerID === "123456789" && passcode === "adminpass") {
+        setFailedAttempts(0); // Reset on successful login
+        router.push("/manager");
+      } else {
+        alert("Invalid ID or passcode. Access denied.");
+        setFailedAttempts(prev => prev + 1); // Increment failed attempts
+
+        // Set block time after 3 failed attempts
+        if (failedAttempts + 1 >= 3) {
+          setBlockTime(Date.now() + 5 * 60 * 1000); // 5 minutes block
+        }
+      }
+    } else {
+      alert("Access denied. You are not a manager.");
+    }
+  };
+
+  if (!isLoaded) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div
@@ -76,8 +85,9 @@ export default function Header() {
             </p>
           </Link>
         </div>
+
         <div className="flex gap-10 m-2">
-          {/* Dropdown Menu for Properties */}
+          {/* Properties Dropdown Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger>
               <p className="cursor-pointer text-white text-xl font-medium transition-transform duration-300 hover:scale-105">
@@ -87,22 +97,21 @@ export default function Header() {
             <DropdownMenuContent className="mt-2 w-48 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
               <DropdownMenuItem
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
-                onClick={() => {
-                  if (isSignedIn) {
-                    router.push("/seller");
-                  } else {
-                    router.push("/sign-in");
-                  }
-                }}
+                onClick={() => router.push("/seller")}
               >
                 Seller
               </DropdownMenuItem>
-
               <DropdownMenuItem
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
                 onClick={() => router.push("/listings")}
               >
                 Buyer
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
+                onClick={handleManagerAccess}
+              >
+                Manager
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -130,12 +139,10 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Get Started Dropdown Menu */}
-
-          {/* Conditional Rendering based on login status */}
+          {/* User Profile or Get Started Button */}
           {isSignedIn ? (
             <DropdownMenu>
-              <DropdownMenuTrigger as child>
+              <DropdownMenuTrigger asChild>
                 <Image
                   src={user?.imageUrl}
                   width={45}
@@ -155,8 +162,8 @@ export default function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Link href={"/sign-in"}>
-              <p className="text-white text-shadow hover:scale-110 transition-transform duration-300 text-xl">
+            <Link href="/sign-in">
+              <p className="cursor-pointer mt-2 text-white text-xl font-medium transition-transform duration-300 hover:scale-110">
                 Get Started
               </p>
             </Link>

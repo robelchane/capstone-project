@@ -4,50 +4,55 @@
 // https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
 // https://www.youtube.com/watch?v=ZFYj7OrTeEs
 
-"use client"; 
+"use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBed, faBath } from "@fortawesome/free-solid-svg-icons";
 
 export default function AllListings() {
-  const [properties, setProperties] = useState([]); // State to hold the fetched property listings
-  const [loading, setLoading] = useState(false); 
+  const [properties, setProperties] = useState([]); // Holds fetched property listings
+  const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({
     minPrice: "",
     maxPrice: "",
     bedrooms: "",
     bathrooms: "",
+    address: "", // New address filter
   });
 
-  // Fetch properties based on filters
+  // Fetch properties based on current filters
   const fetchProperties = async () => {
     setLoading(true);
     try {
-      const query = new URLSearchParams(filters).toString(); 
-      const response = await fetch(`/api/properties?${query}`); // Call the backend API route with filters
-      const data = await response.json(); 
-      setProperties(data.properties); // Update the properties state with the fetched data
+      const query = new URLSearchParams(filters).toString();
+      const response = await fetch(`/api/properties?${query}`);
+      const data = await response.json();
+      setProperties(data.properties); // Update state with fetched properties
     } catch (error) {
       console.error("Failed to fetch properties", error);
     } finally {
-      setLoading(false); // End loading state
+      setLoading(false); // Stop loading state
     }
   };
 
-  // Fetch all properties when the component mounts (without filters)
+  // Fetch all properties when the component mounts
   useEffect(() => {
-    fetchProperties(); 
-  }, []); 
+    fetchProperties();
+  }, []);
 
   // Handle changes in filter inputs
   const handleChange = (e) => {
-    setFilters({ [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
   };
 
   // Handle form submission for filtering properties
   const handleSearch = async (e) => {
     e.preventDefault();
-    await fetchProperties(); // Fetch properties with the applied filters
+    await fetchProperties(); // Fetch properties with applied filters
   };
 
   return (
@@ -55,11 +60,11 @@ export default function AllListings() {
       <h1 className="text-2xl font-bold mb-4">Filter Properties</h1>
 
       {/* Filter Form */}
-      <form onSubmit={handleSearch} className="grid grid-cols-4 gap-4 mb-8">
+      <form onSubmit={handleSearch} className="grid grid-cols-5 gap-4 mb-8">
         <div>
           <input
             name="minPrice"
-            type="text"
+            type="number"
             placeholder="Min Price"
             value={filters.minPrice}
             onChange={handleChange}
@@ -69,7 +74,7 @@ export default function AllListings() {
         <div>
           <input
             name="maxPrice"
-            type="text"
+            type="number"
             placeholder="Max Price"
             value={filters.maxPrice}
             onChange={handleChange}
@@ -96,7 +101,17 @@ export default function AllListings() {
             className="border p-2 w-full"
           />
         </div>
-        <div className="col-span-4 flex justify-center items-center">
+        <div>
+          <input
+            name="address"
+            type="text"
+            placeholder="Enter address..."
+            value={filters.address}
+            onChange={handleChange}
+            className="border p-2 w-full"
+          />
+        </div>
+        <div className="col-span-5 flex justify-center items-center">
           <button
             type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
@@ -121,7 +136,8 @@ export default function AllListings() {
               />
               <h2 className="text-xl font-bold mb-2">{property.name}</h2>
               <p className="text-lg text-gray-700">
-                <span style={{ color: '#001f3f' }}>$</span>{property.price}
+                <span style={{ color: "#001f3f" }}>$</span>
+                {property.price}
               </p>
               <p className="text-gray-600">{property.summary}</p>
               <p className="text-sm text-gray-500">{property.address}</p>
@@ -130,6 +146,14 @@ export default function AllListings() {
                 <span>{property.bedrooms} Bedrooms</span>
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
+              </div>
+              <div className="mt-4">
+                <p className="text-sm text-gray-500">
+                  Seller:{" "}
+                  <a href={`mailto:${property.sellerEmail}`} className="text-blue-500 hover:underline">
+                    {property.sellerName} ({property.sellerEmail})
+                  </a>
+                </p>
               </div>
             </div>
           ))
