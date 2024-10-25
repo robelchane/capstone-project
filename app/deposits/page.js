@@ -1,11 +1,11 @@
 'use client';
 
-import PaymentCard from "./paymentcard";
+import SubscriptionCard from "./subscriptioncard";
 
-export default function PaymentPage () {
+export default function SubscriptionPage () {
   return (
     <main>
-      <PaymentCard/>    
+      <SubscriptionCard/>    
     </main>
   );
 }

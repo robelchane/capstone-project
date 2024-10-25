@@ -10,19 +10,19 @@ import {
 } from "../../components/ui/card";
 import { Button } from "../../components/ui/button";
 
-export default function PaymentCard() {
+export default function SubscriptiontCard() {
     return (
         <Card className="cursor-pointer max-w-md ml-4 mt-10">
             <CardHeader>
-                <CardTitle>Make a Deposit</CardTitle>
+                <CardTitle>Get benefits with a subscription</CardTitle>
                 <CardDescription>Secure your payment with Stripe</CardDescription>
             </CardHeader>
             <CardContent>
-                <p>Click below to proceed with your deposit.</p>
+                <p>Click below to proceed with your subscription.</p>
             </CardContent>
             <CardFooter>
-                <Link href="/deposits-page/page">
-                    <Button>Process to Payment</Button>
+                <Link href="/deposits/subscription">
+                    <Button>Purchase your Subscription</Button>
                 </Link>
             </CardFooter>
         </Card>
