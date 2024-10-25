@@ -19,6 +19,19 @@ export default function Listings() {
     };
   }, []);
 
+  // Fetch favorites when the user is signed in
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      if (isSignedIn) {
+        const res = await fetch(`/api/favorites?userId=${user.id}`);
+        const data = await res.json();
+        setFavorites(data); // Assuming the API returns an array of favorite properties
+      }
+    };
+
+    fetchFavorites();
+  }, [isSignedIn, user]); // Dependency array includes isSignedIn and user
+
   // Function to handle adding a property to favorites
   const handleAddToFavorites = async (residence) => {
     if (!isSignedIn) {
@@ -42,8 +55,11 @@ export default function Listings() {
       const data = await res.json();
 
       if (res.ok) {
+        // Check if the residence is already in favorites
+        if (!favorites.some(fav => fav.id === residence.id)) {
+          setFavorites([...favorites, residence]);
+        }
         alert(`${residence.name} has been added to your favorites!`);
-        setFavorites([...favorites, residence]);
       } else {
         console.error(data.error);
         alert("Failed to add the property to favorites.");
