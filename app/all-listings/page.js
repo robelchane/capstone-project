@@ -174,7 +174,7 @@ export default function AllListings() {
                   className={`text-xl ${
                     savedProperties.has(property._id)
                       ? "text-red-500"
-                      : "text-gray-500"
+                      : "text-gray-600"
                   }`}
                 >
                   <FontAwesomeIcon icon={faHeart} />
