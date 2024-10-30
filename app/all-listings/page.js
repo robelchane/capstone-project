@@ -8,6 +8,7 @@
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBed, faBath } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "@clerk/nextjs";
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // Holds fetched property listings
@@ -150,7 +151,7 @@ export default function AllListings() {
               <div className="mt-4">
                 <p className="text-sm text-gray-500">
                   Seller:{" "}
-                  <a href={`mailto:${property.sellerEmail}`} className="text-blue-500 hover:underline">
+                  <a href={`mailto:${property.sellerEmail || user?.primaryEmailAddress.emailAddress}`} className="text-blue-500 hover:underline">
                     {property.sellerName} ({property.sellerEmail})
                   </a>
                 </p>
