@@ -5,12 +5,21 @@
 // https://www.youtube.com/watch?v=ZFYj7OrTeEs
 
 "use client";
+import ContactOwner from "../contactowner/page";
+
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBed, faBath } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faBed,
+  faBath,
+  faMessage,
+} from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "@clerk/nextjs";
 
 export default function AllListings() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPropertyEmail, setSelectedPropertyEmail] = useState("");
   const [properties, setProperties] = useState([]); // Holds fetched property listings
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({
@@ -20,6 +29,11 @@ export default function AllListings() {
     bathrooms: "",
     address: "", // New address filter
   });
+
+  const openModal = (email) => {
+    setSelectedPropertyEmail(email);
+    setIsModalOpen(true);
+  };
 
   // Fetch properties based on current filters
   const fetchProperties = async () => {
@@ -151,10 +165,29 @@ export default function AllListings() {
               <div className="mt-4">
                 <p className="text-sm text-gray-500">
                   Seller:{" "}
-                  <a href={`mailto:${property.sellerEmail || user?.primaryEmailAddress.emailAddress}`} className="text-blue-500 hover:underline">
+                  <a
+                    href={`mailto:${
+                      property.sellerEmail ||
+                      user?.primaryEmailAddress.emailAddress
+                    }`}
+                    className="text-blue-500 hover:underline"
+                  >
                     {property.sellerName} ({property.sellerEmail})
                   </a>
                 </p>
+                {/* Add a button to send a message to the seller */}
+                <div className="flex justify-end">
+                  <button onClick={() => openModal(property.sellerEmail)} className="bg-amber-500 text-white px-4 py-2 rounded hover: bg-blue-700 mt-2">
+                    Send Message
+                  </button>
+
+                  <ContactOwner
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    sellerEmail={selectedPropertyEmail}
+                    onSend={(message) => console.log("Message:", message)}
+                  />
+                </div>
               </div>
             </div>
           ))
@@ -162,6 +195,8 @@ export default function AllListings() {
           <p>No properties found.</p>
         )}
       </div>
+
+      <div></div>
     </div>
   );
 }
