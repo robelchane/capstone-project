@@ -173,7 +173,7 @@ export default function AllListings() {
                   onClick={() => toggleSaveProperty(property._id)}
                   className={`text-xl ${
                     savedProperties.has(property._id)
-                      ? "text-red-500"
+                      ? "text-red-600"
                       : "text-gray-500"
                   }`}
                 >
