@@ -7,7 +7,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBed, faBath } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faBed, faBath, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // Holds fetched property listings
@@ -19,6 +19,18 @@ export default function AllListings() {
     bathrooms: "",
     address: "", // New address filter
   });
+
+  const [savedProperties, setSavedProperties] = useState(new Set()); // Tracks saved properties
+
+  // Toggle property save/unsave
+  const toggleSaveProperty = (id) => {
+    setSavedProperties((prevSaved) => {
+      const updated = new Set(prevSaved);
+      if (updated.has(id)) updated.delete(id); // Unsave if already saved
+      else updated.add(id); // Save if not saved
+      return updated;
+    });
+  };
 
   // Fetch properties based on current filters
   const fetchProperties = async () => {
@@ -147,13 +159,26 @@ export default function AllListings() {
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
-              <div className="mt-4">
+              <div className="flex items-center justify-between mt-4">
                 <p className="text-sm text-gray-500">
                   Seller:{" "}
-                  <a href={`mailto:${property.sellerEmail}`} className="text-blue-500 hover:underline">
+                  <a
+                    href={`mailto:${property.sellerEmail}`}
+                    className="text-blue-500 hover:underline"
+                  >
                     {property.sellerName} ({property.sellerEmail})
                   </a>
                 </p>
+                <button
+                  onClick={() => toggleSaveProperty(property._id)}
+                  className={`text-xl ${
+                    savedProperties.has(property._id)
+                      ? "text-red-500"
+                      : "text-gray-500"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faHeart} />
+                </button>
               </div>
             </div>
           ))
