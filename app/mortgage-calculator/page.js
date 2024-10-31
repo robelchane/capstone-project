@@ -67,97 +67,104 @@ export default function MortgageCalculator() {
   };
 
   return (
-    <div className="flex justify-between p-4 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto m-28">
-      {/* Left Side - Input Form */}
-      <div className="w-1/2 p-4">
-        <h2 className="text-2xl font-bold mb-4">Mortgage Calculator</h2>
+    <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto m-28">
+      {/* Title - Centered at the top */}
+        <h2 className="w-full flex justify-center text-2xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
+          Your Mortgage Payment Information
+        </h2>
 
-        {error && <p className="text-red-500 mb-4">{error}</p>} {/* Display error message */}
+      <div className="flex justify-between w-full">
+        {/* Left Side - Input Form */}
+        <div className="w-1/2 p-4">
+          <h2 className="text-2xl font-bold mb-4 flex justify-center">Mortgage Calculator</h2>
 
-        <div className="w-full mb-4">
-          <label className="block text-gray-700">Mortgage Amount:</label>
-          <input
-            type="number"
-            value={mortgageAmount}
-            onChange={(e) => setMortgageAmount(e.target.value)}
-            className="w-full p-2 border rounded"
-            placeholder="Enter mortgage amount"
-          />
-        </div>
+          {error && <p className="text-red-500 mb-4">{error}</p>} {/* Display error message */}
 
-        <div className="w-full mb-4">
-          <label className="block text-gray-700">Down Payment:</label>
-          <input
-            type="number"
-            value={downPayment}
-            onChange={(e) => setDownPayment(e.target.value)}
-            className="w-full p-2 border rounded"
-            placeholder="Enter down payment"
-          />
-        </div>
+          <div className="w-full mb-4">
+            <label className="block text-gray-700">Mortgage Amount:</label>
+            <input
+              type="number"
+              value={mortgageAmount}
+              onChange={(e) => setMortgageAmount(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Enter mortgage amount"
+            />
+          </div>
 
-        <div className="w-full mb-4">
-          <label className="block text-gray-700">Interest Rate (%):</label>
-          <input
-            type="number"
-            value={interestRate}
-            onChange={(e) => setInterestRate(e.target.value)}
-            className="w-full p-2 border rounded"
-            placeholder="Enter interest rate"
-          />
-        </div>
+          <div className="w-full mb-4">
+            <label className="block text-gray-700">Down Payment:</label>
+            <input
+              type="number"
+              value={downPayment}
+              onChange={(e) => setDownPayment(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Enter down payment"
+            />
+          </div>
 
-        <div className="w-full mb-4">
-          <label className="block text-gray-700">Loan Term (years):</label>
-          <input
-            type="number"
-            value={loanTerm}
-            onChange={(e) => setLoanTerm(e.target.value)}
-            className="w-full p-2 border rounded"
-            placeholder="Enter loan term"
-          />
-        </div>
+          <div className="w-full mb-4">
+            <label className="block text-gray-700">Interest Rate (%):</label>
+            <input
+              type="number"
+              value={interestRate}
+              onChange={(e) => setInterestRate(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Enter interest rate"
+            />
+          </div>
 
-        <div className="w-full mb-4">
-          <label className="block text-gray-700">Start Date:</label>
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="w-full p-2 border rounded"
-          />
-        </div>
+          <div className="w-full mb-4">
+            <label className="block text-gray-700">Loan Term (years):</label>
+            <input
+              type="number"
+              value={loanTerm}
+              onChange={(e) => setLoanTerm(e.target.value)}
+              className="w-full p-2 border rounded"
+              placeholder="Enter loan term"
+            />
+          </div>
 
-        <div className="w-full mb-4">
-          <label className="block text-gray-700">Payment Frequency:</label>
-          <select
-            value={paymentFrequency}
-            onChange={(e) => setPaymentFrequency(e.target.value)}
-            className="w-full p-2 border rounded"
+          <div className="w-full mb-4">
+            <label className="block text-gray-700">Start Date:</label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+
+          <div className="w-full mb-4">
+            <label className="block text-gray-700">Payment Frequency:</label>
+            <select
+              value={paymentFrequency}
+              onChange={(e) => setPaymentFrequency(e.target.value)}
+              className="w-full p-2 border rounded"
+            >
+              <option value="monthly">Monthly</option>
+              <option value="bi-weekly">Bi-Weekly</option>
+              <option value="weekly">Weekly</option>
+            </select>
+          </div>
+
+          <button
+            onClick={calculateMortgage}
+            className="px-4 py-2 bg-blue-500 text-white rounded mb-4"
           >
-            <option value="monthly">Monthly</option>
-            <option value="bi-weekly">Bi-Weekly</option>
-            <option value="weekly">Weekly</option>
-          </select>
+            Calculate
+          </button>
         </div>
 
-        <button
-          onClick={calculateMortgage}
-          className="px-4 py-2 bg-blue-500 text-white rounded mb-4"
-        >
-          Calculate
-        </button>
-      </div>
-
-      {/* Right Side - Summary Output */}
-      <div className="w-1/2 p-4 border-l border-gray-300">
-        <h3 className="text-lg font-semibold">Mortgage Repayment Summary</h3>
-        <p><strong>Mortgage Amount:</strong> ${mortgageAmount}</p>
-        <p><strong>Down Payment:</strong> ${downPayment}</p>
-        <p><strong>Payment ({paymentFrequency}):</strong> ${monthlyPayment}</p>
-        <p><strong>Annual Payment:</strong> ${annualPayment}</p> {/* New annual payment display */}
-        <p><strong>Total Interest Paid:</strong> ${totalInterestPaid}</p>
-        <p><strong>Loan Payoff Date:</strong> {loanPayOffDate}</p>
+        {/* Right Side - Summary Output */}
+        <div className="w-1/2 p-4 border-l border-gray-300">
+          <h3 className="text-lg font-semibold flex justify-center">Mortgage Repayment Summary</h3>
+          <p><strong>Mortgage Amount:</strong> ${mortgageAmount}</p>
+          <p><strong>Down Payment:</strong> ${downPayment}</p>
+          <p><strong>Payment ({paymentFrequency}):</strong> ${monthlyPayment}</p>
+          <p><strong>Annual Payment:</strong> ${annualPayment}</p> {/* New annual payment display */}
+          <p><strong>Total Interest Paid:</strong> ${totalInterestPaid}</p>
+          <p><strong>Loan Payoff Date:</strong> {loanPayOffDate}</p>
+        </div>
       </div>
     </div>
   );
