@@ -160,7 +160,7 @@ export default function MortgageCalculator() {
           <h3 className="text-2xl font-semibold flex justify-center mb-4">Mortgage Repayment Summary</h3>
           <hr className="w-full border-gray-300 my-2" />
           {/* Mortgage details with each label above the corresponding value */}
-          <div className="mb-4 text-center">
+          <div className="mb-4">
             <p>Mortgage Amount:</p>
             <p className="font-semibold text-3xl mt-2">${mortgageAmount}</p>
           </div>
@@ -176,21 +176,25 @@ export default function MortgageCalculator() {
             <p>Payment ({paymentFrequency}):</p>
             <p className="font-semibold text-3xl mt-2">${monthlyPayment}</p>
           </div>
+          <hr className="w-full border-gray-300 my-2" />
   
           <div className="mb-4">
             <p>Annual Payment:</p>
             <p className="font-semibold text-3xl mt-2">${annualPayment}</p>
           </div>
+          <hr className="w-full border-gray-300 my-2" />
   
           <div className="mb-4">
             <p>Total Interest Paid:</p>
             <p className="font-semibold text-3xl mt-2">${totalInterestPaid}</p>
           </div>
+          <hr className="w-full border-gray-300 my-2" />
   
           <div className="mb-4">
             <p>Loan Payoff Date:</p>
             <p className="font-semibold text-3xl mt-2">{loanPayOffDate}</p>
           </div>
+          <hr className="w-full border-gray-300 my-2" />
         </div>
 
       </div>
