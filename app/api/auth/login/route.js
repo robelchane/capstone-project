@@ -1,19 +1,33 @@
-const User = require('@/models/user');
-const bcrypt = require('bcrypt');
+import connectMongoDB from "../../../../libs/mongodb";
+ // Your MongoDB connection function
+import User from '../../../../models/user'; // Your User model
+import { NextResponse } from 'next/server';
+import { currentUser } from '@clerk/nextjs';
 
-router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({username});
-    if(!user){
-        return res.status(404).json({error: 'User not found'});
-    }
+export async function GET() {
+  // Connect to the MongoDB database
+  await connectMongoDB();
 
-    const isFound = await bcrypt.compare(password, user.password);
-    if(!isFound){
-        return res.status(401).json({error: 'Invalid password'});
-    }
+  // Get the current authenticated user from Clerk
+  const user = await currentUser();
+  
+  if (!user) {
+    return NextResponse.json({ error: 'User not found' }, { status: 401 });
+  }
 
-    res.status(200).json({user});
-});
+  // Check if the user exists in your MongoDB database
+  let dbUser = await User.findOne({ clerkId: user.id });
 
-    
+  // If the user does not exist, create a new user
+  if (!dbUser) {
+    dbUser = new User({
+      clerkId: user.id,
+      name: user.fullName,
+      email: user.emailAddresses[0].emailAddress.emailAddress ?? '' // Get the primary email
+    });
+    await dbUser.save();
+  }
+
+  // Return a success response with the user's information
+  return NextResponse.json({ message: 'User logged in and saved', user: dbUser }, { status: 200 });
+}
