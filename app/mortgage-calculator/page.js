@@ -77,6 +77,7 @@ export default function MortgageCalculator() {
         {/* Left Side - Input Form */}
         <div className="w-1/2 p-4">
           <h2 className="text-2xl font-bold mb-4 flex justify-center">Mortgage Calculator</h2>
+          <hr className="w-full border-gray-300 my-2" />
 
           {error && <p className="text-red-500 mb-4">{error}</p>} {/* Display error message */}
 
