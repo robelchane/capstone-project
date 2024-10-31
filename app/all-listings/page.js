@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
   faBed,
-  faBath,
+  faBath, faHeart,
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "@clerk/nextjs";
@@ -33,6 +33,18 @@ export default function AllListings() {
   const openModal = (email) => {
     setSelectedPropertyEmail(email);
     setIsModalOpen(true);
+  };
+
+  const [savedProperties, setSavedProperties] = useState(new Set()); // Tracks saved properties
+
+  // Toggle property save/unsave
+  const toggleSaveProperty = (id) => {
+    setSavedProperties((prevSaved) => {
+      const updated = new Set(prevSaved);
+      if (updated.has(id)) updated.delete(id); // Unsave if already saved
+      else updated.add(id); // Save if not saved
+      return updated;
+    });
   };
 
   // Fetch properties based on current filters
@@ -162,7 +174,7 @@ export default function AllListings() {
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
-              <div className="mt-4">
+              <div className="flex items-center justify-between mt-4">
                 <p className="text-sm text-gray-500">
                   Seller:{" "}
                   <a
@@ -170,6 +182,10 @@ export default function AllListings() {
                       property.sellerEmail ||
                       user?.primaryEmailAddress.emailAddress
                     }`}
+                    className="text-blue-500 hover:underline"
+                  >
+                  <a
+                    href={`mailto:${property.sellerEmail}`}
                     className="text-blue-500 hover:underline"
                   >
                     {property.sellerName} ({property.sellerEmail})
@@ -188,6 +204,16 @@ export default function AllListings() {
                     onSend={(message) => console.log("Message:", message)}
                   />
                 </div>
+                <button
+                  onClick={() => toggleSaveProperty(property._id)}
+                  className={`text-xl ${
+                    savedProperties.has(property._id)
+                      ? "text-red-500"
+                      : "text-gray-500"
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faHeart} />
+                </button>
               </div>
             </div>
           ))

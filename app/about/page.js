@@ -67,14 +67,9 @@ const About = () => {
           you every step of the way.
         </p>
         <div className="flex gap-4 mb-48">
-          <Link href="/Living-In-Calgary">
-            <button className="mr-10 rounded px-6 py-4 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+          <Link href="/living-in-calgary">
+            <button className="rounded px-6 py-4 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
               Living In Calgary
-            </button>
-          </Link>
-          <Link href="/customerReview">
-            <button className="px-6 py-4 rounded bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
-              Read Testimonials
             </button>
           </Link>
         </div>
