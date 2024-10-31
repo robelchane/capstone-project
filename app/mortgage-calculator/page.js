@@ -157,39 +157,38 @@ export default function MortgageCalculator() {
 
         {/* Right Side - Summary Output */}
         <div className="w-1/2 p-4 border-l border-gray-300">
-            <h3 className="text-2xl font-semibold flex justify-center mb-4">Mortgage Repayment Summary</h3>
-  
+          <h3 className="text-2xl font-semibold flex justify-center mb-4">Mortgage Repayment Summary</h3>
           {/* Mortgage details with each label above the corresponding value */}
-        <div className="mb-4">
-    <p className="font-semibold">Mortgage Amount:</p>
-    <p>${mortgageAmount}</p>
-  </div>
+          <div className="mb-4">
+            <p className="font-semibold">Mortgage Amount:</p>
+            <p>${mortgageAmount}</p>
+          </div>
   
-  <div className="mb-4">
-    <p className="font-semibold">Down Payment:</p>
-    <p>${downPayment}</p>
-  </div>
+          <div className="mb-4">
+            <p className="font-semibold">Down Payment:</p>
+            <p>${downPayment}</p>
+          </div>
   
-  <div className="mb-4">
-    <p className="font-semibold">Payment ({paymentFrequency}):</p>
-    <p>${monthlyPayment}</p>
-  </div>
+          <div className="mb-4">
+            <p className="font-semibold">Payment ({paymentFrequency}):</p>
+            <p>${monthlyPayment}</p>
+          </div>
   
-  <div className="mb-4">
-    <p className="font-semibold">Annual Payment:</p>
-    <p>${annualPayment}</p>
-  </div>
+          <div className="mb-4">
+            <p className="font-semibold">Annual Payment:</p>
+            <p>${annualPayment}</p>
+          </div>
   
-  <div className="mb-4">
-    <p className="font-semibold">Total Interest Paid:</p>
-    <p>${totalInterestPaid}</p>
-  </div>
+          <div className="mb-4">
+            <p className="font-semibold">Total Interest Paid:</p>
+            <p>${totalInterestPaid}</p>
+          </div>
   
-  <div className="mb-4">
-    <p className="font-semibold">Loan Payoff Date:</p>
-    <p>{loanPayOffDate}</p>
-  </div>
-</div>
+          <div className="mb-4">
+            <p className="font-semibold">Loan Payoff Date:</p>
+            <p>{loanPayOffDate}</p>
+          </div>
+        </div>
 
       </div>
     </div>
