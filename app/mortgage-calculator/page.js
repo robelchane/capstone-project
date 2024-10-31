@@ -2,9 +2,9 @@
 import { useState } from "react";
 
 export default function MortgageCalculator() {
-  const [mortgageAmount, setMortgageAmount] = useState(0);
-  const [downPayment, setDownPayment] = useState(0);
-  const [interestRate, setInterestRate] = useState(0);
+  const [mortgageAmount, setMortgageAmount] = useState();
+  const [downPayment, setDownPayment] = useState();
+  const [interestRate, setInterestRate] = useState();
   const [loanTerm, setLoanTerm] = useState(30); // Default to 30 years
   const [startDate, setStartDate] = useState(""); // New state for start date
   const [paymentFrequency, setPaymentFrequency] = useState("monthly"); // Default payment frequency
@@ -154,7 +154,7 @@ export default function MortgageCalculator() {
         <h3 className="text-lg font-semibold">Mortgage Repayment Summary</h3>
         <p><strong>Mortgage Amount:</strong> ${mortgageAmount}</p>
         <p><strong>Down Payment:</strong> ${downPayment}</p>
-        <p><strong>Monthly Payment:</strong> ${monthlyPayment}</p>
+        <p><strong>Payment ({paymentFrequency}):</strong> ${monthlyPayment}</p>
         <p><strong>Annual Payment:</strong> ${annualPayment}</p> {/* New annual payment display */}
         <p><strong>Total Interest Paid:</strong> ${totalInterestPaid}</p>
         <p><strong>Loan Payoff Date:</strong> {loanPayOffDate}</p>
