@@ -156,37 +156,37 @@ export default function MortgageCalculator() {
         </div>
 
         {/* Right Side - Summary Output */}
-        <div className="w-1/2 p-4 border-l border-gray-300">
+        <div className="w-1/2 p-4 border-l border-gray-300 text-lg">
           <h3 className="text-2xl font-semibold flex justify-center mb-4">Mortgage Repayment Summary</h3>
           {/* Mortgage details with each label above the corresponding value */}
           <div className="mb-4">
-            <p className="font-semibold">Mortgage Amount:</p>
-            <p>${mortgageAmount}</p>
+            <p>Mortgage Amount:</p>
+            <p className="font-semibold">${mortgageAmount}</p>
           </div>
   
           <div className="mb-4">
-            <p className="font-semibold">Down Payment:</p>
-            <p>${downPayment}</p>
+            <p>Down Payment:</p>
+            <p className="font-semibold">${downPayment}</p>
           </div>
   
           <div className="mb-4">
-            <p className="font-semibold">Payment ({paymentFrequency}):</p>
-            <p>${monthlyPayment}</p>
+            <p>Payment ({paymentFrequency}):</p>
+            <p className="font-semibold">${monthlyPayment}</p>
           </div>
   
           <div className="mb-4">
-            <p className="font-semibold">Annual Payment:</p>
-            <p>${annualPayment}</p>
+            <p>Annual Payment:</p>
+            <p className="font-semibold">${annualPayment}</p>
           </div>
   
           <div className="mb-4">
-            <p className="font-semibold">Total Interest Paid:</p>
-            <p>${totalInterestPaid}</p>
+            <p>Total Interest Paid:</p>
+            <p className="font-semibold">${totalInterestPaid}</p>
           </div>
   
           <div className="mb-4">
-            <p className="font-semibold">Loan Payoff Date:</p>
-            <p>{loanPayOffDate}</p>
+            <p>Loan Payoff Date:</p>
+            <p className="font-semibold">{loanPayOffDate}</p>
           </div>
         </div>
 
