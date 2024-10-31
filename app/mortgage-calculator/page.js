@@ -166,7 +166,7 @@ export default function MortgageCalculator() {
   
           <div className="mb-4">
             <p>Down Payment:</p>
-            <p className="font-semibold">${downPayment}</p>
+            <p className="font-semibold text-3xl mt-2">${downPayment}</p>
           </div>
   
           <div className="mb-4">
