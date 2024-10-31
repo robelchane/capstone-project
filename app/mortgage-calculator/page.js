@@ -161,7 +161,7 @@ export default function MortgageCalculator() {
           {/* Mortgage details with each label above the corresponding value */}
           <div className="mb-4">
             <p>Mortgage Amount:</p>
-            <p className="font-semibold text-2xl">${mortgageAmount}</p>
+            <p className="font-semibold text-3xl mt-2">${mortgageAmount}</p>
           </div>
   
           <div className="mb-4">
