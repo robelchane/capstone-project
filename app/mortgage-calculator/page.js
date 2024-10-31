@@ -1,0 +1,164 @@
+"use client";
+import { useState } from "react";
+
+export default function MortgageCalculator() {
+  const [mortgageAmount, setMortgageAmount] = useState(0);
+  const [downPayment, setDownPayment] = useState(0);
+  const [interestRate, setInterestRate] = useState(0);
+  const [loanTerm, setLoanTerm] = useState(30); // Default to 30 years
+  const [startDate, setStartDate] = useState(""); // New state for start date
+  const [paymentFrequency, setPaymentFrequency] = useState("monthly"); // Default payment frequency
+  const [monthlyPayment, setMonthlyPayment] = useState(0);
+  const [annualPayment, setAnnualPayment] = useState(0); // New state for annual payment
+  const [totalInterestPaid, setTotalInterestPaid] = useState(0);
+  const [loanPayOffDate, setLoanPayOffDate] = useState("");
+  const [error, setError] = useState(""); // New state for error messages
+
+  const calculateMortgage = () => {
+    // Check if mortgage amount is less than down payment
+    if (parseFloat(downPayment) > parseFloat(mortgageAmount)) {
+      setError("Down payment cannot be greater than the mortgage amount.");
+      return;
+    } else {
+      setError(""); // Clear error if input is valid
+    }
+
+    const principal = parseFloat(mortgageAmount) - parseFloat(downPayment); // Loan amount after down payment
+    const interest = parseFloat(interestRate) / 100 / 12; // Monthly interest rate
+    const payments = parseFloat(loanTerm) * 12; // Total payments for monthly frequency
+
+    // Adjust payments based on selected frequency
+    let adjustedPayments;
+    let adjustedInterest;
+    if (paymentFrequency === "weekly") {
+      adjustedPayments = loanTerm * 52; // Total payments for weekly frequency
+      adjustedInterest = parseFloat(interestRate) / 100 / 52; // Weekly interest rate
+    } else if (paymentFrequency === "bi-weekly") {
+      adjustedPayments = loanTerm * 26; // Total payments for bi-weekly frequency
+      adjustedInterest = parseFloat(interestRate) / 100 / 26; // Bi-weekly interest rate
+    } else {
+      adjustedPayments = payments; // Monthly
+      adjustedInterest = interest; // Monthly interest rate
+    }
+
+    // Mortgage calculation formula
+    const x = Math.pow(1 + adjustedInterest, adjustedPayments);
+    const mortgage = (principal * x * adjustedInterest) / (x - 1);
+
+    const calculatedMonthlyPayment = mortgage ? mortgage.toFixed(2) : 0;
+    setMonthlyPayment(calculatedMonthlyPayment);
+
+    // Calculate annual payment based on frequency
+    if (paymentFrequency === "monthly") {
+      setAnnualPayment((calculatedMonthlyPayment * 12).toFixed(2));
+    } else if (paymentFrequency === "bi-weekly") {
+      setAnnualPayment((calculatedMonthlyPayment * 26).toFixed(2));
+    } else {
+      setAnnualPayment((calculatedMonthlyPayment * 52).toFixed(2));
+    }
+
+    setTotalInterestPaid((mortgage * adjustedPayments - principal).toFixed(2));
+
+    // Set loan payoff date based on start date
+    const start = new Date(startDate);
+    const payoffDate = new Date(start);
+    payoffDate.setFullYear(payoffDate.getFullYear() + loanTerm);
+    setLoanPayOffDate(payoffDate.toLocaleDateString());
+  };
+
+  return (
+    <div className="flex justify-between p-4 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto m-28">
+      {/* Left Side - Input Form */}
+      <div className="w-1/2 p-4">
+        <h2 className="text-2xl font-bold mb-4">Mortgage Calculator</h2>
+
+        {error && <p className="text-red-500 mb-4">{error}</p>} {/* Display error message */}
+
+        <div className="w-full mb-4">
+          <label className="block text-gray-700">Mortgage Amount:</label>
+          <input
+            type="number"
+            value={mortgageAmount}
+            onChange={(e) => setMortgageAmount(e.target.value)}
+            className="w-full p-2 border rounded"
+            placeholder="Enter mortgage amount"
+          />
+        </div>
+
+        <div className="w-full mb-4">
+          <label className="block text-gray-700">Down Payment:</label>
+          <input
+            type="number"
+            value={downPayment}
+            onChange={(e) => setDownPayment(e.target.value)}
+            className="w-full p-2 border rounded"
+            placeholder="Enter down payment"
+          />
+        </div>
+
+        <div className="w-full mb-4">
+          <label className="block text-gray-700">Interest Rate (%):</label>
+          <input
+            type="number"
+            value={interestRate}
+            onChange={(e) => setInterestRate(e.target.value)}
+            className="w-full p-2 border rounded"
+            placeholder="Enter interest rate"
+          />
+        </div>
+
+        <div className="w-full mb-4">
+          <label className="block text-gray-700">Loan Term (years):</label>
+          <input
+            type="number"
+            value={loanTerm}
+            onChange={(e) => setLoanTerm(e.target.value)}
+            className="w-full p-2 border rounded"
+            placeholder="Enter loan term"
+          />
+        </div>
+
+        <div className="w-full mb-4">
+          <label className="block text-gray-700">Start Date:</label>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className="w-full p-2 border rounded"
+          />
+        </div>
+
+        <div className="w-full mb-4">
+          <label className="block text-gray-700">Payment Frequency:</label>
+          <select
+            value={paymentFrequency}
+            onChange={(e) => setPaymentFrequency(e.target.value)}
+            className="w-full p-2 border rounded"
+          >
+            <option value="monthly">Monthly</option>
+            <option value="bi-weekly">Bi-Weekly</option>
+            <option value="weekly">Weekly</option>
+          </select>
+        </div>
+
+        <button
+          onClick={calculateMortgage}
+          className="px-4 py-2 bg-blue-500 text-white rounded mb-4"
+        >
+          Calculate
+        </button>
+      </div>
+
+      {/* Right Side - Summary Output */}
+      <div className="w-1/2 p-4 border-l border-gray-300">
+        <h3 className="text-lg font-semibold">Mortgage Repayment Summary</h3>
+        <p><strong>Mortgage Amount:</strong> ${mortgageAmount}</p>
+        <p><strong>Down Payment:</strong> ${downPayment}</p>
+        <p><strong>Monthly Payment:</strong> ${monthlyPayment}</p>
+        <p><strong>Annual Payment:</strong> ${annualPayment}</p> {/* New annual payment display */}
+        <p><strong>Total Interest Paid:</strong> ${totalInterestPaid}</p>
+        <p><strong>Loan Payoff Date:</strong> {loanPayOffDate}</p>
+      </div>
+    </div>
+  );
+}
