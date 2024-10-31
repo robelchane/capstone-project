@@ -150,12 +150,12 @@ export default function MortgageCalculator() {
             </select>
           </div>
 
-          <button
-            onClick={calculateMortgage}
-            className="px-4 py-2 bg-blue-500 text-white rounded mb-4"
-          >
-            Calculate
-          </button>
+          <div className="flex justify-center mb-4">
+            <button onClick={calculateMortgage}
+              className="px-4 py-2 bg-blue-500 text-white rounded">
+              Calculate
+            </button>
+          </div>
         </div>
 
         <div className="w-3/4 p-4 border-l border-gray-300">
