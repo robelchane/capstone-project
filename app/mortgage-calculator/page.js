@@ -1,3 +1,8 @@
+// Reference
+// https://www.mortgagecalculator.org/
+// https://apps.royalbank.com/apps/mortgages/mortgage-payment-calculator/#top-page-content-2
+// https://www.geeksforgeeks.org/build-a-loan-calculator-using-next-js/
+
 "use client";
 import { useState } from "react";
 
