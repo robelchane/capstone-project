@@ -115,7 +115,7 @@ export default function MortgageCalculator() {
           </div>
 
           <div className="w-full mb-4">
-            <label className="block text-gray-700">Loan Term (years):</label>
+            <label className="block text-gray-700">Amortization Period (years):</label>
             <input
               type="number"
               value={loanTerm}
