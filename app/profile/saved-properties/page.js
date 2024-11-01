@@ -4,6 +4,11 @@ import { useEffect,useState } from "react";
 
 export default function SavedPropertiesPage() {
 
+    const [savedProperties, setSavedProperties] = useState([]);
+    
+
+
+
 
     return(
         <div>
