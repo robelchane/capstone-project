@@ -7,7 +7,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBed, faBath, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faBed, faBath, faHeart, faMessage } from "@fortawesome/free-solid-svg-icons";
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // Holds fetched property listings
@@ -178,6 +178,7 @@ export default function AllListings() {
                   }`}
                 >
                   <FontAwesomeIcon icon={faHeart} />
+                  <FontAwesomeIcon icon={faMessage} />
                 </button>
               </div>
             </div>

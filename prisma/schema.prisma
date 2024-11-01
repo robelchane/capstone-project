@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGODB_URI")
+}
+
+model Property {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  price       Float
+  area        Float
+  location    String
+  images      String[]
+  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId     String   @db.ObjectId // Make sure the foreign key type matches the primary key type
+  messages    Message[] 
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId         String    @unique
+  name            String
+  email           String    @unique
+  savedProperties String[]
+  properties      Property[] 
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceiverMessages")
+}
+
+model Message {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  messageBody    String
+  isRead         Boolean  @default(false)
+  attachment     String?
+  conversationId String?
+  property       Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  propertyId     String   @db.ObjectId // Updated to have @db.ObjectId to match the Property model
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  sender         User     @relation("SentMessages",fields: [senderId], references: [id])
+  senderId       String   @db.ObjectId // Updated to have @db.ObjectId to match the User model
+  receiver       User     @relation("ReceiverMessages",fields: [receiverId], references: [id])
+  receiverId     String   @db.ObjectId // Updated to have @db.ObjectId to match the User model
+}
