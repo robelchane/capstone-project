@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function SavedPropertiesPage() {
   //const { user, isSignedIn } = useUser(); // Get the user from Clerk
-  //const [savedProperties, setSavedProperties] = useState([]);
+  const [savedProperties, setSavedProperties] = useState([]);
 
   return (
     <div className="mt-4 flex flex-col items-center">

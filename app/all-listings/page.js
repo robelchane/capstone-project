@@ -45,7 +45,7 @@ export default function AllListings() {
         } else {
           updated.add(id); // Save if not saved
           // Show a toast message when a property is saved
-         
+         localStorage.setItem("savedProperties", JSON.stringify([...updated]));
         }
   
         return updated;
