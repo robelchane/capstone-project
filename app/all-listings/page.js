@@ -7,7 +7,15 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBed, faBath, faHeart, faMessage } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faBed,
+  faBath,
+  faHeart,
+  faMessage,
+} from "@fortawesome/free-solid-svg-icons";
+
+import {Toaster} from "@/_components/ui/toaster";
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // Holds fetched property listings
@@ -24,12 +32,26 @@ export default function AllListings() {
 
   // Toggle property save/unsave
   const toggleSaveProperty = (id) => {
+    console.log('heart icon clicked, property id:', id);
     setSavedProperties((prevSaved) => {
       const updated = new Set(prevSaved);
-      if (updated.has(id)) updated.delete(id); // Unsave if already saved
-      else updated.add(id); // Save if not saved
+      if (updated.has(id)) updated.delete(id);
+      //add a toast message when a property is saved
+
+      Toaster({
+        title: "Property has ben saved to your favorites",
+      });
+      // Unsave if already saved
+      else 
+      updated.add(id);
+    Toaster({
+        title: "Property has been removed from your favorites",
+    })
+     // Save if not saved
       return updated;
     });
+
+
   };
 
   // Fetch properties based on current filters
@@ -39,6 +61,7 @@ export default function AllListings() {
       const query = new URLSearchParams(filters).toString();
       const response = await fetch(`/api/properties?${query}`);
       const data = await response.json();
+      console.log(data);
       setProperties(data.properties); // Update state with fetched properties
     } catch (error) {
       console.error("Failed to fetch properties", error);
@@ -169,6 +192,8 @@ export default function AllListings() {
                     {property.sellerName} ({property.sellerEmail})
                   </a>
                 </p>
+              </div>
+              <div className="flex items-center justify-between space-x-2">
                 <button
                   onClick={() => toggleSaveProperty(property._id)}
                   className={`text-xl ${
@@ -178,6 +203,8 @@ export default function AllListings() {
                   }`}
                 >
                   <FontAwesomeIcon icon={faHeart} />
+                </button>
+                <button className="text-xl text-gray-500">
                   <FontAwesomeIcon icon={faMessage} />
                 </button>
               </div>

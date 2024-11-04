@@ -152,7 +152,7 @@ export default function Listings() {
                     Add to Favorites
                   </button>
                   <button className="bg-yellow-700 text-white px-4 py-2 w-full md:w-auto">
-                    Contact Seller
+                    Save Listing
                   </button>
                 </div>
               </div>
