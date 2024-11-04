@@ -15,7 +15,6 @@ import {
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 
-import {Toaster} from "@/_components/ui/toaster";
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // Holds fetched property listings
@@ -30,29 +29,30 @@ export default function AllListings() {
 
   const [savedProperties, setSavedProperties] = useState(new Set()); // Tracks saved properties
 
-  // Toggle property save/unsave
-  const toggleSaveProperty = (id) => {
-    console.log('heart icon clicked, property id:', id);
-    setSavedProperties((prevSaved) => {
-      const updated = new Set(prevSaved);
-      if (updated.has(id)) updated.delete(id);
-      //add a toast message when a property is saved
+  //const { toast } = useToast(); // Destructure the toast function
 
-      Toaster({
-        title: "Property has ben saved to your favorites",
+
+    // Toggle property save/unsave
+    const toggleSaveProperty = (id) => {
+      console.log("Heart icon clicked, property id:", id);
+      setSavedProperties((prevSaved) => {
+        const updated = new Set(prevSaved);
+  
+        if (updated.has(id)) {
+          updated.delete(id); // Unsave if already saved
+          // Show a toast message when a property is unsaved
+          
+        } else {
+          updated.add(id); // Save if not saved
+          // Show a toast message when a property is saved
+         
+        }
+  
+        return updated;
       });
-      // Unsave if already saved
-      else 
-      updated.add(id);
-    Toaster({
-        title: "Property has been removed from your favorites",
-    })
-     // Save if not saved
-      return updated;
-    });
 
-
-  };
+      
+    };
 
   // Fetch properties based on current filters
   const fetchProperties = async () => {

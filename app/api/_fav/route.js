@@ -22,7 +22,11 @@ export async function POST(request) {
         console.error("Error adding favorite:", error);
         return NextResponse.json({error: "Failed to add favorite"}, {status: 500});
     }
+
+    
 }
+
+
 
 // Get request to fetch all favorites
 export async function GET(request) {

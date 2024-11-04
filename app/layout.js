@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 //import { Toaster } from "@/components/ui/toaster";
 
 
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -40,7 +41,6 @@ export default function RootLayout({ children }) {
 
           {/* Render the rest of the children */}
           {children}
-          
         </body>
       </html>
     </ClerkProvider>
