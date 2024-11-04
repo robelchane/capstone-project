@@ -49,7 +49,7 @@ export default function AllListings() {
           //toast("Property removed from saved properties", { type: "success" });
         } else {
           updated.add(property);
-          console.log("Property added to saved properties", { type: "success" });
+          console.log("Property added to saved properties");
         }
 
         localStorage.setItem("savedProperties", JSON.stringify([...updated]));
@@ -201,9 +201,9 @@ export default function AllListings() {
               </div>
               <div className="flex items-center justify-between space-x-2">
                 <button
-                  onClick={() => toggleSaveProperty(property._id)}
+                  onClick={() => toggleSaveProperty(property)}
                   className={`text-xl ${
-                    savedProperties.has(property._id)
+                    savedProperties.has(property)
                       ? "text-red-500"
                       : "text-gray-500"
                   }`}
