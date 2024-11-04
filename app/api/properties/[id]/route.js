@@ -37,4 +37,8 @@ export async function GET(request) {
       { status: 500 }
     );
   }
+
+  // POST request to create a new property
+
+  
 }

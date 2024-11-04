@@ -7,7 +7,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBed, faBath, faHeart, faMessage } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faBed,
+  faBath,
+  faHeart,
+  faMessage,
+} from "@fortawesome/free-solid-svg-icons";
+
 
 export default function AllListings() {
   const [properties, setProperties] = useState([]); // Holds fetched property listings
@@ -22,15 +29,37 @@ export default function AllListings() {
 
   const [savedProperties, setSavedProperties] = useState(new Set()); // Tracks saved properties
 
-  // Toggle property save/unsave
-  const toggleSaveProperty = (id) => {
-    setSavedProperties((prevSaved) => {
-      const updated = new Set(prevSaved);
-      if (updated.has(id)) updated.delete(id); // Unsave if already saved
-      else updated.add(id); // Save if not saved
-      return updated;
-    });
-  };
+  //const { toast } = useToast(); // Destructure the toast function
+
+
+    // Toggle property save/unsave
+    const toggleSaveProperty = (property) => {
+      console.log("Heart icon clicked, Here's your property:", property);
+      setSavedProperties((prevSaved) => {
+        const updated = new Set(prevSaved);
+        // Check if the property is already saved
+        const propertyExists  = [...updated].some(
+        (savedProperties) => savedProperties._id === property._id
+        );
+          // If the property is saved, remove it from saved properties
+       if(propertyExists){
+          updated.delete(
+            [...updated]. find((savedProperty) => savedProperty._id === property._id)
+          );
+          //toast("Property removed from saved properties", { type: "success" });
+        } else {
+          // If the property is not saved, add it to saved properties
+          updated.add(property);
+          console.log("Property added to saved properties");
+        }
+        // Update saved properties in localStorage jsust for the moment
+        localStorage.setItem("savedProperties", JSON.stringify([...updated]));
+
+        return updated;
+      });
+
+      
+    };
 
   // Fetch properties based on current filters
   const fetchProperties = async () => {
@@ -39,6 +68,7 @@ export default function AllListings() {
       const query = new URLSearchParams(filters).toString();
       const response = await fetch(`/api/properties?${query}`);
       const data = await response.json();
+      console.log(data);
       setProperties(data.properties); // Update state with fetched properties
     } catch (error) {
       console.error("Failed to fetch properties", error);
@@ -169,15 +199,19 @@ export default function AllListings() {
                     {property.sellerName} ({property.sellerEmail})
                   </a>
                 </p>
+              </div>
+              <div className="flex items-center justify-between space-x-2">
                 <button
-                  onClick={() => toggleSaveProperty(property._id)}
+                  onClick={() => toggleSaveProperty(property)}
                   className={`text-xl ${
-                    savedProperties.has(property._id)
+                    savedProperties.has(property)
                       ? "text-red-500"
                       : "text-gray-500"
                   }`}
                 >
                   <FontAwesomeIcon icon={faHeart} />
+                </button>
+                <button className="text-xl text-gray-500">
                   <FontAwesomeIcon icon={faMessage} />
                 </button>
               </div>
