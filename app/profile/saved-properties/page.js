@@ -4,20 +4,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed, faBath } from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
 
 export default function SavedPropertiesPage() {
+  // State to hold saved properties
+  // Initialize with an empty array
   const [savedProperties, setSavedProperties] = useState([]);
 
+  // Fetch saved properties from localStorage
+  // Runs only once after the component mounts
+  // Dependencies array is empty
   useEffect(() => {
     // Retrieve saved properties from localStorage
     const saved = JSON.parse(localStorage.getItem("savedProperties")) || [];
     setSavedProperties(saved);
   }, []);
 
+
+  // Return the JSX to render/
+  // Display saved properties
   return (
     <div className="mt-4 flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-4">Saved Properties</h1>
+      {/* Check if there are saved properties */}
       {savedProperties.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Loop through saved properties */}
+          {/* Display each property */}
+          {/* Use the map function to loop through the saved properties */}
+          {/* Display each property */}
           {savedProperties.map((property) => (
+            
             <div key={property._id} className="p-4 border rounded shadow-md">
               <img
                 src={`/images/${property.image}`}
