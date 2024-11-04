@@ -5,6 +5,9 @@ import Header from "./header/page";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
+//import { Toaster } from "@/components/ui/toaster";
+
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -103,6 +103,12 @@ export default function Header() {
               >
                 Manager
               </DropdownMenuItem>
+              <DropdownMenuItem
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
+                onClick={() => router.push("/mortgage-calculator")}
+              >
+                Mortgage Calculator
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
