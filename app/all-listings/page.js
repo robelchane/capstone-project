@@ -39,11 +39,13 @@ export default function AllListings() {
         const updated = new Set(prevSaved);
   
         const propertyExists  = [...updated].some(
-        (savedProperties) => savedProperties.id === property.id
+        (savedProperties) => savedProperties._id === property._id
         );
           
        if(propertyExists){
-          updated.delete(property);
+          updated.delete(
+            [...updated]. find((savedProperty) => savedProperty._id === property._id)
+          );
           //toast("Property removed from saved properties", { type: "success" });
         } else {
           updated.add(property);
