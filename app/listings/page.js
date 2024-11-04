@@ -77,14 +77,14 @@ export default function Listings() {
   return (
     <main className="font-serif p-8 flex h-screen overflow-hidden mt-12">
       {/* Map Section */}
-      <div className="w-1/2 h-full p-4 rounded-t-lg">
+      <div className="w-1/2 h-full p-4 rounded-t-lg mt-15">
         <Map items={data} />
       </div>
 
       {/* Listings Section */}
       <div className="w-1/2 overflow-y-scroll h-full p-4 overflow-x-hidden">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-yellow-700">Best Choices</h1>
+          <h1 className="text-2xl font-bold text-yellow-700 mt-1">Best Choices</h1>
           <h2 className="text-4xl font-bold text-black mt-2">
             Popular Residencies
           </h2>
@@ -147,7 +147,7 @@ export default function Listings() {
                 <div className="flex justify-between items-center mt-4 w-full">
                   <button
                     onClick={() => handleAddToFavorites(residence)}
-                    className="bg-yellow-700 text-white px-4 py-2 rounded-lg w-full md:w-auto"
+                    className="bg-yellow-700 text-white px-4 py-2 rounded w-full md:w-auto"
                   >
                     Add to Favorites
                   </button>

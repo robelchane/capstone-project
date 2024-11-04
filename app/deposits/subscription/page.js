@@ -1,65 +1,197 @@
+//app/deposits/subscription.page.js
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function Subscription() {
-  const [SubscriptionPlans, setSubscriptionPlans] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchSubscriptionPlans = async () => {
-      try {
-        const response = await fetch("/api/subscriptions");
-        const data = await response.json();
-        setSubscriptionPlans(data.subscriptionPlans); // API에서 가져온 구독 데이터 저장
-      } catch (error) {
-        console.error("Failed to fetch subscription plans", error);
-      } finally {
-        setLoading(false); // 로딩 상태 종료
+  const [subscriptionPlans] = useState([
+    {
+      _id: "671b2d837d5bd4b03aec6f79",
+      name: "Basic",
+      price: 0,
+      propertyLimit: 5,
+      imagePerPropertyLimit: 5,
+      features: [
+        "free for lifetime",
+        "property listing",
+        "property details",
+        "5 images per property",
+        "5 properties limit",
+        "property in search",
+      ],
+    },
+    {
+      _id: "671b2d837d5bd4b03aec6f7b",
+      name: "Premium",
+      price: 19.99,
+      propertyLimit: 50,
+      imagePerPropertyLimit: 20,
+      features: [
+        "property listing",
+        "property details",
+        "50 images per property",
+        "50 properties limit",
+        "24/7 support on Email/Phone",
+        "personal account manager",
+      ],
+    },
+  ]);
+
+  const [message, setMessage] = useState("");
+  const [isBasicSubscribed, setIsBasicSubscribed] = useState(false);
+
+  const handleSubscription = async (planName) => {
+    try {
+      const response = await fetch("/api/subscriptions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: "testUser123", plan: planName }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        if (planName === "Basic") {
+          setMessage(data.message);
+          setIsBasicSubscribed(true);
+        } else {
+          window.location.href = data.url;
+        }
+      } else {
+        setMessage("Subscription failed. Please try again.");
       }
-    };
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("An error occurred. Please try again.");
+    }
+  };
 
-    fetchSubscriptionPlans();
-  }, []);
+  const handleCancelSubscription = async () => {
+    try {
+      const response = await fetch("/api/subscriptions", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: "testUser123", plan: "Basic" }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setMessage(data.message);
+        setIsBasicSubscribed(false);
+      } else {
+        setMessage("Failed to cancel subscription. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("An error occurred. Please try again.");
+    }
+  };
+
+  const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY;
+  const stripePromise = loadStripe(publishableKey);
+
+  const createCheckOutSession = async (item) => {
+    setLoading(true);
+    const stripe = await stripePromise;
+
+    try {
+      const checkoutSession = await axios.post("/api/create-stripe-session", {
+        item: {
+          name: item.name,
+          description: item.features.join(", "),
+          image: "https://yourdomain.com/path/to/premium-image.jpg", // example image url
+          price: item.price,
+          quantity: 1,
+        },
+      });
+
+      const result = await stripe.redirectToCheckout({
+        sessionId: checkoutSession.data.id,
+      });
+
+      if (result.error) {
+        alert(result.error.message);
+      }
+    } catch (error) {
+      console.error("Error creating checkout session:", error);
+      setMessage("Failed to create checkout session. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Subscription Details</h1>
-      <hr className="mb-5"/>
+      <h1 className="text-2xl font-bold mb-4 mt-2">Subscription Details</h1>
+      <hr className="mb-5" />
 
-      {loading ? (
-        <p>Loading subscription plans...</p>
-      ) : SubscriptionPlans.length > 0 ? (
-        <table className="min-w-full border border-gray-300">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Plan Name</th>
-              <th className="border border-gray-300 p-2">Price</th>
-              <th className="border border-gray-300 p-2">Property Limit</th>
-              <th className="border border-gray-300 p-2">Image Per Property Limit</th>
-              <th className="border border-gray-300 p-2">Features</th>
-            </tr>
-          </thead>
-          <tbody>
-            {SubscriptionPlans.map((plan) => (
-              <tr key={plan._id} className="border-b border-gray-300">
-                <td className="border border-gray-300 p-2">{plan.name}</td>
-                <td className="border border-gray-300 p-2">${plan.price}</td>
-                <td className="border border-gray-300 p-2">{plan.propertyLimit}</td>
-                <td className="border border-gray-300 p-2">{plan.imagePerPropertyLimit}</td>
-                <td className="border border-gray-300 p-2">
-                  <ul>
-                    {plan.features.map((feature, index) => (
-                      <li key={index}>{feature}</li> // features 배열의 각 항목을 나열
-                    ))}
-                  </ul>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>No subscription plans found.</p>
-      )}
+      <div className="flex flex-wrap gap-3 justify-center">
+        {/* Subscription Plans */}
+        {subscriptionPlans.map((plan) => (
+          <div
+            key={plan._id}
+            className="border border-gray-300 rounded-lg p-5 shadow-md"
+            style={{ width: "380px" }}
+          >
+            <h2 className="text-xl font-semibold mb-4 text-center">{plan.name}</h2>
+            <p className="text-gray-700 mb-4">${plan.price} / month</p>
+            <p className="text-gray-600">Property Limit: {plan.propertyLimit}</p>
+            <p className="text-gray-600 mb-4">
+              Images per Property: {plan.imagePerPropertyLimit}
+            </p>
+
+            <ul className="list-disc list-inside text-gray-600">
+              {plan.features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col items-center w-full">
+              <button
+                className="py-2 mt-4 rounded text-white bg-black hover:bg-gray-900"
+                style={{ width: "350px" }}
+                onClick={() => {
+                  plan.name === "Premium" ? createCheckOutSession(plan) : handleSubscription(plan.name);
+                }}
+              >
+                {plan.name === "Basic" ? "Subscribe for free!" : "Purchase subscription"}
+              </button>
+              
+              {plan.name === "Basic" && isBasicSubscribed && (
+                <button
+                  className="py-2 mt-4 rounded text-white bg-red-600 hover:bg-red-800"
+                  style={{ width: "350px" }}
+                  onClick={handleCancelSubscription}
+                >
+                  Cancel Basic Subscription
+                </button>
+              )}
+            </div>
+          </div>
+        ))}
+
+        {/* Test Payment Information Box */}
+        <div
+          className="border border-blue-500 rounded-lg p-5 shadow-md bg-blue-50 text-center"
+          style={{ width: "380px" }}
+        >
+          <h2 className="text-xl font-bold mb-4 text-blue-800">Test Mode</h2>
+          <p className="text-blue-700">Card Number: 4242 4242 4242 4242</p>
+          <p className="text-blue-700">MM/YY: 12/34</p>
+          <p className="text-blue-700">CVC: 123</p>
+        </div>
+      </div>
+
+      {message && <p className="mt-8 text-center text-xl font-semibold text-yellow-700">{message}</p>}
     </div>
   );
 }

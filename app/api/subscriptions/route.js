@@ -1,30 +1,68 @@
-// pages/api/subscriptionPlans.js
-import connectMongoDB from "../../../libs/mongodb"; // MongoDB 연결 함수
-//import SubscriptionPlans from '../../../models/subscriptionPlansSchema'; // SubscriptionPlans 모델
+// app/api/subscriptions/route.js
+import { NextResponse } from "next/server";
+import connectToDatabase from "../../../libs/mongodb";
+import Subscription from "../../../models/subscription";
+import Stripe from "stripe";
 
-export default async function handler(req, res) {
-  await connectMongoDB(); // MongoDB에 연결
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-  if (req.method === 'GET') {
-    try {
-      const plans = await SubscriptionPlans.find(); // 구독 계획 가져오기
-      res.status(200).json({ subscriptionPlans: plans }); // 성공적으로 가져온 구독 계획 반환
-    } catch (error) {
-      console.error("Failed to fetch subscription plans", error); // 오류 로그
-      res.status(500).json({ error: 'Failed to fetch subscription plans' }); // 오류 응답
+// POST method: Create a new subscription
+export async function POST(req) {
+  await connectToDatabase();
+
+  try {
+    const { userId, plan } = await req.json();
+
+    if (plan === "Basic") {
+      // Store Basic subscriptions in the DB
+      const subscription = new Subscription({
+        userId,
+        plan,
+        startDate: new Date(),
+        status: "active",
+      });
+      await subscription.save();
+      return NextResponse.json({ message: "Basic plan subscribed successfully" }, { status: 200 });
+    } else {
+      // Stripe payment processing for Premium subscriptions
+      const priceId = "price_1QHBZrRpN1tC1oLYAPiFbWv6"; // Actual Stripe pricing ID for Premium subscriptions
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        mode: "subscription",
+        line_items: [{ price: priceId, quantity: 1 }],
+        success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/subscription-success`,
+        cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/subscription-cancel`,
+      });
+
+      return NextResponse.json({ url: session.url }, { status: 200 });
     }
-  } else if (req.method === 'POST') {
-    try {
-      const newPlan = new SubscriptionPlans(req.body); // 요청 본문으로 새 구독 계획 생성
-      const savedPlan = await newPlan.save(); // 새 계획 저장
-      res.status(201).json(savedPlan); // 성공적으로 저장한 계획 반환
-    } catch (error) {
-      console.error("Failed to create subscription plan", error); // 오류 로그
-      res.status(500).json({ error: 'Failed to create subscription plan' }); // 오류 응답
+  } catch (error) {
+    console.error("Subscription error:", error);
+    return NextResponse.json({ message: "Subscription failed" }, { status: 500 });
+  }
+}
+
+// DELETE method: Delete a subscription
+export async function DELETE(req) {
+  await connectToDatabase();
+
+  try {
+    const { userId, plan } = await req.json();
+
+    if (plan === "Basic") {
+      const result = await Subscription.findOneAndDelete({ userId, plan });
+
+      if (result) {
+        return NextResponse.json({ message: "Subscription deleted successfully" }, { status: 200 });
+      } else {
+        return NextResponse.json({ message: "Subscription not found" }, { status: 404 });
+      }
+    } else {
+      return NextResponse.json({ message: "Only Basic subscriptions can be deleted with this endpoint" }, { status: 400 });
     }
-  } else {
-    // 지원하지 않는 메서드에 대한 응답
-    res.setHeader('Allow', ['GET', 'POST']); // 지원하는 메서드 설정
-    res.status(405).end(`Method ${req.method} Not Allowed`); // 메서드가 지원되지 않음을 알림
+  } catch (error) {
+    console.error("Error deleting subscription:", error);
+    return NextResponse.json({ message: "Failed to delete subscription" }, { status: 500 });
   }
 }

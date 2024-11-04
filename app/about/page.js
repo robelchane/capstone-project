@@ -55,8 +55,8 @@ const About = () => {
           
           {/* Box 6 */}
           <div className="cursor-pointer p-8 bg-[#906D3B] text-white transition duration-300 hover:bg-[#8B6331]">
-            <h3 className="text-center text-shadow font-semibold text-xl mb-5">Strong Community Ties</h3>
-            <p className="text-center text-shadow">Building connections to find the right opportunities.</p>
+            <h3 className="text-center text-shadow font-semibold text-2xl mb-5">Strong Community Ties</h3>
+            <p className="text-xl text-center text-shadow">Building connections to find the right opportunities.</p>
           </div>
         </div>
 
