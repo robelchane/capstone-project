@@ -33,22 +33,25 @@ export default function AllListings() {
 
 
     // Toggle property save/unsave
-    const toggleSaveProperty = (id) => {
-      console.log("Heart icon clicked, property id:", id);
+    const toggleSaveProperty = (property) => {
+      console.log("Heart icon clicked, property id:", property);
       setSavedProperties((prevSaved) => {
         const updated = new Set(prevSaved);
   
-        if (updated.has(id)) {
-          updated.delete(id); // Unsave if already saved
-          // Show a toast message when a property is unsaved
+        const propertyExists  = [...updated].some(
+        (savedProperties) => savedProperties.id === property.id
+        );
           
+       if(propertyExists){
+          updated.delete(property);
+          //toast("Property removed from saved properties", { type: "success" });
         } else {
-          updated.add(id); // Save if not saved
-          // Show a toast message when a property is saved
-         localStorage.setItem("savedProperties", JSON.stringify([...updated]));
-         console.log("Saved properties:", updated);
+          updated.add(property);
+          console.log("Property added to saved properties", { type: "success" });
         }
-  
+
+        localStorage.setItem("savedProperties", JSON.stringify([...updated]));
+
         return updated;
       });
 

@@ -16,15 +16,14 @@ export default function SavedPropertiesPage() {
       {savedProperties.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {savedProperties.map((property) => (
-            <div key={property.id} className="p-4 border rounded shadow-md">
-              <img
+            <div key={propertyId} className="p-4 border rounded shadow-md">
+              {/* Display your saved property details here.
+                  You may need to fetch the property details based on the propertyId */}
+              <img 
                 src={property.image}
                 alt={property.name}
                 className="w-full h-48 object-cover mb-4"
               />
-              <h2 className="text-xl font-bold mb-2">{property.name}</h2>
-              <p className="text-lg text-gray-700">{property.description}</p>
-              <p className="text-lg text-gray-700">Price: ${property.price}</p>
             </div>
           ))}
         </div>
@@ -33,4 +32,6 @@ export default function SavedPropertiesPage() {
       )}
     </div>
   );
+  
+
 }
