@@ -145,7 +145,7 @@ export default function Seller() {
             <input
               name="sellerName"
               type="text"
-              placeholder="Your Name"
+              placeholder="Seller Name"
               value={propertyData.sellerName}
               onChange={handleChange}
               required
