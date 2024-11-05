@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed, faBath, faX } from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
+import { faBed, faBath, faTrash} from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
 
 export default function SavedPropertiesPage() {
   // State to hold saved properties
@@ -69,7 +69,7 @@ useEffect(() => {
                 </p>
                 <div className="text-xl text-gray-500">
                   <button onClick={()=> handleDeleteProperty(property)} >
-                  <FontAwesomeIcon icon={faX} className="text-gray-600 mx-2 : " />
+                  <FontAwesomeIcon icon={faTrash} className="text-gray-600 mx-2 hover: text-blue-300 transition-colors duration-200" />
                   </button>
                 </div> {/* Closing tag added here */}
               </div>
