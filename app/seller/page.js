@@ -94,7 +94,7 @@ export default function Seller() {
               Want to get in touch?
             </Link>
           </div>
-          <h1 className="w-full flex justify-center text-3xl  bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
+          <h1 className="w-full flex justify-center text-3xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
             List Your Property</h1>
           <form onSubmit={handleSubmit}>
             <input
