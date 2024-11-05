@@ -61,7 +61,7 @@ export default function AllListings() {
       });
 
       // Save the property to the database
-      {/*
+      {}
       const response = await fetch("/api/fav", {
         method: "POST",
         headers: {
@@ -94,7 +94,6 @@ export default function AllListings() {
 
       
     };
-      */}
 
 
     
