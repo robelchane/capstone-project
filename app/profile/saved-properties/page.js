@@ -59,7 +59,9 @@ export default function SavedPropertiesPage() {
                   </a>
                 </p>
                 <div className="text-xl text-gray-500">
+                  <button>
                   <FontAwesomeIcon icon={faX} className="text-gray-600 mx-2" />
+                  </button>
                 </div> {/* Closing tag added here */}
               </div>
             </div>
