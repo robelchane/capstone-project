@@ -37,6 +37,7 @@ export default function ViewedSavedPropertiesCard() {
       <CardContent>
         <p>Keep track of the properties you've viewed and saved for later.</p>
         <ul>
+          {/*}
           {favoriteProperties.length > 0 ? (
             favoriteProperties.map((property, index) => (
               <li key={index}>{property.name}</li> // Display favorite properties
@@ -44,15 +45,21 @@ export default function ViewedSavedPropertiesCard() {
           ) : (
             <p>No favorite properties yet.</p>
           )}
+          */}
         </ul>
       </CardContent>
       <CardFooter className="space-x-4">
+        {/*
         <Button onClick={() => handleSaveFavorite({ name: 'Sample Property' })}>
           View Favorite Properties
         </Button>
+        */}
         <Button onClick={handleSavedPropertiesClick}>Saved Properties</Button>
       </CardFooter>
+      
+        
     </Card>
   );
 }
+
 

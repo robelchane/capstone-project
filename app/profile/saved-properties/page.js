@@ -1,3 +1,7 @@
+//refrences
+//Chatgpt
+//https://www.youtube.com/watch?v=lB-O5q6Pdp8
+//https://webdev2.warsylewicz.ca/week-6/lists#
 "use client";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
