@@ -1,7 +1,7 @@
-import connectMongoDB from "@/libs/mongodb";
-import Favorite from "@/models/favorite";
+import connectMongoDB from "../../../libs/mongodb";
+import Favorite from "../../../models/favorite";
 import { NextResponse } from "next/server";
-import Property from "@/models/property";
+import Property from "../../../models/favorite";
 import { Import } from "lucide-react";
 
 export default async function handler(req,res) {
@@ -35,6 +35,9 @@ export default async function handler(req,res) {
 
     
 }
+
+
+
 
 
 

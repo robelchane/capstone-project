@@ -61,8 +61,8 @@ export default function AllListings() {
       });
 
       // Save the property to the database
-
-      const response = await fetch("/api/_fav", {
+      {/*
+      const response = await fetch("/api/fav", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,19 +74,30 @@ export default function AllListings() {
 
       });
 
-      const results = await response.json();  
+
+      let results;
+      try{
+        results = await response.json();
+      } catch (error){
+        results = {};
+      }
+
       if(response.ok){
-        console.log("Property saved successfully", results);
-        //toast("Property saved successfully", { type: "success" });
+        console.log ("Property saved successfully",results);
       } else {
         console.error("Failed to save property", results);
-        //toast("Failed to save property", { type: "error" });
       }
+
+
 
 
 
       
     };
+      */}
+
+
+    
 
   // Fetch properties based on current filters
   const fetchProperties = async () => {
