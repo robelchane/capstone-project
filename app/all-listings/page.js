@@ -14,9 +14,11 @@ import {
   faHeart,
   faMessage,
 } from "@fortawesome/free-solid-svg-icons";
+import { useUser } from "@clerk/nextjs"; // Correctly import useUser
 
 
 export default function AllListings() {
+  const {user } = useUser(); // Destructure the user object
   const [properties, setProperties] = useState([]); // Holds fetched property listings
   const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({
@@ -33,7 +35,7 @@ export default function AllListings() {
 
 
     // Toggle property save/unsave
-    const toggleSaveProperty = (property) => {
+    const toggleSaveProperty =  async (property) => {
       console.log("Heart icon clicked, Here's your property:", property);
       setSavedProperties((prevSaved) => {
         const updated = new Set(prevSaved);
@@ -57,6 +59,31 @@ export default function AllListings() {
 
         return updated;
       });
+
+      // Save the property to the database
+
+      const response = await fetch("/api/_fav", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user?.primaryEmailAddress.emailAddress,
+          propertyId: property._id,
+        }),
+
+      });
+
+      const results = await response.json();  
+      if(response.ok){
+        console.log("Property saved successfully", results);
+        //toast("Property saved successfully", { type: "success" });
+      } else {
+        console.error("Failed to save property", results);
+        //toast("Failed to save property", { type: "error" });
+      }
+
+
 
       
     };

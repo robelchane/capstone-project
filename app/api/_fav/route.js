@@ -2,26 +2,36 @@ import connectMongoDB from "@/libs/mongodb";
 import Favorite from "@/models/favorite";
 import { NextResponse } from "next/server";
 import Property from "@/models/property";
+import { Import } from "lucide-react";
 
-export async function POST(request) {
-    try{
-        const {userId, propertyId} = await request.json();
-        await connectMongoDB();
+export default async function handler(req,res) {
+    await connectMongoDB();
 
-        // Check if the favorite already exists
-        const existingFavorite = await Favorite.findOne({userId, propertyId});
-        if(existingFavorite){
-            return NextResponse.json({message: "Favorite already exists"}, {status: 400});
+    if(req.method === "POST"){
+        try {
+            const { userId, propertyId } = req.body;
+            // Check if the faviourte exists
+            const existingFavorite = await Favorite.findOne({ userId, propertyId });
+            if (existingFavorite) {
+                return NextResponse.json({ error: "Property already saved" }, { status: 400 });
+            }
+
+                    // Create a new favorite entry
+
+            const favorite = new Favorite({ userId, propertyId });
+            await favorite.save();
+
+            return NextResponse.json(favorite, { status: 201 });
+
+        } catch (error) {
+            console.error("Error saving property:", error);
+            return NextResponse.json({ error: "Failed to save property" }, { status: 500 });
         }
 
-        const favorite = new Favorite({ userId, propertyId });
-        await favorite.save()
-
-        return NextResponse.json({message: "Favorite added"}, {status: 201});
-    } catch (error) {
-        console.error("Error adding favorite:", error);
-        return NextResponse.json({error: "Failed to add favorite"}, {status: 500});
     }
+
+    
+ 
 
     
 }
