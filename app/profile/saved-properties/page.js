@@ -1,16 +1,13 @@
-//refrences
-//Chatgpt
-//https://www.youtube.com/watch?v=lB-O5q6Pdp8
-//https://webdev2.warsylewicz.ca/week-6/lists#
 "use client";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed, faBath } from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
+import { faBed, faBath, faX } from "@fortawesome/free-solid-svg-icons"; // Import necessary icons
 
 export default function SavedPropertiesPage() {
   // State to hold saved properties
   // Initialize with an empty array
   const [savedProperties, setSavedProperties] = useState([]);
+  const [deleteSavedProperties, setDeleteSavedProperties] = useState([]);
 
   // Fetch saved properties from localStorage
   // Runs only once after the component mounts
@@ -21,8 +18,7 @@ export default function SavedPropertiesPage() {
     setSavedProperties(saved);
   }, []);
 
-
-  // Return the JSX to render/
+  // Return the JSX to render
   // Display saved properties
   return (
     <div className="mt-4 flex flex-col items-center">
@@ -32,11 +28,8 @@ export default function SavedPropertiesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Loop through saved properties */}
           {/* Display each property */}
-          {/* Use the map function to loop through the saved properties */}
-          {/* Display each property */}
           {savedProperties.map((property) => (
-            
-            <div key={property._id} className="p-4 border rounded shadow-md">
+            <div key={property._id} className="p-10 border rounded shadow-md">
               <img
                 src={`/images/${property.image}`}
                 alt={property.name}
@@ -65,6 +58,9 @@ export default function SavedPropertiesPage() {
                     {property.sellerName} ({property.sellerEmail})
                   </a>
                 </p>
+                <div className="text-xl text-gray-500">
+                  <FontAwesomeIcon icon={faX} className="text-gray-600 mx-2" />
+                </div> {/* Closing tag added here */}
               </div>
             </div>
           ))}
