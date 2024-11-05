@@ -154,7 +154,7 @@ export default function Seller() {
             <input
               name="sellerEmail"
               type="email"
-              placeholder="Your Email"
+              placeholder="Seller Email"
               value={propertyData.sellerEmail}
               onChange={handleChange}
               required
