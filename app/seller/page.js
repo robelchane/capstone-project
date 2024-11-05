@@ -94,8 +94,7 @@ export default function Seller() {
               Want to get in touch?
             </Link>
           </div>
-          <h1 className="w-full flex justify-center text-3xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
-            List Your Property</h1>
+          <h1 className="text-center text-4xl text-black font-bold mb-12">List Your Property</h1>
           <form onSubmit={handleSubmit}>
             <input
               name="name"
@@ -145,7 +144,7 @@ export default function Seller() {
             <input
               name="sellerName"
               type="text"
-              placeholder="Seller Name"
+              placeholder="Your Name"
               value={propertyData.sellerName}
               onChange={handleChange}
               required
@@ -154,7 +153,7 @@ export default function Seller() {
             <input
               name="sellerEmail"
               type="email"
-              placeholder="Seller Email"
+              placeholder="Your Email"
               value={propertyData.sellerEmail}
               onChange={handleChange}
               required
