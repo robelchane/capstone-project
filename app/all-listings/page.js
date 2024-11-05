@@ -154,7 +154,7 @@ export default function AllListings() {
               <p className="text-gray-600">{property.summary}</p>
               <p className="text-sm text-gray-500">{property.address}</p>
               <div className="flex items-center mt-2">
-                <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-2" />
+                <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
                 <span>{property.bedrooms} Bedrooms</span>
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
