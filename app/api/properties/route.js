@@ -10,12 +10,14 @@ import { NextResponse } from "next/server";
 
 // POST request to create a new property
 export async function POST(request) {
-  const { name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image } = await request.json();
+  const { name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image, 
+    squareFootage, yearBuilt, propertyType, status, parkingSpaces, lotSize, isFeatured, virtualTourLin } = await request.json();
   
   await connectMongoDB();
   
   // Create a new property with the provided fields
-  await Property.create({ name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image });
+  await Property.create({ name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image, 
+    squareFootage, yearBuilt, propertyType, status, parkingSpaces, lotSize, isFeatured, virtualTourLin  });
   
   return NextResponse.json({ message: "Property Created" }, { status: 201 });
 }
