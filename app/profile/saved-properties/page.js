@@ -7,19 +7,28 @@ export default function SavedPropertiesPage() {
   // State to hold saved properties
   // Initialize with an empty array
   const [savedProperties, setSavedProperties] = useState([]);
-  const [deleteSavedProperties, setDeleteSavedProperties] = useState([]);
+  
 
-  // Fetch saved properties from localStorage
-  // Runs only once after the component mounts
-  // Dependencies array is empty
-  useEffect(() => {
-    // Retrieve saved properties from localStorage
-    const saved = JSON.parse(localStorage.getItem("savedProperties")) || [];
-    setSavedProperties(saved);
-  }, []);
+useEffect(() => {
+  const saved =JSON.parse(localStorage.getItem("savedProperties")) || [];
+  setSavedProperties(saved);
+}
+, []); // Empty array as the second argument to run once
 
-  // Return the JSX to render
-  // Display saved properties
+ const handleDeleteProperty = (property) => {
+  setSavedProperties((prevSaved) => {
+    const updated = prevSaved.filter(
+      (savedProperty) => savedProperty._id !== property._id
+    );
+    console.log("Property removed from saved properties");
+
+    // Update saved properties in localStorage
+    localStorage.setItem("savedProperties", JSON.stringify(updated));
+
+    return updated;
+  });
+}
+
   return (
     <div className="mt-4 flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-4">Saved Properties</h1>
@@ -59,8 +68,8 @@ export default function SavedPropertiesPage() {
                   </a>
                 </p>
                 <div className="text-xl text-gray-500">
-                  <button>
-                  <FontAwesomeIcon icon={faX} className="text-gray-600 mx-2" />
+                  <button onClick={()=> handleDeleteProperty(property)} >
+                  <FontAwesomeIcon icon={faX} className="text-gray-600 mx-2 : " />
                   </button>
                 </div> {/* Closing tag added here */}
               </div>
