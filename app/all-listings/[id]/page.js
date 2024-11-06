@@ -43,6 +43,7 @@ export default function PropertyDetail({ params }) {
         <span style={{ color: "#001f3f" }}>$</span>
         {property.price}
       </p>
+      <hr className="w-full border-gray-300 my-2" />
       <p className="text-gray-600 mb-4">{property.detail}</p>
       <p className="text-sm text-gray-500 mb-2">Address: {property.address}</p>
 
