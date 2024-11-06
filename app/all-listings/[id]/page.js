@@ -52,7 +52,8 @@ export default function PropertyDetail({ params }) {
       {/* Listing Description */}
       <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
         <h2 className="text-2xl font-bold mb-2">Listing Description</h2>
-        <p className="text-lg text-gray-700">{property.detail}</p>
+        <p className="text-base text-gray-700">{property.detail}</p>
+        <p className="text-base text-gray-700 mt-2">{property.summary}</p>
       </div>
 
       {/* Property Summary */}
