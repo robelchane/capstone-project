@@ -36,61 +36,76 @@ export default function PropertyDetail({ params }) {
       <img
         src={`/images/${property.image}`}
         alt={property.name}
-        className="w-full h-64 object-cover mb-4"
+        className="w-full h-80 object-cover mb-4"
       />
-      <hr className="w-full border-gray-300 my-2" />
-      <p className="text-lg text-gray-700">
+      <hr className="w-full border-gray-300 my-4" />
+      <p className="text-lg text-gray-700 font-bold">
         <span style={{ color: "#001f3f" }}>$</span>
         {property.price}
       </p>
-      <hr className="w-full border-gray-300 my-2" />
+      <hr className="w-full border-gray-300 my-4" />
       <p className="text-gray-600 mb-4">{property.detail}</p>
-      <hr className="w-full border-gray-300 my-2" />
-      <p className="text-sm text-gray-500 mb-2">Address: {property.address}</p>
-      <hr className="w-full border-gray-300 my-2" />
+      <hr className="w-full border-gray-300 my-4" />
+      <p className="text-sm text-gray-500 mb-2 font-bold">Address:</p>
+      <p className="text-sm text-gray-600 mb-4">{property.address}</p>
+      <hr className="w-full border-gray-300 my-4" />
 
       <div className="flex items-center mb-4">
-        <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
-        <span>{property.bedrooms} Bedrooms</span>
+        <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-2" />
+        <span className="font-bold">{property.bedrooms} Bedrooms</span>
         <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
-        <span>{property.bathrooms} Bathrooms</span>
+        <span className="font-bold">{property.bathrooms} Bathrooms</span>
       </div>
-      <hr className="w-full border-gray-300 my-2" />
+      <hr className="w-full border-gray-300 my-4" />
 
       <div className="flex items-center mb-4">
-        <FontAwesomeIcon icon={faCar} className="text-gray-600 mr-1" />
-        <span>{property.parkingSpaces} Parking Spaces</span>
+        <FontAwesomeIcon icon={faCar} className="text-gray-600 mr-2" />
+        <span className="font-bold">{property.parkingSpaces} Parking Spaces</span>
       </div>
-      <hr className="w-full border-gray-300 my-2" />
+      <hr className="w-full border-gray-300 my-4" />
 
-      <p className="text-sm text-gray-500 mb-2">Year Built: {property.yearBuilt}</p>
-      <hr className="w-full border-gray-300 my-2" />
-      <p className="text-sm text-gray-500 mb-2">Square Footage: {property.squareFootage} sq. ft.</p>
-      <hr className="w-full border-gray-300 my-2" />
-      <p className="text-sm text-gray-500 mb-2">Lot Size: {property.lotSize} sq. ft.</p>
-      <hr className="w-full border-gray-300 my-2" />
-      <p className="text-sm text-gray-500 mb-2">Property Type: {property.propertyType}</p>
-      <hr className="w-full border-gray-300 my-2" />
-      <p className="text-sm text-gray-500 mb-2">Status: {property.status}</p>
-      <hr className="w-full border-gray-300 my-2" />
+      <p className="text-sm text-gray-500 mb-2 font-bold">Year Built:</p>
+      <p className="text-sm text-gray-600 mb-4">{property.yearBuilt}</p>
+      <hr className="w-full border-gray-300 my-4" />
+
+      <p className="text-sm text-gray-500 mb-2 font-bold">Square Footage:</p>
+      <p className="text-sm text-gray-600 mb-4">{property.squareFootage} sq. ft.</p>
+      <hr className="w-full border-gray-300 my-4" />
+
+      <p className="text-sm text-gray-500 mb-2 font-bold">Lot Size:</p>
+      <p className="text-sm text-gray-600 mb-4">{property.lotSize} sq. ft.</p>
+      <hr className="w-full border-gray-300 my-4" />
+
+      <p className="text-sm text-gray-500 mb-2 font-bold">Property Type:</p>
+      <p className="text-sm text-gray-600 mb-4">{property.propertyType}</p>
+      <hr className="w-full border-gray-300 my-4" />
+
+      <p className="text-sm text-gray-500 mb-2 font-bold">Status:</p>
+      <p className="text-sm text-gray-600 mb-4">{property.status}</p>
+      <hr className="w-full border-gray-300 my-4" />
 
       {property.isFeatured && (
-        <p className="text-sm text-gray-500 mb-2 text-green-500">Featured Property</p>
+        <p className="text-sm text-green-500 mb-4 font-bold">Featured Property</p>
       )}
 
       {property.virtualTourLink && (
-        <p className="text-sm text-blue-500 mb-2">
-          <a href={property.virtualTourLink} target="_blank" rel="noopener noreferrer">
+        <p className="text-sm text-blue-500 mb-4">
+          <a
+            href={property.virtualTourLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold hover:underline"
+          >
             View Virtual Tour
           </a>
         </p>
       )}
 
-      <p className="text-sm text-gray-500">
-        Seller:{" "}
+      <p className="text-sm text-gray-500 mb-2 font-bold">Seller:</p>
+      <p className="text-sm text-gray-600">
         <a
           href={`mailto:${property.sellerEmail}`}
-          className="text-blue-500 hover:underline"
+          className="text-blue-500 hover:underline font-bold"
         >
           {property.sellerName} ({property.sellerEmail})
         </a>
