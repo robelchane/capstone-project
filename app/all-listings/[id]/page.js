@@ -66,9 +66,13 @@ export default function PropertyDetail({ params }) {
       <p className="text-sm text-gray-500 mb-2">Year Built: {property.yearBuilt}</p>
       <hr className="w-full border-gray-300 my-2" />
       <p className="text-sm text-gray-500 mb-2">Square Footage: {property.squareFootage} sq. ft.</p>
+      <hr className="w-full border-gray-300 my-2" />
       <p className="text-sm text-gray-500 mb-2">Lot Size: {property.lotSize} sq. ft.</p>
+      <hr className="w-full border-gray-300 my-2" />
       <p className="text-sm text-gray-500 mb-2">Property Type: {property.propertyType}</p>
+      <hr className="w-full border-gray-300 my-2" />
       <p className="text-sm text-gray-500 mb-2">Status: {property.status}</p>
+      <hr className="w-full border-gray-300 my-2" />
 
       {property.isFeatured && (
         <p className="text-sm text-gray-500 mb-2 text-green-500">Featured Property</p>
