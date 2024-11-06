@@ -71,11 +71,7 @@ export default function Sidebar() {
             </Command>
 
             {/* Terms and Services Link at the bottom */}
-            <div className="mt-auto">
-                <Link href="/terms" className="block text-sm text-gray-500 hover:underline">
-                    Terms and Services
-                </Link>
-            </div>
+            
         </div>
     );
 }
