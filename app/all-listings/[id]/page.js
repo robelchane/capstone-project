@@ -5,7 +5,6 @@
 // https://www.youtube.com/watch?v=ZFYj7OrTeEs
 
 "use client";
-
 import { useState, useEffect } from "react";
 
 export default function PropertyDetail({ params }) {
