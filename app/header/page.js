@@ -35,7 +35,7 @@ export default function Header() {
       const passcode = prompt("What is your passcode?");
       
       // Example validation (replace with actual logic)
-      if (managerID === "123456789" && passcode === "adminpass") {
+      if (managerID === "admin" && passcode === "pass") {
         setFailedAttempts(0); // Reset on successful login
         router.push("/manager");
       } else {
