@@ -55,6 +55,7 @@ export default function PropertyDetail({ params }) {
         <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
         <span>{property.bathrooms} Bathrooms</span>
       </div>
+      <hr className="w-full border-gray-300 my-2" />
 
       <div className="flex items-center mb-4">
         <FontAwesomeIcon icon={faCar} className="text-gray-600 mr-1" />
