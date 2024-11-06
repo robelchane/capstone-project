@@ -1,4 +1,6 @@
 // app/api/properties/[id]/route.js
+// Reference
+// https://webdev2.warsylewicz.ca/week-8/fetching-data
 
 import connectMongoDB from "../../../../libs/mongodb";
 import Property from "../../../../models/property";
