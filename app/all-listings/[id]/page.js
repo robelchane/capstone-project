@@ -32,7 +32,7 @@ export default function PropertyDetail({ params }) {
     <div className="py-8 px-4 mt-20 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto">
       {/* Property Title */}
       <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-        <h1 className="text-3xl font-bold mb-4">{property.name}</h1>
+        <h1 className="w-full flex justify-center text-3xl font-bold mb-4">{property.name}</h1>
       </div>
 
       {/* Property Image */}
