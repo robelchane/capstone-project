@@ -45,6 +45,7 @@ export default function PropertyDetail({ params }) {
       </p>
       <hr className="w-full border-gray-300 my-2" />
       <p className="text-gray-600 mb-4">{property.detail}</p>
+      <hr className="w-full border-gray-300 my-2" />
       <p className="text-sm text-gray-500 mb-2">Address: {property.address}</p>
 
       <div className="flex items-center mb-4">
