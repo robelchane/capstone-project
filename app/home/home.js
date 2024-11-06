@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Header from '../header/page'; // Import the Header component
 import SearchBar from "./searchBar";
 import { useState, useEffect } from 'react';
@@ -43,49 +43,45 @@ export default function Home() {
     countUp('awards', finalCounts.awards);
   }, []);
 
-  const backgroundImageStyle = {
-    backgroundImage: `url(/background.jpg)`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100vh',
-    clipPath: `polygon(0 0, 100% 0, 100% ${Math.min(100, 100 - scrollY / 8)}%, 0 ${Math.min(100, 100 - scrollY / 8)}%)`,
-  };
-
   return (
-    <main className="font-serif overflow-y-auto bg-gray-900 text-white">
+    <main className="overflow-y-auto text-white">
       <Header /> {/* Use the Header component */}
 
-      {/* Content Section with Static Background Image */}
+      {/* Content Section with Background Video */}
       <div className="flex justify-center items-center font-serif relative h-screen">
-        <div
-          className="relative w-full h-full"
-          style={backgroundImageStyle}
-        >
-          {/* Content over the background */}
-          <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-20">
-            <div className="font-bold text-white text-5xl text-center">
-              <p className="text-gray-100 mb-10">Discover Most Suitable Property</p>
-            </div>
 
-            <SearchBar />
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="/home-background.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        ></video>
 
-            <div className="flex justify-between text-4xl mt-20 w-full max-w-xs text-gray-300">
-              <p className="mr-4">{count.premium.toLocaleString()}+</p>
-              <p className="mr-4">{count.customers.toLocaleString()}+</p>
-              <p>{count.awards.toLocaleString()}+</p>
-            </div>
+        {/* Content over the background */}
+        <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-20">
+          <div className="text-white text-6xl text-center">
+            <p className="text-white mt-44">Discover Most Suitable Property</p>
+          </div>
 
-            <div className="flex justify-between text-base mt-2 mb-20 w-full max-w-xs text-gray-300">
-              <p className="ml-4 mr-10">Premium Product</p>
-              <p className="ml-10 mr-6">Happy Customer</p>
-              <p className="ml-4">Award Winning</p>
-            </div>
+          <SearchBar />
+
+          <div className="flex justify-between text-4xl mt-20 w-full max-w-xs text-white">
+            <p className="mr-4">{count.premium.toLocaleString()}+</p>
+            <p className="mr-4">{count.customers.toLocaleString()}+</p>
+            <p>{count.awards.toLocaleString()}+</p>
+          </div>
+
+          <div className="flex justify-between text-base mt-2 mb-20 w-full max-w-xs text-white">
+            <p className="ml-4 mr-10">Premium Product</p>
+            <p className="ml-10 mr-6">Happy Customer</p>
+            <p className="ml-4">Award Winning</p>
           </div>
         </div>
+
+        {/* Video overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 z-0"></div>
       </div>
 
       {/* About Us Section */}
@@ -113,12 +109,12 @@ export default function Home() {
           {/* Button Section with Flexbox */}
           <div className="flex gap-4">
             <Link href="/contact">
-              <button className="rounded mr-5 px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+              <button className="bg-black text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                 Contact Us
               </button>
             </Link>
             <Link href="/listings">
-              <button className="rounded px-6 py-3 bg-yellow-700 text-white text-lg font-semibold hover:bg-yellow-800 hover:scale-105 transition-transform duration-300">
+              <button className="bg-black text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                 Best Properties
               </button>
             </Link>

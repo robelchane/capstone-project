@@ -132,6 +132,12 @@ export default function Header() {
               >
                 Living in Calgary
               </DropdownMenuItem>
+              <DropdownMenuItem
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
+                onClick={() => router.push("/events")}
+              >
+                Events
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
