@@ -61,6 +61,7 @@ export default function PropertyDetail({ params }) {
         <FontAwesomeIcon icon={faCar} className="text-gray-600 mr-1" />
         <span>{property.parkingSpaces} Parking Spaces</span>
       </div>
+      <hr className="w-full border-gray-300 my-2" />
 
       <p className="text-sm text-gray-500 mb-2">Year Built: {property.yearBuilt}</p>
       <p className="text-sm text-gray-500 mb-2">Square Footage: {property.squareFootage} sq. ft.</p>
