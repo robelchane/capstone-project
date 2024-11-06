@@ -38,6 +38,7 @@ export default function PropertyDetail({ params }) {
         alt={property.name}
         className="w-full h-64 object-cover mb-4"
       />
+      <hr className="w-full border-gray-300 my-2" />
       <p className="text-lg text-gray-700">
         <span style={{ color: "#001f3f" }}>$</span>
         {property.price}
