@@ -75,7 +75,7 @@ export default function SearchBar() {
 
         <button
           onClick={() => setProperties(null)} // Reset search
-          className="mt-4 bg-yellow-700 text-white px-4 py-2 rounded hover:bg-yellow-800"
+          className="mt-4 bg-black text-white px-4 py-2 rounded border border-white hover:bg-transparent hover:text-white z-10 transition-colors duration-300"
         >
           Search Again
         </button>
@@ -84,13 +84,13 @@ export default function SearchBar() {
   }
 
   return (
-    <div className="flex flex-col items-center mt-20">
-      <div className="flex items-center border border-gray-300 rounded p-3 bg-gray-200 w-[550px]">
-        <FontAwesomeIcon icon={faLocationDot} className="w-6 m-3 text-black" />
+    <div className="flex flex-col items-center mt-12">
+      <div className="flex items-center bg-black rounded p-6 w-[850px] opacity-90">
+        <FontAwesomeIcon icon={faLocationDot} className="w-6 m-3 text-white" />
 
         <input
           aria-label="Search location"
-          className="w-full px-3 py-2 border rounded bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          className="w-full px-3 py-2 mr-5 border rounded bg-white text-black placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-black transition-all duration-200"
           placeholder="Find properties by city, province, or full address..."
           value={address}
           onChange={handleInputChange}
@@ -98,7 +98,7 @@ export default function SearchBar() {
 
         <button
           type="button"
-          className="ml-2 bg-yellow-700 text-white px-4 py-2 rounded hover:bg-yellow-800 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          className="ml-2 bg-black text-white px-4 py-2 rounded border border-white hover:bg-transparent hover:bg-black hover:text-white hover:border-red-500 e z-10 transition-colors duration-300"
           onClick={handleSearch}
         >
           Search
