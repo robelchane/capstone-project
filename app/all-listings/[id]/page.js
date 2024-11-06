@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBed, faBath, faCar } from "@fortawesome/free-solid-svg-icons";
 
 export default function PropertyDetail({ params }) {
   const { id } = params;
@@ -31,85 +29,101 @@ export default function PropertyDetail({ params }) {
   if (!property) return <p>Property not found.</p>;
 
   return (
-    <div className="py-8 px-4 mt-20">
-      <h1 className="text-3xl font-bold mb-4">{property.name}</h1>
-      <img
-        src={`/images/${property.image}`}
-        alt={property.name}
-        className="w-full h-80 object-cover mb-4"
-      />
-      <hr className="w-full border-gray-300 my-4" />
-      <p className="text-lg text-gray-700 font-bold">
-        <span style={{ color: "#001f3f" }}>$</span>
-        {property.price}
-      </p>
-      <hr className="w-full border-gray-300 my-4" />
-      <p className="text-gray-600 mb-4">{property.detail}</p>
-      <hr className="w-full border-gray-300 my-4" />
-      <p className="text-sm text-gray-500 mb-2 font-bold">Address:</p>
-      <p className="text-sm text-gray-600 mb-4">{property.address}</p>
-      <hr className="w-full border-gray-300 my-4" />
-
-      <div className="flex items-center mb-4">
-        <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-2" />
-        <span className="font-bold">{property.bedrooms} Bedrooms</span>
-        <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
-        <span className="font-bold">{property.bathrooms} Bathrooms</span>
+    <div className="py-8 px-4 mt-20 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto">
+      {/* Property Title */}
+      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <h1 className="text-3xl font-bold mb-4">{property.name}</h1>
       </div>
-      <hr className="w-full border-gray-300 my-4" />
 
-      <div className="flex items-center mb-4">
-        <FontAwesomeIcon icon={faCar} className="text-gray-600 mr-2" />
-        <span className="font-bold">{property.parkingSpaces} Parking Spaces</span>
+      {/* Property Image */}
+      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <img
+          src={`/images/${property.image}`}
+          alt={property.name}
+          className="w-full h-80 object-cover mb-6 rounded-lg shadow-md"
+        />
       </div>
-      <hr className="w-full border-gray-300 my-4" />
 
-      <p className="text-sm text-gray-500 mb-2 font-bold">Year Built:</p>
-      <p className="text-sm text-gray-600 mb-4">{property.yearBuilt}</p>
-      <hr className="w-full border-gray-300 my-4" />
+      {/* Property Price */}
+      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <p className="text-xl text-gray-800 font-semibold mb-6">${property.price}</p>
+      </div>
 
-      <p className="text-sm text-gray-500 mb-2 font-bold">Square Footage:</p>
-      <p className="text-sm text-gray-600 mb-4">{property.squareFootage} sq. ft.</p>
-      <hr className="w-full border-gray-300 my-4" />
+      {/* Listing Description */}
+      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <h2 className="text-2xl font-bold mb-2">Listing Description</h2>
+        <p className="text-lg text-gray-700">{property.detail}</p>
+      </div>
 
-      <p className="text-sm text-gray-500 mb-2 font-bold">Lot Size:</p>
-      <p className="text-sm text-gray-600 mb-4">{property.lotSize} sq. ft.</p>
-      <hr className="w-full border-gray-300 my-4" />
+      {/* Property Summary */}
+      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <h2 className="text-2xl font-bold mb-2">Property Summary</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <p className="font-semibold">Property Type:</p>
+          <p>{property.propertyType}</p>
+          <p className="font-semibold">Status:</p>
+          <p>{property.status}</p>
+          <p className="font-semibold">Square Footage:</p>
+          <p>{property.squareFootage} sq. ft.</p>
+          <p className="font-semibold">Year Built:</p>
+          <p>{property.yearBuilt}</p>
+          <p className="font-semibold">Lot Size:</p>
+          <p>{property.lotSize} sq. ft.</p>
+          <p className="font-semibold">Parking Spaces:</p>
+          <p>{property.parkingSpaces}</p>
+          <p className="font-semibold">Address:</p>
+          <p>{property.address}</p>
+        </div>
+      </div>
 
-      <p className="text-sm text-gray-500 mb-2 font-bold">Property Type:</p>
-      <p className="text-sm text-gray-600 mb-4">{property.propertyType}</p>
-      <hr className="w-full border-gray-300 my-4" />
+      <hr className="border-gray-300 my-4" />
 
-      <p className="text-sm text-gray-500 mb-2 font-bold">Status:</p>
-      <p className="text-sm text-gray-600 mb-4">{property.status}</p>
-      <hr className="w-full border-gray-300 my-4" />
+      {/* Features */}
+      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <h2 className="text-2xl font-bold mb-2">Features</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <p className="font-semibold">Bedrooms:</p>
+          <p>{property.bedrooms}</p>
+          <p className="font-semibold">Bathrooms:</p>
+          <p>{property.bathrooms}</p>
+        </div>
+      </div>
 
-      {property.isFeatured && (
-        <p className="text-sm text-green-500 mb-4 font-bold">Featured Property</p>
-      )}
+      <hr className="border-gray-300 my-4" />
 
-      {property.virtualTourLink && (
-        <p className="text-sm text-blue-500 mb-4">
+      {/* Seller Information */}
+      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+        <h2 className="text-2xl font-bold mb-2">Seller Information</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <p className="font-semibold">Seller Name:</p>
+          <p>{property.sellerName}</p>
+          <p className="font-semibold">Seller Email:</p>
           <a
-            href={property.virtualTourLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold hover:underline"
+            href={`mailto:${property.sellerEmail}`}
+            className="text-blue-500 hover:underline"
           >
-            View Virtual Tour
+            {property.sellerEmail}
           </a>
-        </p>
+        </div>
+      </div>
+
+      {/* Virtual Tour Link */}
+      {property.virtualTourLink && (
+        <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+          <p className="text-sm text-blue-500 mb-2">
+            <a href={property.virtualTourLink} target="_blank" rel="noopener noreferrer">
+              View Virtual Tour
+            </a>
+          </p>
+        </div>
       )}
 
-      <p className="text-sm text-gray-500 mb-2 font-bold">Seller:</p>
-      <p className="text-sm text-gray-600">
-        <a
-          href={`mailto:${property.sellerEmail}`}
-          className="text-blue-500 hover:underline font-bold"
-        >
-          {property.sellerName} ({property.sellerEmail})
-        </a>
-      </p>
+      {/* Featured Property */}
+      {property.isFeatured && (
+        <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
+          <p className="text-sm text-green-500 mb-2">Featured Property</p>
+        </div>
+      )}
     </div>
   );
 }
