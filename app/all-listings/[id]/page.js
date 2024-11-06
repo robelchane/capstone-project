@@ -64,6 +64,7 @@ export default function PropertyDetail({ params }) {
       <hr className="w-full border-gray-300 my-2" />
 
       <p className="text-sm text-gray-500 mb-2">Year Built: {property.yearBuilt}</p>
+      <hr className="w-full border-gray-300 my-2" />
       <p className="text-sm text-gray-500 mb-2">Square Footage: {property.squareFootage} sq. ft.</p>
       <p className="text-sm text-gray-500 mb-2">Lot Size: {property.lotSize} sq. ft.</p>
       <p className="text-sm text-gray-500 mb-2">Property Type: {property.propertyType}</p>
