@@ -103,6 +103,9 @@ const handleSelectComparison = (property) => {
                 </div> {/* Closing tag added here */}
               </div>
               {/* Add a button to select the property for comparison */}
+              {/* Check if the property is already selected for comparison */}
+              {/* If it is, display a different message */}
+              {/* If it is not, display a different message */}
               <button
                 onClick={() => handleSelectComparison(property)}
                 className={`mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${
