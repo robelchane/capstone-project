@@ -64,7 +64,7 @@ const handleSelectComparison = (property) => {
       <button
         disable={comparison.length !== 2}
         onClick={() =>  window.location.href ='/profile/compare'}
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 "
+        className="bg-blue-700 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-colors duration-200"
 
       > Compare Properties
       </button>
@@ -105,7 +105,7 @@ const handleSelectComparison = (property) => {
                 </p>
                 <div className="text-xl text-gray-500">
                   <button onClick={()=> handleDeleteProperty(property)} >
-                  <FontAwesomeIcon icon={faTrash} className="text-gray-600 mx-2 hover: text-blue-300 transition-colors duration-200" />
+                  <FontAwesomeIcon icon={faTrash} className="text-gray-600  rounded-full mx-2 hover: text-blue-300 transition-colors duration-200" />
                   </button>
                 </div> {/* Closing tag added here */}
               </div>
@@ -115,7 +115,7 @@ const handleSelectComparison = (property) => {
               {/* If it is not, display a different message */}
               <button
                 onClick={() => handleSelectComparison(property)}
-                className={`mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${
+                className={`mt-4 px-4 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-600 ${
                   comparison.some((p) => p._id === property._id)
                     ? "bg-blue-600"
                     : ""
