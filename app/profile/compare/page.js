@@ -43,7 +43,7 @@ export default function ComparePage() {
             <td className="px-4 py-2 border border-gray-300">Name: {property2.name}</td>
           </tr>
           <tr>
-            <td className="px-4 py-2 border border-gray-300">Price: ${property1.price}</td>
+            <td className="px-4 py-2 border border-gray-300 ">Price: ${property1.price}</td>
             <td className="px-4 py-2 border border-gray-300">Price: ${property2.price}</td>
           </tr>
           <tr>
