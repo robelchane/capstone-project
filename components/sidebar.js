@@ -1,10 +1,6 @@
-//https://www.youtube.com/watch?v=ydPpcR85UCg
-//https://ui.shadcn.com/docs/components/card
-//ChatGPT
 'use client';
 import Link from "next/link";
-//import { usePathname } from 'next/navigation';
-import { usePathname } from 'next/navigation'; 
+import { usePathname } from 'next/navigation';
 import {
     Command,
     CommandGroup,
@@ -46,17 +42,15 @@ export default function Sidebar() {
     ];
 
     return (
-        <div className="flex flex-col w-[300px] border-r min-h-screen p-5 mt-2">
-            <Command className="flex-grow ">
+        <div className="flex flex-col w-[300px] border-r-2 border-gray-300 h-screen p-5">
+            <Command className="flex-grow">
                 <CommandList>
                     {menuList.map((menu, menuKey) => (
                         <CommandGroup key={menuKey} heading={menu.group}>
-                            {/* Loop through the menu items */
-                            /*  From Chat GPT */}
                             {menu.items.map((item, itemKey) => (
                                 <CommandItem 
                                     key={itemKey} 
-                                    onSelect={() => window.location.href = item.link} // Client-side navigation
+                                    onSelect={() => window.location.href = item.link}
                                     className={`flex items-center space-x-3 
                                         ${pathname === item.link ? 'bg-gray-200 text-black' : 'hover:bg-gray-100'}
                                     `}
@@ -70,9 +64,6 @@ export default function Sidebar() {
                     ))}
                 </CommandList>
             </Command>
-
-            {/* Terms and Services Link at the bottom */}
-            
         </div>
     );
 }
