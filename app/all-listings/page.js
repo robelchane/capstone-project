@@ -7,7 +7,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBed, faBath, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearch,
+  faBed,
+  faBath,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 export default function AllListings() {
@@ -141,16 +146,26 @@ export default function AllListings() {
                 />
                 <h2 className="text-xl font-bold mb-2">{property.name}</h2>
                 <p className="text-lg text-gray-700 dark:text-white">
-  <span style={{ color: "#001f3f" }}>$</span>
-  {property.price}
-</p>
+                  <span style={{ color: "#001f3f" }}>$</span>
+                  {property.price}
+                </p>
 
-                <p className="text-gray-600 dark:text-white">{property.summary}</p>
-                <p className="text-sm text-gray-500 dark:text-white">{property.address}</p>
+                <p className="text-gray-600 dark:text-white">
+                  {property.summary}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-white">
+                  {property.address}
+                </p>
                 <div className="flex items-center mt-2">
-                  <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
+                  <FontAwesomeIcon
+                    icon={faBed}
+                    className="text-gray-600 mr-1"
+                  />
                   <span>{property.bedrooms} Bedrooms</span>
-                  <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
+                  <FontAwesomeIcon
+                    icon={faBath}
+                    className="text-gray-600 mx-2"
+                  />
                   <span>{property.bathrooms} Bathrooms</span>
                 </div>
                 <div className="flex items-center justify-between mt-4">
