@@ -10,8 +10,7 @@ export default function ComparePage() {
   // and set the state
   // Run once when the component mounts
   useEffect(() => {
-    const selected =
-      JSON.parse(localStorage.getItem("comparison")) || [];
+    const selected = JSON.parse(localStorage.getItem("comparison")) || [];
     setPropertiesToCompare(selected);
   }, []); // Empty array as the second argument to run once
 
@@ -25,38 +24,66 @@ export default function ComparePage() {
   return (
     <div className="flex flex-col items-center mt-10">
       <h1 className="text-3xl font-bold mb-4">Compare Properties</h1>
-      <div className=" grid grid-cols-2 gap-8 w-full max-w-4xl">
-        {/* Property 1  details*/}
-        <div className="p-4 border rounded shadow-md">
-          <img
-            src={`/images/${property1.image}`}
-            alt={property1.image}
-            className="w-full h-48 object-cover mb-4"
-          />
-         <h2 className="text-xl font-bold">{property1.name}</h2>
-         <p>Price:$ {property1.price}</p>
-            <p>Bedrooms: {property1.bedrooms}</p>
-            <p>Bathrooms: {property1.bathrooms}</p>
-            <p>Address: ${property1.address}</p>
-            <p>Desc: $ {property1.description}</p>
-            <p>Seller: $ {property1.sellerName}({property1.sellerEmail})</p>
-            </div>
-            {/* Property 2 details */}
-            <div className="p-4 border rounded shadow-md">
-              <img
-                src={`/images/${property2.image}`}
-                alt={property2.image}
-                className="w-full h-48 object-cover mb-4"
-              />
-              <h2 className="text-xl font-bold">{property2.name}</h2>
-              <p>Price:$ {property2.price}</p>
-              <p>Bedrooms: {property2.bedrooms}</p>
-              <p>Bathrooms: {property2.bathrooms}</p>
-              <p>Address: ${property2.address}</p>
-              <p>Desc: $ {property2.description}</p>
-              <p>Seller: $ {property2.sellerName}({property2.sellerEmail})</p>
+      <table className="w-full table auto border-collapse border border-gray-300">
+        <thead>
+          <tr>
+            <th className="w-1/2 px-4 py-2 border border-gray-300 text-center">
+              <div className="flex flex-col items-center">
+                <img
+                  src={`/images/${property1.image}`}
+                  alt={property1.name}
+                  className="w-full h-48 object-cover mb-4"
+                />
+                <span>{property1.address}</span>
               </div>
-        </div>
-      </div>
+            </th>
+            <th className="w-1/2 px-4 py-2 border border-gray-300 text-center">
+            <div className="flex flex-col items-center">
+            <img
+              src={`/images/${property2.image}`}
+              alt={property2.name}
+              className="w-full h-48 object-cover mb-4"
+            />
+            <span>{property2.address}</span>
+            </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property1.price}
+                </td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property2.price}
+                </td>
+            </tr>
+            <tr>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property1.beds}
+                </td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property2.beds}
+                </td>
+            </tr>
+            <tr>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property1.baths}
+                </td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property2.baths}
+                </td>
+            </tr>
+            <tr>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property1.sqft}
+                </td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property2.sqft}
+                </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
   );
 }
