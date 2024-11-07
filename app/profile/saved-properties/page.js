@@ -102,6 +102,19 @@ const handleSelectComparison = (property) => {
                   </button>
                 </div> {/* Closing tag added here */}
               </div>
+              {/* Add a button to select the property for comparison */}
+              <button
+                onClick={() => handleSelectComparison(property)}
+                className={`mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 ${
+                  comparison.some((p) => p._id === property._id)
+                    ? "bg-blue-600"
+                    : ""
+                }`}
+              >
+                {comparison.some((p) => p._id === property._id)
+                  ? "Selected for Comparison"
+                  : "Select for Comparison"}
+              </button>
             </div>
           ))}
         </div>
