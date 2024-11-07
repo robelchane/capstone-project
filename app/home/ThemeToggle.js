@@ -2,8 +2,7 @@
 'use client';
 import { useState,useEffect } from 'react';
 import {FaMoon} from 'react-icons/fa';
-import {BSSunFill} from 'react-icons/fa';
-
+import {FaSun} from 'react-icons/fa';
 export default function ThemeToggle() {
     const [darkMode, setDarkMode] = useState(true);
 
@@ -33,10 +32,11 @@ export default function ThemeToggle() {
         onClick={()=> setDarkMode(!darkMode)}>
         <FaMoon className ="text-white " size={24}/>
         <div className='absolute bg-white dark:bg-medium w-6 h-6 rounded-full shadow-md
-                        transform transition-transform duration-300'>
+                        transform transition-transform duration-300'
+                        style={darkMode? {left:'2px'}: {right: '2px'}}>
 
         </div>
-            
+            <FaSun className='text-yellow-300 ml-auto' size={24}/>
         </div>
     )
 }
