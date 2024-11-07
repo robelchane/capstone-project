@@ -6,7 +6,11 @@ const userSchema = new Schema(
       clerkId: { type: String, required: true },
       name: { type: String, required: true },
       email: { type: String, required: true },
-      savedProperties: [{ type: Schema.Types.ObjectId, ref: "Property" }],  // Reference to saved properties
+      savedProperties: [{ type: Schema.Types.ObjectId, ref: "Property" }],
+      createdAt,
+      updatedAt,
+      
+    
     },
     {
       timestamps: true,  // Automatically adds createdAt and updatedAt timestamps

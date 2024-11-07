@@ -1,8 +1,14 @@
+//ref: https://www.youtube.com/watch?v=FCCQdM3ZSw4
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faLocationDot, faCopyright } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from "next-themes";
 
 export default function Footer() {
+
+  //const {theme, setTheme} = useTheme();
+
+
   return (
     <main className="font-serif text-black">      
       <div className="flex justify-evenly text-lg font-serif bg-black bg-opacity-90 p-10 text-white">
@@ -57,6 +63,12 @@ export default function Footer() {
 
       <div className="flex justify-between bg-white text-black">
         <p className="flex items-center gap-2">
+          {/*
+          <span>
+            <span onClick = {()=> setTheme('light')} className="cursor-pointer mr-2">Light</span> {' '} |
+            <span onClick = {()=> setTheme('dark')} className="cursor-pointer mr-2">Dark</span> {' '}| ({theme})
+            </span>
+          */}
           <FontAwesomeIcon icon={faCopyright} className="w-5 text-black"/>          
           <span className="ml-2">Copyright 2024 Property Pros</span>
         </p>
