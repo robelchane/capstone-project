@@ -7,6 +7,9 @@ export default function SavedPropertiesPage() {
   // State to hold saved properties
   // Initialize with an empty array
   const [savedProperties, setSavedProperties] = useState([]);
+  //state to hold comparison
+  //Initialize with an empty array
+  const [comparison,setComparison] = useState([]);
   
 
 useEffect(() => {
@@ -28,6 +31,18 @@ useEffect(() => {
     return updated;
   });
 }
+
+const handleSelectComparison = (property) => {
+  setComparison((prevSelected)=>{
+    if(prevSelected.some((p)=>p._id === property._id)){
+      return prevSelected.filter((p)=>p._id !== property._id);
+    } else if(prevSelected.length < 2){
+      return [...prevSelected, property];
+    }
+    return prevSelected;
+  });
+};
+
 
   return (
     <div className="mt-4 flex flex-col items-center">
