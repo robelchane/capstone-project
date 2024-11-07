@@ -13,7 +13,18 @@ export default function ThemeToggle() {
             setDarkMode(true);
         }
     
-    })
+    },[]);
+
+
+    useEffect(() => {
+        if(darkMode){
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme','dark');
+        }else{
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme','light');
+        }
+},[darkMode]);
 
 
     return(
