@@ -94,7 +94,7 @@ export default function Seller() {
               Want to get in touch?
             </Link>
           </div>
-          <h1 className="w-full flex justify-center text-3xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
+          <h1 className="w-full flex justify-center text-3xl font-bold bg-emerald-700 text-white border rounded-full border-gray-300 mb-4 p-2">
             List Your Property</h1>
           <form onSubmit={handleSubmit}>
             <input
@@ -262,7 +262,7 @@ export default function Seller() {
             <div className="flex justify-center mt-10">
               <button
                 type="submit"
-                className="bg-yellow-700 text-white px-12 py-4 rounded hover:bg-yellow-800 transition duration-300"
+                className="bg-emerald-700 text-white px-12 py-4 rounded-full hover:bg-yellow-800 transition duration-300"
               >
                 {loading ? "Listing..." : "List Property"}
               </button>
