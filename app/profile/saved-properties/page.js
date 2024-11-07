@@ -32,6 +32,12 @@ useEffect(() => {
   });
 }
 
+// function to handle comparison of properties
+// it takes a property as an argument
+// it checks if the property is already in the comparison array
+// if it is, it removes it
+// if it is not, it adds it
+// if there are already 2 properties in the comparison array, it does nothing
 const handleSelectComparison = (property) => {
   setComparison((prevSelected)=>{
     if(prevSelected.some((p)=>p._id === property._id)){
@@ -47,9 +53,17 @@ const handleSelectComparison = (property) => {
   return (
     <div className="mt-4 flex flex-col items-center">
       <h1 className="text-3xl font-bold mb-4">Saved Properties</h1>
+      {/* Check if there are properties selected for comparison */}
+      <button
+        disable={comparison.length !== 2}
+        onClick={() => { window.location.href ='/profile/comparison'}}
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 "
+
+      > Compare Properties
+      </button>
       {/* Check if there are saved properties */}
       {savedProperties.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Loop through saved properties */}
           {/* Display each property */}
           {savedProperties.map((property) => (
