@@ -43,7 +43,7 @@ export default function CustomerReview() {
       <div className="flex justify-center items-center w-full max-w-6xl relative">
         <button
           onClick={goToPreviousReview}
-          className="absolute left-0 bg-yellow-700 text-white px-2 py-2 rounded hover:bg-yellow-800 focus:outline-none"
+          className="absolute left-0 bg-black text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black hover:border-black transition-color duration-300 focus:outline-none"
           style={{ top: "50%", transform: "translateY(-50%)", zIndex: 10 }} 
         >
           {'<'}
@@ -64,7 +64,7 @@ export default function CustomerReview() {
 
         <button
           onClick={goToNextReview}
-          className="absolute right-0 bg-yellow-700 text-white px-2 py-2 rounded hover:bg-yellow-800 focus:outline-none"
+          className="absolute right-0 bg-black text-white px-2 py-2 border border-white rounded hover:bg-white hover:text-black hover:border-black transition-color duration-300 focus:outline-none"
           style={{ top: "50%", transform: "translateY(-50%)", zIndex: 10 }} 
         >
           {'>'}

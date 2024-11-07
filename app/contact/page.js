@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -10,14 +11,35 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [activeFAQ, setActiveFAQ] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', { name, email, message });
-    setSubmitted(true);
-    setName('');
-    setEmail('');
-    setNumber('');
-    setMessage('');
+
+    // An object containing user input
+    const formData = {
+      name,
+      email,
+      number,
+      message,
+    };
+
+    try {
+      // Send an email by sending a POST request to the api/contact endpoint
+      const response = await axios.post('/api/contact', formData);
+
+      if (response.status === 200) {
+        console.log('Email sent successfully');
+        setSubmitted(true);
+        // Resetting input values
+        setName('');
+        setEmail('');
+        setNumber('');
+        setMessage('');
+      } else {
+        console.error('Failed to send email:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
   };
 
   const faqs = [
@@ -166,13 +188,7 @@ export default function ContactForm() {
       </div>
 
       <div className="flex justify-center p-10 w-full max-w-5xl mb-16">
-
-        {/* Contact Form */}
         <div className="bg-black opacity-80 shadow-[0_4px_20px_rgba(104,104,0,0.3)] mt-5 p-14 rounded-lg shadow-lg max-w-l w-full">
-          
-          {submitted && (
-            <p className="text-xl text-yellow-800 text-center mb-4">Thank you, we will be in touch with you shortly.</p>
-          )}
 
           <form onSubmit={handleSubmit}>
             <div className="mb-8 text-black">
@@ -205,7 +221,7 @@ export default function ContactForm() {
 
             <div className="mb-8 text-black">
               <label className="text-xl block text-gray-300 mb-2" htmlFor="number">
-                  Phone Number
+                Phone Number
               </label>
               <input
                 type="tel"
@@ -237,6 +253,11 @@ export default function ContactForm() {
             >
               Submit
             </button>
+
+            {submitted && (
+            <p className="text-xl text-white text-semibold text-center mt-10">Thank you, we will be in touch with you shortly.</p>
+          )}
+
           </form>
         </div>
       </div>

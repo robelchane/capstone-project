@@ -1,44 +1,26 @@
-import connectMongoDB from "@/libs/mongodb";
-import Property from "@/models/property";
+// app/api/properties/[id]/route.js
+// Reference
+// https://webdev2.warsylewicz.ca/week-8/fetching-data
+
+import connectMongoDB from "../../../../libs/mongodb";
+import Property from "../../../../models/property";
 import { NextResponse } from "next/server";
 
-// PUT request to update a property by ID
-export async function PUT(request, { params }) {
+export async function GET(request, { params }) {
   const { id } = params;
-  
-  // Destructure the request body to get the updated property data
-  const { name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image } = await request.json();
-  
-  await connectMongoDB();
-  
-  // Update the property with the provided fields
-  await Property.findByIdAndUpdate(id, { name, price, bedrooms, bathrooms, address, sellerName, sellerEmail, detail, summary, image });
-  
-  return NextResponse.json({ message: "Property updated" }, { status: 200 });
-}
-
-// Get request to fetch all properties
-
-export async function GET(request) {
   try {
-    await connectMongoDB(); // Connect to the database
+    await connectMongoDB();
     
-    // Fetch all properties from the database
-    const properties = await Property.find({});
+    // Fetch the property by ID
+    const property = await Property.findById(id);
     
-    // Return the properties in the response
-    return NextResponse.json({ properties }, { status: 200 });
+    if (!property) {
+      return NextResponse.json({ message: "Property not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ property }, { status: 200 });
   } catch (error) {
-    console.error("Error fetching properties:", error);
-    
-    // Return an error response
-    return NextResponse.json(
-      { error: "Failed to fetch properties" },
-      { status: 500 }
-    );
+    console.error("Error fetching property by ID:", error);
+    return NextResponse.json({ message: "Failed to fetch property" }, { status: 500 });
   }
-
-  // POST request to create a new property
-
-  
 }

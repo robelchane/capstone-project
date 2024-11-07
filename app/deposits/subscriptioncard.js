@@ -1,3 +1,4 @@
+// app/deposits/subscriptioncard.js
 'use client';
 import Link from 'next/link';
 import {
@@ -22,7 +23,7 @@ export default function SubscriptiontCard() {
             </CardContent>
             <CardFooter>
                 <Link href="/deposits/subscription">
-                    <Button>Purchase your Subscription</Button>
+                    <Button>Purchase Subscription</Button>
                 </Link>
             </CardFooter>
         </Card>

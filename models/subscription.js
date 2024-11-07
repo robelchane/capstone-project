@@ -1,18 +1,27 @@
-import mongoose, { Schema } from "mongoose";
+// models/subscription.js
+import mongoose from "mongoose";
 
-const subscriptionPlansSchema = new mongoose.Schema(
-  {
-    name: { type: String, required: true },
-    price: { type: Number, required: true },
-    propertyLimit: { type: Number, required: true },
-    imagePerPropertyLimit: { type: Number, required: true },
-    features: { type: [String], required: true } // features를 배열로 변경
+const SubscriptionSchema = new mongoose.Schema({
+  userId: {
+    type: String,
+    required: true,
   },
-  {
-    timestamps: true,
-  }
-);
+  plan: {
+    type: String,
+    required: true,
+  },
+  startDate: {
+    type: Date,
+    default: Date.now,
+  },
+  endDate: Date,
+  status: {
+    type: String,
+    enum: ["active", "canceled"],
+    default: "active",
+  },
+  stripeSubscriptionId: String, // Stripe subscription ID (used for Premium subscription)
+});
 
-const SubscriptionPlans = mongoose.model("SubscriptionPlans", subscriptionPlansSchema);
+export default mongoose.models.Subscription || mongoose.model("Subscription", SubscriptionSchema);
 
-export default SubscriptionPlans;

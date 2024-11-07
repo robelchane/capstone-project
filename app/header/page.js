@@ -35,7 +35,7 @@ export default function Header() {
       const passcode = prompt("What is your passcode?");
       
       // Example validation (replace with actual logic)
-      if (managerID === "123456789" && passcode === "adminpass") {
+      if (managerID === "admin" && passcode === "pass") {
         setFailedAttempts(0); // Reset on successful login
         router.push("/manager");
       } else {
@@ -131,6 +131,12 @@ export default function Header() {
                 onClick={() => router.push("/living-in-calgary")}
               >
                 Living in Calgary
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
+                onClick={() => router.push("/events")}
+              >
+                Events
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
