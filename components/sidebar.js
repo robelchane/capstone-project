@@ -46,8 +46,8 @@ export default function Sidebar() {
     ];
 
     return (
-        <div className="flex flex-col w-[300px] border-r min-h-screen p-5 mt-5">
-            <Command className="flex-grow">
+        <div className="flex flex-col w-[300px] border-r min-h-screen p-5 mt-2">
+            <Command className="flex-grow ">
                 <CommandList>
                     {menuList.map((menu, menuKey) => (
                         <CommandGroup key={menuKey} heading={menu.group}>
