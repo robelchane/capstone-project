@@ -85,7 +85,7 @@ export default function SearchBar() {
 
   return (
     <div className="flex flex-col items-center mt-12">
-      <div className="flex items-center bg-black rounded p-6 w-[850px] opacity-90">
+      <div className="flex items-center bg-black rounded p-6 w-[850px] opacity-90 rounded-full">
         <FontAwesomeIcon icon={faLocationDot} className="w-6 m-3 text-white" />
 
         <input
