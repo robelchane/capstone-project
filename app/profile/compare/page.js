@@ -76,12 +76,29 @@ export default function ComparePage() {
             </tr>
             <tr>
                 <td className="px-4 py-2 border border-gray-300 text-center">
-                    {property1.sqft}
+                    {property1.detail}
                 </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
-                    {property2.sqft}
+                    {property2.detail}
                 </td>
             </tr>
+            <tr>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property1.summary}
+                </td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property2.summary}
+                </td>
+            </tr>
+            <tr>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property1.sellerName} ({property1.sellerEmail})
+                </td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
+                    {property2.sellerName} ({property2.sellerEmail})
+                </td>
+            </tr>
+        
         </tbody>
       </table>
     </div>
