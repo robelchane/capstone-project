@@ -24,7 +24,20 @@ export default function ComparePage() {
     const [property1, property2] = propertiesToCompare;
 
     return(
-        <div>
+        <div className="flex flex-col items-center mt-10">
+            <h1 className="text-3xl font-bold mb-4">Compare Properties</h1>
+            <div className=" grid grid-cols-2 gap-8 w-full max-w-4xl">
+                {/* Property 1  details*/}
+                <div className="bg-gray-100 p-4">
+                    <h2 className="text-xl font-bold">{property1.name}</h2>
+                    <p>{property1.location}</p>
+                    <p>{property1.price}</p>
+                    <p>{property1.bedrooms} bedrooms</p>
+                    <p>{property1.bathrooms} bathrooms</p>
+                    <p>{}</p>
+
+                </div>
+            </div>
             
         </div>
     )
