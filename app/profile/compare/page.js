@@ -11,7 +11,7 @@ export default function ComparePage() {
   // Run once when the component mounts
   useEffect(() => {
     const selected =
-      JSON.parse(localStorage.getItem("propertiesToCompare")) || [];
+      JSON.parse(localStorage.getItem("comparison")) || [];
     setPropertiesToCompare(selected);
   }, []); // Empty array as the second argument to run once
 

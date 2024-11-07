@@ -39,18 +39,22 @@ useEffect(() => {
 // if it is not, it adds it
 // if there are already 2 properties in the comparison array, it does nothing
 const handleSelectComparison = (property) => {
-  setComparison((prevSelected)=>{
-    if(prevSelected.some((p)=>p._id === property._id)){
-      const updated = prevSelected.filter((p)=>p._id !== property._id);
+  setComparison((prevComparison) => {
+    if (prevComparison.some((p) => p._id === property._id)) {
+      const updated = prevComparison.filter((p) => p._id !== property._id);
       localStorage.setItem("comparison", JSON.stringify(updated));
-    } else if(prevSelected.length < 2){
-      localStorage.setItem("comparison", JSON.stringify(updated));
+      console.log("Property removed from comparison");
       return updated;
-
     }
-    return prevSelected;
+    else if (prevComparison.length < 2) {
+      const updated = [...prevComparison, property];
+      localStorage.setItem("comparison", JSON.stringify(updated));
+      console.log("Property added to comparison");
+      return updated;
+    }
+    return prevComparison;
   });
-};
+}
 
 
   return (
