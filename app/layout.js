@@ -5,6 +5,7 @@ import Header from "./header/page";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
+
 //import { Toaster } from "@/components/ui/toaster";
 
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
   const noHeaderPaths = ["/sign-in", "/sign-up"];
 
   return (
+    
     <ClerkProvider>
       <html lang="en">
        
