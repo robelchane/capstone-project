@@ -7,6 +7,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+	darkMode: 'class',
   	extend: {
   		colors: {
   			background: 'hsl(var(--background))',
