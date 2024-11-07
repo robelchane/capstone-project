@@ -17,7 +17,7 @@ export default function ComparePage() {
 
   return (
     <div className="container mx-auto mt-10 px-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">Compare Properties</h1>
+      <h1 className="text-3xl font-bold mb-6 text-left">Compare Properties</h1>
       <table className="w-full table-auto border-collapse border border-gray-300">
         <thead>
           <tr>
