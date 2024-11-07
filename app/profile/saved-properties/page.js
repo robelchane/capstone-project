@@ -43,7 +43,9 @@ const handleSelectComparison = (property) => {
     if(prevSelected.some((p)=>p._id === property._id)){
       return prevSelected.filter((p)=>p._id !== property._id);
     } else if(prevSelected.length < 2){
+      localStorage.setItem("comparison", JSON.stringify([...prevSelected, property]));
       return [...prevSelected, property];
+
     }
     return prevSelected;
   });
@@ -56,7 +58,7 @@ const handleSelectComparison = (property) => {
       {/* Check if there are properties selected for comparison */}
       <button
         disable={comparison.length !== 2}
-        onClick={() => { window.location.href ='/profile/comparison'}}
+        onClick={() => { window.location.href ='/profile/compare'}}
         className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 "
 
       > Compare Properties
