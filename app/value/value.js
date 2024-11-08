@@ -22,7 +22,7 @@ export default function Value() {
     <main className="font-serif overflow-y-auto text-black" id="value">
       {/* Content Section */}
       <div className="flex justify-center font-serif mt-20">
-        <div className="w-1/2 m-10">
+        <div className="w-1/2 m-10 rounded-full">
           <img src={"/value.png"} alt="Profile picture" />
         </div>
 
@@ -42,12 +42,12 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown1}
-              className= "rounded cursor-pointer text-white text-xl bg-gray-900 p-6 mt-5 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+              className= " cursor-pointer rounded-full text-white text-xl bg-gray-900 p-6 mt-5 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
             >
               Best interest rates on the market
             </h2>
             {isOpen1 && (
-              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+              <div className="bg-gray-100 p-4 rounded-full mt-8 mb-4 shadow-lg">
                 <p>
                   Our interest rates are carefully tailored to give you the best value on the market, 
                   offering competitive returns with full transparency and no hidden fees. 
@@ -61,12 +61,12 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown2}
-              className="rounded cursor-pointer text-white text-xl bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+              className="rounded-full cursor-pointer text-white text-xl bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
             >
               Easy and flexible payments
             </h2>
             {isOpen2 && (
-              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+              <div className="bg-gray-100 p-4 rounded-full mt-2 mb-4 shadow-lg">
                 <p>
                   We offer a variety of payment options designed to fit your lifestyle, allowing you to manage your payments easily and flexibly. 
                   Whether you prefer monthly, bi-weekly, or custom schedules, our plans adapt to your needs without any hassle.
@@ -79,12 +79,12 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown3}
-              className="rounded cursor-pointer text-white text-xl bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+              className="rounded-full cursor-pointer text-white text-xl bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
             >
               Premium customer support
             </h2>
             {isOpen3 && (
-              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+              <div className="bg-gray-100 p-4 rounded-full mt-2 mb-4 shadow-lg ">
                 <p>
                   Our premium customer support ensures that you receive personalized assistance whenever you need it. 
                   With dedicated experts, we're here to resolve your issues quickly and efficiently.

@@ -85,9 +85,9 @@ export default function Home() {
       </div>
 
       {/* About Us Section */}
-      <div className="flex justify-center font-serif bg-white text-black p-10 min-h-screen">
+      <div className="flex justify-center font-serif bg-white text-black p-10 min-h-screen ">
         <div className="w-1/2 m-10">
-          <img src={"/aboutus.png"} alt="About Us" className="mt-5" />
+          <img src={"/aboutus.png"} alt="About Us" className="mt-5 rounded-e-full" />
         </div>
 
         <div className="flex flex-col w-1/2 m-10">
@@ -109,12 +109,12 @@ export default function Home() {
           {/* Button Section with Flexbox */}
           <div className="flex gap-4">
             <Link href="/contact">
-              <button className="bg-black text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+              <button className="bg-black rounded-full text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                 Contact Us
               </button>
             </Link>
             <Link href="/listings">
-              <button className="bg-black text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+              <button className="bg-black rounded-full text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                 Best Properties
               </button>
             </Link>
