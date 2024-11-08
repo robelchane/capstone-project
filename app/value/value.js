@@ -42,7 +42,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown1}
-              className= "rounded cursor-pointer text-white text-xl bg-gray-900 p-6 mt-5 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+              className= "rounded cursor-pointer text-white text-xl bg-black p-6 mt-5 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
             >
               Best interest rates on the market
             </h2>
@@ -61,7 +61,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown2}
-              className="rounded cursor-pointer text-white text-xl bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+              className="rounded cursor-pointer text-white text-xl bg-black p-6 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
             >
               Easy and flexible payments
             </h2>
@@ -79,7 +79,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown3}
-              className="rounded cursor-pointer text-white text-xl bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+              className="rounded cursor-pointer text-white text-xl bg-black p-6 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
             >
               Premium customer support
             </h2>

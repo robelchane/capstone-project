@@ -191,7 +191,7 @@ export default function Subscription() {
         </div>
       </div>
 
-      {message && <p className="mt-8 text-center text-xl font-semibold text-yellow-700">{message}</p>}
+      {message && <p className="mt-8 text-center text-xl text-black">{message}</p>}
     </div>
   );
 }

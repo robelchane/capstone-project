@@ -147,11 +147,11 @@ export default function Listings() {
                 <div className="flex justify-between items-center mt-4 w-full">
                   <button
                     onClick={() => handleAddToFavorites(residence)}
-                    className="bg-yellow-700 text-white px-4 py-2 rounded w-full md:w-auto"
+                    className="bg-black text-white px-4 py-2 rounded w-full md:w-auto border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300"
                   >
                     Add to Favorites
                   </button>
-                  <button className="bg-yellow-700 text-white px-4 py-2 w-full md:w-auto">
+                  <button className="bg-white text-black px-4 py-2 rounded w-full md:w-auto border border-black hover:text-white hover:bg-black z-10 transition-colors duration-300">
                     Save Listing
                   </button>
                 </div>
