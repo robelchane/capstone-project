@@ -1,9 +1,11 @@
 "use client";
 import { useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function EventDetailPage() {
 
+    const router = useRouter();
     const { id } = useParams();
     const [eventData, setEventData] = useState(null);
 
@@ -123,8 +125,11 @@ export default function EventDetailPage() {
             <p className="absolute bottom-48 left-10 text-2xl max-w-4xl text-gray-300">
                 {eventData.description}
             </p>
-            <button className="absolute bottom-32 right-10 bg-black text-white text-xl py-5 px-6 rounded-full border border-white hover:bg-transparent hover:text-white hover:border-white z-10 transition-colors duration-300">
-            Book an appointment
+            <button
+                className="absolute bottom-32 right-10 bg-black text-white text-xl py-5 px-6 rounded-full border border-white hover:bg-transparent hover:text-white hover:border-white z-10 transition-colors duration-300"
+                onClick={() => router.push('/bookings')}
+            >
+                Book an appointment
             </button>
         </div>
     );
