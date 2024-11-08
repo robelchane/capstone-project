@@ -109,12 +109,12 @@ export default function Home() {
           {/* Button Section with Flexbox */}
           <div className="flex gap-4">
             <Link href="/contact">
-              <button className="bg-black text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+              <button className="bg-black rounded-full text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                 Contact Us
               </button>
             </Link>
             <Link href="/listings">
-              <button className="bg-black text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+              <button className="bg-black rounded-full text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                 Best Properties
               </button>
             </Link>
