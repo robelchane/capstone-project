@@ -22,7 +22,7 @@ export default function Value() {
     <main className="font-serif overflow-y-auto text-black" id="value">
       {/* Content Section */}
       <div className="flex justify-center font-serif mt-20">
-        <div className="w-1/2 m-10">
+        <div className="w-1/2 m-10 rounded-full">
           <img src={"/value.png"} alt="Profile picture" />
         </div>
 
