@@ -138,6 +138,12 @@ export default function Header() {
               >
                 Events
               </DropdownMenuItem>
+              <DropdownMenuItem
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
+                onClick={() => router.push("/review")}
+              >
+                Reviews
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
