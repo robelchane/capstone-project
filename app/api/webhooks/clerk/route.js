@@ -1,5 +1,5 @@
 // ref https://www.youtube.com/watch?v=UTjwyDuVjRM&t=225s
-
+{/*
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
@@ -72,3 +72,4 @@ export async function POST(req) {
 
   return new Response('', { status: 200 });
 }
+*/}
