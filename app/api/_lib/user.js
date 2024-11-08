@@ -1,9 +1,19 @@
+
+
 import prisma from './prisma';
 import { User } from '@prisma/client';
 
 export async function createUser(data) {
-    
+    try{
+        const user = await prisma.user.create({
+            data,
+        });
+    } catch (error) {
+        console.error(error);
+        return error;
     }
+    return user;
+}
 
 export async function getUserByEmail(email) {
     return prisma.user.findUnique({
