@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import ThemeToggle from "../home/ThemeToggle";
 import { useState, useEffect } from "react";
 import { useUser, UserButton, SignOutButton } from "@clerk/nextjs";
 import Image from "next/image";
@@ -75,7 +76,9 @@ export default function Header() {
             </p>
           </Link>
         </div>
-
+        <div className=" flex justify-between">
+         <ThemeToggle />
+        </div>
         <div className="flex gap-10 m-2">
           {/* Properties Dropdown Menu */}
           <DropdownMenu>

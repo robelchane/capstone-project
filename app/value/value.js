@@ -22,7 +22,7 @@ export default function Value() {
     <main className="font-serif overflow-y-auto text-black" id="value">
       {/* Content Section */}
       <div className="flex justify-center font-serif mt-20">
-        <div className="w-1/2 m-10">
+        <div className="w-1/2 m-10 rounded-full">
           <img src={"/value.png"} alt="Profile picture" />
         </div>
 
@@ -47,7 +47,7 @@ export default function Value() {
               Best interest rates on the market
             </h2>
             {isOpen1 && (
-              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+              <div className="bg-gray-100 p-4 rounded-full mt-8 mb-4 shadow-lg">
                 <p>
                   Our interest rates are carefully tailored to give you the best value on the market, 
                   offering competitive returns with full transparency and no hidden fees. 
@@ -66,7 +66,7 @@ export default function Value() {
               Easy and flexible payments
             </h2>
             {isOpen2 && (
-              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+              <div className="bg-gray-100 p-4 rounded-full mt-2 mb-4 shadow-lg">
                 <p>
                   We offer a variety of payment options designed to fit your lifestyle, allowing you to manage your payments easily and flexibly. 
                   Whether you prefer monthly, bi-weekly, or custom schedules, our plans adapt to your needs without any hassle.
@@ -84,7 +84,7 @@ export default function Value() {
               Premium customer support
             </h2>
             {isOpen3 && (
-              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+              <div className="bg-gray-100 p-4 rounded-full mt-2 mb-4 shadow-lg ">
                 <p>
                   Our premium customer support ensures that you receive personalized assistance whenever you need it. 
                   With dedicated experts, we're here to resolve your issues quickly and efficiently.

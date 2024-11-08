@@ -1,3 +1,4 @@
+//https://dev.to/collegewap/how-to-use-local-storage-in-nextjs-2l2j
 "use client";
 import { useEffect, useState } from "react";
 
@@ -43,7 +44,7 @@ export default function ComparePage() {
             <td className="px-4 py-2 border border-gray-300">Name: {property2.name}</td>
           </tr>
           <tr>
-            <td className="px-4 py-2 border border-gray-300">Price: ${property1.price}</td>
+            <td className="px-4 py-2 border border-gray-300 ">Price: ${property1.price}</td>
             <td className="px-4 py-2 border border-gray-300">Price: ${property2.price}</td>
           </tr>
           <tr>
@@ -72,12 +73,36 @@ export default function ComparePage() {
             <td className="px-4 py-2 border border-gray-300">Seller Email: {property2.SellerEmail}</td>
           </tr>
           <tr>
-            <td className="px-4 py-2 border border-gray-300">Heating: {property1.heating}</td>
-            <td className="px-4 py-2 border border-gray-300">Heating: {property2.heating}</td>
+            <td className="px-4 py-2 border border-gray-300">Square Footage: {property1.squareFootage}</td>
+            <td className="px-4 py-2 border border-gray-300">Square Footage: {property2.squareFootage}</td>
           </tr>
           <tr>
-            <td className="px-4 py-2 border border-gray-300">Cooling: {property1.cooling}</td>
-            <td className="px-4 py-2 border border-gray-300">Cooling: {property2.cooling}</td>
+            <td className="px-4 py-2 border border-gray-300">Year Built: {property1.yearBuilt}</td>
+            <td className="px-4 py-2 border border-gray-300">Year Built: {property2.yearBuilt}</td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-300">Property Type: {property1.propertyType}</td>
+            <td className="px-4 py-2 border border-gray-300">Property Type: {property2.propertyType}</td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-300">Status: {property1.status}</td>
+            <td className="px-4 py-2 border border-gray-300">Status: {property2.status}</td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-300">Parking Spots: {property1.parkingSpaces}</td>
+            <td className="px-4 py-2 border border-gray-300">Parking Spots: {property2.parkingSpaces}</td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-300">Lot Size: {property1.lotSize}</td>
+            <td className="px-4 py-2 border border-gray-300">Lot Size: {property2.lotSize}</td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-300">Is Featured: {property1.isFeatured}</td>
+            <td className="px-4 py-2 border border-gray-300">Is Featured: {property2.isFeatured}</td>
+          </tr>
+          <tr>
+            <td className="px-4 py-2 border border-gray-300">Virtual Link Tour: {property1.virtualTourLink}</td>
+            <td className="px-4 py-2 border border-gray-300">Virtual Link Tour: {property2.virtualTourLink}</td>
           </tr>
           {/* Add more rows for any other categories you'd like to display */}
         </tbody>

@@ -76,20 +76,20 @@ export default function MortgageCalculator() {
 
   return (
     <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto m-28">
-      <h2 className="w-full flex justify-center text-2xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
+      <h2 className="w-full flex justify-center rounded-full dark:text-black text-2xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
         Your Mortgage Payment Information
       </h2>
 
       <div className="flex justify-between w-full">
         <div className="w-1/2 p-4">
-          <h2 className="text-2xl font-bold mb-4 flex justify-center">Mortgage Calculator</h2>
+          <h2 className="text-2xl font-bold mb-4 flex justify-center dark:text-black">Mortgage Calculator</h2>
           <hr className="w-full border-gray-300 my-2" />
 
           {error && <p className="text-red-500 mb-4">{error}</p>}
 
           {/* Inputs for Mortgage Calculator */}
           <div className="w-full mb-4">
-            <label className="block text-gray-700">Mortgage Amount:</label>
+            <label className="block text-gray-700 dark:text-black">Mortgage Amount:</label>
             <input
               type="number"
               value={mortgageAmount}
@@ -164,43 +164,43 @@ export default function MortgageCalculator() {
         </div>
 
         <div className="w-3/4 p-4 border-l border-gray-300">
-          <h3 className="text-2xl font-semibold flex justify-center mb-4">Mortgage Repayment Summary</h3>
+          <h3 className="text-2xl font-semibold flex justify-center mb-4 dark:text-black">Mortgage Repayment Summary</h3>
           <hr className="w-full border-gray-300 my-2" />
           
           {/* Displaying Mortgage Details */}
-          <div className="mb-4">
+          <div className="mb-4 dark:text-black">
             <p>Mortgage Amount:</p>
             <p className="font-bold text-xl mt-2">${mortgageAmount}</p>
           </div>
-          <hr className="w-full border-gray-300 my-2" />
+          <hr className="w-full border-gray-300 my-2 dark:text-black" />
 
-          <div className="mb-4">
+          <div className="mb-4 dark:text-black">
             <p>Down Payment:</p>
-            <p className="font-bold text-xl mt-2">${downPayment}</p>
+            <p className="font-bold text-xl mt-2 dark:text-black">${downPayment}</p>
           </div>
           <hr className="w-full border-gray-300 my-2" />
 
-          <div className="mb-4">
+          <div className="mb-4 dark:text-black">
             <p>Payment ({paymentFrequency}):</p>
-            <p className="font-bold text-xl mt-2">${monthlyPayment}</p>
+            <p className="font-bold text-xl mt-2 dark:text-black">${monthlyPayment}</p>
           </div>
           <hr className="w-full border-gray-300 my-2" />
 
-          <div className="mb-4">
+          <div className="mb-4 dark:text-black">
             <p>Annual Payment:</p>
-            <p className="font-bold text-xl mt-2">${annualPayment}</p>
+            <p className="font-bold text-xl mt-2 dark:text-black">${annualPayment}</p>
           </div>
-          <hr className="w-full border-gray-300 my-2" />
+          <hr className="w-full border-gray-300 my-2 dark:text-black" />
 
-          <div className="mb-4">
+          <div className="mb-4 dark:text-black">
             <p>Total Interest Paid:</p>
-            <p className="font-bold text-xl mt-2">${totalInterestPaid}</p>
+            <p className="font-bold text-xl mt-2 dark:text-black">${totalInterestPaid}</p>
           </div>
-          <hr className="w-full border-gray-300 my-2" />
+          <hr className="w-full border-gray-300 my-2 dark:text-black" />
 
-          <div className="mb-4">
+          <div className="mb-4 dark:text-black">
             <p>Loan Payoff Date:</p>
-            <p className="font-bold text-xl mt-2">{loanPayOffDate}</p>
+            <p className="font-bold text-xl mt-2 dark:text-black">{loanPayOffDate}</p>
           </div>
           <hr className="w-full border-gray-300 my-2" />
         </div>
@@ -209,7 +209,7 @@ export default function MortgageCalculator() {
       {/* Print Button */}
       <button
         onClick={handlePrint}
-        className="mt-8 px-4 py-2 bg-green-500 text-white rounded"
+        className="mt-8 px-4 py-2 bg-green-500 text-white rounded-full dark:text-black"
       >
         Print Page
       </button>

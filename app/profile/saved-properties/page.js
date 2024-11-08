@@ -81,12 +81,12 @@ const handleSelectComparison = (property) => {
                 className="w-full h-48 object-cover mb-4"
               />
               <h2 className="text-xl font-bold mb-2">{property.name}</h2>
-              <p className="text-lg text-gray-700">
+              <p className="text-lg text-gray-700 dark:text-white">
                 <span style={{ color: "#001f3f" }}>$</span>
                 {property.price}
               </p>
-              <p className="text-gray-600">{property.summary}</p>
-              <p className="text-sm text-gray-500">{property.address}</p>
+              <p className="text-gray-600 dark:text-white">{property.summary}</p>
+              <p className="text-sm text-gray-500 dark:text-white">{property.address}</p>
               <div className="flex items-center mt-2">
                 <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
                 <span>{property.bedrooms} Bedrooms</span>
