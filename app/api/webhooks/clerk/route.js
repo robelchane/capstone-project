@@ -56,5 +56,19 @@ export async function POST(req) {
   console.log(`Webhook with an ID of ${id} and type of ${eventType}`);
   console.log('Webhook body:', body);
 
+    if (eventType === WebhookEvent.UserCreated) {
+      const { data } = evt;
+      const { id, email, name } = data;
+
+      // Save the user to your database
+      const user = await User.create({
+        clerkId: id,
+        email,
+        name,
+      });
+
+      console.log('User created:', user);
+    }
+
   return new Response('', { status: 200 });
 }
