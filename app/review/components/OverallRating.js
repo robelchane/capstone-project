@@ -12,7 +12,7 @@ export default function OverallRating({ reviews }) {
     return (
         <div className="flex items-center space-x-2">
             <span className="text-3xl font-semibold">⭐{overallRating}</span>
-            <span className="text-xl text-gray-600">({reviews.length} Reviews)</span>
+            <span className="text-xl text-gray-600 dark:text-white">({reviews.length} Reviews)</span>
         </div>
     );
 }

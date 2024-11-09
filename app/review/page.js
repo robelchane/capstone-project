@@ -146,8 +146,8 @@ export default function Review() {
                                 className="w-11 h-11 rounded-full"
                             />
                             <div className="border-l border-gray-300 ml-5 pl-5">
-                                <p className="text-sm text-gray-800 uppercase">{reviewers[currentIndex].title}</p>
-                                <p className="text-base text-gray-800">{reviewers[currentIndex].name}</p>
+                                <p className="text-sm uppercase">{reviewers[currentIndex].title}</p>
+                                <p className="text-base">{reviewers[currentIndex].name}</p>
                             </div>
                         </div>
 
@@ -155,16 +155,16 @@ export default function Review() {
                         <div className="flex items-center space-x-3">
                             <button
                                 onClick={handlePrev}
-                                className="p-1 rounded-full bg-black text-white border border-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="p-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
                             >
                                 ⬅
                             </button>
-                            <span className="text-black">
+                            <span>
                                 {currentIndex + 1} / {reviewers.length}
                             </span>
                             <button
                                 onClick={handleNext}
-                                className="p-1 rounded-full bg-black text-white border border-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="p-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
                             >
                                 ➡
                             </button>
@@ -184,23 +184,23 @@ export default function Review() {
                     {/* <SearchReviews reviews={reviews} /> */}
                 </div>
                 <div className="w-full lg:w-1/3 bg-white p-6 border rounded-lg shadow-md">
-                    <h2 className="text-2xl font-semibold mb-5">Write a Review</h2>
+                    <h2 className="text-2xl font-semibold mb-5 dark:text-black">Write a Review</h2>
                     <p className="text-gray-500">Want to leave a review for Property Pros?</p>
                     <p className=" text-gray-500 mb-5">Feel free to write about your experience or comments.</p>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
-                            <label className="block text-lg font-medium">Name</label>
+                            <label className="block text-lg font-medium dark:text-black">Name</label>
                             <input
                                 type="text"
                                 name="reviewer"
                                 value={newReview.reviewer}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-3 border rounded-md"
+                                className="w-full p-3 border rounded-md dark:text-black"
                             />
                         </div>
                         <div>
-                            <label className="block text-lg font-medium">Rating</label>
+                            <label className="block text-lg font-medium dark:text-black">Rating</label>
                             <input
                                 type="number"
                                 name="rating"
@@ -209,17 +209,17 @@ export default function Review() {
                                 required
                                 min="1"
                                 max="5"
-                                className="w-full p-3 border rounded-md"
+                                className="w-full p-3 border rounded-md dark:text-black"
                             />
                         </div>
                         <div>
-                            <label className="block text-lg font-medium mb-5">Comment</label>
+                            <label className="block text-lg font-medium mb-5 dark:text-black">Comment</label>
                             <textarea
                                 name="comment"
                                 value={newReview.comment}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-3 border rounded-md"
+                                className="w-full p-3 border rounded-md dark:text-black"
                             ></textarea>
                         </div>
                         <button type="submit" className="bg-black text-white w-full p-5 rounded-full border hover:bg-transparent hover:text-black hover:border-blue-400 transition-colors duration-300">

@@ -122,13 +122,13 @@ export default function EventsPage() {
                 {events.map((event, index) => (
                     <li
                     key={index} 
-                    className="mb-6 p-4 cursor-pointer border border-transparent hover:border-black hover:bg-black hover:text-white transition-colors duration-300 hover:scale-105 transition-transform duration-300 rounded-lg"
+                    className="mb-6 p-7 cursor-pointer border border-transparent hover:border-black hover:bg-black hover:text-white transition-colors duration-300 hover:scale-105 transition-transform duration-300 rounded-lg"
                     onClick={() => router.push(`/events/${event.id}`)}
                     >
                         <img 
                             src={event.imageUrl} 
                             alt={event.name} 
-                            className="w-full h-96 object-cover"
+                            className="w-full h-96 object-cover rounded-lg"
                         />
                         <div>
                             <h2 className="text-xl font-semibold mt-3 mb-1">{event.name}</h2>
