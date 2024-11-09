@@ -139,10 +139,10 @@ export default function Subscription() {
         {subscriptionPlans.map((plan) => (
           <div
             key={plan._id}
-            className="border border-gray-300 rounded-lg p-5 shadow-md"
+            className="border border-gray-300 rounded-lg p-5 shadow-md dark:bg-white"
             style={{ width: "380px" }}
           >
-            <h2 className="text-xl font-semibold mb-4 text-center">{plan.name}</h2>
+            <h2 className="text-xl text-black font-semibold mb-4 text-center">{plan.name}</h2>
             <p className="text-gray-700 mb-4">${plan.price} / month</p>
             <p className="text-gray-600">Property Limit: {plan.propertyLimit}</p>
             <p className="text-gray-600 mb-4">
@@ -191,7 +191,7 @@ export default function Subscription() {
         </div>
       </div>
 
-      {message && <p className="mt-8 text-center text-xl text-black">{message}</p>}
+      {message && <p className="mt-8 text-center text-xl">{message}</p>}
     </div>
   );
 }
