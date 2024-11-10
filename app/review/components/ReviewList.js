@@ -37,7 +37,7 @@ export default function ReviewList({ reviews }) {
                     id="filter"
                     onChange={(e) => setFilter(e.target.value)}
                     value={filter}
-                    className="border px-4 py-2 rounded-md focus:outline-none"
+                    className="border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
                 >
                     <option>Most Recent</option>
                     <option>Highest Rated</option>
@@ -48,7 +48,7 @@ export default function ReviewList({ reviews }) {
             {/* Review List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {currentReviews.map((review) => (
-                    <div key={review._id} className="p-5 border rounded-lg shadow-sm bg-white">
+                    <div key={review._id} className="cursor-pointer p-5 border rounded-lg shadow-sm bg-white">
                         {/* Reviewer Profile */}
                         <div className="flex items-center mb-4">
                             <div className="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
@@ -67,7 +67,7 @@ export default function ReviewList({ reviews }) {
                                 )}
                             </div>
                             <div className="ml-3">
-                                <p className="text-lg font-semibold">{review.reviewer}</p>
+                                <p className="text-lg font-semibold dark:text-black">{review.reviewer}</p>
                                 <p className="text-sm text-gray-500">{review.date}</p>
                             </div>
                         </div>
@@ -91,7 +91,7 @@ export default function ReviewList({ reviews }) {
                 <button
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
-                    className="px-2 py-1 mx-2 bg-black text-white border hover:bg-transparent hover:border-black hover:text-black transition-colors duration-300 rounded-full disabled:opacity-50 disabled:bg-black disabled:text-white"
+                    className="px-2 py-1 mx-2 bg-black text-white border dark:border-white dark:text-white hover:bg-transparent hover:border-black hover:text-black transition-colors duration-300 rounded-full disabled:opacity-50 disabled:bg-black disabled:text-white"
                 >
                     ⬅
                 </button>
@@ -101,7 +101,7 @@ export default function ReviewList({ reviews }) {
                 <button
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}
-                    className="px-2 py-1 mx-2 bg-black text-white border hover:bg-transparent hover:border-black hover:text-black transition-colors duration-300 rounded-full disabled:opacity-50 disabled:bg-black disabled:text-white"
+                    className="px-2 py-1 mx-2 bg-black text-white border dark:border-white dark:text-white hover:bg-transparent hover:border-black hover:text-black transition-colors duration-300 rounded-full disabled:opacity-50 disabled:bg-black disabled:text-white"
                 >
                     ➡
                 </button>
