@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import OverallRating from "./components/OverallRating";
 import ReviewList from "./components/ReviewList";
-import SearchReviews from "./components/SearchReviews";
+import StarRating from "./components/StarRating";
+import ReviewModal from "./components/ReviewModal";
 
 export default function Review() {
     const reviewers = [
@@ -42,29 +43,37 @@ export default function Review() {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [fade, setFade] = useState(true); // 페이드 효과 상태
+    const [fade, setFade] = useState(true);
 
     const handlePrev = () => {
-        setFade(false); // 페이드 아웃 시작
+        setFade(false);
         setTimeout(() => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === 0 ? reviewers.length - 1 : prevIndex - 1
             );
-            setFade(true); // 페이드 인 시작
-        }, 300); // 전환 지속 시간에 맞춰 설정
+            setFade(true);
+        }, 300);
     };
 
     const handleNext = () => {
-        setFade(false); // 페이드 아웃 시작
+        setFade(false);
         setTimeout(() => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === reviewers.length - 1 ? 0 : prevIndex + 1
             );
-            setFade(true); // 페이드 인 시작
-        }, 300); // 전환 지속 시간에 맞춰 설정
+            setFade(true);
+        }, 300);
     };
 
+
+
+
     const [reviews, setReviews] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     const [newReview, setNewReview] = useState({
         reviewer: '',
         rating: 0,
@@ -80,7 +89,6 @@ export default function Review() {
         fetchReviews();
     }, []);
 
-    // 리뷰 제출 핸들러 함수 정의
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch('/api/review', {
@@ -90,14 +98,13 @@ export default function Review() {
         });
         if (response.ok) {
             const savedReview = await response.json();
-            setReviews([...reviews, savedReview.review]); // 새로운 리뷰 추가
-            setNewReview({ reviewer: '', rating: 0, comment: '' }); // 폼 초기화
+            setReviews([...reviews, savedReview.review]);
+            setNewReview({ reviewer: '', rating: 0, comment: '' });
         } else {
             console.error('Failed to submit review');
         }
     };
 
-    // 리뷰 작성 폼의 입력 값 업데이트 핸들러
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNewReview((prev) => ({ ...prev, [name]: value }));
@@ -173,20 +180,27 @@ export default function Review() {
                 </div>
             </div>
 
-            {/* 두 부분으로 나눔 */}
+
             <div className="p-12 mt-32 max-w-8xl mx-auto">
             <h1 className="text-5xl text-center font-semibold mb-16">Reviews</h1>
 
-            <div className="flex">
+            <div className="flex ">
                 <div className="w-full lg:w-2/3 pr-16">
                     <OverallRating reviews={reviews} />
                     <ReviewList reviews={reviews} />
-                    {/* <SearchReviews reviews={reviews} /> */}
+                    <button
+                    onClick={openModal}
+                    className="items-right px-4 py-2 bg-black border text-white rounded-full shadow-md hover:bg-transparent hover:text-black hover:border-black transition-colors duration-300"
+                    >
+                        See All
+                    </button>
+                    <ReviewModal reviews={reviews} isOpen={isModalOpen} onClose={closeModal} /> {/* 모달 컴포넌트 */}
+
                 </div>
                 <div className="w-full lg:w-1/3 bg-white p-6 border rounded-lg shadow-md">
                     <h2 className="text-2xl font-semibold mb-5 dark:text-black">Write a Review</h2>
                     <p className="text-gray-500">Want to leave a review for Property Pros?</p>
-                    <p className=" text-gray-500 mb-5">Feel free to write about your experience or comments.</p>
+                    <p className="text-gray-500 mb-5">Feel free to leave your comments or experiences.</p>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
                             <label className="block text-lg font-medium dark:text-black">Name</label>
@@ -201,15 +215,9 @@ export default function Review() {
                         </div>
                         <div>
                             <label className="block text-lg font-medium dark:text-black">Rating</label>
-                            <input
-                                type="number"
-                                name="rating"
-                                value={newReview.rating}
-                                onChange={handleChange}
-                                required
-                                min="1"
-                                max="5"
-                                className="w-full p-3 border rounded-md dark:text-black"
+                            <StarRating 
+                                rating={newReview.rating} 
+                                onRatingChange={(rating) => setNewReview(prev => ({ ...prev, rating }))}
                             />
                         </div>
                         <div>
@@ -219,7 +227,7 @@ export default function Review() {
                                 value={newReview.comment}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-3 border rounded-md dark:text-black"
+                                className="w-full p-3 border rounded-md dark:text-black mb-5"
                             ></textarea>
                         </div>
                         <button type="submit" className="bg-black text-white w-full p-5 rounded-full border hover:bg-transparent hover:text-black hover:border-blue-400 transition-colors duration-300">
@@ -229,7 +237,6 @@ export default function Review() {
                 </div>
             </div>
         </div>
-
         </div>
     );
 }

@@ -1,5 +1,5 @@
-// app/review/components/SearchReviews.js
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 export default function SearchReviews({ reviews }) {
     const [searchTerm, setSearchTerm] = useState("");
@@ -10,14 +10,17 @@ export default function SearchReviews({ reviews }) {
 
     return (
         <div className="my-8">
-            <input 
-                type="text"
-                placeholder="Search reviews"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-md mb-4"
-            />
-            
+            <div className="relative mb-4">
+                <input 
+                    type="text"
+                    placeholder="Search reviews"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full p-3 border border-gray-300 rounded-md pl-10"
+                />
+                <FaSearch className="absolute left-3 top-4 text-gray-500" />
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-6 max-w-full mx-auto">
                 {filteredReviews.length > 0 ? (
                     filteredReviews.map((review) => (
