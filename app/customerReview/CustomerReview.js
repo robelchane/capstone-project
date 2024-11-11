@@ -37,7 +37,7 @@ export default function CustomerReview() {
   };
 
   return (
-    <div className="font-serif flex flex-col justify-center items-center mt-20 mb-20">
+    <div className="font-serif flex flex-col justify-center items-center mt-20">
       <p className="text-yellow-700 text-2xl font-bold">Proven Results</p>
       <span className="text-3xl font-bold mt-1 mb-10 text-center text-black w-full">Client Testimonials</span>
       <div className="flex justify-center items-center w-full max-w-6xl relative">

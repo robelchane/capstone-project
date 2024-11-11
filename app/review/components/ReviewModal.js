@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchReviews from "./SearchReviews";
+import OverallRating from "./OverallRating";
 
 export default function ReviewModal({ reviews, isOpen, onClose }) {
     const [filteredReviews, setFilteredReviews] = useState(reviews);
@@ -21,12 +22,12 @@ export default function ReviewModal({ reviews, isOpen, onClose }) {
                     {/* Left Section: Overall Rating and Category Ratings */}
                     <div className="w-1/3 pr-8">
                         <div className="text-center mb-4">
-                            <span className="text-6xl font-bold text-yellow-500 flex items-center justify-center">
-                                <span className="mr-2 text-6xl">👑</span>
-                                4.95
-                                <span className="ml-2 text-6xl">👑</span>
+                            <span className="text-6xl flex items-center justify-center mb-3">
+                                    <OverallRating reviews={reviews} />
                             </span>
-                            <p className="text-xl font-bold text-gray-700 mt-3">Client Favorite</p>
+                            <span className="mr-2 text-xl">👑</span>
+                            <span className="text-xl font-bold text-gray-700 mt-3">Client Favorite</span>
+                            <span className="ml-2 text-xl">👑</span>
                             <p className="text-sm text-gray-500 mt-3">
                                 Top 10% agent based on client reviews, ratings, and dependable service.
                             </p>

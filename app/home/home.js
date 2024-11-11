@@ -84,43 +84,77 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 z-0"></div>
       </div>
 
-      {/* About Us Section */}
-      <div className="flex justify-center font-serif bg-white text-black p-10 min-h-screen ">
-        <div className="w-1/2 m-10">
-          <img src={"/aboutus.png"} alt="About Us" className="mt-5 rounded-e-full" />
-        </div>
+        {/* About Us Section */}
+        <div className="flex flex-col justify-center font-serif bg-white text-black min-h-screen space-y-10 mt-16">
+          <p className="text-6xl text-center mt-10 mb-10">Why Property Pros?</p>
+          {/* First Row: Image on Left, Text on Right */}
+          <div className="flex w-full justify-center items-center">
+            <div className="w-1/2">
+              <img 
+                src={"/home1.jpg"} 
+                alt="Home Image 1" 
+                className="mt-5 rounded-e-full" 
+                style={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.4)" }}
+              />
+            </div>
+            <div className="flex flex-col w-1/2 m-10 text-right">
+              <span className="text-3xl font-bold mt-5">Where Homes Find Owners</span>
+              <div className="my-10 text-lg">
+                <p>
+                  With over 20 years of experience in the real estate industry, Property Pros is dedicated to helping clients navigate the complexities of buying and selling homes. We believe that open communication and transparency are essential in building lasting relationships with our clients, allowing us to deliver exceptional results tailored to their specific goals.
+                </p>
+              </div>
+                <div className="flex gap-4 justify-end">
+                  <Link href="/about">
+                    <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                      Read More
+                    </button>
+                  </Link>
+                  <Link href="/living-in-calgary">
+                    <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                      Living in Calgary
+                    </button>
+                  </Link>
+              </div>
+            </div>
+          </div>
 
-        <div className="flex flex-col w-1/2 m-10">
-          <div className="flex flex-col items-start">
-            <span className="text-3xl font-bold mt-5">Where Homes Find Owners</span>
-          </div>
-          <div className="my-10 text-lg">
-            <p className="mb-5">
-              With over 20 years of experience in the real estate industry, Property Pros is dedicated to helping clients navigate the complexities of buying and selling homes. We believe that open communication and transparency are essential in building lasting relationships with our clients, allowing us to deliver exceptional results tailored to their specific goals.
-            </p>
-            <p className="mb-10">
-              Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape. With a focus on data-driven decision-making, we conduct thorough market analyses and valuations to ensure our clients make informed choices. Whether buying or selling, clients can trust that Property Pros will guide them with integrity, diligence, and a relentless drive for success.
-            </p>
-            <span className="text-3xl font-bold">We're Here for You</span>
-            <p className="mt-10">
-              At Property Pros, we are committed to being your trusted partner throughout your real estate journey. With us, you can feel confident that your needs are our top priority, ensuring a seamless and positive experience as you achieve your real estate goals.
-            </p>
-          </div>
-          {/* Button Section with Flexbox */}
-          <div className="flex gap-4">
-            <Link href="/contact">
-              <button className="bg-black rounded-full text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
-                Contact Us
-              </button>
-            </Link>
-            <Link href="/listings">
-              <button className="bg-black rounded-full text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
-                Best Properties
-              </button>
-            </Link>
+          {/* Second Row: Text and Buttons on Left, Image on Right */}
+          <div className="flex w-full justify-center items-center">
+            <div className="flex flex-col w-1/2 ml-8 mr-8">
+              <span className="text-3xl font-bold">We're Here for You</span>
+              <div className="my-10 text-lg">
+                <p className="mb-10">
+                  Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape. With a focus on data-driven decision-making, we conduct thorough market analyses and valuations to ensure our clients make informed choices. Whether buying or selling, clients can trust that Property Pros will guide them with integrity, diligence, and a relentless drive for success.
+                </p>
+                <p className="mt-10">
+                  At Property Pros, we are committed to being your trusted partner throughout your real estate journey. With us, you can feel confident that your needs are our top priority, ensuring a seamless and positive experience as you achieve your real estate goals.
+                </p>
+              </div>
+              {/* Button Section */}
+              <div className="flex gap-4">
+                <Link href="/contact">
+                  <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                    Contact Us
+                  </button>
+                </Link>
+                <Link href="/listings">
+                  <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                    Best Properties
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="w-1/2">
+              <img
+                src="/home2.jpg"
+                alt="Home Image 2"
+                className="mt-5 rounded-s-full"
+                style={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.4)" }}
+              />
+            </div>
           </div>
         </div>
-      </div>
     </main>
   );
 }
