@@ -3,21 +3,23 @@ import Image from "next/image";
 
 export default function ReviewList({ reviews }) {
     const [filter, setFilter] = useState("Most Recent");
+    const [ratingFilter, setRatingFilter] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const reviewsPerPage = 4;
 
-    // Filtered and sorted reviews
-    const sortedReviews = [...reviews].sort((a, b) => {
-        if (filter === "Most Recent") return new Date(b.date) - new Date(a.date);
-        if (filter === "Highest Rated") return b.rating - a.rating;
-        if (filter === "Lowest Rated") return a.rating - b.rating;
-    });
+
+    const sortedReviews = [...reviews]
+        .filter(review => (ratingFilter === 0 || review.rating === ratingFilter)) 
+        .sort((a, b) => {
+            if (filter === "Most Recent") return new Date(b.date) - new Date(a.date);
+            if (filter === "Highest Rated") return b.rating - a.rating;
+            if (filter === "Lowest Rated") return a.rating - b.rating;
+        });
 
     // Pagination logic
     const indexOfLastReview = currentPage * reviewsPerPage;
     const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
     const currentReviews = sortedReviews.slice(indexOfFirstReview, indexOfLastReview);
-
     const totalPages = Math.ceil(sortedReviews.length / reviewsPerPage);
 
     const handleNextPage = () => {
@@ -30,19 +32,35 @@ export default function ReviewList({ reviews }) {
 
     return (
         <div className="mt-16">
-            {/* Filter Dropdown */}
-            <div className="mb-6">
-                <label htmlFor="filter" className="mr-2 text-lg font-semibold">Sort by:</label>
-                <select
-                    id="filter"
-                    onChange={(e) => setFilter(e.target.value)}
-                    value={filter}
-                    className="border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
-                >
-                    <option>Most Recent</option>
-                    <option>Highest Rated</option>
-                    <option>Lowest Rated</option>
-                </select>
+            {/* Filter and Sort Dropdown */}
+            <div className="mb-6 flex items-center space-x-4">
+                <div className="mr-5">
+                    <label htmlFor="filter" className="mr-2 text-lg font-semibold">Sort by:</label>
+                    <select
+                        id="filter"
+                        onChange={(e) => setFilter(e.target.value)}
+                        value={filter}
+                        className="border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
+                    >
+                        <option>Most Recent</option>
+                        <option>Highest Rated</option>
+                        <option>Lowest Rated</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="ratingFilter" className="mr-2 text-lg font-semibold">Rating:</label>
+                    <select
+                        id="ratingFilter"
+                        onChange={(e) => setRatingFilter(Number(e.target.value))}
+                        value={ratingFilter}
+                        className="border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
+                    >
+                        <option value={0}>All Ratings</option>
+                        {[5, 4, 3, 2, 1].map((rating) => (
+                            <option key={rating} value={rating}>{rating} Stars</option>
+                        ))}
+                    </select>
+                </div>
             </div>
 
             {/* Review List */}
