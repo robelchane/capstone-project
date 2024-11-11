@@ -75,9 +75,9 @@ export default function Listings() {
   }
 
   return (
-    <main className="font-serif p-8 flex h-screen overflow-hidden mt-12">
+    <main className="p-10 flex h-screen overflow-hidden mt-12">
       {/* Map Section */}
-      <div className="w-1/2 h-full p-4 rounded-t-lg mt-15">
+      <div className="w-1/2 h-full p-5 rounded-t-lg mt-15">
         <Map items={data} />
       </div>
 

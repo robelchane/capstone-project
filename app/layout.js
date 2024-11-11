@@ -2,6 +2,7 @@
 "use client";
 import localFont from "next/font/local";
 import Header from "./header/page";
+import Footer from "./footer/footer";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
 
           {/* Render the rest of the children */}
           {children}
+          <Footer />
         </body>
         
       </html>
