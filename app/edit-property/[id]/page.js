@@ -100,7 +100,7 @@ export default function EditProperty() {
       )}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-base font-semibold">Name</label>
+          <label htmlFor="name" className="block text-base font-medium">Name</label>
           <input
             type="text"
             id="name"
@@ -111,7 +111,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="price" className="block text-base font-semibold">Price</label>
+          <label htmlFor="price" className="block text-base font-medium">Price</label>
           <input
             type="number"
             id="price"
@@ -122,7 +122,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="summary" className="block text-base font-semibold">Summary</label>
+          <label htmlFor="summary" className="block text-base font-medium">Summary</label>
           <textarea
             id="summary"
             name="summary"
@@ -132,7 +132,7 @@ export default function EditProperty() {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="address" className="block text-base font-semibold">Address</label>
+          <label htmlFor="address" className="block text-base font-medium">Address</label>
           <input
             type="text"
             id="address"
@@ -143,7 +143,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="bedrooms" className="block text-base font-semibold">Bedrooms</label>
+          <label htmlFor="bedrooms" className="block text-base font-medium">Bedrooms</label>
           <input
             type="number"
             id="bedrooms"
@@ -154,7 +154,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="bathrooms" className="block text-base font-semibold">Bathrooms</label>
+          <label htmlFor="bathrooms" className="block text-base font-medium">Bathrooms</label>
           <input
             type="number"
             id="bathrooms"
@@ -165,7 +165,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="squareFootage" className="block text-base font-semibold">Square Footage</label>
+          <label htmlFor="squareFootage" className="block text-base font-medium">Square Footage</label>
           <input
             type="number"
             id="squareFootage"
@@ -176,7 +176,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="yearBuilt" className="block text-base font-semibold">Year Built</label>
+          <label htmlFor="yearBuilt" className="block text-base font-medium">Year Built</label>
           <input
             type="number"
             id="yearBuilt"
@@ -187,7 +187,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="propertyType" className="block text-base font-semibold">Property Type</label>
+          <label htmlFor="propertyType" className="block text-base font-medium">Property Type</label>
           <select
             id="propertyType"
             name="propertyType"
@@ -203,7 +203,7 @@ export default function EditProperty() {
           </select>
         </div>
         <div>
-          <label htmlFor="status" className="block text-base font-semibold">Status</label>
+          <label htmlFor="status" className="block text-base font-medium">Status</label>
           <select
             id="status"
             name="status"
@@ -218,7 +218,7 @@ export default function EditProperty() {
           </select>
         </div>
         <div>
-          <label htmlFor="parkingSpaces" className="block text-base font-semibold">Parking Spaces</label>
+          <label htmlFor="parkingSpaces" className="block text-base font-medium">Parking Spaces</label>
           <input
             type="number"
             id="parkingSpaces"
@@ -229,7 +229,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="lotSize" className="block text-base font-semibold">Lot Size</label>
+          <label htmlFor="lotSize" className="block text-base font-medium">Lot Size</label>
           <input
             type="number"
             id="lotSize"
@@ -240,7 +240,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="sellerName" className="block text-base font-semibold">Seller Name</label>
+          <label htmlFor="sellerName" className="block text-base font-medium">Seller Name</label>
           <input
             type="text"
             id="sellerName"
@@ -251,7 +251,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="sellerEmail" className="block text-base font-semibold">Seller Email</label>
+          <label htmlFor="sellerEmail" className="block text-base font-medium">Seller Email</label>
           <input
             type="email"
             id="sellerEmail"
@@ -262,7 +262,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="image" className="block text-base font-semibold">Property Image</label>
+          <label htmlFor="image" className="block text-base font-medium">Property Image</label>
           <input
             type="file"
             id="image"
