@@ -185,6 +185,15 @@ export default function Seller() {
               required
               className="text-black border p-2 mb-4 w-full"
             />
+            {/* <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              onChange={handleChange}  // Ensure this function handles the file change
+              className="w-full p-2 border rounded"
+            /> */}
+
             <input
               name="squareFootage"
               type="number"
