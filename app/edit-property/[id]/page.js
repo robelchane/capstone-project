@@ -52,6 +52,7 @@ export default function EditProperty() {
       propertyType: event.target.propertyType.value, // Property type
       status: event.target.status.value, // Property status
       parkingSpaces: event.target.parkingSpaces.value, // Number of parking spaces
+      lotSize: event.target.lotSize.value, // Lot size
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -227,6 +228,17 @@ export default function EditProperty() {
           />
         </div>
         <div>
+          <label htmlFor="lotSize" className="block text-sm font-medium">Lot Size</label>
+          <input
+            type="number"
+            id="lotSize"
+            name="lotSize"
+            defaultValue={property.lotSize}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
           <label htmlFor="sellerName" className="block text-sm font-medium">Seller Name</label>
           <input
             type="text"
@@ -249,7 +261,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="image" className="block text-sm font-medium">Image</label>
+          <label htmlFor="image" className="block text-sm font-medium">Property Image</label>
           <input
             type="file"
             id="image"
@@ -257,12 +269,11 @@ export default function EditProperty() {
             className="w-full p-2 border rounded"
           />
         </div>
-        <button
-          type="submit"
-          className="mt-4 px-6 py-2 bg-blue-500 text-white rounded"
-        >
-          Save Changes
-        </button>
+        <div className="mt-4">
+          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">
+            Update Property
+          </button>
+        </div>
       </form>
     </div>
   );
