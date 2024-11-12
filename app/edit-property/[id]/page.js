@@ -42,6 +42,7 @@ export default function EditProperty() {
       name: event.target.name.value,
       price: event.target.price.value,
       summary: event.target.summary.value,
+      detail: event.target.detail.value, // Add the detail field
       address: event.target.address.value,
       bedrooms: event.target.bedrooms.value, // Bedroom count
       bathrooms: event.target.bathrooms.value, // Bathroom count
@@ -87,7 +88,16 @@ export default function EditProperty() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl mx-auto">
+    <main
+      className="flex flex-col items-center" 
+      style={{ 
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/sellerbackground.jpg')", 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+    }}
+    >   
+    <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl w-full">
       <h2 className="w-full flex justify-center text-3xl font-bold bg-blue-400 text-white border border-gray-300 mb-4 p-2">
         Edit Property</h2>
       {/* Display success message */}
@@ -176,6 +186,19 @@ export default function EditProperty() {
             required
           />
         </div>                        
+        
+        {/* New Property Detail Field */}
+        <div>
+          <label htmlFor="detail" className="block text-base font-medium">Property Detail</label>
+          <textarea
+            id="detail"
+            name="detail"
+            defaultValue={property.detail}
+            className="w-full p-2 border rounded"
+            required
+          ></textarea>
+        </div>
+
         <div>
           <label htmlFor="summary" className="block text-base font-medium">Property Summary</label>
           <textarea
@@ -186,7 +209,6 @@ export default function EditProperty() {
             required
           ></textarea>
         </div>
-
 
         <div>
           <label htmlFor="squareFootage" className="block text-base font-medium">Square Footage</label>
@@ -235,10 +257,9 @@ export default function EditProperty() {
             className="w-full p-2 border rounded"
             required
           >
-            <option value="Available">Available</option>
+            <option value="For Sale">For Sale</option>
             <option value="Sold">Sold</option>
             <option value="Pending">Pending</option>
-            <option value="Leased">Leased</option>
           </select>
         </div>
         <div>
@@ -255,7 +276,7 @@ export default function EditProperty() {
         <div>
           <label htmlFor="lotSize" className="block text-base font-medium">Lot Size</label>
           <input
-            type="number"
+            type="text"
             id="lotSize"
             name="lotSize"
             defaultValue={property.lotSize}
@@ -263,7 +284,6 @@ export default function EditProperty() {
             required
           />
         </div>
-
         <div>
           <label htmlFor="image" className="block text-base font-medium">Property Image</label>
           <input
@@ -273,12 +293,14 @@ export default function EditProperty() {
             className="w-full p-2 border rounded"
           />
         </div>
-        <div className="flex justify-center mt-10">
-          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-800">
-            Update Property
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded mt-4"
+        >
+          Save Changes
+        </button>
       </form>
     </div>
+  </main>
   );
 }
