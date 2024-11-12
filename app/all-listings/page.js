@@ -1,9 +1,3 @@
-// Reference
-// https://webdev2.warsylewicz.ca/week-8/fetching-data
-// https://www.mongodb.com/docs/manual/reference/operator/query/
-// https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
-// https://www.youtube.com/watch?v=ZFYj7OrTeEs
-
 "use client";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -133,7 +127,15 @@ export default function AllListings() {
         {properties.length > 0 ? (
           properties.map((property) => (
             <Link href={`/all-listings/${property._id}`} key={property._id}>
-              <div className="p-4 border rounded shadow-md cursor-pointer">
+              <div
+                className={`p-4 rounded shadow-md cursor-pointer ${
+                  property.status === "available"
+                    ? "border-green-500"
+                    : property.status === "pending"
+                    ? "border-yellow-500"
+                    : "border-red-500"
+                } border-4`}
+              >
                 <img
                   src={`/images/${property.image}`}
                   alt={property.name}
