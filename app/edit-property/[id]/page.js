@@ -51,6 +51,7 @@ export default function EditProperty() {
       yearBuilt: event.target.yearBuilt.value, // Year built
       propertyType: event.target.propertyType.value, // Property type
       status: event.target.status.value, // Property status
+      parkingSpaces: event.target.parkingSpaces.value, // Number of parking spaces
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -213,6 +214,17 @@ export default function EditProperty() {
             <option value="Pending">Pending</option>
             <option value="Leased">Leased</option>
           </select>
+        </div>
+        <div>
+          <label htmlFor="parkingSpaces" className="block text-sm font-medium">Parking Spaces</label>
+          <input
+            type="number"
+            id="parkingSpaces"
+            name="parkingSpaces"
+            defaultValue={property.parkingSpaces}
+            className="w-full p-2 border rounded"
+            required
+          />
         </div>
         <div>
           <label htmlFor="sellerName" className="block text-sm font-medium">Seller Name</label>
