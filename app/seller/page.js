@@ -218,7 +218,13 @@ export default function Seller() {
               onChange={handleChange}
               required
               className="text-black border p-2 mb-4 w-full"
-            />
+            >
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Condo">Condo</option>
+              <option value="Townhouse">Townhouse</option>
+              <option value="Land">Land</option>
+            </select>
             <select
               name="status"
               value={propertyData.status}
