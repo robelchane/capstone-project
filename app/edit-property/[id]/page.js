@@ -7,8 +7,6 @@ export default function EditProperty() {
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null); // Success message state
-  const [errorMessage, setErrorMessage] = useState(null); // Error message state
 
   useEffect(() => {
     if (id) {
@@ -36,13 +34,19 @@ export default function EditProperty() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    // Ask for confirmation before updating
+    const isConfirmed = window.confirm("Are you sure you want to update this property?");
+    
+    if (!isConfirmed) {
+      return; // If the user clicks "Cancel", do not submit the form
+    }
+
     // Prepare the data to update
     const updatedProperty = {
       ...property,
       name: event.target.name.value,
       price: event.target.price.value,
       summary: event.target.summary.value,
-      detail: event.target.detail.value, // Add the detail field
       address: event.target.address.value,
       bedrooms: event.target.bedrooms.value, // Bedroom count
       bathrooms: event.target.bathrooms.value, // Bathroom count
@@ -67,19 +71,16 @@ export default function EditProperty() {
       });
 
       if (response.ok) {
-        // Display success prompt with the text you want
-        setSuccessMessage("Property updated successfully!"); // Display success message
-        setErrorMessage(null); // Clear any previous error messages
+        // Display success prompt using alert
+        alert("Property updated successfully!"); // Show a prompt with success message
         setTimeout(() => {
           window.location.href = "/manager"; // Redirect after successful update
         }, 2000); // Wait 2 seconds before redirecting
       } else {
-        setErrorMessage("Failed to update property");
-        setSuccessMessage(null); // Clear any previous success messages
+        alert("Failed to update property"); // Show failure prompt
       }
     } catch (err) {
-      setErrorMessage("Error updating property");
-      setSuccessMessage(null); // Clear any previous success messages
+      alert("Error updating property"); // Show error prompt if request fails
     }
   };
 
@@ -100,14 +101,6 @@ export default function EditProperty() {
     <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl w-full">
       <h2 className="w-full flex justify-center text-3xl font-bold bg-blue-400 text-white border border-gray-300 mb-4 p-2">
         Edit Property</h2>
-      {/* Display success message */}
-      {successMessage && (
-        <div className="text-green-500 font-bold mb-4">{successMessage}</div> 
-      )}
-      {/* Display error message */}
-      {errorMessage && (
-        <div className="text-red-500 font-bold mb-4">{errorMessage}</div>
-      )}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block text-base font-medium">Name</label>
@@ -185,20 +178,7 @@ export default function EditProperty() {
             className="w-full p-2 border rounded"
             required
           />
-        </div>                        
-        
-        {/* New Property Detail Field */}
-        <div>
-          <label htmlFor="detail" className="block text-base font-medium">Property Detail</label>
-          <textarea
-            id="detail"
-            name="detail"
-            defaultValue={property.detail}
-            className="w-full p-2 border rounded"
-            required
-          ></textarea>
-        </div>
-
+        </div>                         
         <div>
           <label htmlFor="summary" className="block text-base font-medium">Property Summary</label>
           <textarea
@@ -257,9 +237,10 @@ export default function EditProperty() {
             className="w-full p-2 border rounded"
             required
           >
-            <option value="For Sale">For Sale</option>
+            <option value="Available">Available</option>
             <option value="Sold">Sold</option>
             <option value="Pending">Pending</option>
+            <option value="Leased">Leased</option>
           </select>
         </div>
         <div>
@@ -276,7 +257,7 @@ export default function EditProperty() {
         <div>
           <label htmlFor="lotSize" className="block text-base font-medium">Lot Size</label>
           <input
-            type="text"
+            type="number"
             id="lotSize"
             name="lotSize"
             defaultValue={property.lotSize}
@@ -290,15 +271,19 @@ export default function EditProperty() {
             type="file"
             id="image"
             name="image"
+            accept="image/*"
             className="w-full p-2 border rounded"
           />
         </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded mt-4"
-        >
-          Save Changes
-        </button>
+
+        <div className="flex justify-center mt-6">
+          <button
+            type="submit"
+            className="bg-blue-500 text-white p-2 rounded-lg w-1/3"
+          >
+            Save Changes
+          </button>
+        </div>
       </form>
     </div>
   </main>
