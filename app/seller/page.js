@@ -214,8 +214,6 @@ export default function Seller() {
             />
             <select
               name="propertyType"
-              type="text"
-              placeholder="Property Type (e.g., House, Apartment)"
               value={propertyData.propertyType}
               onChange={handleChange}
               required
