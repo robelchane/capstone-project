@@ -270,8 +270,8 @@ export default function EditProperty() {
             className="w-full p-2 border rounded"
           />
         </div>
-        <div className="mt-4">
-          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">
+        <div className="flex justify-center mt-10">
+          <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-800">
             Update Property
           </button>
         </div>
