@@ -50,6 +50,7 @@ export default function EditProperty() {
       squareFootage: event.target.squareFootage.value, // Square footage
       yearBuilt: event.target.yearBuilt.value, // Year built
       propertyType: event.target.propertyType.value, // Property type
+      status: event.target.status.value, // Property status
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -196,6 +197,21 @@ export default function EditProperty() {
             <option value="Condo">Condo</option>
             <option value="Townhouse">Townhouse</option>
             <option value="Land">Land</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="status" className="block text-sm font-medium">Status</label>
+          <select
+            id="status"
+            name="status"
+            defaultValue={property.status}
+            className="w-full p-2 border rounded"
+            required
+          >
+            <option value="Available">Available</option>
+            <option value="Sold">Sold</option>
+            <option value="Pending">Pending</option>
+            <option value="Leased">Leased</option>
           </select>
         </div>
         <div>
