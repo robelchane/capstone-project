@@ -87,7 +87,7 @@ export default function EditProperty() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="py-8 px-4 mt-16">
+    <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Edit Property</h2>
       {/* Display success message */}
       {successMessage && (
