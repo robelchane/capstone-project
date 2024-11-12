@@ -44,6 +44,7 @@ export default function EditProperty() {
       summary: event.target.summary.value,
       address: event.target.address.value,
       bedrooms: event.target.bedrooms.value, // New field for bedroom count
+      bathrooms: event.target.bathrooms.value, // New field for bathroom count
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -139,6 +140,17 @@ export default function EditProperty() {
             id="bedrooms"
             name="bedrooms"
             defaultValue={property.bedrooms}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="bathrooms" className="block text-sm font-medium">Bathrooms</label>
+          <input
+            type="number"
+            id="bathrooms"
+            name="bathrooms"
+            defaultValue={property.bathrooms}
             className="w-full p-2 border rounded"
             required
           />
