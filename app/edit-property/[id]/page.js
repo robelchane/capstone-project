@@ -88,7 +88,7 @@ export default function EditProperty() {
 
   return (
     <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl mx-auto">
-      <h2 className="w-full flex justify-center text-3xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
+      <h2 className="w-full flex justify-center text-3xl font-bold bg-blue-400 text-white border border-gray-300 mb-4 p-2">
         Edit Property</h2>
       {/* Display success message */}
       {successMessage && (
