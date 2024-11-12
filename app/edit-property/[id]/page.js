@@ -111,7 +111,7 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="price" className="block text-sm font-medium">Price</label>
+          <label htmlFor="price" className="block text-base font-medium">Price</label>
           <input
             type="number"
             id="price"
