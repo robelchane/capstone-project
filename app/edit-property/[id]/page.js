@@ -49,6 +49,7 @@ export default function EditProperty() {
       sellerEmail: event.target.sellerEmail.value, // Seller's email
       squareFootage: event.target.squareFootage.value, // Square footage
       yearBuilt: event.target.yearBuilt.value, // Year built
+      propertyType: event.target.propertyType.value, // Property type
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -180,6 +181,22 @@ export default function EditProperty() {
             className="w-full p-2 border rounded"
             required
           />
+        </div>
+        <div>
+          <label htmlFor="propertyType" className="block text-sm font-medium">Property Type</label>
+          <select
+            id="propertyType"
+            name="propertyType"
+            defaultValue={property.propertyType}
+            className="w-full p-2 border rounded"
+            required
+          >
+            <option value="House">House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Condo">Condo</option>
+            <option value="Townhouse">Townhouse</option>
+            <option value="Land">Land</option>
+          </select>
         </div>
         <div>
           <label htmlFor="sellerName" className="block text-sm font-medium">Seller Name</label>
