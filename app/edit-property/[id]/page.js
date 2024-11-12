@@ -43,6 +43,7 @@ export default function EditProperty() {
       price: event.target.price.value,
       summary: event.target.summary.value,
       address: event.target.address.value,
+      bedrooms: event.target.bedrooms.value, // New field for bedroom count
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -60,7 +61,7 @@ export default function EditProperty() {
         setSuccessMessage("Property updated successfully!"); // Display success message
         setErrorMessage(null); // Clear any previous error messages
         setTimeout(() => {
-          window.location.href = "/manager"; // Redirect after successful update
+          window.location.href = "/manage-properties"; // Redirect after successful update
         }, 2000); // Wait 2 seconds before redirecting
       } else {
         setErrorMessage("Failed to update property");
@@ -127,6 +128,17 @@ export default function EditProperty() {
             id="address"
             name="address"
             defaultValue={property.address}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="bedrooms" className="block text-sm font-medium">Bedrooms</label>
+          <input
+            type="number"
+            id="bedrooms"
+            name="bedrooms"
+            defaultValue={property.bedrooms}
             className="w-full p-2 border rounded"
             required
           />
