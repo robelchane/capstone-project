@@ -43,10 +43,11 @@ export default function EditProperty() {
       price: event.target.price.value,
       summary: event.target.summary.value,
       address: event.target.address.value,
-      bedrooms: event.target.bedrooms.value, // New field for bedroom count
-      bathrooms: event.target.bathrooms.value, // New field for bathroom count
-      sellerName: event.target.sellerName.value, // New field for seller's name
-      sellerEmail: event.target.sellerEmail.value, // New field for seller's email
+      bedrooms: event.target.bedrooms.value, // Bedroom count
+      bathrooms: event.target.bathrooms.value, // Bathroom count
+      sellerName: event.target.sellerName.value, // Seller's name
+      sellerEmail: event.target.sellerEmail.value, // Seller's email
+      squareFootage: event.target.squareFootage.value, // Square footage
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -153,6 +154,17 @@ export default function EditProperty() {
             id="bathrooms"
             name="bathrooms"
             defaultValue={property.bathrooms}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="squareFootage" className="block text-sm font-medium">Square Footage</label>
+          <input
+            type="number"
+            id="squareFootage"
+            name="squareFootage"
+            defaultValue={property.squareFootage}
             className="w-full p-2 border rounded"
             required
           />
