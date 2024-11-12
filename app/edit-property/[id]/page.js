@@ -238,9 +238,8 @@ export default function EditProperty() {
             required
           >
             <option value="Available">Available</option>
-            <option value="Sold">Sold</option>
             <option value="Pending">Pending</option>
-            <option value="Leased">Leased</option>
+            <option value="Sold">Sold</option>
           </select>
         </div>
         <div>
