@@ -61,7 +61,7 @@ export default function EditProperty() {
         setSuccessMessage("Property updated successfully!"); // Display success message
         setErrorMessage(null); // Clear any previous error messages
         setTimeout(() => {
-          window.location.href = "/manage-properties"; // Redirect after successful update
+          window.location.href = "/manager"; // Redirect after successful update
         }, 2000); // Wait 2 seconds before redirecting
       } else {
         setErrorMessage("Failed to update property");
