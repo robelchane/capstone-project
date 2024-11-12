@@ -212,7 +212,7 @@ export default function Seller() {
               required
               className="text-black border p-2 mb-4 w-full"
             />
-            <input
+            <select
               name="propertyType"
               type="text"
               placeholder="Property Type (e.g., House, Apartment)"
