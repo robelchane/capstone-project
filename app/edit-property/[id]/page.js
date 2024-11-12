@@ -100,7 +100,7 @@ export default function EditProperty() {
       )}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium">Name</label>
+          <label htmlFor="name" className="block text-base font-bold">Name</label>
           <input
             type="text"
             id="name"
