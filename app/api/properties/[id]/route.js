@@ -44,3 +44,23 @@ export async function PUT(request, { params }) {
     return NextResponse.json({ message: "Failed to update property" }, { status: 500 });
   }
 }
+
+export async function DELETE(request, { params }) {
+  const { id } = params;
+
+  try {
+    await connectMongoDB();
+
+    // Find the property by ID and delete it
+    const deletedProperty = await Property.findByIdAndDelete(id);
+
+    if (!deletedProperty) {
+      return NextResponse.json({ message: "Property not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: "Property deleted successfully" }, { status: 200 });
+  } catch (error) {
+    console.error("Error deleting property:", error);
+    return NextResponse.json({ message: "Failed to delete property" }, { status: 500 });
+  }
+}

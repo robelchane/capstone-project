@@ -10,13 +10,17 @@ export default function EditProperty() {
 
   useEffect(() => {
     if (id) {
-      // Fetch the specific property data by ID
       const fetchProperty = async () => {
         try {
           const response = await fetch(`/api/properties/${id}`);
           const data = await response.json();
           if (response.ok) {
             setProperty(data.property);
+
+            // If the property status is "Sold", delete it immediately
+            if (data.property.status === "Sold") {
+              await deleteProperty();
+            }
           } else {
             setError("Property not found");
           }
@@ -30,6 +34,22 @@ export default function EditProperty() {
       fetchProperty();
     }
   }, [id]);
+
+  const deleteProperty = async () => {
+    try {
+      const response = await fetch(`/api/properties/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        alert("Property deleted because it is marked as 'Sold'");
+        window.location.href = "/manager"; // Redirect after deletion
+      } else {
+        alert("Failed to delete property");
+      }
+    } catch (err) {
+      alert("Error deleting property");
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
