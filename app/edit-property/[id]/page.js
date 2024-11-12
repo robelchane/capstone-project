@@ -48,6 +48,7 @@ export default function EditProperty() {
       sellerName: event.target.sellerName.value, // Seller's name
       sellerEmail: event.target.sellerEmail.value, // Seller's email
       squareFootage: event.target.squareFootage.value, // Square footage
+      yearBuilt: event.target.yearBuilt.value, // Year built
       image: event.target.image.files[0]?.name, // Assume the image is updated
     };
 
@@ -165,6 +166,17 @@ export default function EditProperty() {
             id="squareFootage"
             name="squareFootage"
             defaultValue={property.squareFootage}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="yearBuilt" className="block text-sm font-medium">Year Built</label>
+          <input
+            type="number"
+            id="yearBuilt"
+            name="yearBuilt"
+            defaultValue={property.yearBuilt}
             className="w-full p-2 border rounded"
             required
           />
