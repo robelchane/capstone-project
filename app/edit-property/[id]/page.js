@@ -122,27 +122,6 @@ export default function EditProperty() {
           />
         </div>
         <div>
-          <label htmlFor="summary" className="block text-base font-medium">Summary</label>
-          <textarea
-            id="summary"
-            name="summary"
-            defaultValue={property.summary}
-            className="w-full p-2 border rounded"
-            required
-          ></textarea>
-        </div>
-        <div>
-          <label htmlFor="address" className="block text-base font-medium">Address</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            defaultValue={property.address}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
           <label htmlFor="bedrooms" className="block text-base font-medium">Bedrooms</label>
           <input
             type="number"
@@ -164,6 +143,51 @@ export default function EditProperty() {
             required
           />
         </div>
+        <div>
+          <label htmlFor="address" className="block text-base font-medium">Address</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            defaultValue={property.address}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="sellerName" className="block text-base font-medium">Seller Name</label>
+          <input
+            type="text"
+            id="sellerName"
+            name="sellerName"
+            defaultValue={property.sellerName}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="sellerEmail" className="block text-base font-medium">Seller Email</label>
+          <input
+            type="email"
+            id="sellerEmail"
+            name="sellerEmail"
+            defaultValue={property.sellerEmail}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>                        
+        <div>
+          <label htmlFor="summary" className="block text-base font-medium">Property Summary</label>
+          <textarea
+            id="summary"
+            name="summary"
+            defaultValue={property.summary}
+            className="w-full p-2 border rounded"
+            required
+          ></textarea>
+        </div>
+
+
         <div>
           <label htmlFor="squareFootage" className="block text-base font-medium">Square Footage</label>
           <input
@@ -239,28 +263,7 @@ export default function EditProperty() {
             required
           />
         </div>
-        <div>
-          <label htmlFor="sellerName" className="block text-base font-medium">Seller Name</label>
-          <input
-            type="text"
-            id="sellerName"
-            name="sellerName"
-            defaultValue={property.sellerName}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="sellerEmail" className="block text-base font-medium">Seller Email</label>
-          <input
-            type="email"
-            id="sellerEmail"
-            name="sellerEmail"
-            defaultValue={property.sellerEmail}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
+
         <div>
           <label htmlFor="image" className="block text-base font-medium">Property Image</label>
           <input
