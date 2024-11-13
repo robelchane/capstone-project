@@ -133,15 +133,7 @@ export default function AllListings() {
         {properties.length > 0 ? (
           properties.map((property) => (
             <Link href={`/all-listings/${property._id}`} key={property._id}>
-              <div
-                className={`p-4 rounded shadow-md cursor-pointer ${
-                  property.status === "available"
-                    ? "border-green-500"
-                    : property.status === "pending"
-                    ? "border-yellow-500"
-                    : "border-red-500"
-                } border-4`}
-              >
+              <div className="p-4 border rounded shadow-md cursor-pointer">
                 <img
                   src={`/images/${property.image}`}
                   alt={property.name}
