@@ -185,6 +185,15 @@ export default function Seller() {
               required
               className="text-black border p-2 mb-4 w-full"
             />
+            {/* <input
+              type="file"
+              id="image"
+              name="image"
+              accept="image/*"
+              onChange={handleChange}  // Ensure this function handles the file change
+              className="w-full p-2 border rounded"
+            /> */}
+
             <input
               name="squareFootage"
               type="number"
@@ -203,15 +212,19 @@ export default function Seller() {
               required
               className="text-black border p-2 mb-4 w-full"
             />
-            <input
+            <select
               name="propertyType"
-              type="text"
-              placeholder="Property Type (e.g., House, Apartment)"
               value={propertyData.propertyType}
               onChange={handleChange}
               required
               className="text-black border p-2 mb-4 w-full"
-            />
+            >
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+              <option value="Condo">Condo</option>
+              <option value="Townhouse">Townhouse</option>
+              <option value="Land">Land</option>
+            </select>
             <select
               name="status"
               value={propertyData.status}
