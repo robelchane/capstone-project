@@ -59,7 +59,13 @@ export default function PropertyPage({ params }) {
         </div>
 
         {/* Property Key Features */}
-
+        <div className="mt-6">
+          <p>
+            <span className="font-semibold">Bedrooms:</span> {property.bedrooms}
+            <span className="ml-4 font-semibold">Bathrooms:</span>{property.bathrooms}
+            
+          </p>
+        </div>
         {/* Property Summary */}
         <div className="my-8">
           <h2 className="text-2xl font-semibold">Property Summary</h2>
