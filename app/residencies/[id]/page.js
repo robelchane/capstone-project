@@ -61,11 +61,9 @@ export default function PropertyPage({ params }) {
         {/* Property Key Features */}
         <div className="mt-6 flex justify-center flex-col gap-3">
           <h1 className=" text-2xl font-bold">Key Features</h1>
-          <p>
-            <span className="font-semibold">Bedrooms:</span> {property.bedrooms}
-            <span className="ml-4 font-semibold">Bathrooms:</span>{property.bathrooms}
-            <span className="ml-4 font-semibold">Address:</span> {property.address} 
-          </p>
+          <div className="font-semibold flex gap-2 items-center bg-green-400 rounded-full p-3 justify-center">
+            <span className="text-white">Bedrooms: {property.bedrooms}</span>
+          </div>
         </div>
         {/* Property Summary */}
         <div className="my-8">
