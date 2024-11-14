@@ -69,6 +69,11 @@ export default function PropertyPage({ params }) {
           <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
             <span className="text-black">Bathroom: {property.bathrooms}</span>
           </div>
+
+          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+            <span className="text-black">Address: {property.address}</span>
+          </div>
+
           </div>
         </div>
         {/* Property Summary */}
