@@ -99,7 +99,7 @@ export default function AllListings() {
             placeholder="Bedrooms"
             value={filters.bedrooms}
             onChange={handleChange}
-            className="border p-2 w-full"
+            className="border p-2 w-full rounded-full"
           />
         </div>
         <div>
