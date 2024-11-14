@@ -75,7 +75,7 @@ export default function MortgageCalculator() {
       {/* <h2 className="text-2xl font-bold mb-6 text-center">Your Mortgage Payment Information</h2> */}
       
       <div className="w-full border-b border-gray-300 pb-6 mb-6">
-        <h3 className="text-xl font-semibold mb-8 mt-5 text-left">Mortgage Calculator</h3>
+        <h3 className="text-2xl font-semibold mb-8 mt-5 text-left">Mortgage Calculator</h3>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         
         <div className="grid grid-cols-2 gap-4">
@@ -150,7 +150,7 @@ export default function MortgageCalculator() {
       </div>
 
       <div className="w-full pb-6 mb-6">
-        <h3 className="text-xl font-semibold mb-8 mt-5 text-left">Mortgage Repayment Summary</h3>
+        <h3 className="text-2xl font-semibold mb-8 mt-5 text-left">Mortgage Repayment Summary</h3>
         
         <div className="grid grid-cols-2 gap-4">
           <div>
