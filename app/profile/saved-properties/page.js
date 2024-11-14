@@ -64,7 +64,7 @@ const handleSelectComparison = (property) => {
       <button
         disable={comparison.length !== 2}
         onClick={() =>  window.location.href ='/profile/compare'}
-        className="bg-blue-700 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-colors duration-200"
+        className="mb-4 bg-blue-700 text-white px-5 py-3 rounded-full hover:bg-blue-600 transition-colors duration-200"
 
       > Compare Properties
       </button>

@@ -162,18 +162,18 @@ export default function Review() {
                         <div className="flex items-center space-x-3">
                             <button
                                 onClick={handlePrev}
-                                className="p-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="p-1 px-3 py-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
                             >
-                                ⬅
+                                {"<"}
                             </button>
                             <span>
                                 {currentIndex + 1} / {reviewers.length}
                             </span>
                             <button
                                 onClick={handleNext}
-                                className="p-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="p-1 px-3 py-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
                             >
-                                ➡
+                                {">"}
                             </button>
                         </div>
                     </div>

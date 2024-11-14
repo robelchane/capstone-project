@@ -32,7 +32,7 @@ export default function Bookings() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-8">Book an Appointment</h1>
+      <h1 className="text-3xl font-bold text-center mb-5 mt-20">Book an Appointment</h1>
 
       {isSubmitted ? (
         <div className="bg-green-100 text-green-800 p-4 rounded-md">
@@ -54,7 +54,7 @@ export default function Bookings() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
               required
             />
           </div>
@@ -69,7 +69,7 @@ export default function Bookings() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
               required
             />
           </div>
@@ -84,7 +84,7 @@ export default function Bookings() {
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
               required
             />
           </div>
@@ -99,7 +99,7 @@ export default function Bookings() {
               name="time"
               value={formData.time}
               onChange={handleChange}
-              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
               required
             />
           </div>
@@ -113,7 +113,7 @@ export default function Bookings() {
               name="notes"
               value={formData.notes}
               onChange={handleChange}
-              className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
               placeholder="Any specific requests or questions?"
             />
           </div>

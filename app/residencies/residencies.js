@@ -7,7 +7,7 @@ export default function Residencies() {
   const itemsToDisplay = data.slice(0, 3); // Get the first three items
 
   return (
-    <main className="font-serif overflow-y-auto text-black" id="residencies">
+    <main className="overflow-y-auto text-black" id="residencies">
       {/* Container */}
       <div className="py-16 px-8 relative mt-10">
         {/* Header */}
@@ -41,7 +41,7 @@ export default function Residencies() {
         {/* All Listings Button at the bottom */}
         <div className="flex justify-center mt-16">
           <Link href="/all-listings">
-            <p className="bg-black rounded-full text-white text-xl py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+            <p className="bg-black rounded-full text-white py-3 px-6 rounded border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
               View All Listings
             </p>
           </Link>

@@ -53,7 +53,7 @@ useEffect(() => {
           <div className="flex justify-end">
             <div className="max-w-[700px] ml-auto border-b border-[#fafafa] flex items-center justify-end">
               <div className="inline-block ml-auto text-right">
-                <h1 className="text-5xl uppercase text-[#fafafa] font-extrabold font-sans">
+                <h1 className="text-5xl uppercase text-[#fafafa] font-extrabold text-shadow font-sans">
                   Calgary awaits you
                 </h1>
                 <p className="text-1xl text-[#09090b] font-bold font-sans">
@@ -71,7 +71,7 @@ useEffect(() => {
     <div className="flex flex-col md:flex-row">
       <div className="md:w-1/2">
         <div className="tm-section-text-container">
-          <p className="text-white"> {/* Set text color to white */}
+          <p className="text-white text-shadow ml-8 text-xl"> {/* Set text color to white */}
             A vibrant and growing urban hub located at the foot of the Rocky Mountains. Known for its incredible outdoor activities, job opportunities, and family-friendly communities, it’s the perfect blend of urban living and natural beauty.
           </p>
         </div>
@@ -132,7 +132,7 @@ useEffect(() => {
 <section className="py-[115px] pb-[110px]" id="highlights">
   <div className="container mx-auto">
     <div className="mb-[30px] text-right">
-      <h2 className="text-4xl text-[#fafafa] font-bold" id="calgary-highlights">Discover Calgary's Highlights</h2>
+      <h2 className="text-4xl text-[#fafafa] font-bold mr-8 text-shadow" id="calgary-highlights">Discover Calgary's Highlights</h2>
     </div>
     <div className="flex gap-6 justify-center">
       {[

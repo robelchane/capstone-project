@@ -85,8 +85,8 @@ export default function Home() {
       </div>
 
         {/* About Us Section */}
-        <div className="flex flex-col justify-center font-serif bg-white text-black min-h-screen space-y-10 mt-16">
-          <p className="text-6xl text-center mt-10 mb-10">Why Property Pros?</p>
+        <div className="flex flex-col justify-center bg-white text-black min-h-screen space-y-10 mt-16">
+          {/* <p className="text-6xl text-center mt-10 mb-10">Why Property Pros?</p> */}
           {/* First Row: Image on Left, Text on Right */}
           <div className="flex w-full justify-center items-center">
             <div className="w-1/2">
@@ -106,12 +106,12 @@ export default function Home() {
               </div>
                 <div className="flex gap-4 justify-end">
                   <Link href="/about">
-                    <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                    <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                       Read More
                     </button>
                   </Link>
                   <Link href="/living-in-calgary">
-                    <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                    <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                       Living in Calgary
                     </button>
                   </Link>
@@ -134,12 +134,12 @@ export default function Home() {
               {/* Button Section */}
               <div className="flex gap-4">
                 <Link href="/contact">
-                  <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                  <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                     Contact Us
                   </button>
                 </Link>
                 <Link href="/listings">
-                  <button className="bg-black rounded-full text-white text-xl py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                  <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
                     Best Properties
                   </button>
                 </Link>

@@ -78,7 +78,7 @@ export default function ContactForm() {
       {/* Information Section */}
       <div className="w-full py-10 px-5 mt-40 mb-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-10">
+          <h1 className="text-5xl mb-10">
             Contact Us
           </h1>
           <p className="text-xl mb-24">
@@ -122,7 +122,7 @@ export default function ContactForm() {
 
       {/* Info Boxes Section */}
       <div className="flex flex-col justify-center mt-40">
-        <span className="text-4xl font-bold mb-10">
+        <span className="text-5xl mb-10">
           Contact Information
         </span>
 
@@ -156,7 +156,7 @@ export default function ContactForm() {
 
         {/* FAQ Section */}
         <div className="flex flex-col justify-center mt-40">
-          <span className="text-4xl font-bold">
+          <span className="text-5xl">
             FAQ
           </span>
         </div>
@@ -182,17 +182,17 @@ export default function ContactForm() {
 
       {/* Contact Form Section */}
       <div className="flex flex-col justify-center mt-40">
-        <span className="text-4xl font-bold mb-1">
-          Get In Touch
+        <span className="text-5xl">
+          Let's Talk
         </span>
       </div>
 
       <div className="flex justify-center p-10 w-full max-w-5xl mb-16">
-        <div className="bg-black opacity-80 shadow-[0_4px_20px_rgba(104,104,0,0.3)] mt-5 p-14 rounded-lg shadow-lg max-w-l w-full">
+        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] mt-5 p-14 rounded-lg shadow-lg max-w-l w-full">
 
           <form onSubmit={handleSubmit}>
             <div className="mb-8 text-black">
-              <label className="text-xl block text-gray-300 mb-2" htmlFor="name">
+              <label className="text-xl block text-gray-200 mb-2" htmlFor="name">
                 Name
               </label>
               <input
@@ -200,13 +200,13 @@ export default function ContactForm() {
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full border bg-gray-100 rounded-lg p-2"
+                className="w-full border bg-white rounded-lg p-2"
                 required
               />
             </div>
             
             <div className="mb-8 text-black">
-              <label className="text-xl block text-gray-300 mb-2" htmlFor="email">
+              <label className="text-xl block text-gray-200 mb-2" htmlFor="email">
                 Email
               </label>
               <input
@@ -214,13 +214,13 @@ export default function ContactForm() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border bg-gray-100 rounded-lg p-2"
+                className="w-full border bg-white rounded-lg p-2"
                 required
               />
             </div>
 
             <div className="mb-8 text-black">
-              <label className="text-xl block text-gray-300 mb-2" htmlFor="number">
+              <label className="text-xl block text-gray-200 mb-2" htmlFor="number">
                 Phone Number
               </label>
               <input
@@ -228,20 +228,20 @@ export default function ContactForm() {
                 id="number"
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
-                className="w-full border bg-gray-100 rounded-lg p-2"
+                className="w-full border bg-white rounded-lg p-2"
                 required
               />
             </div>
 
             <div className="mb-8 text-black">
-              <label className="text-xl block text-gray-300 mb-2" htmlFor="message">
+              <label className="text-xl block text-gray-200 mb-2" htmlFor="message">
                 Message
               </label>
               <textarea
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full border bg-gray-100 rounded-lg p-2"
+                className="w-full border bg-white rounded-lg p-2"
                 rows="4"
                 required
               />
@@ -249,7 +249,7 @@ export default function ContactForm() {
 
             <button
               type="submit"
-              className="text-xl w-full bg-transparent border border-white text-white rounded p-3 mt-5 hover:border-yellow-200 transition-colors duration-300"
+              className="text-xl w-full bg-transparent border border-white text-white rounded-lg p-3 mt-5 hover:border-yellow-200 transition-colors duration-300"
             >
               Submit
             </button>
