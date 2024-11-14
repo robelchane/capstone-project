@@ -35,6 +35,7 @@ export default function Residencies() {
               <span className="text-xl font-bold text-black">{card.name}</span>
               <span className="text-sm text-gray-500">{card.detail}</span>
             </div>
+            
           ))}
         </div>
 

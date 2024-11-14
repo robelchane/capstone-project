@@ -25,7 +25,7 @@ export default function PropertyPage({ params }) {
       {/* Main Content Section */}
       <div className="w-2/3 pr-8">
         <h1 className="text-4xl font-bold text-center">{property.name}</h1>
-        <img src={currentImage} alt={property.name} className="w-full h-auto mt-10 rounded-lg" />
+        <img src={currentImage} alt={property.name} className="max-w-sm w-full h-auto mt-8 rounded-lg object-contain" />
 
         {/* Image Gallery */}
         {property.sliderImages && property.sliderImages.length > 0 ? (
