@@ -119,13 +119,13 @@ export default function AllListings() {
             placeholder="Enter address..."
             value={filters.address}
             onChange={handleChange}
-            className="border p-2 w-full"
+            className="border p-2 w-full rounded-full"
           />
         </div>
         <div className="col-span-5 flex justify-center items-center">
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-1/2 rounded-full"
           >
             <FontAwesomeIcon icon={faSearch} /> Search
           </button>
