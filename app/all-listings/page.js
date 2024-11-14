@@ -89,7 +89,7 @@ export default function AllListings() {
             placeholder="Max Price"
             value={filters.maxPrice}
             onChange={handleChange}
-            className="border p-2 w-full"
+            className="border p-2 w-full rounded-full"
           />
         </div>
         <div>
