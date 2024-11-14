@@ -21,12 +21,18 @@ export default function PropertyPage({ params }) {
   };
 
   return (
-    <main className="font-serif text-black p-8 flex mt-12">
+    <main className="font-serif text-black p-8 flex flex-col lg:flex-row mt-12 gap-8">
       {/* Main Content Section */}
-      <div className="w-2/3 pr-8">
+      <div className="lg:w-2/3 w-full pr-8">
         <h1 className="text-4xl font-bold text-center">{property.name}</h1>
-        <img src={currentImage} alt={property.name} className="max-w-sm w-full h-auto mt-8 rounded-lg object-contain" />
 
+        <div className="flex justify-center mt-8">
+          <img
+            src={currentImage}
+            alt={property.name}
+            className="max-w-md w-full h-auto rounded-lg object-contain"
+          />
+        </div>
         {/* Image Gallery */}
         {property.sliderImages && property.sliderImages.length > 0 ? (
           <div className="flex gap-4 justify-center mt-6">
@@ -69,7 +75,7 @@ export default function PropertyPage({ params }) {
 
       {/* Contact Section */}
       <div className="mt-20 w-1/3 bg-gray-100 p-6 rounded-lg h-full">
-      <ContactOwner property={property}  />
+        <ContactOwner property={property} />
       </div>
     </main>
   );
