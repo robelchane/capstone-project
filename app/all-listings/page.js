@@ -109,7 +109,7 @@ export default function AllListings() {
             placeholder="Bathrooms"
             value={filters.bathrooms}
             onChange={handleChange}
-            className="border p-2 w-full"
+            className="border p-2 w-full rounded-full"
           />
         </div>
         <div>
