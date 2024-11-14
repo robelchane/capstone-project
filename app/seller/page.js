@@ -104,7 +104,7 @@ export default function Seller() {
               value={propertyData.name}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="price"
@@ -113,7 +113,7 @@ export default function Seller() {
               value={propertyData.price}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="bedrooms"
@@ -122,7 +122,7 @@ export default function Seller() {
               value={propertyData.bedrooms}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="bathrooms"
@@ -131,7 +131,7 @@ export default function Seller() {
               value={propertyData.bathrooms}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="address"
@@ -140,7 +140,7 @@ export default function Seller() {
               value={propertyData.address}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="sellerName"
@@ -149,7 +149,7 @@ export default function Seller() {
               value={propertyData.sellerName}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="sellerEmail"
@@ -158,7 +158,7 @@ export default function Seller() {
               value={propertyData.sellerEmail}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <textarea
               name="detail"
@@ -166,7 +166,7 @@ export default function Seller() {
               value={propertyData.detail}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <textarea
               name="summary"
@@ -174,7 +174,7 @@ export default function Seller() {
               value={propertyData.summary}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="image"
@@ -183,7 +183,7 @@ export default function Seller() {
               value={propertyData.image}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="squareFootage"
@@ -192,7 +192,7 @@ export default function Seller() {
               value={propertyData.squareFootage}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="yearBuilt"
@@ -201,7 +201,7 @@ export default function Seller() {
               value={propertyData.yearBuilt}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="propertyType"
