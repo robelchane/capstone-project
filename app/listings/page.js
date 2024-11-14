@@ -77,7 +77,7 @@ export default function Listings() {
   return (
     <main className="p-10 flex h-screen overflow-hidden mt-12">
       {/* Map Section */}
-      <div className="w-1/2 h-full p-5 rounded-t-lg mt-15">
+      <div className="w-1/2 h-full rounded-t-lg">
         <Map items={data} />
       </div>
 
@@ -95,14 +95,14 @@ export default function Listings() {
           {data.map((residence) => (
             <div
               key={residence.id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105 p-4 flex"
+              className="bg-white shadow-lg rounded-lg overflow-hidden transform p-5 flex transition-transform duration-500 ease-in-out hover:scale-105 hover:shadow-[0_4px_30px_rgba(50,50,50,0.6)] hover:bg-gradient-to-b hover:from-transparent hover:to-gray-200"
             >
               {/* Image Section */}
               <div className="w-1/3">
                 <img
                   src={residence.image}
                   alt={residence.name}
-                  className="w-full h-full object-cover rounded-lg"
+                  className="cursor-pointer w-full h-full object-cover rounded-lg"
                 />
               </div>
 
@@ -147,11 +147,11 @@ export default function Listings() {
                 <div className="flex justify-between items-center mt-4 w-full">
                   <button
                     onClick={() => handleAddToFavorites(residence)}
-                    className="bg-black text-white px-4 py-2 rounded w-full md:w-auto border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300"
+                    className="bg-black text-white px-4 py-2 rounded-lg w-full md:w-auto border border-black hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300"
                   >
                     Add to Favorites
                   </button>
-                  <button className="bg-white text-black px-4 py-2 rounded w-full md:w-auto border border-black hover:text-white hover:bg-black z-10 transition-colors duration-300">
+                  <button className="bg-red-400 text-white px-4 py-2 rounded-lg w-full md:w-auto border border-white hover:text-black hover:border-black hover:bg-transparent z-10 transition-colors duration-300">
 
                     Save Listing
                   </button>

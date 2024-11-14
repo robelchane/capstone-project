@@ -31,7 +31,7 @@ export default function Footer() {
 
 
   return (
-    <main className="font-serif text-black mt-20">      
+    <main className="font-serif text-black">      
       
       <div className="bg-black text-white py-10 px-5 text-center">
       <h2 className="text-4xl font-bold mb-3 mt-5">Sign up for updates</h2>

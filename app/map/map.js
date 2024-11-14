@@ -19,7 +19,7 @@ export default function Map() {
         center={[51.0447, -114.0719]} 
         zoom={9}
         scrollWheelZoom={false}
-        style={{ height: "100vh", width: "100%" }}
+        style={{ height: "100vh", width: "100%", zIndex: 1 }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
