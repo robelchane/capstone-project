@@ -210,14 +210,14 @@ export default function Seller() {
               value={propertyData.propertyType}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <select
               name="status"
               value={propertyData.status}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             >
               <option value="available">Available</option>
               <option value="pending">Pending</option>
@@ -230,7 +230,7 @@ export default function Seller() {
               value={propertyData.parkingSpaces}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <input
               name="lotSize"
@@ -239,7 +239,7 @@ export default function Seller() {
               value={propertyData.lotSize}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <label className="flex items-center mb-4 text-black">
               <input
@@ -257,12 +257,12 @@ export default function Seller() {
               placeholder="Virtual Tour Link (optional)"
               value={propertyData.virtualTourLink}
               onChange={handleChange}
-              className="text-black border p-2 mb-4 w-full"
+              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
             />
             <div className="flex justify-center mt-10">
               <button
                 type="submit"
-                className="bg-emerald-700 text-white px-12 py-4 rounded-full hover:bg-yellow-800 transition duration-300"
+                className="bg-emerald-700 text-white px-12 py-4 rounded-full hover:bg-yellow-500 transition duration-300"
               >
                 {loading ? "Listing..." : "List Property"}
               </button>
