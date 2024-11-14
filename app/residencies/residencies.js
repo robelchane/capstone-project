@@ -26,7 +26,7 @@ export default function Residencies() {
               <img
                 src={card.image}
                 alt={card.name}
-                className="w-full max-w-xs"
+                className="w-1/3 max-w-xs"
               />
               <span className="text-lg font-semibold text-gray-700">
                 <span style={{ color: '#001f3f' }}>$</span>
