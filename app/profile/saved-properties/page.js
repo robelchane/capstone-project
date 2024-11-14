@@ -1,3 +1,7 @@
+//https://dev.to/collegewap/how-to-use-local-storage-in-nextjs-2l2j
+//https://www.w3schools.com/jsref/dom_obj_table.asp
+//https://medium.com/poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd
+
 "use client";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -39,15 +43,30 @@ useEffect(() => {
 // if it is not, it adds it
 // if there are already 2 properties in the comparison array, it does nothing
 const handleSelectComparison = (property) => {
+  // Update the comparison state
   setComparison((prevComparison) => {
+    // Check if the property is already in the comparison array
+    // If it is, remove it
     if (prevComparison.some((p) => p._id === property._id)) {
+      // Filter out the property from the comparison array
+      // and update the comparison state
+      // This will remove the property from the comparison
       const updated = prevComparison.filter((p) => p._id !== property._id);
+      // Update the comparison in localStorage
+      // This will remove the property from the comparison
       localStorage.setItem("comparison", JSON.stringify(updated));
       console.log("Property removed from comparison");
       return updated;
     }
+    // If the property is not in the comparison array
+    // and there are already 2 properties in the comparison array
+    // do nothing
     else if (prevComparison.length < 2) {
+      // Add the property to the comparison array
+      // and update the comparison state
       const updated = [...prevComparison, property];
+      // Update the comparison in localStorage
+      // This will add the property to the comparison
       localStorage.setItem("comparison", JSON.stringify(updated));
       console.log("Property added to comparison");
       return updated;

@@ -1,27 +1,44 @@
 //https://dev.to/collegewap/how-to-use-local-storage-in-nextjs-2l2j
+//https://www.w3schools.com/jsref/dom_obj_table.asp
+//https://medium.com/poka-techblog/simplify-your-javascript-use-some-and-find-f9fb9826ddfd
 "use client";
 import { useEffect, useState } from "react";
 
+// The ComparePage component displays a table comparing two properties
+// that the user has selected for comparison. The properties are stored
 export default function ComparePage() {
   const [propertiesToCompare, setPropertiesToCompare] = useState([]);
 
+
+  // When the component mounts, get the selected properties from local storage
+  // and set them in the state
+  // the useEffect hook is used to run the code inside it only once when the component mounts
+  // the empty array as the second argument to useEffect ensures that the code 
+  // inside the useEffect hook runs only once
   useEffect(() => {
+    {/* ChatGpt*/ }
+    {/* Prompt: How to retrieve properties from  local storage*/ }
     const selected = JSON.parse(localStorage.getItem("comparison")) || [];
     setPropertiesToCompare(selected);
   }, []);
 
-  if (propertiesToCompare.length !== 2) {
-    return <p>Please select two properties for comparison.</p>;
-  }
+  
 
+
+  // Otherwise, display a table comparing the two properties
+  // destructuring the propertiesToCompare array to get the two properties
   const [property1, property2] = propertiesToCompare;
 
   return (
     <div className="container mx-auto mt-10 px-4">
       <h1 className="text-3xl font-bold mb-6 text-left">Compare Properties</h1>
+      {/* Table to compare the two properties */}
       <table className="w-full table-auto border-collapse border border-gray-300">
+        {/* Table header with the property names and addresses */}
         <thead>
+          {/* Table row with the property names and addresses */}
           <tr>
+            {/* Table header for the first property */}
             <th className="w-1/2 px-4 py-2 border border-gray-300 text-center">
               <div className="flex flex-col items-center">
                 <img src={`/images/${property1.image}`} alt={property1.name} className="w-40 h-40 object-cover mb-2" />
@@ -38,7 +55,9 @@ export default function ComparePage() {
             </th>
           </tr>
         </thead>
+        {/* Table body with the property details */}
         <tbody>
+          {/* Table rows with property details */}
           <tr>
             <td className="px-4 py-2 border border-gray-300">Name: {property1.name}</td>
             <td className="px-4 py-2 border border-gray-300">Name: {property2.name}</td>
@@ -61,7 +80,7 @@ export default function ComparePage() {
           </tr>
           {/* Add additional property details as rows */}
           <tr>
-            <td className="px-4 py-2 border border-gray-300">Summary: {property1.summary}</td>
+            <td className="px-4 py-2 border border-gray-300">Summary:... {property1.summary}</td>
             <td className="px-4 py-2 border border-gray-300">Summary: {property2.summary}</td>
           </tr>
           <tr>
@@ -104,7 +123,7 @@ export default function ComparePage() {
             <td className="px-4 py-2 border border-gray-300">Virtual Link Tour: {property1.virtualTourLink}</td>
             <td className="px-4 py-2 border border-gray-300">Virtual Link Tour: {property2.virtualTourLink}</td>
           </tr>
-          {/* Add more rows for any other categories you'd like to display */}
+         
         </tbody>
       </table>
     </div>
