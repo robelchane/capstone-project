@@ -7,12 +7,12 @@ export default function Residencies() {
   const itemsToDisplay = data.slice(0, 3); // Get the first three items
 
   return (
-    <main className="font-serif overflow-y-auto text-black" id="residencies">
+    <main className="font-serif overflow-y-auto  text-black" id="residencies">
       {/* Container */}
       <div className="py-16 px-8 relative mt-10">
         {/* Header */}
         <div className="flex flex-col items-start mb-8">
-          <p className="text-yellow-700 text-2xl font- flex "> Best Choices</p>
+          <p className="text-yellow-700  text-2xl font- flex "> Best Choices</p>
           <p className="text-3xl font-bold">Popular Residencies</p>
         </div>
 
