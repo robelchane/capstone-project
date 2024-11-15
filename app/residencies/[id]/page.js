@@ -74,6 +74,25 @@ export default function PropertyPage({ params }) {
             <span className="text-black">Address: {property.address}</span>
           </div>
 
+          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+            <span className="text-black"> SQFT: {property.sqft}</span>
+          </div>
+
+          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+            <span className="text-black">Built In: {property.yearBuilts}</span>
+          </div>
+
+          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+            <span className="text-black">Parking: {property.sqft}</span>
+          </div>
+
+          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+            <span className="text-black">Sqft: {property.sqft}</span>
+          </div>
+          
+
+          
+
           </div>
         </div>
         {/* Property Summary */}
