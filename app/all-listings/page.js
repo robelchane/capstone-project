@@ -28,12 +28,13 @@ export default function AllListings() {
 
   const [savedProperties, setSavedProperties] = useState(new Set());
 
-  const toggleSaveProperty = (id) => {
+  const toggleSaveProperty = (property) => {
+    console.log("Heat icon clicked, Heres your property:", property);
     setSavedProperties((prevSaved) => {
-      const updated = new Set(prevSaved);
-      if (updated.has(id)) updated.delete(id);
-      else updated.add(id);
-      return updated;
+      const updated = new Set(preSaved);
+
+      //check if the property is already saved
+      const propertyExists = [...updated].some
     });
   };
 
@@ -53,6 +54,11 @@ export default function AllListings() {
 
   useEffect(() => {
     fetchProperties();
+  }, []);
+
+  useEffect(() => {
+    const saved = JSON.parse(localStorage.getItem("savedProperties")) || [];
+    setSavedProperties(new Set(saved));
   }, []);
 
   const handleChange = (e) => {
@@ -135,66 +141,55 @@ export default function AllListings() {
       {loading && <p>Loading properties...</p>}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
-        {properties.length > 0 ? (
-          properties.map((property) => (
-            <Link href={`/all-listings/${property._id}`} key={property._id}>
-              <div className="p-4 border rounded shadow-md cursor-pointer">
-                <img
-                  src={`/images/${property.image}`}
-                  alt={property.name}
-                  className="w-full h-48 object-cover mb-4"
-                />
-                <h2 className="text-xl font-bold mb-2">{property.name}</h2>
-                <p className="text-lg text-gray-700 dark:text-white">
-                  <span style={{ color: "#001f3f" }}>$</span>
-                  {property.price}
-                </p>
+       
+      {properties.length > 0 ? (
+  properties.map((property) => (
+    <div key={property._id} className="p-4 border rounded shadow-md">
+      <Link href={`/all-listings/${property._id}`}>
+        <img
+          src={`/images/${property.image}`}
+          alt={property.name}
+          className="w-full h-48 object-cover mb-4 cursor-pointer"
+        />
+        <h2 className="text-xl font-bold mb-2 cursor-pointer">{property.name}</h2>
+      </Link>
+      <p className="text-lg text-gray-700 dark:text-white">
+        <span style={{ color: "#001f3f" }}>$</span>
+        {property.price}
+      </p>
+      <p className="text-gray-600 dark:text-white">{property.summary}</p>
+      <p className="text-sm text-gray-500 dark:text-white">{property.address}</p>
+      <div className="flex items-center mt-2">
+        <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
+        <span>{property.bedrooms} Bedrooms</span>
+        <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
+        <span>{property.bathrooms} Bathrooms</span>
+      </div>
+      <div className="flex items-center justify-between mt-4">
+        <p className="text-sm text-gray-500">
+          Seller:{" "}
+          <a
+            href={`mailto:${property.sellerEmail}`}
+            className="text-blue-500 hover:underline"
+          >
+            {property.sellerName} ({property.sellerEmail})
+          </a>
+        </p>
+        <button
+          onClick={() => toggleSaveProperty(property._id)}
+          className={`text-xl ${
+            savedProperties.has(property._id) ? "text-red-500" : "text-gray-500"
+          }`}
+        >
+          <FontAwesomeIcon icon={faHeart} />
+        </button>
+      </div>
+    </div>
+  ))
+) : (
+  <p>No properties found.</p>
+)}
 
-                <p className="text-gray-600 dark:text-white">
-                  {property.summary}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-white">
-                  {property.address}
-                </p>
-                <div className="flex items-center mt-2">
-                  <FontAwesomeIcon
-                    icon={faBed}
-                    className="text-gray-600 mr-1"
-                  />
-                  <span>{property.bedrooms} Bedrooms</span>
-                  <FontAwesomeIcon
-                    icon={faBath}
-                    className="text-gray-600 mx-2"
-                  />
-                  <span>{property.bathrooms} Bathrooms</span>
-                </div>
-                <div className="flex items-center justify-between mt-4">
-                  <p className="text-sm text-gray-500">
-                    Seller:{" "}
-                    <a
-                      href={`mailto:${property.sellerEmail}`}
-                      className="text-blue-500 hover:underline"
-                    >
-                      {property.sellerName} ({property.sellerEmail})
-                    </a>
-                  </p>
-                  <button
-                    onClick={() => toggleSaveProperty(property._id)}
-                    className={`text-xl ${
-                      savedProperties.has(property._id)
-                        ? "text-red-500"
-                        : "text-gray-500"
-                    }`}
-                  >
-                    <FontAwesomeIcon icon={faHeart} />
-                  </button>
-                </div>
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p>No properties found.</p>
-        )}
       </div>
     </div>
   );
