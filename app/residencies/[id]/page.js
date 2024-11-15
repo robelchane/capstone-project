@@ -109,11 +109,12 @@ export default function PropertyPage({ params }) {
           <p>{property.summary}</p>
         </div>
 
-        {/* Map Section */}
-        <div className="my-8 ">
+          {/* Map Section */}
+          <div className="my-8 ">
           <h2 className="text-2xl font-semibold">Location</h2>
           <div className="h-64 rounded-lg overflow-hidden">
-            <Map lat={property.latitude} lng={property.longitude} />
+            
+            <Map lat={property.latitude} lng={property.longitude} key={property.id}/>
           </div>
         </div>
       </div>
