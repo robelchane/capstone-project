@@ -87,7 +87,11 @@
       "https://images.squarespace-cdn.com/content/v1/5fd22fc78a4c4435a671cb2d/febc937a-116c-4070-bc6b-f4115f659a04/94841dac7bc2f45d14e180ca967d7402.jpg",
       "https://www.home-designing.com/wp-content/uploads/2010/11/Cottage-home-interiors-stone-fireplace.jpg",
       "https://blog.canadianloghomes.com/wp-content/uploads/2023/09/cabin-bathroom-ideas.jpg"
-    ]
+    ],
+    "sqft": 1800,
+    "yearBuilt": 2012,
+    "parking": 2,
+    "propertyType": "Condo"
   },
   {
     "id": 5,
