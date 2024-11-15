@@ -38,8 +38,14 @@
       "https://images.unsplash.com/photo-1542320260-f8f651de8c12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://media.architecturaldigest.com/photos/59721e387530e857b50307b1/4:3/w_2299,h_1724,c_limit/90s-0697-michael-keaton-western-ranch-7.jpg",
       "https://images.seattletimes.com/wp-content/uploads/2018/07/vintage-bathroom.jpg?d=780x520"
-    ]
+    ],
+    "sqft": 2500,
+    "yearBuilt": 2015,
+    "parking": 3,
+    "propertyType": "House"
+
   },
+  
   {
     "id": 3,
     "name": "Citralan Puri Serang",
@@ -57,7 +63,11 @@
       "https://img.pikbest.com/origin/09/33/58/788pIkbEsTSrb.jpg!w700wp",
       "https://static.vecteezy.com/system/resources/previews/029/292/488/large_2x/antique-cottage-bedroom-decor-interior-design-and-holiday-rental-bed-with-elegant-bedding-and-furniture-english-country-house-style-generative-ai-photo.jpg",
       "https://kenny-mason.com/wp-content/uploads/2017/04/20140118_untitled_5747.jpg"
-    ]
+    ],
+    "sqft": 1500,
+    "yearBuilt": 2005,
+    "parking": 1,
+    "propertyType": "Apartment"
 
   },
   {
