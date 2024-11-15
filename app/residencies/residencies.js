@@ -7,12 +7,13 @@ export default function Residencies() {
   const itemsToDisplay = data.slice(0, 3); // Get the first three items
 
   return (
-    <main className="overflow-y-auto text-black" id="residencies">
+    <main className="font-serif overflow-y-auto text-black" id="residencies">
       {/* Container */}
       <div className="py-16 px-8 relative">
         {/* Header */}
-        <div className="flex flex-col items-center mb-10">
-          <p className="text-[#001f3f] text-4xl font-serif text-center"> Best Choices</p>
+        <div className="flex flex-col items-start mb-8">
+          <p className="text-yellow-700 text-2xl font-bold"> Best Choices</p>
+          <p className="text-3xl font-bold">Popular Residencies</p>
         </div>
 
         {/* Residency Cards in a Grid Layout */}
@@ -25,7 +26,7 @@ export default function Residencies() {
               <img
                 src={card.image}
                 alt={card.name}
-                className="w-full"
+                className="w-full max-w-xs rounded-lg"
               />
               <div className="p-5">
                 <div className="text-lg font-semibold text-gray-700 group-hover:text-white transition-colors duration-500 mb-1">
@@ -36,6 +37,7 @@ export default function Residencies() {
                 <p className="text-sm text-gray-500 group-hover:text-white transition-colors duration-500 mb-1">{card.detail}</p>
                 </div>
             </div>
+            
           ))}
         </div>
 

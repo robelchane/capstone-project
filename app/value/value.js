@@ -1,97 +1,95 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
-
+import { useState } from "react";
+ 
 export default function Value() {
-  const [hoveredDropdown, setHoveredDropdown] = useState(null);
-  const imageRef = useRef(null);
-  const [fixedHeight, setFixedHeight] = useState('auto');
-
-  useEffect(() => {
-    // Set the initial height based on the image's height
-    if (imageRef.current) {
-      setFixedHeight(`${imageRef.current.clientHeight}px`);
-    }
-  }, []);
-
-  const handleMouseEnter = (dropdown) => {
-    setHoveredDropdown(dropdown);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredDropdown(null);
-  };
-
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+ 
+  function toggleDropdown1() {
+    setIsOpen1(!isOpen1);
+  }
+ 
+  function toggleDropdown2() {
+    setIsOpen2(!isOpen2);
+  }
+ 
+  function toggleDropdown3() {
+    setIsOpen3(!isOpen3);
+  }
+ 
   return (
-    <main className="overflow-y-auto text-black" id="value">
-      <div className="flex flex-col items-center">
-        <p className="text-4xl font-serif text-[#001f3f] text-center mt-20 mb-8">Value We Give to You</p>
-      </div>
-
+    <main className="font-serif overflow-y-auto text-black" id="value">
       {/* Content Section */}
-      <div className="flex justify-center font-serif m-10 gap-10">
-        <div className="relative w-3/5">
-          <img
-            ref={imageRef}
-            src={"/pic2.png"}
-            alt="Our Value"
-            className="absolute top-0 left-0 w-full h-full object-cover"
-            style={{ pointerEvents: "none" }} // Prevent interaction with the image
-          />
+      <div className="flex justify-center font-serif mt-20">
+        <div className="w-1/2 m-10">
+          <img src={"/value.png"} alt="Profile picture" />
         </div>
-
-        <div className="flex flex-col w-2/5" style={{ height: fixedHeight }}>
-
+ 
+        <div className="flex flex-col w-1/2 m-10">
+          <div className="flex flex-col items-start">
+            <span className="text-yellow-700 text-2xl font-bold">Our Values</span>
+            <span className="text-3xl font-bold">Value We Give to You</span>
+          </div>
+          <div className="my-10 text-lg">
+            <p>
+              Find a variety of properties that suit you very easily. Forget all
+              difficulties <br/>in finding a residence for you.
+            </p>
+          </div>
+ 
           {/* Dropdown 1 */}
-          <div
-            className="mb-5 bg-transparent border-b border-[#001f3f] text-[#001f3f] hover:bg-[#001f3f] hover:border hover:border-[#001f3f] hover:text-white transition-colors duration-700 ease-in-out cursor-pointer"
-            onMouseEnter={() => handleMouseEnter(1)}
-            onMouseLeave={handleMouseLeave}
-          >
-            {hoveredDropdown === 1 ? (
-              <div>
-                <p className="text-xl p-8">
-                  Our interest rates offer competitive returns with full transparency and no hidden fees, 
-                  ensuring the best value for your savings or investments.
+          <div className="text-center">
+            <h2
+              onClick={toggleDropdown1}
+              className= "cursor-pointer text-white font-semibold bg-gray-900 p-6 mt-5 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+            >
+              Best interest rates on the market
+            </h2>
+            {isOpen1 && (
+              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+                <p>
+                  Our interest rates are carefully tailored to give you the best value on the market,
+                  offering competitive returns with full transparency and no hidden fees.
+                  Whether you're looking to save or invest, we've got the perfect plan for you.
                 </p>
               </div>
-            ) : (
-              <h2 className="text-2xl py-10">Best interest rates on the market</h2>
             )}
           </div>
-
+ 
           {/* Dropdown 2 */}
-          <div
-            className="mb-5 bg-transparent border-b border-[#001f3f] text-[#001f3f] hover:bg-[#001f3f] hover:border hover:border-[#001f3f] hover:text-white transition-colors duration-700 ease-in-out cursor-pointer"
-            onMouseEnter={() => handleMouseEnter(2)}
-            onMouseLeave={handleMouseLeave}
-          >
-            {hoveredDropdown === 2 ? (
-              <div>
-                <p className="text-xl p-8">
-                  We provide flexible payment options to suit your lifestyle, including monthly, bi-weekly, or 
-                  custom schedules, ensuring hassle-free management.
+          <div className="text-center">
+            <h2
+              onClick={toggleDropdown2}
+              className="cursor-pointer text-white font-semibold bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+            >
+              Easy and flexible payments
+            </h2>
+            {isOpen2 && (
+              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+                <p>
+                  We offer a variety of payment options designed to fit your lifestyle, allowing you to manage your payments easily and flexibly.
+                  Whether you prefer monthly, bi-weekly, or custom schedules, our plans adapt to your needs without any hassle.
                 </p>
               </div>
-            ) : (
-              <h2 className="text-2xl py-10">Easy and flexible payments</h2>
             )}
           </div>
-
+ 
           {/* Dropdown 3 */}
-          <div
-            className="mb-5 bg-transparent border-b border-[#001f3f] text-[#001f3f] hover:bg-[#001f3f] hover:border hover:border-[#001f3f] hover:text-white transition-colors duration-700 ease-in-out cursor-pointer"
-            onMouseEnter={() => handleMouseEnter(3)}
-            onMouseLeave={handleMouseLeave}
-          >
-            {hoveredDropdown === 3 ? (
-              <div>
-                <p className="text-xl p-8">
-                  Our premium support provides personalized assistance, resolving your issues quickly 
-                  and efficiently with dedicated experts.
+          <div className="text-center">
+            <h2
+              onClick={toggleDropdown3}
+              className="cursor-pointer text-white font-semibold bg-gray-900 p-6 mb-5 shadow-md hover:bg-gray-700 hover:scale-105 transition-transform duration-300"
+            >
+              Premium customer support
+            </h2>
+            {isOpen3 && (
+              <div className="bg-gray-100 p-4 rounded-lg mt-2 mb-4 shadow-lg">
+                <p>
+                  Our premium customer support ensures that you receive personalized assistance whenever you need it.
+                  With dedicated experts, we're here to resolve your issues quickly and efficiently.
                 </p>
               </div>
-            ) : (
-              <h2 className="text-2xl py-10">Premium customer support</h2>
             )}
           </div>
         </div>
@@ -99,3 +97,4 @@ export default function Value() {
     </main>
   );
 }
+ 
