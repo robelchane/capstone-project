@@ -126,7 +126,6 @@ export default function AllListings() {
           <button
             type="submit"
             className="bg-black text-white border border-white px-4 py-2 rounded hover:bg-transparent hover:text-black hover:border-black transition-colors duration-300 w-full"
-
           >
             <FontAwesomeIcon icon={faSearch} /> Search
           </button>
