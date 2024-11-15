@@ -125,7 +125,8 @@ export default function AllListings() {
         <div className="col-span-5 flex justify-center items-center">
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-1/2 rounded-full"
+            className="bg-black text-white border border-white px-4 py-2 rounded hover:bg-transparent hover:text-black hover:border-black transition-colors duration-300 w-full"
+
           >
             <FontAwesomeIcon icon={faSearch} /> Search
           </button>
