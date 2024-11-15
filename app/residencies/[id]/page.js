@@ -121,13 +121,12 @@ export default function PropertyPage({ params }) {
       </div>
 
       {/* Contact Section */}
-      <div className="mt-20 w-1/3 bg-gray-100 p-6 rounded-lg h-full">
+      
+      <div className="mt-20 w-1/3 p-6 rounded-lg h-full ">
         <ContactOwner property={property} />
-      </div>
-
-      {/*Import Mortgage calculator*/ }
-      <div>
-        <MortgageCalculator property={property} />
+        <div>
+        <MortgageCalculator property={property.price} />
+        </div>
       </div>
     </main>
   );
