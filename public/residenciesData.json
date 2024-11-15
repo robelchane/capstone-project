@@ -3,7 +3,7 @@
   {
     "id": 1,
     "name": "Aliva Priva Jardin",
-    "price": "47,043",
+    "price": "470,043",
     "bedrooms": 3,
     "bathrooms": 2,
     "address": "123 Elm Street, Calgary, Alberta",
@@ -27,7 +27,7 @@
   {
     "id": 2,
     "name": "Asatti Garden City",
-    "price": "66,353",
+    "price": "666,353",
     "bedrooms": 4,
     "bathrooms": 3,
     "address": "456 Maple Avenue, Calgary, Alberta",
@@ -53,7 +53,7 @@
   {
     "id": 3,
     "name": "Citralan Puri Serang",
-    "price": "35,853",
+    "price": "1,000,853",
     "bedrooms": 2,
     "bathrooms": 1,
     "address": "789 Oak Street, Calgary, Alberta",
@@ -79,7 +79,7 @@
   {
     "id": 4,
     "name": "Aliva Priva Jardin",
-    "price": "47,043",
+    "price": "2,200,043",
     "bedrooms": 3,
     "bathrooms": 2,
     "address": "234 Pine Crescent, Calgary, Alberta",
@@ -104,7 +104,7 @@
   {
     "id": 5,
     "name": "Asatti Garden City",
-    "price": "66,353",
+    "price": "996,353",
     "bedrooms": 5,
     "bathrooms": 4,
     "address": "567 Cedar Lane, Calgary, Alberta",
@@ -130,7 +130,7 @@
   {
     "id": 6,
     "name": "Citralan Puri Serang",
-    "price": "35,853",
+    "price": "500,853",
     "bedrooms": 2,
     "bathrooms": 1,
     "address": "890 Birch Road, Calgary, Alberta",
@@ -146,10 +146,10 @@
       "https://images.unsplash.com/photo-1531410691118-74e9fbc0f57f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     ],
     "sqft": 1400,
-    "yearBuilt": 1990,
+    "yearBuilt": 2010,
     "parking": 1,
-    "propertyType": "Apartment",
-    "basement": "Unfinished",
+    "propertyType": "Condo",
+    "basement": "N/A",
     "Pets": "Not Allowed"
   }
 ]
