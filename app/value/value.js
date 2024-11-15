@@ -1,48 +1,51 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Value() {
-  const [isOpen1, setIsOpen1] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
+  const [hoveredDropdown, setHoveredDropdown] = useState(null);
+  const imageRef = useRef(null);
+  const [fixedHeight, setFixedHeight] = useState('auto');
 
-  function toggleDropdown1() {
-    setIsOpen1(!isOpen1);
-  }
+  useEffect(() => {
+    // Set the initial height based on the image's height
+    if (imageRef.current) {
+      setFixedHeight(`${imageRef.current.clientHeight}px`);
+    }
+  }, []);
 
-  function toggleDropdown2() {
-    setIsOpen2(!isOpen2);
-  }
+  const handleMouseEnter = (dropdown) => {
+    setHoveredDropdown(dropdown);
+  };
 
-  function toggleDropdown3() {
-    setIsOpen3(!isOpen3);
-  }
+  const handleMouseLeave = () => {
+    setHoveredDropdown(null);
+  };
 
   return (
     <main className="overflow-y-auto text-black" id="value">
+      <div className="flex flex-col items-center">
+        <p className="text-4xl font-serif text-[#001f3f] text-center mt-20 mb-8">Value We Give to You</p>
+      </div>
+
       {/* Content Section */}
-      <div className="flex justify-center font-serif mt-20 mb-8">
-        <div className="w-1/2 m-10 rounded-full">
-          <img src={"/value.png"} alt="Profile picture" />
+      <div className="flex justify-center font-serif m-10 gap-10">
+        <div className="relative w-3/5">
+          <img
+            ref={imageRef}
+            src={"/pic2.png"}
+            alt="Our Value"
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            style={{ pointerEvents: "none" }} // Prevent interaction with the image
+          />
         </div>
 
-        <div className="flex flex-col w-1/2 m-10">
-          <div className="flex flex-col items-start">
-            <span className="text-yellow-700 text-2xl font-bold">Our Values</span>
-            <span className="text-3xl font-bold">Value We Give to You</span>
-          </div>
-          <div className="my-10 text-lg">
-            <p>
-              Find a variety of properties that suit you very easily. Forget all
-              difficulties <br/>in finding a residence for you.
-            </p>
-          </div>
+        <div className="flex flex-col w-2/5" style={{ height: fixedHeight }}>
 
           {/* Dropdown 1 */}
           <div className="text-center">
             <h2
               onClick={toggleDropdown1}
-              className= "cursor-pointer text-white text-xl bg-black p-6 mt-5 mb-5 shadow-md hover:scale-105 rounded-full transition-transform duration-300"
+              className= "rounded cursor-pointer text-white text-xl bg-black p-6 mt-5 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
             >
               Best interest rates on the market
             </h2>
@@ -54,6 +57,8 @@ export default function Value() {
                   Whether you're looking to save or invest, we've got the perfect plan for you.
                 </p>
               </div>
+            ) : (
+              <h2 className="text-2xl py-10">Best interest rates on the market</h2>
             )}
           </div>
 
@@ -61,7 +66,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown2}
-              className="rounded cursor-pointer text-white text-xl rounded-full bg-black p-6 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
+              className="rounded cursor-pointer text-white text-xl bg-black p-6 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
             >
               Easy and flexible payments
             </h2>
@@ -72,6 +77,8 @@ export default function Value() {
                   Whether you prefer monthly, bi-weekly, or custom schedules, our plans adapt to your needs without any hassle.
                 </p>
               </div>
+            ) : (
+              <h2 className="text-2xl py-10">Easy and flexible payments</h2>
             )}
           </div>
 
@@ -79,7 +86,7 @@ export default function Value() {
           <div className="text-center">
             <h2
               onClick={toggleDropdown3}
-              className="rounded cursor-pointer text-white text-xl rounded-full bg-black p-6 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
+              className="rounded cursor-pointer text-white text-xl bg-black p-6 mb-5 shadow-md hover:scale-105 transition-transform duration-300"
             >
               Premium customer support
             </h2>
@@ -90,6 +97,8 @@ export default function Value() {
                   With dedicated experts, we're here to resolve your issues quickly and efficiently.
                 </p>
               </div>
+            ) : (
+              <h2 className="text-2xl py-10">Premium customer support</h2>
             )}
           </div>
         </div>

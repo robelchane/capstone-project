@@ -75,7 +75,7 @@ export default function MortgageCalculator() {
       {/* <h2 className="text-2xl font-bold mb-6 text-center">Your Mortgage Payment Information</h2> */}
       
       <div className="w-full border-b border-gray-300 pb-6 mb-6">
-        <h3 className="text-2xl font-semibold mb-8 mt-5 text-left">Mortgage Calculator</h3>
+        <h3 className="text-2xl text-[#001f3f] font-serif mb-8 mt-5 text-left">Mortgage Calculator</h3>
         {error && <p className="text-red-500 mb-4">{error}</p>}
         
         <div className="grid grid-cols-2 gap-4">
@@ -85,7 +85,7 @@ export default function MortgageCalculator() {
               type="number"
               value={mortgageAmount}
               onChange={(e) => setMortgageAmount(e.target.value)}
-              className="bg-white w-full p-2 border rounded text-black"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter mortgage amount"
             />
           </div>
@@ -95,7 +95,7 @@ export default function MortgageCalculator() {
               type="number"
               value={downPayment}
               onChange={(e) => setDownPayment(e.target.value)}
-              className="bg-white w-full p-2 border rounded text-black"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter down payment"
             />
           </div>
@@ -105,7 +105,7 @@ export default function MortgageCalculator() {
               type="number"
               value={interestRate}
               onChange={(e) => setInterestRate(e.target.value)}
-              className="bg-white w-full p-2 border rounded text-black"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter interest rate"
             />
           </div>
@@ -115,7 +115,7 @@ export default function MortgageCalculator() {
               type="number"
               value={loanTerm}
               onChange={(e) => setLoanTerm(e.target.value)}
-              className="bg-white w-full p-2 border rounded text-black"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter loan term"
             />
           </div>
@@ -125,7 +125,7 @@ export default function MortgageCalculator() {
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="bg-white w-full p-2 border rounded text-black"
+              className="bg-white w-full p-2 border text-black"
             />
           </div>
           <div>
@@ -133,7 +133,7 @@ export default function MortgageCalculator() {
             <select
               value={paymentFrequency}
               onChange={(e) => setPaymentFrequency(e.target.value)}
-              className="bg-white w-full p-2 border rounded text-black"
+              className="bg-white w-full p-2 border text-black"
             >
               <option value="monthly">Monthly</option>
               <option value="bi-weekly">Bi-Weekly</option>
@@ -143,14 +143,14 @@ export default function MortgageCalculator() {
         </div>
         
         <div className="flex justify-end mt-4">
-          <button onClick={calculateMortgage} className="px-6 py-2 bg-transparent text-black border border-black rounded-lg hover:bg-blue-600 hover:border-white hover:text-white dark:border-white dark:text-white transition-colors duration-300">
+          <button onClick={calculateMortgage} className="px-6 py-2 bg-[#001f3f] border border-[#001f3f] text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] dark:text-white dark:border-white transition-colors duration-300">
             Calculate
           </button>
         </div>
       </div>
 
       <div className="w-full pb-6 mb-6">
-        <h3 className="text-2xl font-semibold mb-8 mt-5 text-left">Mortgage Repayment Summary</h3>
+        <h3 className="text-2xl text-[#001f3f] font-serif mb-8 mt-5 text-left">Mortgage Repayment Summary</h3>
         
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -181,7 +181,7 @@ export default function MortgageCalculator() {
       </div>
 
       <div className="flex justify-end w-full">
-        <button onClick={handlePrint} className="px-6 py-2 bg-transparent border border-black text-black rounded-lg hover:bg-green-500 hover:text-white hover:border-white dark:text-white dark:border-white transition-colors duration-300">
+        <button onClick={handlePrint} className="px-6 py-2 bg-[#001f3f] border border-[#001f3f] text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] dark:text-white dark:border-white transition-colors duration-300">
           Print
         </button>
       </div>

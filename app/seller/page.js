@@ -80,89 +80,107 @@ export default function Seller() {
     <main>
       <div>
         <div className="flex flex-col mt-24 mb-16 p-8 max-w-6xl mx-auto">
-          <h1 className="text-left text-2xl font-bold mb-8">
+          <h1 className="text-left text-[#001f3f] text-2xl font-serif mb-8">
             List Your Property
           </h1>
           <form onSubmit={handleSubmit}>
-            <input
-              name="name"
-              type="text"
-              placeholder="Property Name"
-              value={propertyData.name}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="price"
-              type="text"
-              placeholder="Price"
-              value={propertyData.price}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="bedrooms"
-              type="number"
-              placeholder="Bedrooms"
-              value={propertyData.bedrooms}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="bathrooms"
-              type="number"
-              placeholder="Bathrooms"
-              value={propertyData.bathrooms}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="address"
-              type="text"
-              placeholder="Address"
-              value={propertyData.address}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="sellerName"
-              type="text"
-              placeholder="Seller Name"
-              value={propertyData.sellerName}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="sellerEmail"
-              type="email"
-              placeholder="Seller Email"
-              value={propertyData.sellerEmail}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <textarea
-              name="detail"
-              placeholder="Property Details"
-              value={propertyData.detail}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <textarea
-              name="summary"
-              placeholder="Property Summary"
-              value={propertyData.summary}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
+
+            {/* Row 1: Property Name & Price */}
+            <div className="flex gap-4 mb-4">
+              <input
+                name="name"
+                type="text"
+                placeholder="Property Name"
+                value={propertyData.name}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+              <input
+                name="price"
+                type="text"
+                placeholder="Price"
+                value={propertyData.price}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+            </div>
+
+            {/* Row 2: Bedrooms & Bathrooms */}
+            <div className="flex gap-4 mb-4">
+              <input
+                name="bedrooms"
+                type="number"
+                placeholder="Bedrooms"
+                value={propertyData.bedrooms}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+              <input
+                name="bathrooms"
+                type="number"
+                placeholder="Bathrooms"
+                value={propertyData.bathrooms}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+            </div>
+
+            {/* Row 3: Address, Seller Name, Seller Email */}
+            <div className="flex gap-4 mb-4">
+              <input
+                name="address"
+                type="text"
+                placeholder="Address"
+                value={propertyData.address}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/3"
+              />
+              <input
+                name="sellerName"
+                type="text"
+                placeholder="Seller Name"
+                value={propertyData.sellerName}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/3"
+              />
+              <input
+                name="sellerEmail"
+                type="email"
+                placeholder="Seller Email"
+                value={propertyData.sellerEmail}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/3"
+              />
+            </div>
+
+            {/* Row 4: Property Details & Summary */}
+            <div className="flex gap-4 mb-4">
+              <textarea
+                name="detail"
+                placeholder="Property Details"
+                value={propertyData.detail}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+              <textarea
+                name="summary"
+                placeholder="Property Summary"
+                value={propertyData.summary}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+            </div>
+
+            {/* Row 5: Image */}
             <input
               name="image"
               type="text"
@@ -170,86 +188,109 @@ export default function Seller() {
               value={propertyData.image}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full"
+              className="bg-white text-black border rounded p-2 mb-4 w-full"
             />
-            <input
-              name="squareFootage"
-              type="number"
-              placeholder="Square Footage"
-              value={propertyData.squareFootage}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="yearBuilt"
-              type="number"
-              placeholder="Year Built"
-              value={propertyData.yearBuilt}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="propertyType"
-              type="text"
-              placeholder="Property Type (e.g., House, Apartment)"
-              value={propertyData.propertyType}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <select
-              name="status"
-              value={propertyData.status}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            >
-              <option value="available">Available</option>
-              <option value="pending">Pending</option>
-              <option value="sold">Sold</option>
-            </select>
-            <input
-              name="parkingSpaces"
-              type="number"
-              placeholder="Parking Spaces"
-              value={propertyData.parkingSpaces}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <input
-              name="lotSize"
-              type="number"
-              placeholder="Lot Size (sq ft)"
-              value={propertyData.lotSize}
-              onChange={handleChange}
-              required
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <label className="flex items-center mb-4 text-black">
+
+            {/* Row 6: Square Footage & Year Built */}
+            <div className="flex gap-4 mb-4">
               <input
-                name="isFeatured"
-                type="checkbox"
-                checked={propertyData.isFeatured}
+                name="squareFootage"
+                type="number"
+                placeholder="Square Footage"
+                value={propertyData.squareFootage}
                 onChange={handleChange}
-                className="mr-2"
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
               />
-              Featured Property
-            </label>
-            <input
-              name="virtualTourLink"
-              type="url"
-              placeholder="Virtual Tour Link (optional)"
-              value={propertyData.virtualTourLink}
-              onChange={handleChange}
-              className="text-black border p-2 mb-4 w-full"
-            />
-            <div className="flex justify-center mt-10">
+              <input
+                name="yearBuilt"
+                type="number"
+                placeholder="Year Built"
+                value={propertyData.yearBuilt}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+            </div>
+
+            {/* Row 7: Property Type & Status */}
+            <div className="flex gap-4 mb-4">
+              <select
+                name="propertyType"
+                value={propertyData.propertyType}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              >
+                <option value="">Property Type</option>
+                <option value="House">House</option>
+                <option value="Apartment">Apartment</option>
+                <option value="Condo">Condo</option>
+                <option value="Townhouse">Townhouse</option>
+                <option value="Land">Land</option>
+              </select>
+              <select
+                name="status"
+                value={propertyData.status}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              >
+                <option value="available">Available</option>
+                <option value="pending">Pending</option>
+                <option value="sold">Sold</option>
+              </select>
+            </div>
+
+            {/* Row 8: Parking Spaces & Lot Size */}
+            <div className="flex gap-4 mb-4">
+              <input
+                name="parkingSpaces"
+                type="number"
+                placeholder="Parking Spaces"
+                value={propertyData.parkingSpaces}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+              <input
+                name="lotSize"
+                type="number"
+                placeholder="Lot Size (sq ft)"
+                value={propertyData.lotSize}
+                onChange={handleChange}
+                required
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+            </div>
+
+            {/* Row 9: Virtual Tour Link & Featured Property */}
+            <div className="flex gap-4 mb-8">
+              <input
+                name="virtualTourLink"
+                type="url"
+                placeholder="Virtual Tour Link (optional)"
+                value={propertyData.virtualTourLink}
+                onChange={handleChange}
+                className="bg-white text-black border rounded p-2 w-1/2"
+              />
+              <label className="flex items-center w-1/2">
+                <input
+                  name="isFeatured"
+                  type="checkbox"
+                  checked={propertyData.isFeatured}
+                  onChange={handleChange}
+                  className="dark:text-white mr-2"
+                />
+                Featured Property
+              </label>
+            </div>
+
+            {/* Submit Button */}
+            <div className="flex flex-col items-end">
               <button
                 type="submit"
-                className="bg-emerald-700 text-white px-12 py-4 rounded-full hover:bg-yellow-800 transition duration-300"
+                className="bg-black border text-white px-5 py-3 rounded-lg hover:bg-transparent hover:text-black hover:border-black dark:border-white dark:text-white transition-colors duration-300"
               >
                 {loading ? "Listing..." : "Publish Property"}
               </button>
