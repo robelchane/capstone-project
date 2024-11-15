@@ -16,7 +16,11 @@
       "https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1507149833265-60c372daea22?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://media.istockphoto.com/id/1334118685/photo/computer-generated-image-of-interior-of-bathroom-in-3d-with-houseplant.jpg?s=2048x2048&w=is&k=20&c=hRCDJUGIZhZfP-Gk5tri9WQ85kf7UI1pz6WgmH32SK4="
-    ]
+    ],
+    "sqft": 2000,
+    "yearBuilt": 2010,
+    "parking": 2,
+    "propertyType": "Condo"
   },
   {
     "id": 2,
