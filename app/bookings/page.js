@@ -1,5 +1,8 @@
-//chatgpt
-//Aaron's Vercel Web dev
+/* I am trying to create a booking page for future clients to make inquiries. Decided to go with Google calendar
+chatgpt helped me with tips on how to install the google api
+I made use of Aaron's Vercel Web dev for refresher course in creating forms
+https://www.youtube.com/watch?v=fqPXx03Rl2Y
+*/
 
 "use client";
 import { useState } from "react";
