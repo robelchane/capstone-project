@@ -56,7 +56,6 @@ export default function PropertyPage({ params }) {
           <p className="text-2xl font-semibold">
             Price: <span className="text-yellow-700">${property.price}</span>
           </p>
-          <p className="mt-2">{property.detail}</p>
         </div>
 
         {/* Property Key Features */}
