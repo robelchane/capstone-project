@@ -10,13 +10,13 @@ export default function SearchReviews({ reviews }) {
 
     return (
         <div className="my-8">
-            <div className="relative mb-4">
+            <div className="relative mb-4 ml-1 mr-1">
                 <input 
                     type="text"
                     placeholder="Search reviews"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-md pl-10"
+                    className="bg-white w-full p-3 border border-gray-300 rounded-md pl-10"
                 />
                 <FaSearch className="absolute left-3 top-4 text-gray-500" />
             </div>

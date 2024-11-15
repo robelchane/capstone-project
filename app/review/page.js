@@ -162,18 +162,18 @@ export default function Review() {
                         <div className="flex items-center space-x-3">
                             <button
                                 onClick={handlePrev}
-                                className="p-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="p-1 px-3 py-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
                             >
-                                ⬅
+                                {"<"}
                             </button>
                             <span>
                                 {currentIndex + 1} / {reviewers.length}
                             </span>
                             <button
                                 onClick={handleNext}
-                                className="p-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="p-1 px-3 py-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
                             >
-                                ➡
+                                {">"}
                             </button>
                         </div>
                     </div>
@@ -190,11 +190,11 @@ export default function Review() {
                     <ReviewList reviews={reviews} />
                     <button
                     onClick={openModal}
-                    className="items-right px-4 py-2 bg-black border text-white rounded-full shadow-md hover:bg-transparent hover:text-black hover:border-black transition-colors duration-300"
+                    className="items-right px-4 py-2 bg-black border text-white rounded-full shadow-md hover:bg-transparent hover:text-black hover:border-black transition-colors duration-300 dark:text-white dark:border-white"
                     >
                         See All
                     </button>
-                    <ReviewModal reviews={reviews} isOpen={isModalOpen} onClose={closeModal} /> {/* 모달 컴포넌트 */}
+                    <ReviewModal reviews={reviews} isOpen={isModalOpen} onClose={closeModal} />
 
                 </div>
                 <div className="w-full lg:w-1/3 bg-white p-6 border rounded-lg shadow-md">
@@ -210,7 +210,7 @@ export default function Review() {
                                 value={newReview.reviewer}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-3 border rounded-md dark:text-black"
+                                className="bg-white w-full p-3 border rounded-md dark:text-black"
                             />
                         </div>
                         <div>
@@ -221,13 +221,14 @@ export default function Review() {
                             />
                         </div>
                         <div>
-                            <label className="block text-lg font-medium mb-5 dark:text-black">Comment</label>
+                            <label className="block text-lg font-medium dark:text-black">Comment</label>
                             <textarea
                                 name="comment"
                                 value={newReview.comment}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-3 border rounded-md dark:text-black mb-5"
+                                rows="6"
+                                className="bg-white w-full p-3 border rounded-md dark:text-black"
                             ></textarea>
                         </div>
                         <button type="submit" className="bg-black text-white w-full p-5 rounded-full border hover:bg-transparent hover:text-black hover:border-blue-400 transition-colors duration-300">

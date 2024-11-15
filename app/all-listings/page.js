@@ -69,7 +69,7 @@ export default function AllListings() {
   };
 
   return (
-    <div className="py-8 px-4 mt-20">
+    <div className="p-12 py-8 px-10 mt-24">
       <h1 className="text-2xl font-bold mb-4">Filter Properties</h1>
       <form onSubmit={handleSearch} className="grid grid-cols-5 gap-4 mb-8">
         <div>

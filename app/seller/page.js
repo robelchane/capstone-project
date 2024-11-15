@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 
 export default function Seller() {
   const [propertyData, setPropertyData] = useState({
@@ -79,23 +78,11 @@ export default function Seller() {
 
   return (
     <main>
-      <div 
-        className="flex flex-col items-center text-white" 
-        style={{ 
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/sellerbackground.jpg')", 
-          backgroundSize: 'cover', 
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-        <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl mx-auto">
-          <div className="fixed bottom-4 right-4 z-50">
-            <Link href="/contact" className="text-white p-3 hover:underline">
-              Want to get in touch?
-            </Link>
-          </div>
-          <h1 className="w-full flex justify-center text-3xl font-bold bg-emerald-700 text-white border rounded-full border-gray-300 mb-4 p-2">
-            List Your Property</h1>
+      <div>
+        <div className="flex flex-col mt-24 mb-16 p-8 max-w-6xl mx-auto">
+          <h1 className="text-left text-2xl font-bold mb-8">
+            List Your Property
+          </h1>
           <form onSubmit={handleSubmit}>
             <input
               name="name"
@@ -104,7 +91,7 @@ export default function Seller() {
               value={propertyData.name}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="price"
@@ -113,7 +100,7 @@ export default function Seller() {
               value={propertyData.price}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="bedrooms"
@@ -122,7 +109,7 @@ export default function Seller() {
               value={propertyData.bedrooms}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="bathrooms"
@@ -131,7 +118,7 @@ export default function Seller() {
               value={propertyData.bathrooms}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="address"
@@ -140,7 +127,7 @@ export default function Seller() {
               value={propertyData.address}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="sellerName"
@@ -149,7 +136,7 @@ export default function Seller() {
               value={propertyData.sellerName}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="sellerEmail"
@@ -158,7 +145,7 @@ export default function Seller() {
               value={propertyData.sellerEmail}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <textarea
               name="detail"
@@ -166,7 +153,7 @@ export default function Seller() {
               value={propertyData.detail}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <textarea
               name="summary"
@@ -174,7 +161,7 @@ export default function Seller() {
               value={propertyData.summary}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="image"
@@ -183,7 +170,7 @@ export default function Seller() {
               value={propertyData.image}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="squareFootage"
@@ -192,7 +179,7 @@ export default function Seller() {
               value={propertyData.squareFootage}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="yearBuilt"
@@ -201,7 +188,7 @@ export default function Seller() {
               value={propertyData.yearBuilt}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="propertyType"
@@ -210,14 +197,14 @@ export default function Seller() {
               value={propertyData.propertyType}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <select
               name="status"
               value={propertyData.status}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             >
               <option value="available">Available</option>
               <option value="pending">Pending</option>
@@ -230,7 +217,7 @@ export default function Seller() {
               value={propertyData.parkingSpaces}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <input
               name="lotSize"
@@ -239,7 +226,7 @@ export default function Seller() {
               value={propertyData.lotSize}
               onChange={handleChange}
               required
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <label className="flex items-center mb-4 text-black">
               <input
@@ -257,14 +244,14 @@ export default function Seller() {
               placeholder="Virtual Tour Link (optional)"
               value={propertyData.virtualTourLink}
               onChange={handleChange}
-              className="text-black border p-2 mb-4 w-full rounded-full placeholder-bg"
+              className="text-black border p-2 mb-4 w-full"
             />
             <div className="flex justify-center mt-10">
               <button
                 type="submit"
-                className="bg-emerald-700 text-white px-12 py-4 rounded-full hover:bg-yellow-500 transition duration-300"
+                className="bg-emerald-700 text-white px-12 py-4 rounded-full hover:bg-yellow-800 transition duration-300"
               >
-                {loading ? "Listing..." : "List Property"}
+                {loading ? "Listing..." : "Publish Property"}
               </button>
             </div>
           </form>

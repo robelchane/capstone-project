@@ -40,7 +40,7 @@ export default function ReviewList({ reviews }) {
                         id="filter"
                         onChange={(e) => setFilter(e.target.value)}
                         value={filter}
-                        className="border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
+                        className=" cursor-pointer bg-white border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
                     >
                         <option>Most Recent</option>
                         <option>Highest Rated</option>
@@ -53,7 +53,7 @@ export default function ReviewList({ reviews }) {
                         id="ratingFilter"
                         onChange={(e) => setRatingFilter(Number(e.target.value))}
                         value={ratingFilter}
-                        className="border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
+                        className="cursor-pointer bg-white border px-4 py-2 rounded-md focus:outline-none dark:text-black hover:border-blue-400 transition-color duration-300"
                     >
                         <option value={0}>All Ratings</option>
                         {[5, 4, 3, 2, 1].map((rating) => (

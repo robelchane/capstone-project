@@ -191,10 +191,6 @@ const About = () => {
             </p>
           </div>
         </div>
-
-        <Link href="/" className=" mb-24 rounded-full bg-black border border-white px-10 py-4 hover:bg-transparent text-white text-xl transition-colors duration-300">
-          Back to Home
-        </Link>
       </div>
   );
 };

@@ -1,6 +1,5 @@
 //ref: https://www.youtube.com/watch?v=FCCQdM3ZSw4
 
-import Footer from "./footer/footer.js";
 import Home from "./home/home.js";
 import Residencies from "./residencies/residencies.js";
 import Value from "./value/value.js";
@@ -14,8 +13,7 @@ export default function Page() {
       <Home />
       <Residencies />
       <Value />
-      <CustomerReview />
-      <Footer />     
+      <CustomerReview />     
     </main>
     </ThemeProvider>
   );

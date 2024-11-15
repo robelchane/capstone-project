@@ -22,7 +22,7 @@ export default function PropertyPage({ params }) {
   };
 
   return (
-    <main className="font-serif  text-black p-8 flex flex-col lg:flex-row mt-12 gap-8">
+    <main className="text-black p-8 flex mt-24">
       {/* Main Content Section */}
       <div className="lg:w-2/3 w-full pr-8">
         <h1 className="text-4xl  mt-12 font-bold text-center">{property.name}</h1>
