@@ -62,39 +62,39 @@ export default function PropertyPage({ params }) {
         <div className="mt-6 flex justify-center flex-col gap-3">
           <h1 className=" text-2xl font-bold">Key Features</h1>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Bedrooms: {property.bedrooms}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Bathroom: {property.bathrooms}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Address: {property.address}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black"> SQFT: {property.sqft}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Built In: {property.yearBuilt}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Parking: {property.parking}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Property Type: {property.propertyType}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Basement: {property.basement}</span>
           </div>
 
-          <div className="font-semibold flex gap-2 items-center bg-green-600 rounded-full p-3 justify-center">
+          <div className="font-semibold flex gap-2 items-center bg-green-500 rounded-full p-3 justify-center">
             <span className="text-black">Pets Policy: {property.Pets}</span>
           </div>
           
