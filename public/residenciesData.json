@@ -20,7 +20,9 @@
     "sqft": 2000,
     "yearBuilt": 2010,
     "parking": 2,
-    "propertyType": "Condo"
+    "propertyType": "Condo",
+    "basement": "Finished",
+    "Pets": "Allowed"
   },
   {
     "id": 2,
@@ -42,7 +44,9 @@
     "sqft": 2500,
     "yearBuilt": 2015,
     "parking": 3,
-    "propertyType": "House"
+    "propertyType": "House",
+    "basement": "Unfinished",
+    "Pets": "Not Allowed"
 
   },
   
@@ -67,7 +71,9 @@
     "sqft": 1500,
     "yearBuilt": 2005,
     "parking": 1,
-    "propertyType": "Apartment"
+    "propertyType": "Apartment",
+    "basement": "Finished",
+    "Pets": "Allowed"
 
   },
   {
@@ -91,7 +97,9 @@
     "sqft": 1800,
     "yearBuilt": 2012,
     "parking": 2,
-    "propertyType": "Condo"
+    "propertyType": "Condo",
+    "basement": "Finished",
+    "Pets": " Not Allowed"
   },
   {
     "id": 5,
@@ -114,7 +122,10 @@
     "sqft": 3000,
     "yearBuilt": 2018,
     "parking": 3,
-    "propertyType": "House"
+    "propertyType": "House",
+    "basement": "Finished",
+    "Pets": "Allowed"
+    
   },
   {
     "id": 6,
@@ -137,6 +148,8 @@
     "sqft": 1400,
     "yearBuilt": 1990,
     "parking": 1,
-    "propertyType": "Apartment"
+    "propertyType": "Apartment",
+    "basement": "Unfinished",
+    "Pets": "Not Allowed"
   }
 ]
