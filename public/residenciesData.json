@@ -46,7 +46,7 @@
     "parking": 3,
     "propertyType": "House",
     "basement": "Unfinished",
-    "Pets": "Not Allowed"
+    "Pets": "Allowed"
 
   },
   
@@ -71,7 +71,7 @@
     "sqft": 1500,
     "yearBuilt": 2005,
     "parking": 1,
-    "propertyType": "Apartment",
+    "propertyType": "House",
     "basement": "Finished",
     "Pets": "Allowed"
 
@@ -97,9 +97,9 @@
     "sqft": 1800,
     "yearBuilt": 2012,
     "parking": 2,
-    "propertyType": "Condo",
+    "propertyType": "House",
     "basement": "Finished",
-    "Pets": " Not Allowed"
+    "Pets": "Allowed"
   },
   {
     "id": 5,
