@@ -110,7 +110,11 @@
       "https://branadesigns.com/wp-content/uploads/2022/12/newport-beach-real-estate-brana-designs-e1671133179841.jpg",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBwZO2i01LDDe8m7BzRZ55uOMrJqWCLV31NA&s",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUqb2nGkpGC8826Hk8sAbgHuW3peCbTT8KlQ&s"
-    ]
+    ],
+    "sqft": 3000,
+    "yearBuilt": 2018,
+    "parking": 3,
+    "propertyType": "House"
   },
   {
     "id": 6,
@@ -129,6 +133,10 @@
       "https://images.unsplash.com/photo-1665249934445-1de680641f50?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://media.istockphoto.com/id/1453223696/photo/a-bathroom-with-a-grey-cabinet-and-tiled-shower.jpg?s=2048x2048&w=is&k=20&c=z6AhwbiruvfKWRWbTRyJnBd6fP68t0sSzxKr0jreg0M=",
       "https://images.unsplash.com/photo-1531410691118-74e9fbc0f57f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ]
+    ],
+    "sqft": 1400,
+    "yearBuilt": 1990,
+    "parking": 1,
+    "propertyType": "Apartment"
   }
 ]
