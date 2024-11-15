@@ -80,7 +80,7 @@ export default function Seller() {
     <main>
       <div>
         <div className="flex flex-col mt-24 mb-16 p-8 max-w-6xl mx-auto">
-          <h1 className="text-left text-2xl font-bold mb-8">
+          <h1 className="text-left text-[#001f3f] text-2xl font-serif mb-8">
             List Your Property
           </h1>
           <form onSubmit={handleSubmit}>
@@ -94,7 +94,7 @@ export default function Seller() {
                 value={propertyData.name}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
               <input
                 name="price"
@@ -103,7 +103,7 @@ export default function Seller() {
                 value={propertyData.price}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
             </div>
 
@@ -116,7 +116,7 @@ export default function Seller() {
                 value={propertyData.bedrooms}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
               <input
                 name="bathrooms"
@@ -125,7 +125,7 @@ export default function Seller() {
                 value={propertyData.bathrooms}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
             </div>
 
@@ -138,7 +138,7 @@ export default function Seller() {
                 value={propertyData.address}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/3"
+                className="bg-white text-black border p-2 w-1/3"
               />
               <input
                 name="sellerName"
@@ -147,7 +147,7 @@ export default function Seller() {
                 value={propertyData.sellerName}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/3"
+                className="bg-white text-black border p-2 w-1/3"
               />
               <input
                 name="sellerEmail"
@@ -156,7 +156,7 @@ export default function Seller() {
                 value={propertyData.sellerEmail}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/3"
+                className="bg-white text-black border p-2 w-1/3"
               />
             </div>
 
@@ -168,7 +168,7 @@ export default function Seller() {
                 value={propertyData.detail}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
               <textarea
                 name="summary"
@@ -176,7 +176,7 @@ export default function Seller() {
                 value={propertyData.summary}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
             </div>
 
@@ -188,7 +188,7 @@ export default function Seller() {
               value={propertyData.image}
               onChange={handleChange}
               required
-              className="bg-white text-black border rounded p-2 mb-4 w-full"
+              className="bg-white text-black border p-2 mb-4 w-full"
             />
 
             {/* Row 6: Square Footage & Year Built */}
@@ -200,7 +200,7 @@ export default function Seller() {
                 value={propertyData.squareFootage}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
               <input
                 name="yearBuilt"
@@ -209,7 +209,7 @@ export default function Seller() {
                 value={propertyData.yearBuilt}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
             </div>
 
@@ -220,7 +220,7 @@ export default function Seller() {
                 value={propertyData.propertyType}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               >
                 <option value="">Property Type</option>
                 <option value="House">House</option>
@@ -234,7 +234,7 @@ export default function Seller() {
                 value={propertyData.status}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               >
                 <option value="available">Available</option>
                 <option value="pending">Pending</option>
@@ -251,7 +251,7 @@ export default function Seller() {
                 value={propertyData.parkingSpaces}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
               <input
                 name="lotSize"
@@ -260,7 +260,7 @@ export default function Seller() {
                 value={propertyData.lotSize}
                 onChange={handleChange}
                 required
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
             </div>
 
@@ -272,7 +272,7 @@ export default function Seller() {
                 placeholder="Virtual Tour Link (optional)"
                 value={propertyData.virtualTourLink}
                 onChange={handleChange}
-                className="bg-white text-black border rounded p-2 w-1/2"
+                className="bg-white text-black border p-2 w-1/2"
               />
               <label className="flex items-center w-1/2">
                 <input
@@ -290,7 +290,7 @@ export default function Seller() {
             <div className="flex flex-col items-end">
               <button
                 type="submit"
-                className="bg-black border text-white px-5 py-3 rounded-lg hover:bg-transparent hover:text-black hover:border-black dark:border-white dark:text-white transition-colors duration-300"
+                className="bg-[#001f3f] border text-white px-3 py-3 hover:bg-transparent hover:text-black hover:border-black dark:border-white dark:text-white transition-colors duration-300"
               >
                 {loading ? "Listing..." : "Publish Property"}
               </button>

@@ -140,7 +140,7 @@ export default function Review() {
                 <div className="w-2/3 pl-8 flex flex-col justify-between">
                     <div className="flex items-start">
                         <div>
-                            <p className="text-4xl font-serif font-bold leading-relaxed mb-12">“<br/>{reviewers[currentIndex].quote}”</p>
+                            <p className="text-4xl font-serif text-[#001f3f] dark:text-white leading-relaxed mb-12">“<br/>{reviewers[currentIndex].quote}”</p>
                         </div>
                     </div>
 
@@ -162,7 +162,7 @@ export default function Review() {
                         <div className="flex items-center space-x-3">
                             <button
                                 onClick={handlePrev}
-                                className="p-1 px-3 py-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="px-2 py-1 bg-[#001f3f] text-white border border-[#001f3f] dark:border-white dark:text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-color duration-300"
                             >
                                 {"<"}
                             </button>
@@ -171,7 +171,7 @@ export default function Review() {
                             </span>
                             <button
                                 onClick={handleNext}
-                                className="p-1 px-3 py-1 rounded-full bg-black text-white border border-white dark:border-white dark:text-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="px-2 py-1 bg-[#001f3f] text-white border border-[#001f3f] dark:border-white dark:text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-color duration-300"
                             >
                                 {">"}
                             </button>
@@ -182,7 +182,7 @@ export default function Review() {
 
 
             <div className="p-12 mt-32 max-w-8xl mx-auto">
-            <h1 className="text-5xl text-center font-semibold mb-16">Reviews</h1>
+            <h1 className="text-4xl text-center text-[#001f3f] dark:text-white font-serif mb-16">Reviews</h1>
 
             <div className="flex ">
                 <div className="w-full lg:w-2/3 pr-16">
@@ -190,15 +190,15 @@ export default function Review() {
                     <ReviewList reviews={reviews} />
                     <button
                     onClick={openModal}
-                    className="items-right px-4 py-2 bg-black border text-white rounded-full shadow-md hover:bg-transparent hover:text-black hover:border-black transition-colors duration-300 dark:text-white dark:border-white"
+                    className="items-right px-4 py-2 bg-[#001f3f] border text-white shadow-md hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-colors duration-300 dark:text-white dark:border-white"
                     >
                         See All
                     </button>
                     <ReviewModal reviews={reviews} isOpen={isModalOpen} onClose={closeModal} />
 
                 </div>
-                <div className="w-full lg:w-1/3 bg-white p-6 border rounded-lg shadow-md">
-                    <h2 className="text-2xl font-semibold mb-5 dark:text-black">Write a Review</h2>
+                <div className="w-full lg:w-1/3 bg-white p-6 border shadow-md">
+                    <h2 className="text-2xl mb-5 dark:text-black">Write a Review</h2>
                     <p className="text-gray-500">Want to leave a review for Property Pros?</p>
                     <p className="text-gray-500 mb-5">Feel free to leave your comments or experiences.</p>
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -210,7 +210,7 @@ export default function Review() {
                                 value={newReview.reviewer}
                                 onChange={handleChange}
                                 required
-                                className="bg-white w-full p-3 border rounded-md dark:text-black"
+                                className="bg-white w-full p-3 border dark:text-black"
                             />
                         </div>
                         <div>
@@ -228,10 +228,10 @@ export default function Review() {
                                 onChange={handleChange}
                                 required
                                 rows="6"
-                                className="bg-white w-full p-3 border rounded-md dark:text-black"
+                                className="bg-white w-full p-3 border dark:text-black"
                             ></textarea>
                         </div>
-                        <button type="submit" className="bg-black text-white w-full p-5 rounded-full border hover:bg-transparent hover:text-black hover:border-blue-400 transition-colors duration-300">
+                        <button type="submit" className="bg-[#001f3f] text-white w-full p-5 border hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-colors duration-300">
                             Submit Review
                         </button>
                     </form>

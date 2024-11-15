@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Header from '../header/page'; // Import the Header component
 import SearchBar from "./searchBar";
 import { useState, useEffect } from 'react';
@@ -8,6 +9,30 @@ export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [count, setCount] = useState({ premium: 0, customers: 0, awards: 0 });
   const finalCounts = { premium: 9000, customers: 2000, awards: 20 };
+
+  const sections = [
+    {
+      title: "About Us",
+      image: "/about_us.jpg",
+      url: "/about",
+    },
+    {
+      title: "Living in Calgary",
+      image: "/living_in_calgary.jpg",
+      url: "/living-in-calgary",
+    },
+    {
+      title: "Best Choices",
+      image: "/best_choices.jpg",
+      url: "/listings",
+    },
+    {
+      title: "Get in Touch",
+      image: "/get_in_touch.jpg",
+      url: "/contact",
+    },
+  ];
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,24 +75,20 @@ export default function Home() {
       {/* Content Section with Background Video */}
       <div className="flex justify-center items-center font-serif relative h-screen">
 
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/home-background.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        ></video>
+        <img
+          className="absolute top-0 left-0 mt-2 w-full h-full opacity-95 object-cover"
+          src="/pic1.png"
+        ></img>
 
         {/* Content over the background */}
         <div className="relative flex flex-col items-center justify-center w-full h-full z-10 mt-20">
           <div className="text-white text-6xl text-center">
-            <p className="text-white mt-44">Discover Most Suitable Property</p>
+            <p className="text-white mt-36">Discover Most Suitable Property</p>
           </div>
 
           <SearchBar />
 
-          <div className="flex justify-between text-4xl mt-20 w-full max-w-xs text-white">
+          <div className="flex justify-between text-3xl mt-20 w-full max-w-xs text-white">
             <p className="mr-4">{count.premium.toLocaleString()}+</p>
             <p className="mr-4">{count.customers.toLocaleString()}+</p>
             <p>{count.awards.toLocaleString()}+</p>
@@ -80,78 +101,125 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Video overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 z-0"></div>
+        {/* Dark overlay */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-20 z-0"></div>
       </div>
+
+      <div className="flex flex-col justify-center bg-white text-[#001f3f] min-h-screen space-y-10 mt-16">
+          <div className="overflow-hidden">
+            <p className="text-4xl font-serif text-center mt-32 mb-5">Leaders in prestige property</p>
+            {/*
+            <img
+              src={"/pic2.png"}
+              alt="image"
+              className="w-full h-full mt-10 object-cover px-6"
+            >
+            </img>
+            */}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 p-7">
+              {sections.map((section) => (
+                <Link href={section.url} key={section.title}>
+                  <div className="mt-5 flex flex-col items-center cursor-pointer overflow-hidden group hover:bg-[#001f3f] transition duration-500">
+                    <Image
+                      src={section.image}
+                      alt={section.title}
+                      className="object-cover w-full"
+                      width={300}
+                      height={500}
+                    />
+                    <div className="p-10 flex flex-col items-center">
+                      <h2 className="font-serif text-xl mt-2 w-full mb-1 text-gray-800 group-hover:text-white transition duration-500">
+                        {section.title}
+                      </h2>
+                      {/* Animated Border */}
+                      <div className="w-full h-0.5 bg-transparent group-hover:bg-white transition-all duration-500 mt-1 mb-3">
+                        <div className="h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
+
+          <section className="relative w-full h-screen overflow-hidden">
+            {/* Background Video */}
+            <video
+              className="absolute top-0 left-0 w-full h-full object-cover"
+              src="/home-background-video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+            ></video>
+
+            {/* Dark Overlay */}
+            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+
+            {/* Text Content */}
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+              <h1 className="text-5xl mb-16">Unmatched Expertise <br/>in Property Excellence</h1>
+              <p className="text-lg max-w-xl mb-8">
+                With a legacy of unrivaled experience and local knowledge, Property Pros delivers consistently outstanding results. Our commitment to excellence in prestige property drives tailored strategies and remarkable outcomes for each client.
+              </p>
+            </div>
+          </section>
+        </div>
 
         {/* About Us Section */}
         <div className="flex flex-col justify-center bg-white text-black min-h-screen space-y-10 mt-16">
-          {/* <p className="text-6xl text-center mt-10 mb-10">Why Property Pros?</p> */}
-          {/* First Row: Image on Left, Text on Right */}
-          <div className="flex w-full justify-center items-center">
-            <div className="w-1/2">
-              <img 
-                src={"/home1.jpg"} 
-                alt="Home Image 1" 
-                className="mt-5 rounded-e-full" 
-                style={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.4)" }}
-              />
-            </div>
-            <div className="flex flex-col w-1/2 m-10 text-right">
-              <span className="text-3xl font-bold mt-5">Where Homes Find Owners</span>
-              <div className="my-10 text-lg">
-                <p>
-                  With over 20 years of experience in the real estate industry, Property Pros is dedicated to helping clients navigate the complexities of buying and selling homes. We believe that open communication and transparency are essential in building lasting relationships with our clients, allowing us to deliver exceptional results tailored to their specific goals.
+          <div className="flex w-full justify-between items-center p-7 gap-7">
+            
+            {/* Left Section */}
+            <div className="relative w-1/2 h-[500px] overflow-hidden">
+              <div className="w-full h-full overflow-hidden">
+                <img
+                  src="/home1.jpg"
+                  alt="Home Image 1"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
+              </div>
+              {/* Always visible title */}
+              <div className="absolute top-10 left-10 text-white z-20">
+                <span className="text-4xl font-serif text-shadow">Where Homes Find Owners</span>
+              </div>
+              {/* Hidden content that appears on hover */}
+              <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 hover:opacity-100 transition-opacity duration-500 bg-black bg-opacity-40 hover:bg-opacity-60">
+                <p className="text-lg text-center text-shadow px-20 mb-6">
+                  With over 20 years of experience in the real estate industry, Property Pros is dedicated to helping clients navigate the complexities of buying and selling homes.
                 </p>
-              </div>
-                <div className="flex gap-4 justify-end">
-                  <Link href="/about">
-                    <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
-                      Read More
-                    </button>
-                  </Link>
-                  <Link href="/living-in-calgary">
-                    <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
-                      Living in Calgary
-                    </button>
-                  </Link>
+                <Link href="/about">
+                  <button className="bg-[#001f3f] text-white py-3 px-6 border border-[#001f3f] hover:bg-transparent hover:text-white hover:border-white transition-colors duration-300">
+                    Read More
+                  </button>
+                </Link>
               </div>
             </div>
-          </div>
 
-          {/* Second Row: Text and Buttons on Left, Image on Right */}
-          <div className="flex w-full justify-center items-center">
-            <div className="flex flex-col w-1/2 ml-8 mr-8">
-              <span className="text-3xl font-bold">We're Here for You</span>
-              <div className="my-10 text-lg">
-                <p className="mb-10">
-                  Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape. With a focus on data-driven decision-making, we conduct thorough market analyses and valuations to ensure our clients make informed choices. Whether buying or selling, clients can trust that Property Pros will guide them with integrity, diligence, and a relentless drive for success.
-                </p>
-                <p className="mt-10">
-                  At Property Pros, we are committed to being your trusted partner throughout your real estate journey. With us, you can feel confident that your needs are our top priority, ensuring a seamless and positive experience as you achieve your real estate goals.
-                </p>
+            {/* Right Section */}
+            <div className="relative w-1/2 h-[500px] overflow-hidden">
+              <div className="w-full h-full overflow-hidden">
+                <img
+                  src="/home2.jpg"
+                  alt="Home Image 2"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
               </div>
-              {/* Button Section */}
-              <div className="flex gap-4">
+              {/* Always visible title */}
+              <div className="absolute top-10 left-10 text-white z-20">
+                <span className="text-4xl font-serif text-shadow">We're Here for You</span>
+              </div>
+              {/* Hidden content that appears on hover */}
+              <div className="absolute inset-0 flex flex-col justify-center items-center text-white opacity-0 hover:opacity-100 transition-opacity duration-500 bg-black bg-opacity-40 hover:bg-opacity-60">
+                <p className="text-lg text-center px-20 mb-6">
+                  Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape. Trust us to guide you with integrity and diligence.
+                </p>
                 <Link href="/contact">
-                  <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                  <button className="bg-[#001f3f] text-white py-3 px-6 border border-[#001f3f] hover:bg-transparent hover:text-white hover:border-white transition-colors duration-300">
                     Contact Us
                   </button>
                 </Link>
-                <Link href="/listings">
-                  <button className="bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
-                    Best Properties
-                  </button>
-                </Link>
               </div>
-            </div>
-            <div className="w-1/2">
-              <img
-                src="/home2.jpg"
-                alt="Home Image 2"
-                className="mt-5 rounded-s-full"
-                style={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.4)" }}
-              />
             </div>
           </div>
         </div>

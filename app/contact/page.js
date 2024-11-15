@@ -91,7 +91,7 @@ export default function ContactForm() {
 
       <div className="flex flex-col m-7 md:flex-row justify-center space-y-8 md:space-y-0">
             {/* Section for Homeowners */}
-            <div className="p-6 rounded shadow-lg flex-1 cursor-pointer border border-gray-400 mr-5 hover:border-yellow-200 transition-colors duration-300 group">
+            <div className="p-6 shadow-lg flex-1 cursor-pointer border border-gray-400 mr-5 hover:border-yellow-200 transition-colors duration-300 group">
               <h3 className="text-3xl text-center font-bold mb-4">For Homeowners</h3>
               <hr className="flex border-t-1 border-gray-400 mb-10 group-hover:border-yellow-200 transition-colors duration-300" />
               <p className="text-white text-center text-xl">
@@ -100,7 +100,7 @@ export default function ContactForm() {
             </div>
 
             {/* Section for Tenants */}
-            <div className="p-6 rounded shadow-lg flex-1 cursor-pointer border border-gray-400 mr-5 hover:border-yellow-200 transition-colors duration-300 group">
+            <div className="p-6 shadow-lg flex-1 cursor-pointer border border-gray-400 mr-5 hover:border-yellow-200 transition-colors duration-300 group">
               <h3 className="text-3xl text-center font-bold mb-4">For Tenants</h3>
               <hr className="flex border-t-1 border-gray-400 mb-10 group-hover:border-yellow-200 transition-colors duration-300" />
               <p className="text-white text-center text-xl">
@@ -110,7 +110,7 @@ export default function ContactForm() {
             </div>
 
             {/* Section for Property Managers */}
-            <div className="p-6 rounded shadow-lg flex-1 cursor-pointer border border-gray-400 mr-5 hover:border-yellow-200 transition-colors duration-300 group">
+            <div className="p-6 shadow-lg flex-1 cursor-pointer border border-gray-400 mr-5 hover:border-yellow-200 transition-colors duration-300 group">
               <h3 className="text-3xl text-center font-bold mb-4">For Property Managers</h3>
               <hr className="flex border-t-1 border-gray-400 mb-10 group-hover:border-yellow-200 transition-colors duration-300" />
               <p className="text-white text-center text-xl">
@@ -130,25 +130,25 @@ export default function ContactForm() {
 
       <div className="flex justify-center w-full max-w-6xl mt-6 mb-16 space-x-8 mx-8">
         {/* Phone Number */}
-        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 rounded transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
+        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
           <h1 className="text-white text-shadow text-2xl font-bold mb-10 group-hover:text-black whitespace-nowrap">Voicemail:</h1> 
           <p className="text-xl text-white text-shadow group-hover:text-black whitespace-nowrap">Tel: +1 000 000 0000</p>
         </div>
 
         {/* Email */}
-        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 rounded transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
+        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
           <h1 className="text-white text-shadow text-2xl font-bold mb-10 group-hover:text-black whitespace-nowrap">Email:</h1>
           <p className="text-xl text-white text-shadow group-hover:text-black whitespace-nowrap">propertypros@gmail.com</p>
         </div>
 
         {/* Company Location */}
-        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 rounded transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
+        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
           <h1 className="text-white text-shadow text-2xl font-bold mb-10 group-hover:text-black whitespace-nowrap">Location:</h1>
           <p className="text-xl text-white text-shadow group-hover:text-black whitespace-nowrap">1234 12 Ave SW, Calgary, AB</p>
         </div>
 
         {/* Hours */}
-        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 rounded transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
+        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] p-8 transition-transform transform hover:bg-white hover:bg-opacity-90 hover:scale-105 group flex-grow">
           <h1 className="text-white text-shadow text-2xl font-bold mb-10 group-hover:text-black whitespace-nowrap">Hours:</h1>
           <p className="text-xl text-white text-shadow group-hover:text-black whitespace-nowrap">Mon - Sat: 8AM to 5PM<br/>Sunday: Closed</p>
         </div>
@@ -163,17 +163,17 @@ export default function ContactForm() {
 
         <div className="flex justify-center p-10 w-full max-w-6xl mb-10">
 
-          <div className="p-8 rounded mr-10 shadow-lg max-w-l w-full">
+          <div className="p-8 mr-10 shadow-lg max-w-l w-full">
             {faqs.map((faq, index) => (
               <div key={index} className="mb-4">
                 <button
-                  className="w-full mb-4 text-left text-white border border-gray-400 p-5 text-xl rounded-lg focus:outline-none hover:border-yellow-200 transition-colors duration-300"
+                  className="w-full mb-4 text-left text-white border border-gray-400 p-5 text-xl focus:outline-none hover:border-yellow-200 transition-colors duration-300"
                   onClick={() => setActiveFAQ(activeFAQ === index ? null : index)}
                 >
                   {faq.question}
                 </button>
                 {activeFAQ === index && (
-                  <p className="mb-2 text-white rounded-lg p-4 text-xl">{faq.answer}</p>
+                  <p className="mb-2 text-white p-4 text-xl">{faq.answer}</p>
                 )}
               </div>
             ))}
@@ -188,7 +188,7 @@ export default function ContactForm() {
       </div>
 
       <div className="flex justify-center p-10 w-full max-w-5xl mb-16">
-        <div className="bg-black opacity-90 shadow-[0_4px_20px_rgba(104,104,0,0.3)] mt-5 p-14 rounded-lg shadow-lg max-w-l w-full">
+        <div className="bg-black shadow-[0_4px_20px_rgba(104,104,0,0.3)] mt-5 p-14 shadow-lg max-w-l w-full">
 
           <form onSubmit={handleSubmit}>
             <div className="mb-8 text-black">
@@ -200,7 +200,7 @@ export default function ContactForm() {
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full border bg-white rounded-lg p-2"
+                className="w-full border bg-white p-2"
                 required
               />
             </div>
@@ -214,7 +214,7 @@ export default function ContactForm() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border bg-white rounded-lg p-2"
+                className="w-full border bg-white p-2"
                 required
               />
             </div>
@@ -228,7 +228,7 @@ export default function ContactForm() {
                 id="number"
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
-                className="w-full border bg-white rounded-lg p-2"
+                className="w-full border bg-white p-2"
                 required
               />
             </div>
@@ -241,7 +241,7 @@ export default function ContactForm() {
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full border bg-white rounded-lg p-2"
+                className="w-full border bg-white p-2"
                 rows="4"
                 required
               />
@@ -249,7 +249,7 @@ export default function ContactForm() {
 
             <button
               type="submit"
-              className="text-xl w-full bg-transparent border border-white text-white rounded-lg p-3 mt-5 hover:border-yellow-200 transition-colors duration-300"
+              className="text-xl w-full bg-transparent border border-white text-white p-3 mt-5 hover:border-yellow-200 transition-colors duration-300"
             >
               Submit
             </button>

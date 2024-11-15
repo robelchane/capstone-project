@@ -9,7 +9,7 @@ export default function ReviewModal({ reviews, isOpen, onClose }) {
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white w-full max-w-5xl p-8 rounded-lg shadow-lg relative max-h-[90vh] overflow-hidden">
+            <div className="bg-white w-full max-w-5xl p-8 shadow-lg relative max-h-[90vh] overflow-hidden">
                 {/* Close Button */}
                 <button
                     onClick={onClose}
@@ -22,23 +22,20 @@ export default function ReviewModal({ reviews, isOpen, onClose }) {
                     {/* Left Section: Overall Rating and Category Ratings */}
                     <div className="w-1/3 pr-8">
                         <div className="text-center mb-4">
-                            <span className="text-6xl flex items-center justify-center mb-3">
+                            <span className="text-6xl flex items-center justify-center mt-7 mb-3">
                                     <OverallRating reviews={reviews} />
                             </span>
-                            <span className="mr-2 text-xl">👑</span>
-                            <span className="text-xl font-bold text-gray-700 mt-3">Client Favorite</span>
-                            <span className="ml-2 text-xl">👑</span>
-                            <p className="text-sm text-gray-500 mt-3">
+                            <p className="text-sm text-gray-500 mt-5">
                                 Top 10% agent based on client reviews, ratings, and dependable service.
                             </p>
                         </div>
 
                         {/* Overall Rating Chart */}
-                        <div className="mt-6 space-y-2">
+                        <div className="mt-8 space-y-2">
                             {[5, 4, 3, 2, 1].map(stars => (
                                 <div key={stars} className="flex items-center">
                                     <span className="text-sm text-gray-600 w-5">{stars}</span>
-                                    <div className="flex-1 mx-2 h-2 bg-gray-300 rounded-full overflow-hidden">
+                                    <div className="flex-1 mx-2 h-2 bg-gray-300 overflow-hidden">
                                         <div className="h-2 bg-black" style={{ width: `${stars * 20}%` }}></div>
                                     </div>
                                     <span className="text-sm text-gray-600">{(stars * 0.9).toFixed(1)}</span>
@@ -47,7 +44,7 @@ export default function ReviewModal({ reviews, isOpen, onClose }) {
                         </div>
 
                         {/* Category Ratings with Icons */}
-                        <div className="mt-9 space-y-4 font-bold">
+                        <div className="mt-12 space-y-4 font-bold">
                             {[
                                 { icon: "🏡", category: "Property Condition", rating: 4.9 },
                                 { icon: "📋", category: "Listing Accuracy", rating: 5.0 },
@@ -83,7 +80,7 @@ export default function ReviewModal({ reviews, isOpen, onClose }) {
                         <div className="space-y-6">
                             {filteredReviews.map((review) => (
                                 <div key={review._id} className="flex space-x-4 p-4 border-b border-gray-200">
-                                    <div className="bg-gray-300 w-12 h-12 rounded-full overflow-hidden flex items-center justify-center text-white">
+                                    <div className="bg-gray-300 w-12 h-12 overflow-hidden flex items-center justify-center text-white">
                                         {review.photo ? (
                                             <img src={review.photo} alt={review.reviewer} className="w-full h-full object-cover" />
                                         ) : (

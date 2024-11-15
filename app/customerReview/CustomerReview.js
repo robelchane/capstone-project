@@ -62,13 +62,13 @@ export default function CustomerReview() {
 
   return (
     <div className="flex flex-col justify-center items-center mt-20">
-      <p className="text-yellow-700 text-2xl font-bold">Proven Results</p>
-      <span className="text-3xl font-bold mt-1 text-center text-black w-full">Client Testimonials</span>
+      <p className="text-[#001f3f] text-2xl font-serif">Proven Results</p>
+      <span className="text-4xl font-serif text-center text-[#001f3f] w-full">Client Testimonials</span>
       
       <div className="flex justify-center items-center w-full max-w-7xl relative overflow-hidden" style={{ height: "700px" }}>
         <button
           onClick={goToPreviousReview}
-          className="absolute left-0 bg-black text-white px-3 py-1 border border-white rounded-full hover:bg-white hover:text-black hover:border-black transition-color duration-300 focus:outline-none"
+          className="absolute left-0 bg-[#001f3f] text-white px-3 py-1 border border-[#001f3f] hover:bg-white hover:text-[#001f3f] hover:border-[#001f3f] transition-color duration-300 focus:outline-none"
           style={{ top: "50%", transform: "translateY(-50%)", zIndex: 10 }}
         >
           {"<"}
@@ -88,26 +88,25 @@ export default function CustomerReview() {
             }}
             className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
           >
-            <div className="w-1/2 p-12">
-              <p className="text-2xl font-semibold text-black text-right">
+            <div className="w-1/2 gap-10">
+              <p className="text-2xl font-serif text-[#001f3f] text-right">
                 {reviews[currentIndex].name}
               </p>
               <p className="text-right mt-1 text-gray-500 mb-16">{reviews[currentIndex].job}</p>
-              <p className="text-xl text-gray-800 text-right">{reviews[currentIndex].review}</p>
+              <p className="font-medium text-gray-800 text-right ml-32">{reviews[currentIndex].review}</p>
               <div className="flex flex-col items-end gap-4">
                 <Link href="/review">
-                  <button className="mt-16 bg-black rounded-full text-white py-3 px-6 border border-white hover:bg-transparent hover:text-black hover:border-black z-10 transition-colors duration-300">
+                  <button className="mt-16 bg-[#001f3f] text-white py-3 px-5 border border-[#001f3f] hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] z-10 transition-colors duration-300">
                     What Our Clients Say
                   </button>
                 </Link>
               </div>
             </div>
-            <div className="w-1/2 h-full p-12 overflow-hidden">
+            <div className="w-1/2 h-full p-24 overflow-hidden">
               <img
                 src={reviews[currentIndex].image}
                 alt="Client Testimonials Image"
-                className="shadow-lg w-full h-full rounded-lg object-cover"
-                style={{ boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.4)" }}
+                className="shadow-lg w-full h-full object-cover"
               />
             </div>
           </motion.div>
@@ -115,7 +114,7 @@ export default function CustomerReview() {
 
         <button
           onClick={goToNextReview}
-          className="absolute right-0 bg-black text-white px-3 py-1 border border-white rounded-full hover:bg-white hover:text-black hover:border-black transition-color duration-300 focus:outline-none"
+          className="absolute right-0 bg-[#001f3f] text-white px-3 py-1 border border-[#001f3f] hover:bg-white hover:text-[#001f3f] hover:border-[#001f3f] transition-color duration-300 focus:outline-none"
           style={{ top: "50%", transform: "translateY(-50%)", zIndex: 10 }}
         >
           {">"}
