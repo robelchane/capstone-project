@@ -42,7 +42,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <div className="flex flex-col w-[250px] border-r-2 border-gray-800 h-screen mt-3">
+        <div className="flex flex-col mt-1 w-[250px] border-r border-gray-300 h-screen">
             <Command className="flex-grow">
                 <CommandList>
                     {menuList.map((menu, menuKey) => (

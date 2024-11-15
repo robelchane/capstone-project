@@ -1,4 +1,6 @@
 "use client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGem } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ThemeToggle from "../home/ThemeToggle";
@@ -60,18 +62,19 @@ export default function Header() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 p-4 bg-black bg-opacity-90">
-      <div className="flex justify-between text-xl font-serif text-white">
+      className="fixed top-0 left-0 right-0 z-50 px-7 py-3 bg-white text-black border-b border-gray-300">
+      <div className="flex justify-between text-xl font-serif">
         <div className="flex items-center m-2">
           <Link href="/">
-            <img
+            {/* <img
               src="/logo.png"
               alt="Logo"
               className="w-12 h-12 mr-4 cursor-pointer"
-            />
+            /> */}
+            <FontAwesomeIcon icon={faGem} className="w-6 h-6 mr-4 mt-1 cursor-pointer" />
           </Link>
           <Link href="/">
-            <p className="font-extrabold text-white text-4xl text-shadow bg-clip-text tracking-widest uppercase">
+            <p className="font-extrabold text-3xl bg-clip-text tracking-widest uppercase">
               Property Pros
             </p>
           </Link>
@@ -83,7 +86,7 @@ export default function Header() {
           {/* Properties Dropdown Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <p className="cursor-pointer text-white text-xl font-medium transition-transform duration-300 hover:scale-105">
+              <p className="cursor-pointer text-xl font-medium transition-transform duration-300 hover:scale-105">
                 Properties
               </p>
             </DropdownMenuTrigger>
@@ -118,7 +121,7 @@ export default function Header() {
           {/* Discover Dropdown Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger>
-              <p className="cursor-pointer text-white text-xl font-medium transition-transform duration-300 hover:scale-105">
+              <p className="cursor-pointer text-xl font-medium transition-transform duration-300 hover:scale-105">
                 Discover
               </p>
             </DropdownMenuTrigger>

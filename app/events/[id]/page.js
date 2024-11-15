@@ -115,18 +115,18 @@ export default function EventDetailPage() {
 
     return (
         <div
-            className="relative h-screen w-full bg-cover bg-center text-white mt-24"
+            className="relative h-screen w-full bg-cover bg-center text-white mt-20"
             style={{ backgroundImage: `url(${eventData.imageUrl})` }}
         >
             <div className="absolute inset-0 bg-black opacity-60"></div>
             
-            <h1 className="absolute top-1 right-10 text-6xl mt-20">{eventData.name}</h1>
+            <h1 className="absolute top-1 right-10 text-6xl font-serif mt-20">{eventData.name}</h1>
     
-            <p className="absolute bottom-48 left-10 text-2xl max-w-4xl text-gray-300">
+            <p className="absolute bottom-48 left-10 text-2xl max-w-4xl text-gray-200">
                 {eventData.description}
             </p>
             <button
-                className="absolute bottom-32 right-10 bg-black text-white text-xl py-5 px-6 rounded-full border border-white hover:bg-transparent hover:text-white hover:border-white z-10 transition-colors duration-300"
+                className="absolute bottom-32 right-10 bg-[#001f3f] text-white text-xl py-4 px-5 border border-[#001f3f] hover:bg-transparent hover:text-white hover:border-white z-10 transition-colors duration-300"
                 onClick={() => router.push('/bookings')}
             >
                 Book an appointment

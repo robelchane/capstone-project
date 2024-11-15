@@ -29,8 +29,8 @@ export default function Map() {
           <Marker position={[item.latitude, item.longitude]} icon={customMarker} key={item.id}>
             <Popup>
               <div>
-                <img src={item.image} alt="" className="w-full h-32 object-cover rounded-lg" />
-                <h3 className="text-xl font-bold text-gray-900">{item.name}</h3>
+                <img src={item.image} alt="" className="w-full h-32 object-cover" />
+                <h3 className="text-xl font-bold text-[#001f3f]">{item.name}</h3>
                 <h4 className="text-sm text-gray-500">${item.price}</h4>
               </div>
             </Popup>
