@@ -5,6 +5,7 @@ import { useState } from "react";
 import data from "../../../public/residenciesData.json";
 import Map from "../../map/page.js";
 import ContactOwner from "../../contactowner/page.js";
+import MortgageCalculator from "../../mortgage-calculator/page";
 
 export default function PropertyPage({ params }) {
   // Finds the property with the id that matches the id in the params
@@ -125,6 +126,9 @@ export default function PropertyPage({ params }) {
       </div>
 
       {/*Import Mortgage calculator*/ }
+      <div>
+        <MortgageCalculator property={property} />
+      </div>
     </main>
   );
 }
