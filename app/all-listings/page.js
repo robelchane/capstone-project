@@ -29,14 +29,30 @@ export default function AllListings() {
   const [savedProperties, setSavedProperties] = useState(new Set());
 
   const toggleSaveProperty = (property) => {
-    console.log("Heat icon clicked, Heres your property:", property);
+    console.log("Heart icon clicked, Here's your property:", property);
     setSavedProperties((prevSaved) => {
-      const updated = new Set(preSaved);
-
-      //check if the property is already saved
-      const propertyExists = [...updated].some
+      const updated = new Set(prevSaved);
+  
+      const propertyExists = [...updated].some(
+        (savedProperty) => savedProperty._id === property._id
+      );
+  
+      if (propertyExists) {
+        updated.delete(
+          [...updated].find((savedProperty) => savedProperty._id === property._id)
+        );
+        console.log("Property removed from saved properties");
+      } else {
+        updated.add(property);
+        console.log("Property added to saved properties");
+      }
+  
+      localStorage.setItem("savedProperties", JSON.stringify([...updated]));
+  
+      return updated;
     });
   };
+  
 
   const fetchProperties = async () => {
     setLoading(true);
@@ -56,10 +72,7 @@ export default function AllListings() {
     fetchProperties();
   }, []);
 
-  useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("savedProperties")) || [];
-    setSavedProperties(new Set(saved));
-  }, []);
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -176,7 +189,7 @@ export default function AllListings() {
           </a>
         </p>
         <button
-          onClick={() => toggleSaveProperty(property._id)}
+          onClick={() => toggleSaveProperty(property)}
           className={`text-xl ${
             savedProperties.has(property._id) ? "text-red-500" : "text-gray-500"
           }`}
