@@ -24,22 +24,22 @@ export default function Value() {
   return (
     <main className="overflow-y-auto text-black" id="value">
       <div className="flex flex-col items-center">
-        <p className="text-4xl font-serif text-[#001f3f] text-center mt-20 mb-8">Value We Give to You</p>
+        <p className="text-4xl font-serif text-[#001f3f] text-center mt-20 mb-10">Value We Give to You</p>
       </div>
 
       {/* Content Section */}
       <div className="flex justify-center font-serif m-10 gap-10">
-        <div className="relative w-3/5">
+        <div className="relative w-1/2">
           <img
             ref={imageRef}
             src={"/pic2.png"}
             alt="Our Value"
             className="absolute top-0 left-0 w-full h-full object-cover"
-            style={{ pointerEvents: "none" }} // Prevent interaction with the image
+            style={{ pointerEvents: "none" }}
           />
         </div>
 
-        <div className="flex flex-col w-2/5" style={{ height: fixedHeight }}>
+        <div className="flex flex-col w-1/2" style={{ height: fixedHeight }}>
 
           {/* Dropdown 1 */}
           <div
@@ -55,7 +55,7 @@ export default function Value() {
                 </p>
               </div>
             ) : (
-              <h2 className="text-2xl py-10">Best interest rates on the market</h2>
+              <h2 className="text-2xl py-10 italic">Best interest rates on the market</h2>
             )}
           </div>
 
@@ -73,7 +73,7 @@ export default function Value() {
                 </p>
               </div>
             ) : (
-              <h2 className="text-2xl py-10">Easy and flexible payments</h2>
+              <h2 className="text-2xl py-10 italic">Easy and flexible payments</h2>
             )}
           </div>
 
@@ -91,7 +91,7 @@ export default function Value() {
                 </p>
               </div>
             ) : (
-              <h2 className="text-2xl py-10">Premium customer support</h2>
+              <h2 className="text-2xl py-10 italic">Premium customer support</h2>
             )}
           </div>
         </div>

@@ -9,9 +9,9 @@ export default function Residencies() {
   return (
     <main className="overflow-y-auto text-black" id="residencies">
       {/* Container */}
-      <div className="py-16 px-8 relative">
+      <div className="py-10 px-8 relative">
         {/* Header */}
-        <div className="flex flex-col items-center mb-10">
+        <div className="flex flex-col items-center mb-16">
           <p className="text-[#001f3f] text-4xl font-serif text-center"> Best Choices</p>
         </div>
 
