@@ -62,7 +62,7 @@ export default function MortgageCalculator() {
 
     const start = new Date(startDate);
     const payoffDate = new Date(start);
-    payoffDate.setFullYear(payoffDate.getFullYear() + loanTerm);
+    payoffDate.setFullYear(payoffDate.getFullYear() + parseInt(loanTerm)); // Adding loan term to the start year
     setLoanPayOffDate(payoffDate.toLocaleDateString());
   };
 
@@ -72,8 +72,6 @@ export default function MortgageCalculator() {
 
   return (
     <div className="flex flex-col items-center p-8 max-w-6xl mx-auto mt-20">
-      {/* <h2 className="text-2xl font-bold mb-6 text-center">Your Mortgage Payment Information</h2> */}
-      
       <div className="w-full border-b border-gray-300 pb-6 mb-6">
         <h3 className="text-2xl text-[#001f3f] font-serif mb-8 mt-5 text-left">Mortgage Calculator</h3>
         {error && <p className="text-red-500 mb-4">{error}</p>}
