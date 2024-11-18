@@ -165,7 +165,7 @@ export default function AllListings() {
                 <span style={{ color: "#001f3f" }}>$</span>
                 {property.price}
               </p>
-              <p className="text-gray-600 dark:text-white">{property.summary}</p>
+              <p className="text-gray-600 dark:text-white">{property.detail}</p>
               <p className="text-sm text-gray-500 dark:text-white">{property.address}</p>
               <div className="flex items-center mt-2">
                 <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
