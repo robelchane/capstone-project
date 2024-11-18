@@ -108,14 +108,6 @@ export default function Home() {
       <div className="flex flex-col justify-center bg-white text-[#001f3f] min-h-screen space-y-10 mt-16">
           <div className="overflow-hidden">
             <p className="text-4xl font-serif text-center mt-32 mb-5">Leaders in prestige property</p>
-            {/*
-            <img
-              src={"/pic2.png"}
-              alt="image"
-              className="w-full h-full mt-10 object-cover px-6"
-            >
-            </img>
-            */}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 p-7">
               {sections.map((section) => (

@@ -9,7 +9,7 @@ export default function EventsPage() {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        setShowConfirmation(true); // 클릭 시 감사 메시지 표시
+        setShowConfirmation(true);
     };
 
     const [events] = useState([
@@ -108,7 +108,7 @@ export default function EventsPage() {
     return (
         <div className="font-roboto">
             <div className="mt-32 text-center max-w-3xl mx-auto">
-                <h1 className="text-5xl font-serif text-[#001f3f] mb-5">Events</h1>
+                <h1 className="italic text-5xl font-serif text-[#001f3f] mb-5">Events</h1>
                 <p className="text-xl font-serif">
                     Be part of something special. Our events bring people together to celebrate, connect, and make meaningful memories. Join us for exclusive experiences you won’t want to miss.
                 </p>
