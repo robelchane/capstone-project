@@ -12,7 +12,8 @@ export default function Page() {
       <Home />
       <Residencies />
       <Value />
-      <CustomerReview />     
+      <CustomerReview />
+      <ContactUs />     
     </main>
   );
 }
