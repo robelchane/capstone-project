@@ -18,7 +18,7 @@ export default function ContactUs() {
                     We are the premier property management company in and around Calgary.
                     We guarantee results for our clients.
                 </p>
-                <p className="text-xl mb-10">
+                <p className="text-lg mb-10">
                     Contact us today for all your property management needs, not just home buying or selling.
                 </p>
                 <button

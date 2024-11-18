@@ -68,8 +68,8 @@ const About = () => {
         </p>
         <div className="flex gap-4 mb-48">
           <Link href="/living-in-calgary">
-            <button className="px-5 py-3 bg-black text-white text-xl border border-black hover:bg-transparent hover:text-white hover:border-white z-10 transition-colors duration-300">
-              Living In Calgary
+            <button className="px-5 py-3 bg-transparent text-white text-xl border border-white hover:border-yellow-200 transition-colors duration-300">
+              Read More
             </button>
           </Link>
         </div>
@@ -91,12 +91,12 @@ const About = () => {
               </p>
               <div className="flex gap-4 mt-10">
                 <Link href="/seller">
-                  <button className="mr-5 border border-white px-6 py-2 bg-transparent text-white text-xl hover:border-red-400 transition-colors duration-300">
+                  <button className="mr-5 border border-white px-6 py-2 bg-transparent text-white text-xl hover:border-yellow-200 transition-colors duration-300">
                     Seller Form
                   </button>
                 </Link>
                 <Link href="/contact">
-                  <button className="border border-white px-6 py-2 bg-transparent text-white text-xl hover:border-red-400 transition-colors duration-300">
+                  <button className="border border-white px-6 py-2 bg-transparent text-white text-xl hover:border-yellow-200 transition-colors duration-300">
                     Get In Touch
                   </button>
                 </Link>
@@ -120,12 +120,12 @@ const About = () => {
               </p>
               <div className="flex gap-4 mt-10">
                 <Link href="/contact">
-                  <button className="mr-5 px-6 py-2 border border-white bg-transparent text-white text-xl hover:border-blue-400 transition-colors duration-300">
+                  <button className="mr-5 px-6 py-2 border border-white bg-transparent text-white text-xl hover:border-yellow-200 transition-colors duration-300">
                     Get In Touch
                   </button>
                 </Link>
                 <Link href="/listings">
-                  <button className="px-6 py-2 border border-white bg-transparent text-white text-xl hover:border-blue-400 transition-colors duration-300">
+                  <button className="px-6 py-2 border border-white bg-transparent text-white text-xl hover:border-yellow-200 transition-colors duration-300">
                     Explore Property
                   </button>
                 </Link>

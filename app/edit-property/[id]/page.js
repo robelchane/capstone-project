@@ -89,17 +89,9 @@ export default function EditProperty() {
   if (error) return <p>{error}</p>;
 
   return (
-    <main
-      className="flex flex-col items-center" 
-      style={{ 
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/sellerbackground.jpg')", 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-    }}
-    >   
-    <div className="bg-white rounded-lg shadow-lg py-8 px-4 mt-28 max-w-4xl w-full">
-      <h2 className="w-full flex justify-center text-3xl font-bold bg-blue-400 text-white border border-gray-300 mb-4 p-2">
+    <main className="flex flex-col items-center">
+    <div className="py-8 px-4 mt-24 max-w-4xl w-full">
+      <h2 className="text-center text-[#001f3f] text-4xl font-serif mb-8">
         Edit Property</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -109,7 +101,7 @@ export default function EditProperty() {
             id="name"
             name="name"
             defaultValue={property.name}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -120,7 +112,7 @@ export default function EditProperty() {
             id="price"
             name="price"
             defaultValue={property.price}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -131,7 +123,7 @@ export default function EditProperty() {
             id="bedrooms"
             name="bedrooms"
             defaultValue={property.bedrooms}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -142,7 +134,7 @@ export default function EditProperty() {
             id="bathrooms"
             name="bathrooms"
             defaultValue={property.bathrooms}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -153,7 +145,7 @@ export default function EditProperty() {
             id="address"
             name="address"
             defaultValue={property.address}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -164,7 +156,7 @@ export default function EditProperty() {
             id="sellerName"
             name="sellerName"
             defaultValue={property.sellerName}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -175,7 +167,7 @@ export default function EditProperty() {
             id="sellerEmail"
             name="sellerEmail"
             defaultValue={property.sellerEmail}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>                         
@@ -185,7 +177,7 @@ export default function EditProperty() {
             id="summary"
             name="summary"
             defaultValue={property.summary}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           ></textarea>
         </div>
@@ -197,7 +189,7 @@ export default function EditProperty() {
             id="squareFootage"
             name="squareFootage"
             defaultValue={property.squareFootage}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -208,7 +200,7 @@ export default function EditProperty() {
             id="yearBuilt"
             name="yearBuilt"
             defaultValue={property.yearBuilt}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -218,7 +210,7 @@ export default function EditProperty() {
             id="propertyType"
             name="propertyType"
             defaultValue={property.propertyType}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           >
             <option value="House">House</option>
@@ -234,7 +226,7 @@ export default function EditProperty() {
             id="status"
             name="status"
             defaultValue={property.status}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           >
             <option value="Available">Available</option>
@@ -249,7 +241,7 @@ export default function EditProperty() {
             id="parkingSpaces"
             name="parkingSpaces"
             defaultValue={property.parkingSpaces}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -260,7 +252,7 @@ export default function EditProperty() {
             id="lotSize"
             name="lotSize"
             defaultValue={property.lotSize}
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
             required
           />
         </div>
@@ -271,14 +263,14 @@ export default function EditProperty() {
             id="image"
             name="image"
             accept="image/*"
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border bg-white"
           />
         </div>
 
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-5">
           <button
             type="submit"
-            className="bg-blue-500 text-white p-2 rounded-lg w-1/3"
+            className="bg-[#001f3f] text-white border border-[#001f3f] hover:bg-transparent hover:text-[#001f3f] transition-colors duration-300 px-5 py-2 mt-10 mb-10"
           >
             Save Changes
           </button>
