@@ -65,3 +65,22 @@ export async function DELETE(request) {
   
   return NextResponse.json({ message: "Property Deleted" }, { status: 200 });
 }
+
+// PUT request to update a property by ID
+export async function PUT(request) {
+  const id = request.nextUrl.searchParams.get("id");
+  const updatedData = await request.json();
+
+  await connectMongoDB();
+
+  const property = await Property.findById(id);
+
+  if (!property) {
+    return NextResponse.json({ message: "Property not found" }, { status: 404 });
+  }
+
+  Object.assign(property, updatedData); // Update with new data
+  await property.save();
+
+  return NextResponse.json({ message: "Property Updated", property }, { status: 200 });
+}
