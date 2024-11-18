@@ -10,7 +10,7 @@ export default function MortgageCalculator() {
   const [mortgageAmount, setMortgageAmount] = useState();
   const [downPayment, setDownPayment] = useState();
   const [interestRate, setInterestRate] = useState();
-  const [loanTerm, setLoanTerm] = useState(30);
+  const [loanTerm, setLoanTerm] = useState(25);
   const [startDate, setStartDate] = useState("");
   const [paymentFrequency, setPaymentFrequency] = useState("monthly");
   const [monthlyPayment, setMonthlyPayment] = useState(0);
