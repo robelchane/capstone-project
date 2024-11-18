@@ -62,8 +62,7 @@ export default function CustomerReview() {
 
   return (
     <div className="flex flex-col justify-center items-center mt-20">
-      <p className="text-[#001f3f] text-2xl font-serif">Proven Results</p>
-      <span className="text-4xl font-serif text-center text-[#001f3f] w-full">Client Testimonials</span>
+      <p className="text-4xl font-serif text-center text-[#001f3f] w-full">Client Testimonials</p>
       
       <div className="flex justify-center items-center w-full max-w-7xl relative overflow-hidden" style={{ height: "700px" }}>
         <button
