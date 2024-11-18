@@ -93,7 +93,7 @@ export default function AllListings() {
               placeholder="Min Price"
               value={filters.minPrice}
               onChange={handleChange}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-white"
             />
           </div>
           <div>
@@ -103,7 +103,7 @@ export default function AllListings() {
               placeholder="Max Price"
               value={filters.maxPrice}
               onChange={handleChange}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-white"
             />
           </div>
           <div>
@@ -113,7 +113,7 @@ export default function AllListings() {
               placeholder="Bedrooms"
               value={filters.bedrooms}
               onChange={handleChange}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-white"
             />
           </div>
           <div>
@@ -123,7 +123,7 @@ export default function AllListings() {
               placeholder="Bathrooms"
               value={filters.bathrooms}
               onChange={handleChange}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-white"
             />
           </div>
           <div>
@@ -133,7 +133,7 @@ export default function AllListings() {
               placeholder="Enter address..."
               value={filters.address}
               onChange={handleChange}
-              className="border p-2 w-full"
+              className="border p-2 w-full bg-white"
             />
           </div>
           <div className="col-span-5 flex justify-center items-center">
