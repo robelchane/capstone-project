@@ -31,9 +31,10 @@ export default function PropertyPage({ params }) {
       {/* Main Content Section */}
       <div className="w-2/3 pr-8">
         <h1 className="text-4xl font-bold text-center">{property.name}</h1>
+
+        {/* **NEED TO FIX ERROR HERE **       
         <img src={currentImage} alt={property.name} className="w-full h-auto mt-10 rounded-lg" />
 
-        {/* Image Gallery */}
         {property.sliderImages && property.sliderImages.length > 0 ? (
           <div className="flex gap-4 justify-center mt-6">
             {property.sliderImages.map((image, index) => (
@@ -49,6 +50,7 @@ export default function PropertyPage({ params }) {
         ) : (
           <p className="mt-4 text-center">No additional images available.</p>
         )}
+        */}
 
         {/* Property Information */}
         <div className="mt-6">

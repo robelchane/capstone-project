@@ -67,7 +67,7 @@ export default function PropertyDetail({ params }) {
             </div>
 
             {/* Center Section */}
-            <div className="bg-white p-6 w-2/5 ml-52">
+            <div className="bg-white p-6 w-2/5 ml-44">
               <h2 className="text-2xl text-[#001f3f] font-serif mb-4">Seller Info</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Seller Name:</p>
@@ -80,12 +80,12 @@ export default function PropertyDetail({ params }) {
                   {property.sellerEmail}
                 </a>
               </div>
-              <h2 className="text-2xl text-[#001f3f] font-serif mt-24 mb-4">{property.detail}</h2>
+              <h2 className="text-2xl text-[#001f3f] font-serif mt-10 mb-4">{property.detail}</h2>
               <p className="text-base text-gray-700 mt-4">{property.summary}</p>
             </div>
 
             {/* Right Section */}
-            <div className="bg-white p-6 w-2/5">
+            <div className="bg-white p-6 w-2/5 ml-12">
               <h2 className="text-2xl text-[#001f3f] font-serif mb-4">Summary</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Property Type:</p>

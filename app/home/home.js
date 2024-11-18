@@ -108,14 +108,6 @@ export default function Home() {
       <div className="flex flex-col justify-center bg-white text-[#001f3f] min-h-screen space-y-10 mt-16">
           <div className="overflow-hidden">
             <p className="text-4xl font-serif text-center mt-32 mb-5">Leaders in prestige property</p>
-            {/*
-            <img
-              src={"/pic2.png"}
-              alt="image"
-              className="w-full h-full mt-10 object-cover px-6"
-            >
-            </img>
-            */}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 p-7">
               {sections.map((section) => (
@@ -214,9 +206,9 @@ export default function Home() {
                 <p className="text-lg text-center px-20 mb-6">
                   Our team's extensive knowledge and expertise set us apart in the competitive real estate landscape. Trust us to guide you with integrity and diligence.
                 </p>
-                <Link href="/contact">
+                <Link href="/all-listings">
                   <button className="bg-[#001f3f] text-white py-3 px-6 border border-[#001f3f] hover:bg-transparent hover:text-white hover:border-white transition-colors duration-300">
-                    Contact Us
+                    Explore
                   </button>
                 </Link>
               </div>
