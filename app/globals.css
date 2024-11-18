@@ -28,6 +28,13 @@ html{
     text-wrap: balance;
   }
 }
+.light .placeholder-bg{
+  background-color: white;
+}
+
+.dark .placeholder-bg{
+  background-color: transparent;
+}
 
 .text-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
