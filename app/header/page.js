@@ -79,9 +79,7 @@ export default function Header() {
             </p>
           </Link>
         </div>
-        <div className=" flex justify-between">
-         <ThemeToggle />
-        </div>
+        
         <div className="flex gap-10 m-2">
           {/* Properties Dropdown Menu */}
           <DropdownMenu>
