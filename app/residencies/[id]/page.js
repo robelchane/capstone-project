@@ -27,9 +27,10 @@ export default function PropertyPage({ params }) {
   };
 
   return (
-    <main className="text-black p-8 flex mt-24">
+    <main className="text-black p-16 flex mt-24">
       {/* Main Content Section */}
-      <div className="w-2/3 pr-8">
+      <div className="flex">
+       <div className="w-1/2 mr-16">
         <h1 className="text-4xl font-bold text-center">{property.name}</h1>
 
         {/* **NEED TO FIX ERROR HERE **       
@@ -66,18 +67,15 @@ export default function PropertyPage({ params }) {
           <p>{property.summary}</p>
         </div>
 
+        <ContactOwner property={property}  />
+      </div>
+
         {/* Map Section */}
-        <div className="my-8">
-          <h2 className="text-2xl font-semibold">Location</h2>
-          <div className="h-64 rounded-lg overflow-hidden">
+        <div className="w-1/2">
+          <div className="w-full h-full rounded-lg overflow-hidden">
             <Map lat={property.latitude} lng={property.longitude} />
           </div>
         </div>
-      </div>
-
-      {/* Contact Section */}
-      <div className="mt-20 w-1/3 bg-gray-100 p-6 rounded-lg h-full">
-      <ContactOwner property={property}  />
       </div>
     </main>
   );

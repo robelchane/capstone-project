@@ -1,9 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBed, faBath } from "@fortawesome/free-solid-svg-icons";
 
 export default function PropertyDetail({ params }) {
+
+  const router = useRouter();
+
+  const handleButtonClick = () => {
+      router.push('/contact');
+    };
+
   const { id } = params;
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -61,7 +69,10 @@ export default function PropertyDetail({ params }) {
               </div>
               <p className="text-black font-bold mb-1">For Sale</p>
               <p className="text-black">${property.price}</p>
-              <button className="bg-[#001f3f] text-white px-4 py-2 border border-[#001f3f] mt-4 hover:bg-transparent hover:text-[#001f3f] transition-colors duration-300">
+              <button 
+                onClick={handleButtonClick}
+                className="bg-[#001f3f] text-white px-4 py-2 border border-[#001f3f] mt-4 hover:bg-transparent hover:text-[#001f3f] transition-colors duration-300"
+              >
                 Enquire Now
               </button>
             </div>
