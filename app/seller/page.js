@@ -178,7 +178,7 @@ export default function Seller() {
             />
             <input
               name="image"
-              type="text"
+              type="file"
               placeholder="Image File Name (e.g., image1.jpg)"
               value={propertyData.image}
               onChange={handleChange}
