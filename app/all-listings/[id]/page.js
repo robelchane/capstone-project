@@ -65,7 +65,7 @@ export default function PropertyDetail({ params }) {
           <div className="flex bg-white justify-between mt-5 px-5 gap-6 mb-16">
             {/* Left Section */}
             <div className="bg-white p-6 flex flex-col items-left w-1/3">
-              <p className="text-3xl text-[#001f3f] font-serif mb-5">{property.address}</p>
+              <p className="text-3xl text-black font-serif mb-5">{property.address}</p>
               <div className="flex items-center mt-2">
                 <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
                 <span>{property.bedrooms} Bedrooms</span>
