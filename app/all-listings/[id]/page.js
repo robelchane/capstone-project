@@ -1,3 +1,8 @@
+// Reference
+// https://webdev2.warsylewicz.ca/week-8/fetching-data
+// https://www.mongodb.com/docs/manual/reference/operator/query/
+// https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
+
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
@@ -59,16 +64,17 @@ export default function PropertyDetail({ params }) {
           {/* 3 Sections Below Image */}
           <div className="flex bg-white justify-between mt-5 px-5 gap-6 mb-16">
             {/* Left Section */}
-            <div className="bg-white p-6 flex flex-col items-left w-1/5">
-              <p className="text-3xl text-[#001f3f] font-serif mb-5">{property.address}</p>
-              <div className="flex items-center gap-4 mb-4">
-                <FontAwesomeIcon icon={faBed} className="text-black" />
-                <p className="text-black">{property.bedrooms}</p>
-                <FontAwesomeIcon icon={faBath} className="text-black ml-4" />
-                <p className="text-black">{property.bathrooms}</p>
+            <div className="bg-white p-6 flex flex-col items-left w-1/3">
+              <p className="text-3xl text-black font-serif mb-5">{property.address}</p>
+              <div className="flex items-center mt-2 text-base">
+                <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
+                <span>{property.bedrooms} Bedrooms</span>
+                <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
+                <span>{property.bathrooms} Bathrooms</span>
               </div>
-              <p className="text-black font-bold mb-1">For Sale</p>
-              <p className="text-black">${property.price}</p>
+              <hr className="my-4 border-t-2 border-gray-500" />
+              <p className="text-xl font-bold mb-2">For Sale</p>
+              <p className="text-black text-2xl">${property.price}</p>
               <button 
                 onClick={handleButtonClick}
                 className="bg-[#001f3f] text-white px-4 py-2 border border-[#001f3f] mt-4 hover:bg-transparent hover:text-[#001f3f] transition-colors duration-300"
@@ -78,8 +84,8 @@ export default function PropertyDetail({ params }) {
             </div>
 
             {/* Center Section */}
-            <div className="bg-white p-6 w-2/5 ml-44">
-              <h2 className="text-2xl text-[#001f3f] font-serif mb-4">Seller Info</h2>
+            <div className="bg-white p-6 w-2/5 ml-10">
+              <h2 className="text-2xl text-black font-serif mb-4">Seller Info</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Seller Name:</p>
                 <p className="text-black">{property.sellerName}</p>
@@ -91,13 +97,16 @@ export default function PropertyDetail({ params }) {
                   {property.sellerEmail}
                 </a>
               </div>
-              <h2 className="text-2xl text-[#001f3f] font-serif mt-10 mb-4">{property.detail}</h2>
+              <hr className="my-4 border-t-2 border-gray-500" />
+              <h2 className="text-2xl text-black font-serif mt-5">Property Summary</h2>
+              <h2 className="text-lg text-[#001f3f] font-serif my-4">{property.detail}</h2>
               <p className="text-base text-gray-700 mt-4">{property.summary}</p>
             </div>
+            
 
             {/* Right Section */}
             <div className="bg-white p-6 w-2/5 ml-12">
-              <h2 className="text-2xl text-[#001f3f] font-serif mb-4">Summary</h2>
+              <h2 className="text-2xl text-black font-serif mb-4">Property Details</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Property Type:</p>
                 <p className="text-black">{property.propertyType}</p>
