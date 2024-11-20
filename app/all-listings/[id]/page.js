@@ -72,7 +72,7 @@ export default function PropertyDetail({ params }) {
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
-              <p className="text-lg font-bold m-3">For Sale</p>
+              <p className="text-xl font-bold m-3">For Sale</p>
               <p className="text-black text-2xl">${property.price}</p>
               <button 
                 onClick={handleButtonClick}
