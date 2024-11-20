@@ -72,8 +72,8 @@ export default function PropertyDetail({ params }) {
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
-              <p className="text-black font-bold mb-1">For Sale</p>
-              <p className="text-black">${property.price}</p>
+              <p className="text-black font-bold m-3">For Sale</p>
+              <p className="text-black text-2xl">${property.price}</p>
               <button 
                 onClick={handleButtonClick}
                 className="bg-[#001f3f] text-white px-4 py-2 border border-[#001f3f] mt-4 hover:bg-transparent hover:text-[#001f3f] transition-colors duration-300"
