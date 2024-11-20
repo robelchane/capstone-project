@@ -96,7 +96,7 @@ export default function PropertyDetail({ params }) {
                   {property.sellerEmail}
                 </a>
               </div>
-              <hr className="my-4 border-t-2 border-gray-300" />
+              <hr className="my-4 border-t-2 border-black" />
               <h2 className="text-2xl text-black font-serif mt-5">Property Summary</h2>
               <h2 className="text-lg text-[#001f3f] font-serif my-4">{property.detail}</h2>
               <p className="text-base text-gray-700 mt-4">{property.summary}</p>
