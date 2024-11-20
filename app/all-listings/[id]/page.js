@@ -105,7 +105,7 @@ export default function PropertyDetail({ params }) {
 
             {/* Right Section */}
             <div className="bg-white p-6 w-2/5 ml-12">
-              <hr className="text-2xl text-black font-serif mb-4">Property Details</hr>
+              <h2 className="text-2xl text-black font-serif mb-4">Property Details</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Property Type:</p>
                 <p className="text-black">{property.propertyType}</p>
