@@ -66,11 +66,11 @@ export default function PropertyDetail({ params }) {
             {/* Left Section */}
             <div className="bg-white p-6 flex flex-col items-left w-1/5">
               <p className="text-3xl text-[#001f3f] font-serif mb-5">{property.address}</p>
-              <div className="flex items-center gap-4 mb-4">
-                <FontAwesomeIcon icon={faBed} className="text-black" />
-                <p className="text-black">{property.bedrooms}</p>
-                <FontAwesomeIcon icon={faBath} className="text-black ml-4" />
-                <p className="text-black">{property.bathrooms}</p>
+              <div className="flex items-center mt-2">
+                <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
+                <span>{property.bedrooms} Bedrooms</span>
+                <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
+                <span>{property.bathrooms} Bathrooms</span>
               </div>
               <p className="text-black font-bold mb-1">For Sale</p>
               <p className="text-black">${property.price}</p>
