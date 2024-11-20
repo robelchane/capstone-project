@@ -100,7 +100,7 @@ export default function PropertyDetail({ params }) {
               <h2 className="text-lg text-[#001f3f] font-serif my-4">{property.detail}</h2>
               <p className="text-base text-gray-700 mt-4">{property.summary}</p>
             </div>
-            <hr></hr>
+            <hr className="my-4 border-t-2 border-gray-300" />
 
             {/* Right Section */}
             <div className="bg-white p-6 w-2/5 ml-12">
