@@ -65,7 +65,7 @@ export default function Manager() {
               <p className="text-lg text-gray-700">
                 <span style={{ color: "#001f3f" }}>$</span>{property.price}
               </p>
-              <p className="text-gray-600">{property.summary}</p>
+              <p className="text-gray-600">{property.detail}</p>
               <p className="text-sm text-gray-500">{property.address}</p>
 
               {/* Edit and Delete buttons */}
