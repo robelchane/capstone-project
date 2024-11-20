@@ -84,7 +84,7 @@ export default function PropertyDetail({ params }) {
 
             {/* Center Section */}
             <div className="bg-white p-6 w-2/5 ml-10">
-              <h2 className="text-2xl text-[#001f3f] font-serif mb-4">Seller Info</h2>
+              <h2 className="text-2xl text-black font-serif mb-4">Seller Info</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Seller Name:</p>
                 <p className="text-black">{property.sellerName}</p>
