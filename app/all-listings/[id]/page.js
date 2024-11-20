@@ -73,7 +73,7 @@ export default function PropertyDetail({ params }) {
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
               <hr className="my-4 border-t-2 border-gray-500" />
-              <p className="text-xl font-bold my-3">For Sale</p>
+              <p className="text-xl font-bold mb-2">For Sale</p>
               <p className="text-black text-2xl">${property.price}</p>
               <button 
                 onClick={handleButtonClick}
