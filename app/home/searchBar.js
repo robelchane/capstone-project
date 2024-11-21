@@ -79,7 +79,7 @@ export default function SearchBar() {
 
         <button
           onClick={() => setProperties(null)} // Reset search
-          className="mt-4 bg-[#001f3f] text-white px-4 py-2 border border-[#001f3f] hover:bg-transparent hover:text-white hover:border-white z-10 transition-colors duration-300"
+          className="mt-4 bg-[#001f3f] text-white px-4 py-2 border border-[#001f3f] hover:bg-transparent hover:text-white rounded-full hover:border-white z-10 transition-colors duration-300"
         >
           Search Again
         </button>
