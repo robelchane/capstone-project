@@ -150,7 +150,7 @@ export default function AllListings() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         {properties.length > 0 ? (
           properties.map((property) => (
-            <div key={property._id} className="p-4 border rounded shadow-md">
+            <div key={property._id} className="p-4 border rounded shadow-md transition-transform duration-300 hover:shadow-lg">
               <Link href={`/all-listings/${property._id}`}>
                 <img
                   src={`/images/${property.image}`}
