@@ -64,16 +64,16 @@ export default function PropertyDetail({ params }) {
           {/* 3 Sections Below Image */}
           <div className="flex bg-white justify-between mt-5 px-5 gap-6 mb-16">
             {/* Left Section */}
-            <div className="bg-white p-6 flex flex-col items-left w-1/3">
-              <p className="text-3xl text-black font-serif mb-5">{property.address}</p>
+            <div className="bg-white p-6 flex flex-col items-left w-1/4">
+              <p className="text-3xl text-black font-serif mb-2">{property.address}</p>
               <div className="flex items-center mt-2 text-base">
                 <FontAwesomeIcon icon={faBed} className="text-gray-600 mr-1" />
                 <span>{property.bedrooms} Bedrooms</span>
                 <FontAwesomeIcon icon={faBath} className="text-gray-600 mx-2" />
                 <span>{property.bathrooms} Bathrooms</span>
               </div>
-              <hr className="my-4 border-t-2 border-gray-500" />
-              <p className="text-xl font-bold mb-2">For Sale</p>
+              <hr className="my-5 border-t border-gray-300" />
+              <p className="text-xl font-serif mb-2">For Sale</p>
               <p className="text-black text-2xl">${property.price}</p>
               <button 
                 onClick={handleButtonClick}
@@ -84,7 +84,7 @@ export default function PropertyDetail({ params }) {
             </div>
 
             {/* Center Section */}
-            <div className="bg-white p-6 w-2/5 ml-10">
+            <div className="bg-white p-6 w-2/4 ml-10">
               <h2 className="text-2xl text-black font-serif mb-4">Seller Info</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Seller Name:</p>
@@ -97,7 +97,7 @@ export default function PropertyDetail({ params }) {
                   {property.sellerEmail}
                 </a>
               </div>
-              <hr className="my-4 border-t-2 border-gray-500" />
+              <hr className="my-5 border-t border-gray-300" />
               <h2 className="text-2xl text-black font-serif mt-5">Property Summary</h2>
               <h2 className="text-lg text-[#001f3f] font-serif my-4">{property.detail}</h2>
               <p className="text-base text-gray-700 mt-4">{property.summary}</p>
@@ -105,7 +105,7 @@ export default function PropertyDetail({ params }) {
             
 
             {/* Right Section */}
-            <div className="bg-white p-6 w-2/5 ml-12">
+            <div className="bg-white p-6 w-1/4 ml-12">
               <h2 className="text-2xl text-black font-serif mb-4">Property Details</h2>
               <div className="grid grid-cols-2 gap-4">
                 <p className="text-black font-semibold">Property Type:</p>

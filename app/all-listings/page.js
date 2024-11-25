@@ -82,72 +82,75 @@ export default function AllListings() {
   };
 
   return (
-    <div className="p-12 py-8 px-10 mt-24">
-      <h1 className="text-2xl font-bold mb-4">Filter Properties</h1>
-      <form onSubmit={handleSearch} className="grid grid-cols-5 gap-4 mb-8">
-        <div>
-          <input
-            name="minPrice"
-            type="number"
-            placeholder="Min Price"
-            value={filters.minPrice}
-            onChange={handleChange}
-            className="border p-2 w-full rounded-full"
-          />
-        </div>
-        <div>
-          <input
-            name="maxPrice"
-            type="number"
-            placeholder="Max Price"
-            value={filters.maxPrice}
-            onChange={handleChange}
-            className="border p-2 w-full rounded-full"
-          />
-        </div>
-        <div>
-          <input
-            name="bedrooms"
-            type="number"
-            placeholder="Bedrooms"
-            value={filters.bedrooms}
-            onChange={handleChange}
-            className="border p-2 w-full rounded-full"
-          />
-        </div>
-        <div>
-          <input
-            name="bathrooms"
-            type="number"
-            placeholder="Bathrooms"
-            value={filters.bathrooms}
-            onChange={handleChange}
-            className="border p-2 w-full rounded-full"
-          />
-        </div>
-        <div>
-          <input
-            name="address"
-            type="text"
-            placeholder="Enter address..."
-            value={filters.address}
-            onChange={handleChange}
-            className="border p-2 w-full rounded-full"
-          />
-        </div>
-        <div className="col-span-5 flex justify-center items-center">
-          <button
-            type="submit"
-            className="bg-black text-white border border-white px-4 py-2 rounded hover:bg-transparent hover:text-black hover:border-black transition-colors duration-300 w-full"
-          >
-            <FontAwesomeIcon icon={faSearch} /> Search
-          </button>
-        </div>
-      </form>
+    <div className="p-12 py-8 px-10 mt-32">
+      <h1 className="text-4xl text-center text-[#001f3f] font-serif mb-6">Homes Tailored to You</h1>
+      <div className="flex justify-center items-center">
+        <form onSubmit={handleSearch} className="grid grid-cols-5 gap-4 mb-10">
+          <div>
+            <input
+              name="minPrice"
+              type="number"
+              placeholder="Min Price"
+              value={filters.minPrice}
+              onChange={handleChange}
+              className="border p-2 w-full rounded"
+            />
+          </div>
+          <div>
+            <input
+              name="maxPrice"
+              type="number"
+              placeholder="Max Price"
+              value={filters.maxPrice}
+              onChange={handleChange}
+              className="border p-2 w-full rounded"
+            />
+          </div>
+          <div>
+            <input
+              name="bedrooms"
+              type="number"
+              placeholder="Bedrooms"
+              value={filters.bedrooms}
+              onChange={handleChange}
+              className="border p-2 w-full rounded"
+            />
+          </div>
+          <div>
+            <input
+              name="bathrooms"
+              type="number"
+              placeholder="Bathrooms"
+              value={filters.bathrooms}
+              onChange={handleChange}
+              className="border p-2 w-full rounded"
+            />
+          </div>
+          <div>
+            <input
+              name="address"
+              type="text"
+              placeholder="Enter address..."
+              value={filters.address}
+              onChange={handleChange}
+              className="border p-2 w-full rounded"
+            />
+          </div>
+          <div className="col-span-5 flex justify-center items-center mt-2">
+            <button
+              type="submit"
+              className="bg-[#001f3f] text-white border border-white px-6 py-2 rounded hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-colors duration-300 w-full"
+            >
+              <FontAwesomeIcon icon={faSearch} /> Search
+            </button>
+          </div>
+        </form>
+      </div>
 
       {loading && <p>Loading properties...</p>}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+      <hr className="my-10 border-t border-gray-300" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {properties.length > 0 ? (
           properties.map((property) => (
             <div key={property._id} className="p-4 border rounded shadow-md">
