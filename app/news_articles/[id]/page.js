@@ -11,14 +11,14 @@ export default function NewsDetail({ params }) {
 
   useEffect(() => {
     async function fetchArticle() {
-      console.log("Fetching article with ID:", id); // 디버깅
+      console.log("Fetching article with ID:", id);
       try {
         const response = await fetch(`/api/news_articles/${id}`);
         if (!response.ok) {
           throw new Error(`Failed to fetch article: ${response.status}`);
         }
         const data = await response.json();
-        console.log("API Response:", data); // 디버깅
+        console.log("API Response:", data);
         setArticle(data.article);
       } catch (error) {
         console.error("Error fetching article:", error.message);
@@ -41,8 +41,6 @@ export default function NewsDetail({ params }) {
   return (
     <div className="p-12 mt-20">
         <h1 className="text-4xl font-serif text-[#001f3f] mb-10 text-center">{article.title}</h1>
-
-        {/* 이미지 섹션 */}
         <div className="flex justify-center">
             <div className="w-full max-w-[80vw] max-h-[80vh] overflow-hidden">
             <img
@@ -52,8 +50,6 @@ export default function NewsDetail({ params }) {
             />
             </div>
         </div>
-
-        {/* 사진 아래 섹션 */}
         <div className="mt-20 text-center px-16">
             {/* Summary */}
             <p className="text-2xl text-gray-600 italic mb-4">{article.summary}</p>
