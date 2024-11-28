@@ -1,5 +1,5 @@
 import connectMongoDB from "../../../libs/mongodb";
-import Appointment from "../../../../models/Appointment";
+import Appointment from "../../../models/Appointment";
 import { NextResponse } from "next/server";
 
 // GET all appointments
