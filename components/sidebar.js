@@ -51,7 +51,7 @@ export default function Sidebar() {
                                 <CommandItem 
                                     key={itemKey} 
                                     onSelect={() => window.location.href = item.link}
-                                    className={`flex items-center space-x-3 
+                                    className={`flex items-center space-x-3 cursor-pointer
                                         ${pathname === item.link ? 'bg-gray-200 text-black' : 'hover:bg-gray-100'}
                                     `}
                                     aria-label={item.text}
