@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
 const AppointmentSchema = new mongoose.Schema({
-  buyerName: String,
-  buyerEmail: String,
-  date: Date,
-  reason: String,
+  name: "",
+  email: "",
+  date: "",
+  time: "",
+  notes: "",
 });
 
 export default mongoose.models.Appointment || mongoose.model("Appointment", AppointmentSchema);
