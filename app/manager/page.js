@@ -7,9 +7,6 @@ import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 export default function Manager() {
   const [properties, setProperties] = useState([]); 
   const [loading, setLoading] = useState(false); 
-  const [propertyData, setPropertyData] = useState({
-    status: "",
-  });
 
   // Fetch properties when the component mounts
   useEffect(() => {
@@ -49,14 +46,6 @@ export default function Manager() {
     }
   };
 
-  // Function to handle status change
-  const handleChange = (e) => {
-    setPropertyData({
-      ...propertyData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   // Function to determine the status text color
   const getStatusTextColor = (status) => {
     if (status === "available") return "text-green-500";
@@ -91,19 +80,6 @@ export default function Manager() {
               <p className={`text-sm mt-2 ${getStatusTextColor(property.status)}`}>
                 {property.status}
               </p>
-
-              {/* Select dropdown for status */}
-              <select
-                name="status"
-                value={property.status} // You can set the status based on the property object
-                onChange={(e) => handleChange(e, property._id)} // Handle change for specific property
-                required
-                className="text-black border p-2 mb-4 w-full"
-              >
-                <option value="available">Available</option>
-                <option value="pending">Pending</option>
-                <option value="sold">Sold</option>
-              </select>
 
               {/* Edit and Delete buttons */}
               <div className="flex justify-between mt-4">
