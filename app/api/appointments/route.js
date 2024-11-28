@@ -1,37 +1,54 @@
+// Reference
+// https://webdev2.warsylewicz.ca/week-8/fetching-data
+// https://www.mongodb.com/docs/manual/reference/operator/query/
+// https://rajasekar.dev/blog/api-design-filtering-searching-sorting-and-pagination
+// https://www.youtube.com/watch?v=ZFYj7OrTeEs
+
 import connectMongoDB from "../../../libs/mongodb";
-import Appointment from "../../../models/Appointment"; // Adjusted for Appointment model
+import appointment from "../../../models/appointment";
 import { NextResponse } from "next/server";
 
 // POST request to create a new appointment
 export async function POST(request) {
-  const { name, email, date, time, notes, status } = await request.json();
+  const { name, email, date, time, notes} = await request.json();
   
   await connectMongoDB();
   
   // Create a new appointment with the provided fields
-  await Appointment.create({ name, email, date, time, notes, status });
+  await appointment.create({ name, email, date, time, notes});
   
-  return NextResponse.json({ message: "Appointment Created" }, { status: 201 });
+  return NextResponse.json({ message: "appointment Created" }, { status: 201 });
 }
 
-// GET request to fetch all appointments
-export async function GET(request) {
-  await connectMongoDB();
-  
-  // Find all appointments in the database
-  const appointments = await Appointment.find();
-  
-  return NextResponse.json({ appointments });
-}
 
-// DELETE request to remove an appointment by ID
+
+// DELETE request to remove a appointment by ID
 export async function DELETE(request) {
   const id = request.nextUrl.searchParams.get("id");
   
   await connectMongoDB();
   
   // Delete the appointment with the specified ID
-  await Appointment.findByIdAndDelete(id);
+  await appointment.findByIdAndDelete(id);
   
-  return NextResponse.json({ message: "Appointment Deleted" }, { status: 200 });
+  return NextResponse.json({ message: "appointment Deleted" }, { status: 200 });
+}
+
+// PUT request to update a appointment by ID
+export async function PUT(request) {
+  const id = request.nextUrl.searchParams.get("id");
+  const updatedData = await request.json();
+
+  await connectMongoDB();
+
+  const appointment = await appointment.findById(id);
+
+  if (!appointment) {
+    return NextResponse.json({ message: "appointment not found" }, { status: 404 });
+  }
+
+  Object.assign(appointment, updatedData); // Update with new data
+  await appointment.save();
+
+  return NextResponse.json({ message: "appointment Updated", appointment }, { status: 200 });
 }
