@@ -1,12 +1,15 @@
 "use client"; 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; 
 import Link from "next/link"; 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Manager() {
-  const [properties, setProperties] = useState([]);
+  const [properties, setProperties] = useState([]); 
   const [loading, setLoading] = useState(false); 
+  const [propertyData, setPropertyData] = useState({
+    status: "",
+  });
 
   // Fetch properties when the component mounts
   useEffect(() => {
@@ -46,6 +49,22 @@ export default function Manager() {
     }
   };
 
+  // Function to handle status change
+  const handleChange = (e) => {
+    setPropertyData({
+      ...propertyData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Function to determine the status text color
+  const getStatusTextColor = (status) => {
+    if (status === "available") return "text-green-500";
+    if (status === "pending") return "text-yellow-500";
+    if (status === "sold") return "text-red-500";
+    return "text-gray-500"; // Default color if status is unknown
+  };
+
   return (
     <div className="py-8 px-4 mt-16">
       {/* Loading spinner */}
@@ -67,6 +86,24 @@ export default function Manager() {
               </p>
               <p className="text-gray-600">{property.detail}</p>
               <p className="text-sm text-gray-500">{property.address}</p>
+
+              {/* Status text */}
+              <p className={`text-sm mt-2 ${getStatusTextColor(property.status)}`}>
+                {property.status}
+              </p>
+
+              {/* Select dropdown for status */}
+              <select
+                name="status"
+                value={property.status} // You can set the status based on the property object
+                onChange={(e) => handleChange(e, property._id)} // Handle change for specific property
+                required
+                className="text-black border p-2 mb-4 w-full"
+              >
+                <option value="available">Available</option>
+                <option value="pending">Pending</option>
+                <option value="sold">Sold</option>
+              </select>
 
               {/* Edit and Delete buttons */}
               <div className="flex justify-between mt-4">
