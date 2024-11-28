@@ -4,12 +4,12 @@ import { NextResponse } from "next/server";
 
 // POST request to create a new appointment
 export async function POST(request) {
-  const { name, email, date, time, description, status } = await request.json();
+  const { name, email, date, time, notes, status } = await request.json();
   
   await connectMongoDB();
   
   // Create a new appointment with the provided fields
-  await Appointment.create({ name, email, date, time, description, status });
+  await Appointment.create({ name, email, date, time, notes, status });
   
   return NextResponse.json({ message: "Appointment Created" }, { status: 201 });
 }
