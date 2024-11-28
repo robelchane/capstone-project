@@ -6,37 +6,23 @@ export default async function handler(req, res) {
 
   const { method } = req;
 
-  switch (method) {
-    case "GET":
-      try {
-        const appointments = await Appointment.find({});
-        res.status(200).json({ success: true, appointments });
-      } catch (error) {
-        res.status(400).json({ success: false });
-      }
-      break;
-
-    case "POST":
-      try {
-        const appointment = await Appointment.create(req.body);
-        res.status(201).json({ success: true, appointment });
-      } catch (error) {
-        res.status(400).json({ success: false });
-      }
-      break;
-
-    case "PATCH":
-      try {
-        const { id } = req.query;
-        const appointment = await Appointment.findByIdAndUpdate(id, req.body, { new: true });
-        res.status(200).json({ success: true, appointment });
-      } catch (error) {
-        res.status(400).json({ success: false });
-      }
-      break;
-
-    default:
-      res.status(405).json({ success: false, message: "Method not allowed" });
-      break;
+  if (method === "POST") {
+    try {
+      const { name, email, date, time, notes } = req.body;
+      const appointment = await Appointment.create({ name, email, date, time, notes });
+      res.status(201).json(appointment);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to create appointment" });
+    }
+  } else if (method === "GET") {
+    try {
+      const appointments = await Appointment.find();
+      res.status(200).json(appointments);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch appointments" });
+    }
+  } else {
+    res.status(405).json({ error: "Method not allowed" });
   }
 }
+
