@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function Appointments() {
+export default function Schedule() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
