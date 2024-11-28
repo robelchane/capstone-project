@@ -1,11 +1,11 @@
 "use client"; 
-import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react";
 import Link from "next/link"; 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Manager() {
-  const [properties, setProperties] = useState([]); 
+  const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(false); 
 
   // Fetch properties when the component mounts
@@ -46,14 +46,6 @@ export default function Manager() {
     }
   };
 
-  // Function to determine the status text color
-  const getStatusTextColor = (status) => {
-    if (status === "available") return "text-green-500";
-    if (status === "pending") return "text-yellow-500";
-    if (status === "sold") return "text-red-500";
-    return "text-gray-500"; // Default color if status is unknown
-  };
-
   return (
     <div className="py-8 px-4 mt-16">
       {/* Loading spinner */}
@@ -63,7 +55,7 @@ export default function Manager() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         {properties.length > 0 ? (
           properties.map((property) => (
-            <div key={property._id} className="p-4 border rounded shadow-md">
+            <div key={property._id} className="p-4 border-red-300 rounded shadow-md">
               <img
                 src={`/images/${property.image}`} // Adjust this path as needed
                 alt={property.name}
@@ -75,11 +67,6 @@ export default function Manager() {
               </p>
               <p className="text-gray-600">{property.detail}</p>
               <p className="text-sm text-gray-500">{property.address}</p>
-
-              {/* Status text */}
-              <p className={`text-sm mt-2 ${getStatusTextColor(property.status)}`}>
-                {property.status}
-              </p>
 
               {/* Edit and Delete buttons */}
               <div className="flex justify-between mt-4">
