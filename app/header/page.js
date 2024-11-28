@@ -143,6 +143,12 @@ export default function Header() {
               </DropdownMenuItem>
               <DropdownMenuItem
                 className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
+                onClick={() => router.push("/news_articles")}
+              >
+                News & Articles
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                className="block px-4 py-2 text-gray-800 hover:bg-gray-400 transition-colors rounded-lg"
                 onClick={() => router.push("/review")}
               >
                 Reviews
@@ -165,7 +171,7 @@ export default function Header() {
                   width={45}
                   height={45}
                   alt="user image"
-                  className="rounded-full"
+                  className="rounded-full cursor-pointer"
                 />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -180,7 +186,7 @@ export default function Header() {
             </DropdownMenu>
           ) : (
             <Link href="/sign-in">
-              <p className="cursor-pointer mt-2 text-xl font-medium transition-transform duration-300 hover:scale-110">
+              <p className="cursor-pointer py-1 text-xl font-medium transition-transform duration-300 hover:scale-105">
                 Get Started
               </p>
             </Link>
@@ -190,3 +196,4 @@ export default function Header() {
     </div>
   );
 }
+

@@ -132,7 +132,7 @@ useEffect(() => {
     <p className="text-black leading-relaxed text-lg mb-6">
       Use our affordability tool to get a better understanding of what you can afford when considering moving to Calgary. <br/>It’s an easy way to plan your future in this amazing city!
     </p>
-    <Link href="/affordability" className="inline-block bg-[#001f3f] text-white text-xl font-serif py-3 px-6 shadow-md hover:bg-[#00416A]">
+    <Link href="/affordability" className="inline-block bg-[#001f3f] text-white text-xl font-serif py-3 px-5 shadow-md hover:bg-[#00416A] transition-colors duration-300">
       Check Your Affordability
     </Link>
   </div>
