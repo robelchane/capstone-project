@@ -12,6 +12,8 @@ export default function AllAppointments() {
     try {
       const response = await fetch("/api/appointments"); // Assuming this API returns all appointments
       const data = await response.json(); // Parse the response as JSON
+      console.log(data); // Log the response to check the structure
+
       setAppointments(data.appointments || []); // Update the appointments state with the fetched data
     } catch (error) {
       console.error("Failed to fetch appointments", error);
@@ -46,19 +48,18 @@ export default function AllAppointments() {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
         {appointments.length > 0 ? (
           appointments.map((appointment) => (
-            <Link
+            <div
               key={appointment._id}
-              href={`/appointments/${appointment._id}`} // Navigate to the specific appointment page
               className="border p-4 rounded-lg shadow-md bg-white hover:bg-gray-100 transition-all duration-200"
             >
               <div className="flex flex-col items-center">
                 <h2 className="text-xl font-bold mb-2">{appointment.name}</h2>
-                <p className="text-lg text-gray-700">{appointment.date}</p>
-                <p className="text-sm text-gray-500 mt-2">{appointment.details}</p>
-                <p className="text-sm text-gray-500">Location: {appointment.location}</p>
-                <p className="text-sm text-gray-500">Status: {appointment.status}</p>
+                <p className="text-lg text-gray-700">Email: {appointment.email}</p>
+                <p className="text-sm text-gray-500 mt-2">Date: {new Date(appointment.date).toLocaleDateString()}</p>
+                <p className="text-sm text-gray-500">Time: {appointment.time}</p>
+                <p className="text-sm text-gray-500">Notes: {appointment.notes}</p>
               </div>
-            </Link>
+            </div>
           ))
         ) : (
           <p>No appointments found.</p>

@@ -4,6 +4,7 @@ import Residencies from "./residencies/residencies.js";
 import Value from "./value/value.js";
 import CustomerReview from "./customerReview/CustomerReview.js";
 import Schedule from "./schedule/page.js";
+import AllAppointments from "./all-appointment/page.js";
 
 export default function Page() {
   return (
@@ -13,7 +14,8 @@ export default function Page() {
       <Residencies />
       <Value />
       <CustomerReview />
-      <Footer />     
+      <Footer />    
+      <AllAppointments /> 
     </main>
   );
 }
