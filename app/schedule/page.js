@@ -10,20 +10,30 @@ export default function Schedule() {
     notes: "",
   });
 
+  // Handle input changes for form fields
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Prepare the data to be sent (for date, ensure it's in ISO format if needed)
+    const appointmentData = {
+      ...formData,
+      date: new Date(formData.date).toISOString(), // Ensure correct date format (ISO string)
+    };
+
     try {
       const response = await fetch("/api/appointments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(appointmentData), // Send the data to the backend
       });
+
       if (response.ok) {
         setFormData({ name: "", email: "", date: "", time: "", notes: "" });
         alert("Appointment created successfully!");
@@ -32,6 +42,7 @@ export default function Schedule() {
       }
     } catch (error) {
       console.error("Failed to create appointment:", error);
+      alert("An error occurred. Please try again.");
     }
   };
 
@@ -44,6 +55,7 @@ export default function Schedule() {
           className="mt-8 space-y-6 bg-white p-6 rounded-lg shadow-lg"
         >
           <div className="space-y-4">
+            {/* Name Field */}
             <input
               type="text"
               name="name"
@@ -53,6 +65,8 @@ export default function Schedule() {
               required
               className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
             />
+            
+            {/* Email Field */}
             <input
               type="email"
               name="email"
@@ -62,6 +76,8 @@ export default function Schedule() {
               required
               className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
             />
+            
+            {/* Date Field */}
             <input
               type="date"
               name="date"
@@ -70,6 +86,8 @@ export default function Schedule() {
               required
               className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
             />
+            
+            {/* Time Field */}
             <input
               type="time"
               name="time"
@@ -78,6 +96,8 @@ export default function Schedule() {
               required
               className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
             />
+            
+            {/* Notes Field */}
             <textarea
               name="notes"
               placeholder="Notes (Optional)"
@@ -86,6 +106,8 @@ export default function Schedule() {
               className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
             ></textarea>
           </div>
+          
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"

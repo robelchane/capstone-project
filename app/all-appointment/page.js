@@ -29,18 +29,6 @@ export default function AllAppointments() {
 
   return (
     <div className="py-8 px-4 mt-16 bg-teal-100">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-4 flex justify-between items-center px-8 fixed top-0 left-0 w-full z-10 shadow-md">
-        <Link href="/" className="text-3xl font-bold hover:text-yellow-300 transition-colors">
-          Appointment List
-        </Link>
-        <nav className="space-x-6">
-          <Link href="/appointments" className="text-lg hover:text-yellow-300 transition-colors">
-            View Appointments
-          </Link>
-        </nav>
-      </header>
-
       {/* Loading spinner */}
       {loading && <p>Loading appointments...</p>}
 
