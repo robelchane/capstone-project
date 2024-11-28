@@ -1,8 +1,8 @@
-import dbConnect from "../../../libs/mongodb";
+import connectMongoDB from "../../../libs/mongodb";
 import Appointment from "../../../models/Appointment";
 
 export default async function handler(req, res) {
-  await dbConnect();
+  await connectMongoDB();
 
   const { method } = req;
 
