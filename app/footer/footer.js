@@ -29,7 +29,7 @@ export default function Footer() {
           <p className="hover:text-white hover:underline my-1">
             <a href="tel:000-000-0000" className="flex items-center">
               <FontAwesomeIcon icon={faPhone} className="w-5 text-white"/>
-              <span className="ml-2">Tel: 000-000-0000</span>
+              <span className="ml-2">Tel: 123-456-7890</span>
             </a>
           </p>
           <p className="hover:text-white hover:underline my-1">
