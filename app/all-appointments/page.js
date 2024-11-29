@@ -27,4 +27,7 @@ export default function AllAppointments() {
 const deleteAppointment = async (id) => {
     try {
       const response = await fetch(`/api/appointments?id=${id}`, { method: "DELETE" });
+      if (response.ok) {
+        alert("Appointment deleted successfully!");
+
     }
