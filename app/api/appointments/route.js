@@ -42,7 +42,8 @@ export  async function GET() {
       }
     }
 
-
+// DELETE: Remove an appointment by ID
+export 
 
 
 
