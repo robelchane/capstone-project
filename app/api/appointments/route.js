@@ -59,7 +59,8 @@ export async function DELETE(request) {
             return NextResponse.json({ error: "Appointment not found" }, { status: 404 });
     }
 
-    return 
+    return NextResponse.json({ message: "Appointment Deleted", appointment: deletedAppointment }, { status: 200 });
+ } catch (error) {
 
 
 
