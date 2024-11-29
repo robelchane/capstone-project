@@ -56,6 +56,10 @@ export async function DELETE(request) {
         const deletedAppointment = await Appointment.findByIdAndDelete(id);
 
         if (!deletedAppointment) {
+            return NextResponse.json({ error: "Appointment not found" }, { status: 404 });
+    }
+
+    
 
 
 
