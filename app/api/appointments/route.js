@@ -52,6 +52,9 @@ export async function DELETE(request) {
 
         await connectMongoDB(); // Establish database connection
 
+        // Find and delete the appointment by ID
+        
+
         
     }
 
