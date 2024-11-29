@@ -47,7 +47,7 @@ export async function DELETE(request) {
     try {
         const id = request.nextUrl.searchParams.get("id"); //Get the appointment ID from query parameters
         if (!id) {
-            return NextResponse.json()
+            return NextResponse.json({ error: "Missing"})
         }
     }
 
