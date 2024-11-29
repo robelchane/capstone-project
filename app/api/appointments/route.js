@@ -64,6 +64,7 @@ export async function DELETE(request) {
     // Catch and report errors related to deletion
     return NextResponse.json(
         { error: "Failed to delete appointment", details: error.message },
+        { status:}
 
     )
 
