@@ -31,4 +31,8 @@ export  async function GET() {
       //Retrieve all appointments from the database
       const appointments = await Appointment.find();
 
+      return 
+
+
+
 
