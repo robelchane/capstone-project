@@ -11,4 +11,4 @@ try {
     await connectMongoDB(); //Establish the MongoDB connection
 
     // Create a new appointment with provided details 
-    const 
+    const  newAppointment
