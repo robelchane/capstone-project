@@ -24,5 +24,5 @@ try {
 }
 
 //GET: Fetch all appointments
-export  async function GET
+export  async function GET()
 
