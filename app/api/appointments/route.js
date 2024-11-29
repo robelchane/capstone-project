@@ -45,7 +45,7 @@ export  async function GET() {
 // DELETE: Remove an appointment by ID
 export async function DELETE(request) {
     try {
-        const id = request.nextUrl.searchParams.get("id"); //Get the appointment ID from 
+        const id = request.nextUrl.searchParams.get("id"); //Get the appointment ID from query parameters
     }
 
 
