@@ -38,7 +38,7 @@ export default function Sidebar() {
                     text: "Inbox"
                 },
                 {
-                    link: "/all-appointmets", // New Appointments Link
+                    link: "/all-appointments", // New Appointments Link
                     icon: <Calendar />,    // Calendar Icon
                     text: "Appointments"
                 }
