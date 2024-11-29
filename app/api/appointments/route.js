@@ -25,5 +25,6 @@ try {
 
 //GET: Fetch all appointments
 export  async function GET() {
-    try
+    try {
+        
 
