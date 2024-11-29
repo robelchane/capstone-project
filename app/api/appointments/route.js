@@ -10,4 +10,4 @@ try {
     const{ name, email, date, time, notes } = await request.json(); //Extract fields from the request
     await connectMongoDB(); //Establish the MongoDB connection
 
-    // Create a 
+    // Create a new
