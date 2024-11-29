@@ -39,7 +39,7 @@ export default function AllAppointments() {
   return (
     <div className="min-h-screen bg-gray-300 py-10 px-6 mt-20">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-center text-white mb-10">All Appointments</h1>
+        <h1 className="text-4xl font-extrabold text-center text-black mb-10">All Appointments</h1>
         {loading ? (
           <div className="flex items-center justify-center">
             <p className="text-lg text-white">Loading appointments...</p>
