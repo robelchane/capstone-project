@@ -17,4 +17,4 @@ try {
 } catch (error) {
 
   // Return a detailed error message for debugging
-  return
+  return NextResponse
