@@ -12,5 +12,11 @@ export default function AllAppointments() {
         try {
             const response = await fetch("/api/appointments");
             const data = await response.json();
+            setAppointments(data.appointments || []);
+        } catch (error) {
+            
+        }
+            
+
 
     }
