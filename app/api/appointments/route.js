@@ -8,4 +8,4 @@ import { NextResponse } from "next/server";
 
 try {
     const{ name, email, date, time, notes } = await request.json(); //Extract fields from the request
-    await
+    await connectMongoDB(); 
