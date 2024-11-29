@@ -55,6 +55,8 @@ export async function DELETE(request) {
         // Find and delete the appointment by ID
         const deletedAppointment = await Appointment.findByIdAndDelete(id);
 
+        if 
+
 
 
         
