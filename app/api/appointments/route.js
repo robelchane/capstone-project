@@ -29,5 +29,6 @@ export  async function GET() {
       await  connectMongoDB(); //Connect to the database
 
       //Retrieve all appointments from the database
+      const 
 
 
