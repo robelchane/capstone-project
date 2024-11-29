@@ -23,6 +23,6 @@ try {
   );
 }
 
-//GET: Fetch 
+//GET: Fetch all
 
 
