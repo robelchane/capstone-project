@@ -21,3 +21,6 @@ try {
     { error: "Failed to create appointment", details: error.message },
     { status: 500 }
   );
+}
+
+
