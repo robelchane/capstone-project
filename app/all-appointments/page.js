@@ -29,5 +29,15 @@ const deleteAppointment = async (id) => {
       const response = await fetch(`/api/appointments?id=${id}`, { method: "DELETE" });
       if (response.ok) {
         alert("Appointment deleted successfully!");
-
+        fetchAppointments(); // Refresh appointments after deletion
+        
+      } else {
+        alert("Failed to delete appointment.");
+      }
+    } catch (error) {
+      console.error("Failed to delete appointment:", error);
     }
+  };
+
+
+    
