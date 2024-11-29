@@ -1,5 +1,4 @@
-//chatgpt
-//Aaron's Vercel Web dev
+
 
 "use client";
 import { useState } from "react";
