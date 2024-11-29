@@ -39,5 +39,10 @@ const deleteAppointment = async (id) => {
     }
   };
 
+  useEffect(() => {
+    fetchAppointments();
+  }, []);
+
+
 
     
