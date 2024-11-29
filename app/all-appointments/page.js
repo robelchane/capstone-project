@@ -25,6 +25,6 @@ export default function AllAppointments() {
 
 
 const deleteAppointment = async (id) => {
-    try{
-        
+    try {
+      const response
     }
