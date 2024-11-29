@@ -61,6 +61,7 @@ export async function DELETE(request) {
 
     return NextResponse.json({ message: "Appointment Deleted", appointment: deletedAppointment }, { status: 200 });
  } catch (error) {
+    // Catch and report errors related to deletion
 
 
 
