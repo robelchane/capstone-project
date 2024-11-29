@@ -59,7 +59,9 @@ export async function DELETE(request) {
             return NextResponse.json({ error: "Appointment not found" }, { status: 404 });
     }
 
-    
+    return 
+
+
 
 
 
