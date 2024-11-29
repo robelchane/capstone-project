@@ -43,7 +43,10 @@ export  async function GET() {
     }
 
 // DELETE: Remove an appointment by ID
-export async function DELETE(request) {}
+export async function DELETE(request) {
+    try {
+        
+    }
 
 
 
