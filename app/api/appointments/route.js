@@ -15,3 +15,4 @@ try {
 
     return NextResponse.json({ message: "Appointment Created", appointment: newAppointment }, { status: 201 });
 } catch (error) {
+  //  
