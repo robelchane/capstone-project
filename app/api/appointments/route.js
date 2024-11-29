@@ -5,3 +5,5 @@ import { NextResponse } from "next/server";
 
 
 // POST: Create a new appointment
+
+export async function POST(request) {
