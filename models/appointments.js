@@ -7,3 +7,7 @@ const AppointmentSchema = new mongoose.Schema({
     time: String,
     notes: String,
   });
+
+  
+
+export default mongoose.models.Appointment || mongoose.model("Appointment", AppointmentSchema);
