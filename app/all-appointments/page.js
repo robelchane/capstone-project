@@ -15,7 +15,9 @@ export default function AllAppointments() {
             setAppointments(data.appointments || []);
         } catch (error) {
             console.error("Failed to fetch appointments:", error); 
-        }       
+        }   finally {
+            
+        }  
         }
             
 
