@@ -13,4 +13,4 @@ try {
     // Create a new appointment with provided details 
     const  newAppointment = await Appointment.create({ name, email, date, time, notes });
 
-    return NextResponse.json({
+    return NextResponse.json({ message:
