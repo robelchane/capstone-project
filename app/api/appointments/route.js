@@ -14,4 +14,4 @@ try {
     const  newAppointment = await Appointment.create({ name, email, date, time, notes });
 
     return NextResponse.json({ message: "Appointment Created", appointment: newAppointment }, { status: 201 });
-} catch (error)
+} catch (error) {
