@@ -43,7 +43,7 @@ const deleteAppointment = async (id) => {
     fetchAppointments();
   }, []);
 
-  r
+  
 
 
 
