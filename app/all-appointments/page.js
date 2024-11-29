@@ -11,5 +11,6 @@ export default function AllAppointments() {
         setLoading(true);
         try {
             const response = await fetch("/api/appointments");
+            const data = await response.json();
 
     }
