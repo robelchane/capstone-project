@@ -16,7 +16,7 @@ export default function AllAppointments() {
         } catch (error) {
             console.error("Failed to fetch appointments:", error); 
         }   finally {
-            
+            setLoading
         }  
         }
             
