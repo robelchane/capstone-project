@@ -9,5 +9,7 @@ export default function AllAppointments() {
 
     const fetchAppointments = async () => {
         setLoading(true);
+        try {
+            const response = await fetch("/api/appointments");
 
     }
