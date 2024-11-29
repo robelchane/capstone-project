@@ -7,4 +7,4 @@ import { NextResponse } from "next/server";
 // POST: Create a new appointment
 
 try {
-    const
+    const{ name,
