@@ -49,6 +49,10 @@ export async function DELETE(request) {
         if (!id) {
             return NextResponse.json({ error: "Missing appointment ID" }, {status: 400 });
         }
+
+        await connectMongoDB(); // Establish database connection
+
+        
     }
 
 
