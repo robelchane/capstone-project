@@ -43,22 +43,7 @@ const deleteAppointment = async (id) => {
     fetchAppointments();
   }, []);
 
-  return (
-    <div className="min-h-screen bg-gradient-to-r from-teal-500 to-blue-500 py-10 px-6">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-center text-white mb-10">All Appointments</h1>
-        {loading ? (
-          <div className="flex items-center justify-center">
-            <p className="text-lg text-white">Loading appointments...</p>
-          </div>
-        ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {appointments.length > 0 ? (
-              appointments.map((appt) => (
-                <div
-                  key={appt._id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200"
-                ></div>
+  r
 
 
 
