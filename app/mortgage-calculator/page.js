@@ -10,49 +10,46 @@ export default function MortgageCalculator() {
   const [mortgageAmount, setMortgageAmount] = useState();
   const [downPayment, setDownPayment] = useState();
   const [interestRate, setInterestRate] = useState();
-  const [loanTerm, setLoanTerm] = useState(30); // Default to 30 years
-  const [startDate, setStartDate] = useState(""); // New state for start date
-  const [paymentFrequency, setPaymentFrequency] = useState("monthly"); // Default payment frequency
+  const [loanTerm, setLoanTerm] = useState(25);
+  const [startDate, setStartDate] = useState("");
+  const [paymentFrequency, setPaymentFrequency] = useState("monthly");
   const [monthlyPayment, setMonthlyPayment] = useState(0);
-  const [annualPayment, setAnnualPayment] = useState(0); // New state for annual payment
+  const [annualPayment, setAnnualPayment] = useState(0);
   const [totalInterestPaid, setTotalInterestPaid] = useState(0);
   const [loanPayOffDate, setLoanPayOffDate] = useState("");
-  const [error, setError] = useState(""); // New state for error messages
+  const [error, setError] = useState("");
 
   const calculateMortgage = () => {
     if (parseFloat(downPayment) > parseFloat(mortgageAmount)) {
       setError("Down payment cannot be greater than the mortgage amount.");
       return;
     } else {
-      setError(""); // Clear error if input is valid
+      setError("");
     }
 
-    const principal = parseFloat(mortgageAmount) - parseFloat(downPayment); // Loan amount after down payment
-    const interest = parseFloat(interestRate) / 100 / 12; // Monthly interest rate
-    const payments = parseFloat(loanTerm) * 12; // Total payments for monthly frequency
+    const principal = parseFloat(mortgageAmount) - parseFloat(downPayment);
+    const interest = parseFloat(interestRate) / 100 / 12;
+    const payments = parseFloat(loanTerm) * 12;
 
-    // Adjust payments based on selected frequency
     let adjustedPayments;
     let adjustedInterest;
     if (paymentFrequency === "weekly") {
-      adjustedPayments = loanTerm * 52; // Total payments for weekly frequency
-      adjustedInterest = parseFloat(interestRate) / 100 / 52; // Weekly interest rate
+      adjustedPayments = loanTerm * 52;
+      adjustedInterest = parseFloat(interestRate) / 100 / 52;
     } else if (paymentFrequency === "bi-weekly") {
-      adjustedPayments = loanTerm * 26; // Total payments for bi-weekly frequency
-      adjustedInterest = parseFloat(interestRate) / 100 / 26; // Bi-weekly interest rate
+      adjustedPayments = loanTerm * 26;
+      adjustedInterest = parseFloat(interestRate) / 100 / 26;
     } else {
-      adjustedPayments = payments; // Monthly
-      adjustedInterest = interest; // Monthly interest rate
+      adjustedPayments = payments;
+      adjustedInterest = interest;
     }
 
-    // Mortgage calculation formula
     const x = Math.pow(1 + adjustedInterest, adjustedPayments);
     const mortgage = (principal * x * adjustedInterest) / (x - 1);
 
     const calculatedMonthlyPayment = mortgage ? mortgage.toFixed(2) : 0;
     setMonthlyPayment(calculatedMonthlyPayment);
 
-    // Calculate annual payment based on frequency
     if (paymentFrequency === "monthly") {
       setAnnualPayment((calculatedMonthlyPayment * 12).toFixed(2));
     } else if (paymentFrequency === "bi-weekly") {
@@ -63,10 +60,9 @@ export default function MortgageCalculator() {
 
     setTotalInterestPaid((mortgage * adjustedPayments - principal).toFixed(2));
 
-    // Set loan payoff date based on start date
     const start = new Date(startDate);
     const payoffDate = new Date(start);
-    payoffDate.setFullYear(payoffDate.getFullYear() + loanTerm);
+    payoffDate.setFullYear(payoffDate.getFullYear() + parseInt(loanTerm)); // Adding loan term to the start year
     setLoanPayOffDate(payoffDate.toLocaleDateString());
   };
 
@@ -75,144 +71,118 @@ export default function MortgageCalculator() {
   };
 
   return (
-    <div className="flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-md max-w-4xl mx-auto m-28">
-      <h2 className="w-full flex justify-center rounded-full dark:text-black text-2xl font-bold bg-emerald-400 text-white border border-gray-300 mb-4 p-2">
-        Your Mortgage Payment Information
-      </h2>
-
-      <div className="flex justify-between w-full">
-        <div className="w-1/2 p-4">
-          <h2 className="text-2xl font-bold mb-4 flex justify-center dark:text-black">Mortgage Calculator</h2>
-          <hr className="w-full border-gray-300 my-2" />
-
-          {error && <p className="text-red-500 mb-4">{error}</p>}
-
-          {/* Inputs for Mortgage Calculator */}
-          <div className="w-full mb-4">
-            <label className="block text-gray-700 dark:text-black">Mortgage Amount:</label>
+    <div className="flex flex-col items-center p-8 max-w-6xl mx-auto mt-20">
+      <div className="w-full border-b border-gray-300 pb-6 mb-6">
+        <h3 className="text-2xl text-[#001f3f] font-serif mb-8 mt-5 text-left">Mortgage Calculator</h3>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
+        
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-gray-700 dark:text-white">Mortgage Amount:</label>
             <input
               type="number"
               value={mortgageAmount}
               onChange={(e) => setMortgageAmount(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter mortgage amount"
             />
           </div>
-
-          <div className="w-full mb-4">
-            <label className="block text-gray-700">Down Payment:</label>
+          <div>
+            <label className="block text-gray-700 dark:text-white">Down Payment:</label>
             <input
               type="number"
               value={downPayment}
               onChange={(e) => setDownPayment(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter down payment"
             />
           </div>
-
-          <div className="w-full mb-4">
-            <label className="block text-gray-700">Interest Rate (%):</label>
+          <div>
+            <label className="block text-gray-700 dark:text-white">Interest Rate (%):</label>
             <input
               type="number"
               value={interestRate}
               onChange={(e) => setInterestRate(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter interest rate"
             />
           </div>
-
-          <div className="w-full mb-4">
-            <label className="block text-gray-700">Amortization Period (years):</label>
+          <div>
+            <label className="block text-gray-700 dark:text-white">Amortization Period (years):</label>
             <input
               type="number"
               value={loanTerm}
               onChange={(e) => setLoanTerm(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="bg-white w-full p-2 border text-black"
               placeholder="Enter loan term"
             />
           </div>
-
-          <div className="w-full mb-4">
-            <label className="block text-gray-700">Start Date:</label>
+          <div>
+            <label className="block text-gray-700 dark:text-white">Start Date:</label>
             <input
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="bg-white w-full p-2 border text-black"
             />
           </div>
-
-          <div className="w-full mb-4">
-            <label className="block text-gray-700">Payment Frequency:</label>
+          <div>
+            <label className="block text-gray-700 dark:text-white">Payment Frequency:</label>
             <select
               value={paymentFrequency}
               onChange={(e) => setPaymentFrequency(e.target.value)}
-              className="w-full p-2 border rounded"
+              className="bg-white w-full p-2 border text-black"
             >
               <option value="monthly">Monthly</option>
               <option value="bi-weekly">Bi-Weekly</option>
               <option value="weekly">Weekly</option>
             </select>
           </div>
-
-          <div className="flex justify-center mb-4">
-            <button onClick={calculateMortgage}
-              className="px-4 py-2 bg-blue-500 text-white rounded">
-              Calculate
-            </button>
-          </div>
         </div>
-
-        <div className="w-3/4 p-4 border-l border-gray-300">
-          <h3 className="text-2xl font-semibold flex justify-center mb-4 dark:text-black">Mortgage Repayment Summary</h3>
-          <hr className="w-full border-gray-300 my-2" />
-          
-          {/* Displaying Mortgage Details */}
-          <div className="mb-4 dark:text-black">
-            <p>Mortgage Amount:</p>
-            <p className="font-bold text-xl mt-2">${mortgageAmount}</p>
-          </div>
-          <hr className="w-full border-gray-300 my-2 dark:text-black" />
-
-          <div className="mb-4 dark:text-black">
-            <p>Down Payment:</p>
-            <p className="font-bold text-xl mt-2 dark:text-black">${downPayment}</p>
-          </div>
-          <hr className="w-full border-gray-300 my-2" />
-
-          <div className="mb-4 dark:text-black">
-            <p>Payment ({paymentFrequency}):</p>
-            <p className="font-bold text-xl mt-2 dark:text-black">${monthlyPayment}</p>
-          </div>
-          <hr className="w-full border-gray-300 my-2" />
-
-          <div className="mb-4 dark:text-black">
-            <p>Annual Payment:</p>
-            <p className="font-bold text-xl mt-2 dark:text-black">${annualPayment}</p>
-          </div>
-          <hr className="w-full border-gray-300 my-2 dark:text-black" />
-
-          <div className="mb-4 dark:text-black">
-            <p>Total Interest Paid:</p>
-            <p className="font-bold text-xl mt-2 dark:text-black">${totalInterestPaid}</p>
-          </div>
-          <hr className="w-full border-gray-300 my-2 dark:text-black" />
-
-          <div className="mb-4 dark:text-black">
-            <p>Loan Payoff Date:</p>
-            <p className="font-bold text-xl mt-2 dark:text-black">{loanPayOffDate}</p>
-          </div>
-          <hr className="w-full border-gray-300 my-2" />
+        
+        <div className="flex justify-end mt-4">
+          <button onClick={calculateMortgage} className="px-6 py-2 bg-[#001f3f] border border-[#001f3f] text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] dark:text-white dark:border-white transition-colors duration-300">
+            Calculate
+          </button>
         </div>
       </div>
 
-      {/* Print Button */}
-      <button
-        onClick={handlePrint}
-        className="mt-8 px-4 py-2 bg-green-500 text-white rounded-full dark:text-black"
-      >
-        Print Page
-      </button>
+      <div className="w-full pb-6 mb-6">
+        <h3 className="text-2xl text-[#001f3f] font-serif mb-8 mt-5 text-left">Mortgage Repayment Summary</h3>
+        
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <p className="text-gray-700 dark:text-white">Mortgage Amount:</p>
+            <p className="font-bold text-lg">${mortgageAmount}</p>
+          </div>
+          <div>
+            <p className="text-gray-700 dark:text-white">Down Payment:</p>
+            <p className="font-bold text-lg">${downPayment}</p>
+          </div>
+          <div>
+            <p className="text-gray-700 dark:text-white">Payment ({paymentFrequency}):</p>
+            <p className="font-bold text-lg">${monthlyPayment}</p>
+          </div>
+          <div>
+            <p className="text-gray-700 dark:text-white">Annual Payment:</p>
+            <p className="font-bold text-lg">${annualPayment}</p>
+          </div>
+          <div>
+            <p className="text-gray-700 dark:text-white">Total Interest Paid:</p>
+            <p className="font-bold text-lg">${totalInterestPaid}</p>
+          </div>
+          <div>
+            <p className="text-gray-700 dark:text-white">Loan Payoff Date:</p>
+            <p className="font-bold text-lg">{loanPayOffDate}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-end w-full">
+        <button onClick={handlePrint} className="px-6 py-2 bg-[#001f3f] border border-[#001f3f] text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] dark:text-white dark:border-white transition-colors duration-300">
+          Print
+        </button>
+      </div>
     </div>
   );
 }

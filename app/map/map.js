@@ -19,7 +19,7 @@ export default function Map() {
         center={[51.0447, -114.0719]} 
         zoom={9}
         scrollWheelZoom={false}
-        style={{ height: "100vh", width: "100%" }}
+        style={{ height: "100vh", width: "100%", zIndex: 1 }}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -29,8 +29,8 @@ export default function Map() {
           <Marker position={[item.latitude, item.longitude]} icon={customMarker} key={item.id}>
             <Popup>
               <div>
-                <img src={item.image} alt="" className="w-full h-32 object-cover rounded-lg" />
-                <h3 className="text-xl font-bold text-gray-900">{item.name}</h3>
+                <img src={item.image} alt="" className="w-full h-32 object-cover" />
+                <h3 className="text-xl font-bold text-[#001f3f]">{item.name}</h3>
                 <h4 className="text-sm text-gray-500">${item.price}</h4>
               </div>
             </Popup>

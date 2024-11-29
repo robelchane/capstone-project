@@ -9,7 +9,7 @@ export default function EventsPage() {
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        setShowConfirmation(true); // 클릭 시 감사 메시지 표시
+        setShowConfirmation(true);
     };
 
     const [events] = useState([
@@ -107,35 +107,30 @@ export default function EventsPage() {
 
     return (
         <div className="font-roboto">
-            <div className="p-12 mt-48 flex items-start justify-between max-w-5xl mx-auto">
-                <div className="w-1/2">
-                    <h1 className="text-7xl ml-24">Events</h1>
-                </div>
-                <div className="w-1/2">
-                    <p className="text-xl ml-10">
-                        Be part of something special. Our events bring people together to celebrate, connect, and make meaningful memories. Join us for exclusive experiences you won’t want to miss.
-                    </p>
-                </div>
+            <div className="mt-32 text-center max-w-3xl mx-auto">
+                <h1 className="italic text-5xl font-serif text-[#001f3f] mb-5">Events</h1>
+                <p className="text-xl font-serif">
+                    Be part of something special. Our events bring people together to celebrate, connect, and make meaningful memories. Join us for exclusive experiences you won’t want to miss.
+                </p>
             </div>
 
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 p-36">
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-10 p-20">
                 {events.map((event, index) => (
                     <li
                     key={index} 
-                    className="mb-6 p-4 cursor-pointer border border-transparent hover:border-black hover:bg-black hover:text-white transition-colors duration-300 hover:scale-105 transition-transform duration-300 rounded-lg"
+                    className="mb-6 cursor-pointer hover:bg-[#001f3f] hover:text-white transition-colors duration-300"
                     onClick={() => router.push(`/events/${event.id}`)}
                     >
                         <img 
                             src={event.imageUrl} 
                             alt={event.name} 
-                            className="w-full h-96 object-cover"
+                            className="w-full h-90 object-cover"
                         />
-                        <div>
-                            <h2 className="text-xl font-semibold mt-3 mb-1">{event.name}</h2>
+                        <div className="py-3 ml-3">
+                            <h2 className="text-xl mb-2">{event.name}</h2>
                             <p>{event.description}</p>
                             <p>Location: {event.location || "TBA"}</p>
                         </div>
-                        <hr className="mt-5 border-t-2 border-dashed"/>
                     </li>
                 ))}
             </ul>

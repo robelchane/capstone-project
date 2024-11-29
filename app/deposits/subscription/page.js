@@ -4,6 +4,8 @@ import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandHoldingHeart, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 export default function Subscription() {
   const router = useRouter();
@@ -139,10 +141,10 @@ export default function Subscription() {
         {subscriptionPlans.map((plan) => (
           <div
             key={plan._id}
-            className="border border-gray-300 rounded-lg p-5 shadow-md"
+            className="border border-gray-300 rounded-lg p-5 shadow-md dark:bg-white"
             style={{ width: "380px" }}
           >
-            <h2 className="text-xl font-semibold mb-4 text-center">{plan.name}</h2>
+            <h2 className="text-xl text-black font-semibold mb-4 text-center">{plan.name}</h2>
             <p className="text-gray-700 mb-4">${plan.price} / month</p>
             <p className="text-gray-600">Property Limit: {plan.propertyLimit}</p>
             <p className="text-gray-600 mb-4">
@@ -155,24 +157,30 @@ export default function Subscription() {
               ))}
             </ul>
 
-            <div className="flex flex-col items-center w-full">
-              <button
-                className="py-2 mt-4 rounded text-white bg-black hover:bg-gray-900"
-                style={{ width: "350px" }}
-                onClick={() => {
-                  plan.name === "Premium" ? createCheckOutSession(plan) : handleSubscription(plan.name);
-                }}
-              >
+            <div className="flex flex-row items-center w-full justify-center space-x-4 mt-4">
+            <button
+              className="flex items-center justify-center space-x-2 py-2 rounded text-white bg-black hover:bg-gray-900"
+              style={{ width: "200px" }}
+              onClick={() => {
+                plan.name === "Premium" ? createCheckOutSession(plan) : handleSubscription(plan.name);
+              }}
+            >
+              {plan.name === "Basic" ? (
+                <FontAwesomeIcon icon={faHandHoldingHeart} />
+              ) : (
+                <FontAwesomeIcon icon={faCreditCard} />
+              )}
+              <span>
                 {plan.name === "Basic" ? "Subscribe for free!" : "Purchase subscription"}
-              </button>
-              
+              </span>
+            </button>
               {plan.name === "Basic" && isBasicSubscribed && (
                 <button
-                  className="py-2 mt-4 rounded text-white bg-red-600 hover:bg-red-800"
-                  style={{ width: "350px" }}
+                  className="py-2 rounded text-white bg-red-500 hover:bg-red-800"
+                  style={{ width: "200px" }}
                   onClick={handleCancelSubscription}
                 >
-                  Cancel Basic Subscription
+                  Cancel Subscription
                 </button>
               )}
             </div>
@@ -191,7 +199,7 @@ export default function Subscription() {
         </div>
       </div>
 
-      {message && <p className="mt-8 text-center text-xl text-black">{message}</p>}
+      {message && <p className="mt-8 text-center text-xl">{message}</p>}
     </div>
   );
 }

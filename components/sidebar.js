@@ -42,7 +42,7 @@ export default function Sidebar() {
     ];
 
     return (
-        <div className="flex flex-col w-[250px] border-r-2 border-gray-800 h-screen ">
+        <div className="flex flex-col mt-1 w-[250px] border-r border-gray-300 h-screen">
             <Command className="flex-grow">
                 <CommandList>
                     {menuList.map((menu, menuKey) => (
@@ -51,7 +51,7 @@ export default function Sidebar() {
                                 <CommandItem 
                                     key={itemKey} 
                                     onSelect={() => window.location.href = item.link}
-                                    className={`flex items-center space-x-3 
+                                    className={`flex items-center space-x-3 cursor-pointer
                                         ${pathname === item.link ? 'bg-gray-200 text-black' : 'hover:bg-gray-100'}
                                     `}
                                     aria-label={item.text}

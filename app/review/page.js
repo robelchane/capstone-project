@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import OverallRating from "./components/OverallRating";
 import ReviewList from "./components/ReviewList";
-import SearchReviews from "./components/SearchReviews";
+import StarRating from "./components/StarRating";
+import ReviewModal from "./components/ReviewModal";
 
 export default function Review() {
     const reviewers = [
@@ -42,29 +43,37 @@ export default function Review() {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [fade, setFade] = useState(true); // 페이드 효과 상태
+    const [fade, setFade] = useState(true);
 
     const handlePrev = () => {
-        setFade(false); // 페이드 아웃 시작
+        setFade(false);
         setTimeout(() => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === 0 ? reviewers.length - 1 : prevIndex - 1
             );
-            setFade(true); // 페이드 인 시작
-        }, 300); // 전환 지속 시간에 맞춰 설정
+            setFade(true);
+        }, 300);
     };
 
     const handleNext = () => {
-        setFade(false); // 페이드 아웃 시작
+        setFade(false);
         setTimeout(() => {
             setCurrentIndex((prevIndex) =>
                 prevIndex === reviewers.length - 1 ? 0 : prevIndex + 1
             );
-            setFade(true); // 페이드 인 시작
-        }, 300); // 전환 지속 시간에 맞춰 설정
+            setFade(true);
+        }, 300);
     };
 
+
+
+
     const [reviews, setReviews] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     const [newReview, setNewReview] = useState({
         reviewer: '',
         rating: 0,
@@ -80,7 +89,6 @@ export default function Review() {
         fetchReviews();
     }, []);
 
-    // 리뷰 제출 핸들러 함수 정의
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch('/api/review', {
@@ -90,14 +98,13 @@ export default function Review() {
         });
         if (response.ok) {
             const savedReview = await response.json();
-            setReviews([...reviews, savedReview.review]); // 새로운 리뷰 추가
-            setNewReview({ reviewer: '', rating: 0, comment: '' }); // 폼 초기화
+            setReviews([...reviews, savedReview.review]);
+            setNewReview({ reviewer: '', rating: 0, comment: '' });
         } else {
             console.error('Failed to submit review');
         }
     };
 
-    // 리뷰 작성 폼의 입력 값 업데이트 핸들러
     const handleChange = (e) => {
         const { name, value } = e.target;
         setNewReview((prev) => ({ ...prev, [name]: value }));
@@ -133,7 +140,7 @@ export default function Review() {
                 <div className="w-2/3 pl-8 flex flex-col justify-between">
                     <div className="flex items-start">
                         <div>
-                            <p className="text-4xl font-serif font-bold leading-relaxed mb-12">“<br/>{reviewers[currentIndex].quote}”</p>
+                            <p className="text-4xl font-serif text-[#001f3f] dark:text-white leading-relaxed mb-12">“<br/>{reviewers[currentIndex].quote}”</p>
                         </div>
                     </div>
 
@@ -146,8 +153,8 @@ export default function Review() {
                                 className="w-11 h-11 rounded-full"
                             />
                             <div className="border-l border-gray-300 ml-5 pl-5">
-                                <p className="text-sm text-gray-800 uppercase">{reviewers[currentIndex].title}</p>
-                                <p className="text-base text-gray-800">{reviewers[currentIndex].name}</p>
+                                <p className="text-sm uppercase">{reviewers[currentIndex].title}</p>
+                                <p className="text-base">{reviewers[currentIndex].name}</p>
                             </div>
                         </div>
 
@@ -155,81 +162,82 @@ export default function Review() {
                         <div className="flex items-center space-x-3">
                             <button
                                 onClick={handlePrev}
-                                className="p-1 rounded-full bg-black text-white border border-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="px-2 py-1 bg-[#001f3f] text-white border border-[#001f3f] dark:border-white dark:text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-color duration-300"
                             >
-                                ⬅
+                                {"<"}
                             </button>
-                            <span className="text-black">
+                            <span>
                                 {currentIndex + 1} / {reviewers.length}
                             </span>
                             <button
                                 onClick={handleNext}
-                                className="p-1 rounded-full bg-black text-white border border-white hover:bg-transparent hover:text-black hover:border-black transition-color duration-300"
+                                className="px-2 py-1 bg-[#001f3f] text-white border border-[#001f3f] dark:border-white dark:text-white hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-color duration-300"
                             >
-                                ➡
+                                {">"}
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {/* 두 부분으로 나눔 */}
-            <div className="p-12 mt-32 max-w-8xl mx-auto">
-            <h1 className="text-5xl text-center font-semibold mb-16">Reviews</h1>
 
-            <div className="flex">
+            <div className="p-12 mt-32 max-w-8xl mx-auto">
+            <h1 className="text-4xl text-center text-[#001f3f] dark:text-white font-serif mb-16">Reviews</h1>
+
+            <div className="flex ">
                 <div className="w-full lg:w-2/3 pr-16">
                     <OverallRating reviews={reviews} />
                     <ReviewList reviews={reviews} />
-                    {/* <SearchReviews reviews={reviews} /> */}
+                    <button
+                    onClick={openModal}
+                    className="items-right px-4 py-2 bg-[#001f3f] border text-white shadow-md hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-colors duration-300 dark:text-white dark:border-white"
+                    >
+                        See All
+                    </button>
+                    <ReviewModal reviews={reviews} isOpen={isModalOpen} onClose={closeModal} />
+
                 </div>
-                <div className="w-full lg:w-1/3 bg-white p-6 border rounded-lg shadow-md">
-                    <h2 className="text-2xl font-semibold mb-5">Write a Review</h2>
+                <div className="w-full lg:w-1/3 bg-white p-6 border shadow-md">
+                    <h2 className="text-2xl mb-5 dark:text-black">Write a Review</h2>
                     <p className="text-gray-500">Want to leave a review for Property Pros?</p>
-                    <p className=" text-gray-500 mb-5">Feel free to write about your experience or comments.</p>
+                    <p className="text-gray-500 mb-5">Feel free to leave your comments or experiences.</p>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
-                            <label className="block text-lg font-medium">Name</label>
+                            <label className="block text-lg font-medium dark:text-black">Name</label>
                             <input
                                 type="text"
                                 name="reviewer"
                                 value={newReview.reviewer}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-3 border rounded-md"
+                                className="bg-white w-full p-3 border dark:text-black"
                             />
                         </div>
                         <div>
-                            <label className="block text-lg font-medium">Rating</label>
-                            <input
-                                type="number"
-                                name="rating"
-                                value={newReview.rating}
-                                onChange={handleChange}
-                                required
-                                min="1"
-                                max="5"
-                                className="w-full p-3 border rounded-md"
+                            <label className="block text-lg font-medium dark:text-black">Rating</label>
+                            <StarRating 
+                                rating={newReview.rating} 
+                                onRatingChange={(rating) => setNewReview(prev => ({ ...prev, rating }))}
                             />
                         </div>
                         <div>
-                            <label className="block text-lg font-medium mb-5">Comment</label>
+                            <label className="block text-lg font-medium dark:text-black">Comment</label>
                             <textarea
                                 name="comment"
                                 value={newReview.comment}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-3 border rounded-md"
+                                rows="6"
+                                className="bg-white w-full p-3 border dark:text-black"
                             ></textarea>
                         </div>
-                        <button type="submit" className="bg-black text-white w-full p-5 rounded-full border hover:bg-transparent hover:text-black hover:border-blue-400 transition-colors duration-300">
+                        <button type="submit" className="bg-[#001f3f] text-white w-full p-5 border hover:bg-transparent hover:text-[#001f3f] hover:border-[#001f3f] transition-colors duration-300">
                             Submit Review
                         </button>
                     </form>
                 </div>
             </div>
         </div>
-
         </div>
     );
 }

@@ -47,15 +47,16 @@ export default function Manager() {
   };
 
   return (
-    <div className="py-8 px-4 mt-16">
+    <div className="py-8 px-8 mt-24">
       {/* Loading spinner */}
       {loading && <p>Loading properties...</p>}
 
+      <p className="text-center text-3xl">Manage Property Details</p>
       {/* Listings display */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
         {properties.length > 0 ? (
           properties.map((property) => (
-            <div key={property._id} className="p-4 border rounded shadow-md">
+            <div key={property._id} className="p-4 border shadow-md">
               <img
                 src={`/images/${property.image}`} // Adjust this path as needed
                 alt={property.name}
@@ -65,21 +66,24 @@ export default function Manager() {
               <p className="text-lg text-gray-700">
                 <span style={{ color: "#001f3f" }}>$</span>{property.price}
               </p>
-              <p className="text-gray-600">{property.summary}</p>
+              <p className="text-gray-600">{property.detail}</p>
               <p className="text-sm text-gray-500">{property.address}</p>
+              <p className="text-sm text-gray-500">...</p>
 
               {/* Edit and Delete buttons */}
               <div className="flex justify-between mt-4">
                 {/* Edit button */}
-                <Link href={`/edit-property/${property._id}`} className="text-blue-500 hover:text-blue-700">
-                  <FontAwesomeIcon icon={faPen} />
+                <Link href={`/edit-property/${property._id}`} className="text-blue-500 font-bold hover:text-blue-700">
+                  <FontAwesomeIcon icon={faPen} className="mr-1" />
+                  Edit
                 </Link>
                 {/* Delete button */}
                 <button
                   onClick={() => handleDelete(property._id)}
-                  className="text-red-500 hover:text-red-700"
+                  className="text-red-500 font-bold hover:text-red-700"
                 >
-                  <FontAwesomeIcon icon={faTrash} />
+                  <FontAwesomeIcon icon={faTrash} className="mr-1" />
+                  Delete
                 </button>
               </div>
             </div>

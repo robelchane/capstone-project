@@ -3,49 +3,63 @@
   {
     "id": 1,
     "name": "Aliva Priva Jardin",
-    "price": "47,043",
+    "price": "470,043",
     "bedrooms": 3,
     "bathrooms": 2,
     "address": "123 Elm Street, Calgary, Alberta",
     "latitude": 51.0447,
     "longitude": -114.0719,
-    "detail": "A beautiful property in the heart of Calgary.",
+    "detail": "A beautiful property in the heart of Calgary",
     "summary": "A beautiful property in the heart of Calgary. This home is close to local parks and schools, and is perfect for a growing family. The property features a spacious backyard, perfect for entertaining guests. The home is also close to downtown Calgary, making it easy to access the city's amenities.",
     "image": "/r1.png",
     "sliderImages": [
       "https://images.unsplash.com/photo-1533779283484-8ad4940aa3a8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://images.unsplash.com/photo-1507149833265-60c372daea22?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://media.istockphoto.com/id/1334118685/photo/computer-generated-image-of-interior-of-bathroom-in-3d-with-houseplant.jpg?s=2048x2048&w=is&k=20&c=hRCDJUGIZhZfP-Gk5tri9WQ85kf7UI1pz6WgmH32SK4="
-    ]
+    ],
+    "sqft": 2000,
+    "yearBuilt": 2010,
+    "parking": 2,
+    "propertyType": "Condo",
+    "basement": "Finished",
+    "Pets": "Allowed"
   },
   {
     "id": 2,
     "name": "Asatti Garden City",
-    "price": "66,353",
+    "price": "666,353",
     "bedrooms": 4,
     "bathrooms": 3,
     "address": "456 Maple Avenue, Calgary, Alberta",
     "latitude": 51.0464,
     "longitude": -114.0708,
-    "detail": "Spacious home near local parks and schools.",
+    "detail": "Spacious home near local parks and schools",
     "summary": "A spacious home that offers comfort and convenience. Located near local parks and schools, this property is ideal for families. It boasts a large backyard and multiple bedrooms, providing ample space for a growing family.",
     "image": "/r2.png",
     "sliderImages": [
       "https://images.unsplash.com/photo-1542320260-f8f651de8c12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://media.architecturaldigest.com/photos/59721e387530e857b50307b1/4:3/w_2299,h_1724,c_limit/90s-0697-michael-keaton-western-ranch-7.jpg",
       "https://images.seattletimes.com/wp-content/uploads/2018/07/vintage-bathroom.jpg?d=780x520"
-    ]
+    ],
+    "sqft": 2500,
+    "yearBuilt": 2015,
+    "parking": 3,
+    "propertyType": "House",
+    "basement": "Unfinished",
+    "Pets": "Allowed"
+
   },
+  
   {
     "id": 3,
     "name": "Citralan Puri Serang",
-    "price": "35,853",
+    "price": "1,000,853",
     "bedrooms": 2,
     "bathrooms": 1,
     "address": "789 Oak Street, Calgary, Alberta",
     "latitude": 51.0491,
     "longitude": -114.0693,
-    "detail": "Cozy home with easy access to downtown Calgary.",
+    "detail": "Cozy home with easy access to downtown Calgary",
     "summary": "A cozy and affordable home offering easy access to downtown Calgary. This property is perfect for individuals or small families looking for modern amenities and convenience. The home is located in a vibrant neighborhood with quick access to city life.",
     "image": "/r3.png",
     "sliderImages": [
@@ -53,19 +67,25 @@
       "https://img.pikbest.com/origin/09/33/58/788pIkbEsTSrb.jpg!w700wp",
       "https://static.vecteezy.com/system/resources/previews/029/292/488/large_2x/antique-cottage-bedroom-decor-interior-design-and-holiday-rental-bed-with-elegant-bedding-and-furniture-english-country-house-style-generative-ai-photo.jpg",
       "https://kenny-mason.com/wp-content/uploads/2017/04/20140118_untitled_5747.jpg"
-    ]
+    ],
+    "sqft": 1500,
+    "yearBuilt": 2005,
+    "parking": 1,
+    "propertyType": "House",
+    "basement": "Finished",
+    "Pets": "Allowed"
 
   },
   {
     "id": 4,
     "name": "Aliva Priva Jardin",
-    "price": "47,043",
+    "price": "2,200,043",
     "bedrooms": 3,
     "bathrooms": 2,
     "address": "234 Pine Crescent, Calgary, Alberta",
     "latitude": 51.0412,
     "longitude": -114.0752,
-    "detail": "Lovely property in a quiet neighborhood.",
+    "detail": "Lovely property in a quiet neighborhood",
     "summary": "A lovely property located in a peaceful neighborhood. This home offers a serene environment while still being close to essential amenities. It's an excellent choice for those seeking tranquility without sacrificing convenience.",
     "image": "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sliderImages": [
@@ -73,18 +93,24 @@
       "https://images.squarespace-cdn.com/content/v1/5fd22fc78a4c4435a671cb2d/febc937a-116c-4070-bc6b-f4115f659a04/94841dac7bc2f45d14e180ca967d7402.jpg",
       "https://www.home-designing.com/wp-content/uploads/2010/11/Cottage-home-interiors-stone-fireplace.jpg",
       "https://blog.canadianloghomes.com/wp-content/uploads/2023/09/cabin-bathroom-ideas.jpg"
-    ]
+    ],
+    "sqft": 1800,
+    "yearBuilt": 2012,
+    "parking": 2,
+    "propertyType": "House",
+    "basement": "Finished",
+    "Pets": "Allowed"
   },
   {
     "id": 5,
     "name": "Asatti Garden City",
-    "price": "66,353",
+    "price": "996,353",
     "bedrooms": 5,
     "bathrooms": 4,
     "address": "567 Cedar Lane, Calgary, Alberta",
     "latitude": 51.0482,
     "longitude": -114.0734,
-    "detail": "Large family home with a spacious backyard.",
+    "detail": "Large family home with a spacious backyard",
     "summary": "A large family home designed for comfort and luxury. With five bedrooms and four bathrooms, this property offers plenty of space for larger families. The spacious backyard is perfect for outdoor activities and gatherings.",
     "image": "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sliderImages": [
@@ -92,18 +118,25 @@
       "https://branadesigns.com/wp-content/uploads/2022/12/newport-beach-real-estate-brana-designs-e1671133179841.jpg",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBwZO2i01LDDe8m7BzRZ55uOMrJqWCLV31NA&s",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUqb2nGkpGC8826Hk8sAbgHuW3peCbTT8KlQ&s"
-    ]
+    ],
+    "sqft": 3000,
+    "yearBuilt": 2018,
+    "parking": 3,
+    "propertyType": "House",
+    "basement": "Finished",
+    "Pets": "Allowed"
+    
   },
   {
     "id": 6,
     "name": "Citralan Puri Serang",
-    "price": "35,853",
+    "price": "500,853",
     "bedrooms": 2,
     "bathrooms": 1,
     "address": "890 Birch Road, Calgary, Alberta",
     "latitude": 51.0438,
     "longitude": -114.0789,
-    "detail": "Affordable home with modern amenities.",
+    "detail": "Affordable home with modern amenities",
     "summary": "An affordable home offering modern amenities in a well-connected area. This property is ideal for those looking for a budget-friendly option without compromising on quality. It provides all the necessary features for a comfortable living experience.",
     "image": "https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sliderImages": [
@@ -111,6 +144,12 @@
       "https://images.unsplash.com/photo-1665249934445-1de680641f50?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "https://media.istockphoto.com/id/1453223696/photo/a-bathroom-with-a-grey-cabinet-and-tiled-shower.jpg?s=2048x2048&w=is&k=20&c=z6AhwbiruvfKWRWbTRyJnBd6fP68t0sSzxKr0jreg0M=",
       "https://images.unsplash.com/photo-1531410691118-74e9fbc0f57f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-    ]
+    ],
+    "sqft": 1400,
+    "yearBuilt": 2010,
+    "parking": 1,
+    "propertyType": "Condo",
+    "basement": "N/A",
+    "Pets": "Not Allowed"
   }
 ]
