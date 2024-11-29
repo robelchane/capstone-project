@@ -10,7 +10,7 @@ import {
     CommandItem,
     CommandList,
 } from "../components/ui/command";
-import { User, Settings, MessageCircle, Vault } from "lucide-react";
+import { User, Settings, MessageCircle, Vault, Calendar } from "lucide-react";
 
 export default function Sidebar() {
     const pathname = usePathname(); 
@@ -39,6 +39,11 @@ export default function Sidebar() {
                     link: "/inbox",
                     icon: <MessageCircle />,
                     text: "Inbox"
+                },
+                {
+                    link: "/all-appointmets", // New Appointments Link
+                    icon: <Calendar />,    // Calendar Icon
+                    text: "Appointments"
                 }
             ]
         }
