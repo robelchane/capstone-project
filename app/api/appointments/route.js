@@ -26,6 +26,6 @@ try {
 //GET: Fetch all appointments
 export  async function GET() {
     try {
-      await  connectMongoDB(); //Connect to  
+      await  connectMongoDB(); //Connect to the  
 
 
