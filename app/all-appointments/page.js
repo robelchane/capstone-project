@@ -14,7 +14,8 @@ export default function AllAppointments() {
             const data = await response.json();
             setAppointments(data.appointments || []);
         } catch (error) {
-            
+            console.error("Failed to fetch appointments:", error); 
+        }       
         }
             
 
