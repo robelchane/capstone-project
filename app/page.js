@@ -5,6 +5,7 @@ import Residencies from "./residencies/residencies.js";
 import Value from "./value/value.js";
 import CustomerReview from "./customerReview/CustomerReview.js";
 import ContactUs from "./contact/page.js";
+import Bookings from "./bookings/page.js";
 
 export default function Page() {
   return (
@@ -13,7 +14,8 @@ export default function Page() {
       <Residencies />
       <Value />
       <CustomerReview />
-      <ContactUs />     
+      <ContactUs /> 
+      <Bookings />    
     </main>
   );
 }

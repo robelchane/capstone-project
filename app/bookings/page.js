@@ -37,9 +37,11 @@ export default function Bookings() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-teal-500">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg mt-20">
-        <h1 className="text-3xl font-extrabold text-center text-gray-800 mb-6">Book an Appointment</h1>
+        <h1 className="text-3xl font-extrabold text-center text-gray-800 mb-6">
+          Book an Appointment
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name Input */}
           <div>
