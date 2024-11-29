@@ -26,5 +26,5 @@ export default function AllAppointments() {
 
 const deleteAppointment = async (id) => {
     try {
-      const response
+      const response = await fetch(`/api/appointments?id=${id}`, { method: "DELETE" });
     }
