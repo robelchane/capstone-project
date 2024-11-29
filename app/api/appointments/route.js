@@ -23,6 +23,6 @@ try {
   );
 }
 
-//GET: Fetch all
+//GET: Fetch all appointments
 
 
