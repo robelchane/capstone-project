@@ -33,6 +33,16 @@ export  async function GET() {
 
       return NextResponse.json({ appointments }, {status: 200 });
 
+    } catch (error) {
+        // Handle any database or query errors
+        return NextResponse.json(
+          { error: "Failed to fetch appointments", details: error.message },
+          { status: 500 }
+        );
+      }
+    }
+
+
 
 
 
