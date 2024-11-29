@@ -7,4 +7,6 @@ export default function AllAppointments() {
     const [appointments, setAppointments] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const 
+    const fetchAppointments = async () => {
+        
+    }
