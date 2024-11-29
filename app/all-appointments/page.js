@@ -8,5 +8,6 @@ export default function AllAppointments() {
     const [loading, setLoading] = useState(false);
 
     const fetchAppointments = async () => {
-        
+        setLoading
+
     }
