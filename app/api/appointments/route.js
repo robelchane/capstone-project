@@ -28,6 +28,6 @@ export  async function GET() {
     try {
       await  connectMongoDB(); //Connect to the database
 
-      //Retrieve all appointments from
+      //Retrieve all appointments from the 
 
 
