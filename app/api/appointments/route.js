@@ -19,3 +19,4 @@ try {
   // Return a detailed error message for debugging
   return NextResponse.json(
     {error: "Failed to create appointment", details: error.message },
+    { }
