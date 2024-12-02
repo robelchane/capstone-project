@@ -105,7 +105,7 @@ const Card1 = () => {
       </section>
 
       {/* Explore Ongoing and Future Events Section */}
-      <section className="py-[100px] bg-[#8B6331]" id="call-to-action">
+      <section className="py-[100px] bg-[#001f3f]" id="call-to-action">
         <div className="container mx-auto flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 text-white mb-6 lg:mb-0 lg:mr-8">
             <p className="text-lg text-shadow leading-relaxed ml-5">
