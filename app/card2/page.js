@@ -1,6 +1,7 @@
 const Card2 = () => {
     return (
-        <div className="min-h-screen bg-gray-100 flex flex-col">
+        <div className="min-h-screen bg-white flex flex-col">
+
 
             <main className="flex-grow p-8">
                 
