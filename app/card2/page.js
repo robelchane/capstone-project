@@ -51,48 +51,6 @@ const Card2 = () => {
 </section>
 
 
-<section id="economic-opportunity" className="py-12 bg-white">
-    <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center">
-        {/* Text Section */}
-        <div className="lg:w-1/2 lg:pr-10">
-            <h2 className="text-4xl font-serif text-[#001f3f] mb-6">
-                Economic Opportunity and Stability
-            </h2>
-            <p className="text-gray-700 text-lg mb-4">
-                Calgary isn't just a city – it's a land of opportunity. As the heart of Canada's energy sector and an emerging tech hub, Calgary offers:
-            </p>
-            <ul className="space-y-4 text-gray-600">
-                <li className="flex items-start">
-                    <span className="text-2xl text-[#001f3f] mr-4">💼</span>
-                    <span>Diverse job markets spanning energy, technology, agriculture, and finance.</span>
-                </li>
-                <li className="flex items-start">
-                    <span className="text-2xl text-[#001f3f] mr-4">💰</span>
-                    <span>Lower provincial tax rates compared to other major Canadian cities.</span>
-                </li>
-                <li className="flex items-start">
-                    <span className="text-2xl text-[#001f3f] mr-4">🚀</span>
-                    <span>A robust economy with numerous entrepreneurial opportunities.</span>
-                </li>
-                <li className="flex items-start">
-                    <span className="text-2xl text-[#001f3f] mr-4">📊</span>
-                    <span>Competitive salaries and a lower cost of living compared to Vancouver and Toronto.</span>
-                </li>
-            </ul>
-        </div>
-
-        {/* Image/Graphic Section */}
-        <div className="lg:w-1/2 mt-8 lg:mt-0">
-            <img 
-                src="/images/economic-opportunity.jpg" 
-                alt="Economic Opportunity in Calgary" 
-                className="rounded-lg shadow-lg"
-            />
-        </div>
-    </div>
-</section>
-
-
                 {/* Learn More Button */}
                 <div className="flex justify-center mt-6">
                     <a 
