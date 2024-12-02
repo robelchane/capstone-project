@@ -3,9 +3,6 @@ const Card2 = () => {
         <div className="min-h-screen bg-gray-100 flex flex-col">
 
             <main className="flex-grow p-8">
-                <p className="text-gray-700 text-lg leading-relaxed">
-                    Discover the vibrant urban life and cultural experiences that make Calgary unique.
-                </p>
                 
                 {/* Quality of Life Section */}
                 <section id="quality-of-life" className="py-10 bg-[#f4f4f4] mt-12">
