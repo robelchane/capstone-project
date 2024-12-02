@@ -1,9 +1,7 @@
 const Card2 = () => {
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col">
-            <header className="bg-[#8B6331] text-white py-6 shadow-lg">
-                <h1 className="text-4xl font-bold text-center tracking-wide">Urban Life & Culture</h1>
-            </header>
+
             <main className="flex-grow p-8">
                 <p className="text-gray-700 text-lg leading-relaxed">
                     Discover the vibrant urban life and cultural experiences that make Calgary unique.
