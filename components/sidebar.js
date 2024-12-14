@@ -7,7 +7,7 @@ import {
     CommandItem,
     CommandList,
 } from "../components/ui/command";
-import { User, Settings, MessageCircle, Vault } from "lucide-react";
+import { User, Settings, MessageCircle, Vault, Calendar } from "lucide-react";
 
 export default function Sidebar() {
     const pathname = usePathname(); 
@@ -36,6 +36,11 @@ export default function Sidebar() {
                     link: "/inbox",
                     icon: <MessageCircle />,
                     text: "Inbox"
+                },
+                {
+                    link: "/all-appointments", // New Appointments Link
+                    icon: <Calendar />,    // Calendar Icon
+                    text: "Appointments"
                 }
             ]
         }
@@ -51,7 +56,7 @@ export default function Sidebar() {
                                 <CommandItem 
                                     key={itemKey} 
                                     onSelect={() => window.location.href = item.link}
-                                    className={`flex items-center space-x-3 
+                                    className={`flex items-center space-x-3 cursor-pointer
                                         ${pathname === item.link ? 'bg-gray-200 text-black' : 'hover:bg-gray-100'}
                                     `}
                                     aria-label={item.text}

@@ -76,16 +76,11 @@ export default function ContactForm() {
         }}
     >  
       {/* Information Section */}
-      <div className="w-full py-10 px-5 mt-40 mb-10">
+      <div className="w-full py-10 px-5 mt-32">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-serif mb-10">
+          <h1 className="text-4xl font-serif">
             Contact Us
           </h1>
-          <p className="text-xl mb-24">
-            Managing your property just got easier! Whether you're a homeowner, tenant, or property manager, 
-            we're here to help streamline your experience. Have questions or need support? 
-            Get in touch with us—we’re ready to assist!
-          </p>
         </div>
       </div>
 

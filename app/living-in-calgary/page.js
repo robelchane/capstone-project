@@ -123,6 +123,21 @@ useEffect(() => {
 </section>
 
 
+{/* Affordability Tool Section */}
+<section className="py-[70px] bg-[#f4f4f4]" id="affordability-tool">
+  <div className="container mx-auto text-center">
+    <h2 className="text-[#001f3f] text-4xl font-serif mb-6">
+      Find Out What You Can Afford in Calgary
+    </h2>
+    <p className="text-black leading-relaxed text-lg mb-6">
+      Use our affordability tool to get a better understanding of what you can afford when considering moving to Calgary. <br/>It’s an easy way to plan your future in this amazing city!
+    </p>
+    <Link href="/affordability" className="inline-block bg-[#001f3f] text-white text-xl font-serif py-3 px-5 shadow-md hover:bg-[#00416A] transition-colors duration-300">
+      Check Your Affordability
+    </Link>
+  </div>
+</section>
+
 
 
 {/* Discover Calgary's Highlights Section */}

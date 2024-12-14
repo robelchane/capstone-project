@@ -1,5 +1,4 @@
-//chatgpt
-//Aaron's Vercel Web dev
+
 
 "use client";
 import { useState } from "react";
@@ -13,119 +12,131 @@ export default function Bookings() {
     notes: "",
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would send the booking details to a server or API
-    console.log("Booking Details:", formData);
-    setIsSubmitted(true);
+
+    try {
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Appointment created successfully!");
+        setFormData({ name: "", email: "", date: "", time: "", notes: "" });
+      } else {
+        alert("Failed to create appointment.");
+      }
+    } catch (error) {
+      console.error("Failed to create appointment:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-5 mt-20">Book an Appointment</h1>
-
-      {isSubmitted ? (
-        <div className="bg-green-100 text-green-800 p-4 rounded-md">
-          <p>Thank you, {formData.name}! Your appointment is scheduled for {formData.date} at {formData.time}.</p>
-          <p>We’ll be in touch at {formData.email}.</p>
-        </div>
-      ) : (
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full"
-        >
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 font-semibold">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg mt-20">
+        <h1 className="text-3xl font-extrabold text-center text-gray-800 mb-6">
+          Book an Appointment
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Name Input */}
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Name
             </label>
             <input
-              type="text"
               id="name"
               name="name"
+              type="text"
               value={formData.name}
-              onChange={handleChange}
-              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
+              onChange={handleInputChange}
+              placeholder="Your full name"
               required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-semibold">
+          {/* Email Input */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email
             </label>
             <input
-              type="email"
               id="email"
               name="email"
+              type="email"
               value={formData.email}
-              onChange={handleChange}
-              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
+              onChange={handleInputChange}
+              placeholder="Your email address"
               required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="date" className="block text-gray-700 font-semibold">
-              Date
+          {/* Date Input */}
+          <div>
+            <label htmlFor="date" className="block text-sm font-medium text-gray-700">
+              Appointment Date
             </label>
             <input
-              type="date"
               id="date"
               name="date"
+              type="date"
               value={formData.date}
-              onChange={handleChange}
-              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
+              onChange={handleInputChange}
               required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="time" className="block text-gray-700 font-semibold">
-              Time
+          {/* Time Input */}
+          <div>
+            <label htmlFor="time" className="block text-sm font-medium text-gray-700">
+              Appointment Time
             </label>
             <input
-              type="time"
               id="time"
               name="time"
+              type="time"
               value={formData.time}
-              onChange={handleChange}
-              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
+              onChange={handleInputChange}
               required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="notes" className="block text-gray-700 font-semibold">
-              Additional Notes
+          {/* Notes Textarea */}
+          <div>
+            <label htmlFor="notes" className="block text-sm font-medium text-gray-700">
+              Notes (Optional)
             </label>
             <textarea
               id="notes"
               name="notes"
               value={formData.notes}
-              onChange={handleChange}
-              className="bg-white mt-1 p-2 border border-gray-300 rounded-md w-full"
-              placeholder="Any specific requests or questions?"
-            />
+              onChange={handleInputChange}
+              placeholder="Add any special instructions or notes"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            ></textarea>
           </div>
 
-          <button
-            type="submit"
-            className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200 w-full"
-          >
-            Schedule Appointment
-          </button>
+          {/* Submit Button */}
+          <div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-md shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              Add Appointment
+            </button>
+          </div>
         </form>
-      )}
+      </div>
     </div>
   );
 }
